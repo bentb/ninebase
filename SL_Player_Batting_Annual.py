@@ -22,7 +22,6 @@
 
 
 # Install libraries
-pip install plotly==5.15.0
 
 
 # In[1]:
