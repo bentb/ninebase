@@ -311,7 +311,7 @@ go = builder.build()
 
 
 
-# In[89]:
+# In[90]:
 
 
 # Create Streamlit columns
@@ -324,14 +324,15 @@ col4_html = col4.markdown("")
 # Generate the HTML code for CSS styling
 col3_css = "<style>div[data-testid='stHorizontalBlock'] > div{width: 100% !important;}</style>"
 col4_css = "<style>div[data-testid='stHorizontalBlock'] > div{width: 100% !important;}</style>"
-col3_height_css = "<style>.st-cc {height: 500px !important;}</style>"
-col4_height_css = "<style>.st-cc {height: 800px !important;}</style>"
+col3_height_css = "<style>.st-cc {height: 800px !important;}</style>"
+col4_height_css = "<style>.st-cc {height: 500px !important;}</style>"
 
 # Set the HTML content of the columns
 col3_html.markdown(col3_css, unsafe_allow_html=True)
 col4_html.markdown(col4_css, unsafe_allow_html=True)
 
 with col3:
+    st.subheader("Raw Data")
     grid_response = AgGrid(
         df_short,
         gridOptions=go,
