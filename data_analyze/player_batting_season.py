@@ -131,7 +131,6 @@ mean_AB = float(mean_AB)
 # slider
 
 ab_slider = st.slider('Select At Bat Range', min_AB, max_AB, (mean_AB, max_AB))
-st.write('At Bats:', "AB")
 
 
 # In[ ]:
@@ -184,14 +183,14 @@ st.write('At Bats:', "AB")
 col1, col2 = st.columns([3,1])
 
 
-# In[31]:
+# In[34]:
 
 
 col1.subheader("Scatter Chart")
 col1.plotly_chart(fig, theme="streamlit", use_container_width = True)
 
 col2.subheader("Filters")
-col2.write(ab_slider)
+col2.write('At Bats:', ab_slider)
 
 
 # ## Print Data
@@ -205,7 +204,7 @@ from st_aggrid import AgGrid
 # In[12]:
 
 
-st.subheader('Raw data')
+st.subheader('Data')
 AgGrid(df)
 
 
