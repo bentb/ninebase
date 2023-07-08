@@ -167,7 +167,7 @@ mean_AB = float(mean_AB)
 
 # slider
 
-ab_slider = st.slider('At Bat Range', min_AB, max_AB, (mean_AB, max_AB))
+#ab_slider = st.slider('At Bat Range', min_AB, max_AB, (mean_AB, max_AB))
 
 
 # In[ ]:
@@ -239,7 +239,7 @@ col1.subheader("Scatter Chart")
 col1.plotly_chart(fig, theme="streamlit", use_container_width = True)
 
 col2.subheader("Filters")
-col2.write(ab_slider)
+col2.write("Hi Col 3")
 
 
 # In[ ]:
@@ -297,26 +297,20 @@ go = builder.build()
 
 
 # Uses the gridOptions dictionary to configure AgGrid behavior.
-AgGrid(df_short, gridOptions=go, height=500)
+AgGrid(df_short, gridOptions=go, height=500, theme="streamlit")
 
 
 # In[ ]:
 
 
+col1, col2 = st.columns([2,1])
 
 
-
-# grid_table = AgGrid(df_short,
-#                    gridOptions=gridOptions,
-#                    fit_columns_on_grid_load=True,
-#                    height='400',
-#                    width='100%',
-#                    theme="streamlit",
-#                    update_mode=GridUpdateMode.GRID_CHANGED,
-#                    reload_data=True,
-#                    allow_unsafe_jscode=True,
-#                    editable=False
-#                    )
+# col3.subheader("Raw Data")
+# col3.AgGrid(df_short, gridOptions=go, height=500, theme="streamlit")
+# 
+# col4.subheader("Filters")
+# col4.write("Hi Col 4")
 
 # In[ ]:
 
