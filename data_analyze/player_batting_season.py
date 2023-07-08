@@ -83,13 +83,13 @@ df.head()
 
 # ## Scatter Chart
 
-# In[6]:
+# In[38]:
 
 
 import plotly.express as px
 
 
-# In[7]:
+# In[39]:
 
 
 fig = px.scatter(
@@ -103,7 +103,7 @@ fig = px.scatter(
 )
 
 
-# In[8]:
+# In[40]:
 
 
 #st.plotly_chart(fig, theme="streamlit", use_container_width = True)
@@ -111,7 +111,7 @@ fig = px.scatter(
 
 # ## Filters
 
-# In[28]:
+# In[41]:
 
 
 # calculate min/max/mean for slider
@@ -125,12 +125,12 @@ max_AB = float(max_AB)
 mean_AB = float(mean_AB)
 
 
-# In[30]:
+# In[42]:
 
 
 # slider
 
-ab_slider = st.slider('Select At Bat Range', min_AB, max_AB, (mean_AB, max_AB))
+ab_slider = st.slider('At Bat Range', min_AB, max_AB, (mean_AB, max_AB))
 
 
 # In[ ]:
@@ -177,13 +177,13 @@ ab_slider = st.slider('Select At Bat Range', min_AB, max_AB, (mean_AB, max_AB))
 
 # ## Columns
 
-# In[9]:
+# In[43]:
 
 
-col1, col2 = st.columns([3,1])
+col1, col2 = st.columns([2,1])
 
 
-# In[34]:
+# In[44]:
 
 
 col1.subheader("Scatter Chart")
@@ -195,13 +195,13 @@ col2.write('At Bats:', ab_slider)
 
 # ## Print Data
 
-# In[11]:
+# In[45]:
 
 
 from st_aggrid import AgGrid
 
 
-# In[12]:
+# In[46]:
 
 
 st.subheader('Data')
