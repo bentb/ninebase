@@ -269,7 +269,7 @@ from st_aggrid import AgGrid, GridOptionsBuilder, DataReturnMode, JsCode
 df_short = df[['Name', 'Team', 'Age', 'AB', 'BB%+', 'K%+', 'BABIP+', 'Hard%+', 'wRC+']]
 
 
-# In[66]:
+# In[67]:
 
 
 #builds a gridOptions dictionary using a GridOptionsBuilder instance.
@@ -284,15 +284,15 @@ builder.configure_column("BB%+", width=100)
 builder.configure_column('K%+', width=100)
 builder.configure_column('BABIP+', width=100)
 builder.configure_column('Hard%+', width=100)
-builder.configure_column("wRC+", width=100, sort='asc')
+builder.configure_column("wRC+", width=100, sort='des')
 go = builder.build()
 
 
-# In[55]:
+# In[69]:
 
 
 #uses the gridOptions dictionary to configure AgGrid behavior.
-AgGrid(df_short, gridOptions=go)
+AgGrid(df_short, gridOptions=go, height=400)
 
 
 # In[ ]:
@@ -325,32 +325,7 @@ AgGrid(df_short, gridOptions=go)
 
 
 
-# from st_aggrid import AgGrid, GridOptionsBuilder
-# import streamlit as st
 # 
-# from st_aggrid import agstyler
-# from src.agstyler import PINLEFT, PRECISION_ZERO, PRECISION_ONE, PRECISION_TWO, draw_grid
-# 
-# formatter = {
-#     'Name': ('Player', PINLEFT),
-#     'Team': ('Team', {'width': 80}),
-#     'Age': ('Age', {'width': 80}),
-#     'AB': ('At Bats', {'width': 80}),
-#     'K%+': ('K%+', {**PRECISION_ZERO,'width': 80}),
-#     'BABIP+': ('BABIP+', {**PRECISION_ZERO,'width': 80}),
-#     'Hard%+': ('Hard%+', {**PRECISION_ZERO,'width': 80}),
-#     'wRC+': ('wRC+', {**PRECISION_ZERO,'width': 80}),
-# }
-# 
-# row_number = st.number_input('Number of rows', min_value=0, value=20)
-# data = draw_grid(
-#     df.head(15),
-#     formatter=formatter,
-#     fit_columns=True,
-#     selection='multiple',  # or 'single', or None
-#     use_checkbox='True',  # or False by default
-#     max_height=300
-# )
 
 # In[ ]:
 
