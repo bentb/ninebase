@@ -47,17 +47,10 @@ import plotly.figure_factory as ff
 import streamlit as st
 
 
-# In[25]:
+# In[ ]:
 
 
-from PIL import Image
 
-#github format 
-image = Image.open('images/9base_white.png')
-#jupyter notebook format
-#image = Image.open(r'C:/Users/b7tbu/NINEBASE/ninebase/images/9base_white.png')
-
-st.image(image)
 
 
 # In[3]:
@@ -65,7 +58,7 @@ st.image(image)
 
 st.set_page_config(
     page_title="9base",
-    page_icon="🧊",
+    page_icon="⚾",
     layout="wide",
     initial_sidebar_state="expanded",
     menu_items={
