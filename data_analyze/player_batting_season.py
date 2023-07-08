@@ -294,7 +294,7 @@ st.subheader('Data')
 grid_table = AgGrid(df_short,
                    gridOptions = gridOptions,
                    fit_columns_on_grid_load = True,
-                   height = 500,
+                   height = 1000,
                    width = '100%',
                    theme = "streamlit",
                    update_mode = GridUpdateMode.GRID_CHANGED,
