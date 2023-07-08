@@ -91,13 +91,23 @@ st.set_page_config(
 # In[ ]:
 
 
+### Logo
 
 
-
-# In[ ]:
-
+# In[126]:
 
 
+pip install streamlit-extras
+
+
+# In[129]:
+
+
+from streamlit_extras.app_logo import add_logo
+
+
+add_logo("images/9base_white", height=300)
+st.write("👈 Check out the cat in the nav-bar!")
 
 
 # ## Load Data
@@ -215,7 +225,7 @@ from st_aggrid import AgGrid, GridOptionsBuilder, DataReturnMode, JsCode
 df_short = df[['Name', 'Team', 'Age', 'AB', 'BB%+', 'K%+', 'BABIP+', 'Hard%+', 'wRC+']]
 
 
-# In[124]:
+# In[125]:
 
 
 # Builds a gridOptions dictionary using a GridOptionsBuilder instance.
@@ -225,7 +235,7 @@ builder.configure_side_bar(filters_panel=True, columns_panel=True)
 
 # Columns
 
-builder.configure_column("Name", header_name="Player", editable=False)
+builder.configure_column("Name", header_name="Player", width=150, editable=False)
 builder.configure_column("Team", width=100, enableRowGroup=True)
 builder.configure_column("Age", width=100)
 builder.configure_column("AB", width=100)
@@ -233,7 +243,7 @@ builder.configure_column("BB%+", width=100)
 builder.configure_column('K%+', width=100)
 builder.configure_column('BABIP+', width=100)
 builder.configure_column('Hard%+', width=100)
-builder.configure_column("wRC+", width=100, sortingOrder='asc')
+builder.configure_column("wRC+", width=100)
 
 # Launch
 go = builder.build()
