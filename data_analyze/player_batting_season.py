@@ -143,6 +143,7 @@ fig_1 = px.scatter(
     y = "BABIP+",
     size = "wRC+",
     color = "Team",
+    trendline="ols",
     hover_name = "Name",
     log_x = True,
     size_max = 60,
@@ -160,39 +161,28 @@ fig_2 = px.scatter(
     y = "K%+",
     size = "wRC+",
     color = "Team",
+    trendline="ols",
     hover_name = "Name",
     log_x = True,
     size_max = 60,
 )
 
 
-# ### Row 1 - Scatter Plot Tabs
+# ## Row 1 - Columns 1/2
 
-# In[110]:
-
-
-#tab1, tab2 = st.tabs(["Hard Hit vs. BABIP", "Walks vs Strikeouts"])
-#with tab1:
-#    st.plotly_chart(fig_1, theme="streamlit", use_container_width=True)
-#with tab2:
-#    st.plotly_chart(fig_2, theme="streamlit", use_container_width=True)
-
-
-# ## Row 1 - Columns
-
-# In[112]:
+# In[ ]:
 
 
 
 
 
-# In[113]:
+# In[ ]:
 
 
 
 
 
-# In[116]:
+# In[121]:
 
 
 # Create the columns
@@ -209,6 +199,9 @@ with col1:
     
     with tab2:
         st.plotly_chart(fig_2, theme="streamlit", use_container_width=True)
+        
+with col2:
+    st.write("Hello World, column 2 here")
 
 
 # ## Row 2
