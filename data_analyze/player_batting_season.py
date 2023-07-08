@@ -269,13 +269,13 @@ from st_aggrid import AgGrid, GridOptionsBuilder, DataReturnMode, JsCode
 df_short = df[['Name', 'Team', 'Age', 'AB', 'BB%+', 'K%+', 'BABIP+', 'Hard%+', 'wRC+']]
 
 
-# In[67]:
+# In[71]:
 
 
 #builds a gridOptions dictionary using a GridOptionsBuilder instance.
 builder = GridOptionsBuilder.from_dataframe(df_short)
 builder.configure_column("Name", header_name="First", editable=False)
-builder.configure_pagination(enabled=True)
+builder.configure_pagination(enabled=True, paginationAutoPageSize=True, paginationPageSize=10)
 builder.configure_side_bar(filters_panel=True, columns_panel=True)
 builder.configure_column("Team", width=100, enableRowGroup=True)
 builder.configure_column("Age", width=100)
@@ -288,7 +288,7 @@ builder.configure_column("wRC+", width=100, sort='des')
 go = builder.build()
 
 
-# In[69]:
+# In[72]:
 
 
 #uses the gridOptions dictionary to configure AgGrid behavior.
