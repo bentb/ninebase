@@ -63,24 +63,23 @@ st.set_page_config(
 )
 
 
-# In[18]:
+# In[19]:
 
 
-from st_pages import Page, Section, show_pages, add_page_title
+#from st_pages import Page, Section, show_pages, add_page_title
 
-#⚾🥇
+##⚾🥇
 
-add_page_title() # By default this also adds indentation
+#add_page_title() # By default this also adds indentation
 
-# Specify what pages should be shown in the sidebar, and what their titles and icons
-# should be
-show_pages(
-    [
-        Section("14 Day", icon="🥇"),
-        Section("Season", icon="♂️"),
-        Page("player_batting_season.py", "Player Batting", "🏠"),
-    ]
-)
+## Specify what pages should be shown in the sidebar, and what their titles and icons should be
+#show_pages(
+#    [
+#        Section("14 Day", icon="🥇"),
+#        Section("Season", icon="♂️"),
+#        Page("player_batting_season.py", "Player Batting", "🏠"),
+#    ]
+#)
 
 
 # In[ ]:
