@@ -286,29 +286,28 @@ gd.configure_default_column(groupable=True)
 gridOptions = gd.build()
 
 
-# In[53]:
+# In[54]:
 
 
 # build section and publish data
 st.divider()
 st.subheader('Data')
+
+
+# In[55]:
+
+
 grid_table = AgGrid(df_short,
-                    gridOptions = gridOptions,
-                    fit_columns_on_grid_load = True,
-                    height = '400',
-                    width = '100%',
-                    theme = "streamlit",
-                    update_mode = GridUpdateMode.GRID_CHANGED,
-                    reload_data = True,
-                    allow_unsafe_jscode = True,
-                    editable = False
+                   gridOptions=gridOptions,
+                   fit_columns_on_grid_load=True,
+                   height=500,
+                   width='100%',
+                   theme="streamlit",
+                   update_mode=GridUpdateMode.GRID_CHANGED,
+                   reload_data=True,
+                   allow_unsafe_jscode=True,
+                   editable=False
                    )
-
-
-# In[ ]:
-
-
-
 
 
 # In[ ]:
