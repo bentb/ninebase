@@ -256,30 +256,52 @@ col2.write(ab_slider)
 
 # ## Raw Data Section
 
-# In[15]:
+# In[37]:
 
 
-from st_aggrid import AgGrid
+from st_aggrid import AgGrid, GridUpdateMode, JsCode
+from st_aggrid.grid_options_builder import GridOptionsBuilder
 
 
-# In[31]:
+# In[ ]:
 
 
-df.columns.tolist()
+
 
 
 # In[34]:
 
 
+# Simplify dataframe, narrow to most insightful columns
 df_short = df[['Name', 'Team', 'Age', 'AB', 'BB%+', 'K%+', 'BABIP+', 'Hard%+', 'wRC+', 'WAR',]]
 
 
-# In[35]:
+# In[42]:
 
 
+gd = GridOptionsBuilder.from_dataframe(df_short)
+gd.configure_pagination(enabled=True)
+gd.configure_default_column(groupable=True)
+gridOptions = gd.build()
+
+
+# In[43]:
+
+
+# build section and publish data
 st.divider()
 st.subheader('Data')
-AgGrid(df_short)
+grid_table = AgGrid(df_short,
+                   gridOptions = gridOptions,
+                   fit_columns_on_grid_load = True,
+                   height = 500,
+                   width = '100%',
+                   theme = "streamlit",
+                   update_mode = GridUpdateMode.GRID_CHANGED,
+                   reload_data = True,
+                   allow_unsafe_jscode = True,
+                   editable = False
+                   )
 
 
 # In[ ]:
