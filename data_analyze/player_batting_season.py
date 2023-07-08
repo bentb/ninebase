@@ -118,7 +118,7 @@ df = pd.read_csv('data_storage/player_batting_season.csv')
 df.head()
 
 
-# # First Row
+# # Row 1
 
 # In[98]:
 
@@ -132,9 +132,9 @@ import plotly.express as px
 
 
 
-# ### Scatter plot
+# ### Row 1 - Scatter Plot 1
 
-# In[108]:
+# In[111]:
 
 
 fig_1 = px.scatter(
@@ -149,7 +149,7 @@ fig_1 = px.scatter(
 )
 
 
-# ### xya Plot
+# ### Row 1 - Scatter Plot 2
 
 # In[109]:
 
@@ -166,7 +166,7 @@ fig_2 = px.scatter(
 )
 
 
-# ### Tabs
+# ### Row 1 - Scatter Plot Tabs
 
 # In[110]:
 
@@ -178,107 +178,57 @@ with tab2:
     st.plotly_chart(fig_2, theme="streamlit", use_container_width=True)
 
 
-# ## Filters
+# ## Row 1 - Columns
 
-# In[42]:
-
-
-
-
-
-# In[43]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[44]:
-
-
-## Sidebar
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# ## Columns
-
-# In[45]:
+# In[112]:
 
 
 col1, col2 = st.columns([1,1])
 
 
-# In[46]:
+# In[113]:
 
 
-col1.subheader("Scatter Chart")
+col1.subheader("Charts")
 col1.plotly_chart(fig_1, theme="streamlit", use_container_width = True)
 
 col2.subheader("Filters")
 col2.plotly_chart(fig_2, theme="streamlit", use_container_width = True)
 
 
-# In[ ]:
+# In[115]:
 
 
+# Create the columns
+col1, col2 = st.columns(2)
+
+# Create the tabs within col1
+with col1:
+    # Create the tabs
+    tab1, tab2 = st.tabs(["Hard Hit vs. BABIP", "Walks vs Strikeouts"])
+    
+    # Display the charts within the tabs
+    with tab1:
+        st.plotly_chart(fig_1, theme="streamlit", use_container_width=True)
+    
+    with tab2:
+        st.plotly_chart(fig_2, theme="streamlit", use_container_width=True)
+
+# Display the charts in col1 and col2 outside the tabs
+with col1:
+    st.subheader("Charts")
+    st.plotly_chart(fig_1, theme="streamlit", use_container_width=True)
+
+with col2:
+    st.subheader("Filters")
+    st.plotly_chart(fig_2, theme="streamlit", use_container_width=True)
 
 
+# ## Row 2
 
-# In[ ]:
+# ### Raw Data
 
-
-
-
-
-# ## Raw Data Display
-
-# In[47]:
+# In[114]:
 
 
 from st_aggrid import AgGrid, GridOptionsBuilder, DataReturnMode, JsCode
@@ -327,11 +277,7 @@ go = builder.build()
 
 
 
-# In[ ]:
-
-
-
-
+# ### Row 2 - Columns
 
 # In[97]:
 
