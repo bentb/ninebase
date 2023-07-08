@@ -76,37 +76,36 @@ st.set_page_config(
 
 ##⚾🥇
 
-#add_page_title() # By default this also adds indentation
-
-## Specify what pages should be shown in the sidebar, and what their titles and icons should be
-#show_pages(
-#    [
-#        Section("14 Day", icon="🥇"),
-#        Section("Season", icon="♂️"),
-#        Page("player_batting_season.py", "Player Batting", "🏠"),
-#    ]
-#)
-
 
 # In[ ]:
 
 
-### Logo
+st.set_page_config(
+    page_title="Hello",
+    page_icon="⚾",
+)
 
+st.write("# Welcome to ninebase 👋")
 
-# In[ ]:
+st.sidebar.success("Sidebar Success?")
 
-
-from streamlit_extras.app_logo import add_logo
-
-
-add_logo("images/9base_white.png", height=300)
-
-
-# In[129]:
-
-
-
+st.markdown(
+    """
+    Streamlit is an open-source app framework built specifically for
+    Machine Learning and Data Science projects.
+    **👈 Select a demo from the sidebar** to see some examples
+    of what Streamlit can do!
+    ### Want to learn more?
+    - Check out [streamlit.io](https://streamlit.io)
+    - Jump into our [documentation](https://docs.streamlit.io)
+    - Ask a question in our [community
+        forums](https://discuss.streamlit.io)
+    ### See more complex demos
+    - Use a neural net to [analyze the Udacity Self-driving Car Image
+        Dataset](https://github.com/streamlit/demo-self-driving)
+    - Explore a [New York City rideshare dataset](https://github.com/streamlit/demo-uber-nyc-pickups)
+"""
+)
 
 
 # ## Load Data
@@ -121,29 +120,23 @@ df = pd.read_csv('data_storage/player_batting_season.csv')
 #df = pd.read_csv('C:/Users/b7tbu/NINEBASE/ninebase/data_storage/player_batting_season.csv')
 
 
-# In[38]:
+# In[134]:
 
 
 df.head()
 
 
-# # Row 1
+# # Page 1
 
-# In[98]:
+# In[135]:
 
 
 import plotly.express as px
 
 
-# In[99]:
+# ### Page 1/Row 1 - Scatter Plot 1
 
-
-
-
-
-# ### Row 1 - Scatter Plot 1
-
-# In[122]:
+# In[136]:
 
 
 fig_1 = px.scatter(
@@ -156,9 +149,9 @@ fig_1 = px.scatter(
 )
 
 
-# ### Row 1 - Scatter Plot 2
+# ### Page 1/Row 1 - Scatter Plot 2
 
-# In[123]:
+# In[137]:
 
 
 fig_2 = px.scatter(
@@ -171,21 +164,9 @@ fig_2 = px.scatter(
 )
 
 
-# ## Row 1 - Columns 1/2
+# ### Page 1/Row 1 - Columns 1/2
 
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[121]:
+# In[138]:
 
 
 # Create the columns
@@ -207,24 +188,24 @@ with col2:
     st.write("Hello World, column 2 here")
 
 
-# ## Row 2
+# ## Page 1/Row 2
 
 # ### Raw Data
 
-# In[117]:
+# In[139]:
 
 
 from st_aggrid import AgGrid, GridOptionsBuilder, DataReturnMode, JsCode
 
 
-# In[118]:
+# In[140]:
 
 
 # Simplify dataframe, narrow to most insightful columns
 df_short = df[['Name', 'Team', 'Age', 'AB', 'BB%+', 'K%+', 'BABIP+', 'Hard%+', 'wRC+']]
 
 
-# In[125]:
+# In[141]:
 
 
 # Builds a gridOptions dictionary using a GridOptionsBuilder instance.
@@ -248,21 +229,9 @@ builder.configure_column("wRC+", width=100)
 go = builder.build()
 
 
-# In[ ]:
+# ### Page 1/Row 2 - Columns
 
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# ### Row 2 - Columns
-
-# In[120]:
+# In[142]:
 
 
 # Create Streamlit columns
@@ -308,17 +277,9 @@ with col4:
 
 # 
 
-# In[ ]:
+# # Page 2
 
-
-
-
-
-# In[ ]:
-
-
-
-
+# ### Page 2/Row 1
 
 # In[ ]:
 
