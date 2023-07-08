@@ -53,21 +53,17 @@ import streamlit as st
 
 
 
-# In[52]:
-
-
-st.set_page_config(
-    page_title="9base",
-    page_icon="⚾",
-    layout="wide",
-    initial_sidebar_state="expanded",
-    menu_items={
-        'Report a bug': 'https://www.extremelycoolapp.com/help',
-        'Get help': "https://www.extremelycoolapp.com/bug",
-        'About': "# This is a header. This is an *extremely* cool app!"
-    }
-)
-
+# st.set_page_config(
+#     page_title="9base",
+#     page_icon="⚾",
+#     layout="wide",
+#     initial_sidebar_state="expanded",
+#     menu_items={
+#         'Report a bug': 'https://www.extremelycoolapp.com/help',
+#         'Get help': "https://www.extremelycoolapp.com/bug",
+#         'About': "# This is a header. This is an *extremely* cool app!"
+#     }
+# )
 
 # In[53]:
 
@@ -77,7 +73,7 @@ st.set_page_config(
 ##⚾🥇
 
 
-# In[ ]:
+# In[143]:
 
 
 st.set_page_config(
@@ -132,6 +128,12 @@ df.head()
 
 
 import plotly.express as px
+
+
+# In[144]:
+
+
+st.set_page_config(page_title="Player Batting", page_icon="📈")
 
 
 # ### Page 1/Row 1 - Scatter Plot 1
@@ -278,6 +280,12 @@ with col4:
 # 
 
 # # Page 2
+
+# In[145]:
+
+
+st.set_page_config(page_title="Mapping Demo", page_icon="🌍")
+
 
 # ### Page 2/Row 1
 
