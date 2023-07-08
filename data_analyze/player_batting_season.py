@@ -18,7 +18,7 @@
 
 # # Introduction
 
-# In[1]:
+# In[29]:
 
 
 # Import Libraries
@@ -27,7 +27,7 @@ import pandas as pd
 
 pd.set_option("display.precision", 2)
 pd.set_option('display.max_rows', None)
-pd.set_option('display.max_columns', 200)
+pd.set_option('display.max_columns', None)
 pd.set_option('display.float_format', lambda x: '%.5f' % x)
 from pandas.api.types import (
     is_categorical_dtype,
@@ -262,12 +262,30 @@ col2.write(ab_slider)
 from st_aggrid import AgGrid
 
 
-# In[20]:
+# In[31]:
+
+
+df.columns.tolist()
+
+
+# In[34]:
+
+
+df_short = df[['Name', 'Team', 'Age', 'AB', 'BB%+', 'K%+', 'BABIP+', 'Hard%+', 'wRC+', 'WAR',]]
+
+
+# In[35]:
 
 
 st.divider()
 st.subheader('Data')
-AgGrid(df)
+AgGrid(df_short)
+
+
+# In[ ]:
+
+
+
 
 
 # In[ ]:
