@@ -215,7 +215,7 @@ from st_aggrid import AgGrid, GridOptionsBuilder, DataReturnMode, JsCode
 df_short = df[['Name', 'Team', 'Age', 'AB', 'BB%+', 'K%+', 'BABIP+', 'Hard%+', 'wRC+']]
 
 
-# In[119]:
+# In[124]:
 
 
 # Builds a gridOptions dictionary using a GridOptionsBuilder instance.
@@ -233,7 +233,7 @@ builder.configure_column("BB%+", width=100)
 builder.configure_column('K%+', width=100)
 builder.configure_column('BABIP+', width=100)
 builder.configure_column('Hard%+', width=100)
-builder.configure_column("wRC+", width=100, sort='des')
+builder.configure_column("wRC+", width=100, sortingOrder='asc')
 
 # Launch
 go = builder.build()
