@@ -18,7 +18,7 @@
 
 # # Introduction
 
-# In[29]:
+# In[1]:
 
 
 # Import Libraries
@@ -62,14 +62,14 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="expanded",
     menu_items={
-        'Get Help': 'https://www.extremelycoolapp.com/help',
-        'Report a bug': "https://www.extremelycoolapp.com/bug",
+        'ninebase Info': 'https://www.extremelycoolapp.com/help',
+        'Suggest a Feature!': "https://www.extremelycoolapp.com/bug",
         'About': "# This is a header. This is an *extremely* cool app!"
     }
 )
 
 
-# In[19]:
+# In[ ]:
 
 
 #from st_pages import Page, Section, show_pages, add_page_title
@@ -112,7 +112,7 @@ df = pd.read_csv('data_storage/player_batting_season.csv')
 #df = pd.read_csv('C:/Users/b7tbu/NINEBASE/ninebase/data_storage/player_batting_season.csv')
 
 
-# In[6]:
+# In[ ]:
 
 
 df.head()
@@ -120,7 +120,7 @@ df.head()
 
 # ## Scatter Chart
 
-# In[7]:
+# In[ ]:
 
 
 import plotly.express as px
@@ -254,35 +254,41 @@ col2.write(ab_slider)
 
 
 
-# ## Raw Data Section
+# ## Raw Data Display
 
-# In[37]:
-
-
-from st_aggrid import AgGrid, GridUpdateMode, JsCode
-from st_aggrid.grid_options_builder import GridOptionsBuilder
+# In[9]:
 
 
-# In[ ]:
+from st_aggrid import AgGrid, GridOptionsBuilder, DataReturnMode, JsCode
 
 
-
-
-
-# In[34]:
+# In[10]:
 
 
 # Simplify dataframe, narrow to most insightful columns
 df_short = df[['Name', 'Team', 'Age', 'AB', 'BB%+', 'K%+', 'BABIP+', 'Hard%+', 'wRC+']]
 
 
-# In[68]:
+# In[25]:
 
 
-#gd = GridOptionsBuilder.from_dataframe(df_short)
-#gd.configure_pagination(enabled=True)
-#gd.configure_default_column(groupable=True)
-#gridOptions = gd.build()
+#builds a gridOptions dictionary using a GridOptionsBuilder instance.
+builder = GridOptionsBuilder.from_dataframe(df_short)
+builder.configure_column("Name", header_name="First", editable=False)
+go = builder.build()
+
+
+# In[26]:
+
+
+#uses the gridOptions dictionary to configure AgGrid behavior.
+AgGrid(df_short, gridOptions=go)
+
+
+# In[24]:
+
+
+
 
 
 # grid_table = AgGrid(df_short,
@@ -306,7 +312,7 @@ df_short = df[['Name', 'Team', 'Age', 'AB', 'BB%+', 'K%+', 'BABIP+', 'Hard%+', '
 # In[69]:
 
 
-##########################################
+
 
 
 # from st_aggrid import AgGrid, GridOptionsBuilder
@@ -342,18 +348,10 @@ df_short = df[['Name', 'Team', 'Age', 'AB', 'BB%+', 'K%+', 'BABIP+', 'Hard%+', '
 
 
 
-# In[72]:
+# In[ ]:
 
 
-st.set_page_config(page_title="Player Batting", layout="wide") 
-st.title("Player Batting")
 
-# add this
-gb = GridOptionsBuilder.from_dataframe(df_short)
-gb.configure_pagination()
-gridOptions = gb.build()
-
-AgGrid(df_short, gridOptions=gridOptions)
 
 
 # In[ ]:
