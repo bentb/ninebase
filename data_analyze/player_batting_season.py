@@ -47,6 +47,19 @@ import plotly.figure_factory as ff
 import streamlit as st
 
 
+# In[25]:
+
+
+from PIL import Image
+
+#github format 
+image = Image.open('images/9base_white.png')
+#jupyter notebook format
+#image = Image.open(r'C:/Users/b7tbu/NINEBASE/ninebase/images/9base_white.png')
+
+st.image(image)
+
+
 # In[3]:
 
 
@@ -256,9 +269,10 @@ col2.write(ab_slider)
 from st_aggrid import AgGrid
 
 
-# In[16]:
+# In[20]:
 
 
+st.divider()
 st.subheader('Data')
 AgGrid(df)
 
