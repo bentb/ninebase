@@ -293,7 +293,17 @@ st.divider()
 st.subheader('Data')
 
 
-# In[55]:
+# In[56]:
+
+
+container_height = 600
+container_width = '100%'
+container_style = f"height: {container_height}px; width: {container_width};"
+
+# Create a Streamlit container
+container = st.container()
+container.markdown(f'<div style="{container_style}">', unsafe_allow_html=True)
+
 
 
 grid_table = AgGrid(df_short,
@@ -307,6 +317,9 @@ grid_table = AgGrid(df_short,
                    allow_unsafe_jscode=True,
                    editable=False
                    )
+
+# Close the Streamlit container
+container.markdown('</div>', unsafe_allow_html=True)
 
 
 # In[ ]:
