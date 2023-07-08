@@ -269,14 +269,17 @@ from st_aggrid import AgGrid, GridOptionsBuilder, DataReturnMode, JsCode
 df_short = df[['Name', 'Team', 'Age', 'AB', 'BB%+', 'K%+', 'BABIP+', 'Hard%+', 'wRC+']]
 
 
-# In[71]:
+# In[73]:
 
 
-#builds a gridOptions dictionary using a GridOptionsBuilder instance.
+# Builds a gridOptions dictionary using a GridOptionsBuilder instance.
 builder = GridOptionsBuilder.from_dataframe(df_short)
-builder.configure_column("Name", header_name="First", editable=False)
 builder.configure_pagination(enabled=True, paginationAutoPageSize=True, paginationPageSize=100)
 builder.configure_side_bar(filters_panel=True, columns_panel=True)
+
+# Columns
+
+builder.configure_column("Name", header_name="Player", editable=False)
 builder.configure_column("Team", width=100, enableRowGroup=True)
 builder.configure_column("Age", width=100)
 builder.configure_column("AB", width=100)
@@ -285,14 +288,16 @@ builder.configure_column('K%+', width=100)
 builder.configure_column('BABIP+', width=100)
 builder.configure_column('Hard%+', width=100)
 builder.configure_column("wRC+", width=100, sort='des')
+
+# Launch
 go = builder.build()
 
 
-# In[72]:
+# In[76]:
 
 
-#uses the gridOptions dictionary to configure AgGrid behavior.
-AgGrid(df_short, gridOptions=go, height=1000)
+# Uses the gridOptions dictionary to configure AgGrid behavior.
+AgGrid(df_short, gridOptions=go, height="50%")
 
 
 # In[ ]:
