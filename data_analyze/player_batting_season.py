@@ -103,11 +103,7 @@ st.set_page_config(
 # In[129]:
 
 
-from streamlit_extras.app_logo import add_logo
 
-
-add_logo("images/9base_white", height=300)
-st.write("👈 Check out the cat in the nav-bar!")
 
 
 # ## Load Data
