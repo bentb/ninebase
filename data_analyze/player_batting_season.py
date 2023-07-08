@@ -65,10 +65,10 @@ st.set_page_config(
 
 # ## Load Data
 
-# In[21]:
+# In[23]:
 
 
-df = pd.read_csv('../../../NINEBASE/ninebase/data_storage/player_batting_season.csv')
+df = pd.read_csv('ninebase/data_storage/player_batting_season.csv')
 
 
 # In[22]:
