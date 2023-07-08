@@ -311,25 +311,39 @@ go = builder.build()
 
 
 
-# In[83]:
+# In[89]:
 
 
 # Create Streamlit columns
 col3, col4 = st.columns([1, 2])  # Adjust the column widths as per your requirements
 
-# Place the AG Grid table in one of the columns
+# Set the CSS styles for column widths and heights
+col3_html = col3.markdown("")
+col4_html = col4.markdown("")
+
+# Generate the HTML code for CSS styling
+col3_css = "<style>div[data-testid='stHorizontalBlock'] > div{width: 100% !important;}</style>"
+col4_css = "<style>div[data-testid='stHorizontalBlock'] > div{width: 100% !important;}</style>"
+col3_height_css = "<style>.st-cc {height: 500px !important;}</style>"
+col4_height_css = "<style>.st-cc {height: 800px !important;}</style>"
+
+# Set the HTML content of the columns
+col3_html.markdown(col3_css, unsafe_allow_html=True)
+col4_html.markdown(col4_css, unsafe_allow_html=True)
+
 with col3:
     grid_response = AgGrid(
         df_short,
         gridOptions=go,
-        theme="streamlit",
-        height=500,
+        theme="streamlit"
     )
 
-# Use the other column for other content, if desired
+# Set the HTML content of the height styling
+col3_html.markdown(col3_height_css, unsafe_allow_html=True)
+
 with col4:
-    # Place other Streamlit components or content here
     st.write("Other content goes here")
+    col4_html.markdown(col4_height_css, unsafe_allow_html=True)
 
 
 # In[ ]:
