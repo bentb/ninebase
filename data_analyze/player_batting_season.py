@@ -94,10 +94,10 @@ st.set_page_config(
 ### Logo
 
 
-# In[126]:
+# In[ ]:
 
 
-pip install streamlit-extras
+
 
 
 # In[129]:
