@@ -171,11 +171,11 @@ fig_2 = px.scatter(
 # In[110]:
 
 
-tab1, tab2 = st.tabs(["Hard Hit vs. BABIP", "Walks vs Strikeouts"])
-with tab1:
-    st.plotly_chart(fig_1, theme="streamlit", use_container_width=True)
-with tab2:
-    st.plotly_chart(fig_2, theme="streamlit", use_container_width=True)
+#tab1, tab2 = st.tabs(["Hard Hit vs. BABIP", "Walks vs Strikeouts"])
+#with tab1:
+#    st.plotly_chart(fig_1, theme="streamlit", use_container_width=True)
+#with tab2:
+#    st.plotly_chart(fig_2, theme="streamlit", use_container_width=True)
 
 
 # ## Row 1 - Columns
@@ -183,17 +183,13 @@ with tab2:
 # In[112]:
 
 
-col1, col2 = st.columns([1,1])
+
 
 
 # In[113]:
 
 
-col1.subheader("Charts")
-col1.plotly_chart(fig_1, theme="streamlit", use_container_width = True)
 
-col2.subheader("Filters")
-col2.plotly_chart(fig_2, theme="streamlit", use_container_width = True)
 
 
 # In[115]:
@@ -221,7 +217,7 @@ with col1:
 
 with col2:
     st.subheader("Filters")
-    st.plotly_chart(fig_2, theme="streamlit", use_container_width=True)
+    st.writet("Hello World")
 
 
 # ## Row 2
