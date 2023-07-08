@@ -83,7 +83,7 @@ st.set_page_config(
 
 st.write("# Welcome to ninebase 👋")
 
-st.sidebar.success("Sidebar Success?")
+st.sidebar.success("Home")
 
 st.markdown(
     """
@@ -133,7 +133,7 @@ import plotly.express as px
 # In[144]:
 
 
-st.set_page_config(page_title="Player Batting", page_icon="📈")
+
 
 
 # ### Page 1/Row 1 - Scatter Plot 1
@@ -168,27 +168,23 @@ fig_2 = px.scatter(
 
 # ### Page 1/Row 1 - Columns 1/2
 
-# In[138]:
-
-
-# Create the columns
-col1, col2 = st.columns(2)
-
-# Create the tabs within col1
-with col1:
-    # Create the tabs
-    tab1, tab2 = st.tabs(["Hard Hit vs. BABIP", "Walks vs Strikeouts"])
-    
-    # Display the charts within the tabs
-    with tab1:
-        st.plotly_chart(fig_1, theme="streamlit", use_container_width=True)
-    
-    with tab2:
-        st.plotly_chart(fig_2, theme="streamlit", use_container_width=True)
-        
-with col2:
-    st.write("Hello World, column 2 here")
-
+# (# Create the columns
+# col1, col2 = st.columns(2)
+# 
+# (# Create the tabs within col1
+# with col1:
+#     # Create the tabs
+#     tab1, tab2 = st.tabs(["Hard Hit vs. BABIP", "Walks vs Strikeouts"])
+#     
+#     # Display the charts within the tabs
+#     with tab1:
+#         st.plotly_chart(fig_1, theme="streamlit", use_container_width=True)
+#     
+#     with tab2:
+#         st.plotly_chart(fig_2, theme="streamlit", use_container_width=True)
+#         
+# with col2:
+#     st.write("Hello World, column 2 here")
 
 # ## Page 1/Row 2
 
@@ -233,8 +229,70 @@ go = builder.build()
 
 # ### Page 1/Row 2 - Columns
 
-# In[142]:
+# (# Create Streamlit columns
+# col3, col4 = st.columns([1, 1])
+# 
+# (# Set the CSS styles for column widths and heights
+# col3_html = col3.markdown("")
+# col4_html = col4.markdown("")
+# 
+# (# Generate the HTML code for CSS styling
+# col3_css = "<style>div[data-testid='stHorizontalBlock'] > div{width: 100% !important;}</style>"
+# col4_css = "<style>div[data-testid='stHorizontalBlock'] > div{width: 100% !important;}</style>"
+# col3_height_css = f"<style>.st-cc{{height: 500px !important;}}</style>"  # Set the desired height
+# col4_height_css = f"<style>.st-cc{{height: 800px !important;}}</style>"  # Set the desired height
+# 
+# 
+# (# Set the HTML content of the columns
+# col3_html.markdown(col3_css, unsafe_allow_html=True)
+# col4_html.markdown(col4_css, unsafe_allow_html=True)
+# 
+# with col3:
+#     st.subheader("Raw Data")
+#     grid_response = AgGrid(
+#         df_short,
+#         gridOptions=go,
+#         theme="streamlit",
+#         height=470
+#     )
+# 
+# (# Set the HTML content of the height styling
+# col3_html.markdown(col3_height_css, unsafe_allow_html=True)
+# 
+# with col4:
+#     st.write("Other content goes here")
+#     col4_html.markdown(col4_height_css, unsafe_allow_html=True)
 
+# ### Publish Page 1
+
+# In[146]:
+
+
+### PUBLISH PAGE ###
+
+st.set_page_config(page_title="Player Batting", page_icon="⚾")
+
+### COLUMNS 1/2 ###
+
+# Create the columns
+col1, col2 = st.columns(2)
+
+# Create the tabs within col1
+with col1:
+    # Create the tabs
+    tab1, tab2 = st.tabs(["Hard Hit vs. BABIP", "Walks vs Strikeouts"])
+    
+    # Display the charts within the tabs
+    with tab1:
+        st.plotly_chart(fig_1, theme="streamlit", use_container_width=True)
+    
+    with tab2:
+        st.plotly_chart(fig_2, theme="streamlit", use_container_width=True)
+        
+with col2:
+    st.write("Hello World, column 2 here")
+    
+### COLUMNS 3/4 ###
 
 # Create Streamlit columns
 col3, col4 = st.columns([1, 1])
