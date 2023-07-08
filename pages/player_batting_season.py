@@ -18,7 +18,7 @@
 
 # # Introduction
 
-# In[27]:
+# In[1]:
 
 
 # Import Libraries
@@ -41,10 +41,26 @@ import plotly.figure_factory as ff
 
 # ## Streamlit
 
-# In[28]:
+# In[2]:
 
 
 import streamlit as st
+
+
+# In[6]:
+
+
+st.set_page_config(
+    page_title="Player Batting",
+    page_icon="⚾",
+    layout="wide",
+    initial_sidebar_state="expanded",
+    menu_items={
+        'Report a bug': 'https://www.extremelycoolapp.com/help',
+        'Get help': "https://www.extremelycoolapp.com/bug",
+        'About': "# This is a header. This is an *extremely* cool app!"
+    }
+)
 
 
 # In[ ]:
@@ -53,60 +69,9 @@ import streamlit as st
 
 
 
-# st.set_page_config(
-#     page_title="9base",
-#     page_icon="⚾",
-#     layout="wide",
-#     initial_sidebar_state="expanded",
-#     menu_items={
-#         'Report a bug': 'https://www.extremelycoolapp.com/help',
-#         'Get help': "https://www.extremelycoolapp.com/bug",
-#         'About': "# This is a header. This is an *extremely* cool app!"
-#     }
-# )
-
-# In[53]:
-
-
-#from st_pages import Page, Section, show_pages, add_page_title
-
-##⚾🥇
-
-
-# In[143]:
-
-
-st.set_page_config(
-    page_title="Hello",
-    page_icon="⚾",
-)
-
-st.write("# Welcome to ninebase 👋")
-
-st.sidebar.success("Home")
-
-st.markdown(
-    """
-    Streamlit is an open-source app framework built specifically for
-    Machine Learning and Data Science projects.
-    **👈 Select a demo from the sidebar** to see some examples
-    of what Streamlit can do!
-    ### Want to learn more?
-    - Check out [streamlit.io](https://streamlit.io)
-    - Jump into our [documentation](https://docs.streamlit.io)
-    - Ask a question in our [community
-        forums](https://discuss.streamlit.io)
-    ### See more complex demos
-    - Use a neural net to [analyze the Udacity Self-driving Car Image
-        Dataset](https://github.com/streamlit/demo-self-driving)
-    - Explore a [New York City rideshare dataset](https://github.com/streamlit/demo-uber-nyc-pickups)
-"""
-)
-
-
 # ## Load Data
 
-# In[37]:
+# In[4]:
 
 
 # Format for GitHub
@@ -122,23 +87,15 @@ df = pd.read_csv('data_storage/player_batting_season.csv')
 df.head()
 
 
-# # Page 1
-
 # In[135]:
 
 
 import plotly.express as px
 
 
-# In[144]:
+# ### Row 1 - Scatter Plot 1
 
-
-
-
-
-# ### Page 1/Row 1 - Scatter Plot 1
-
-# In[136]:
+# In[147]:
 
 
 fig_1 = px.scatter(
@@ -151,9 +108,9 @@ fig_1 = px.scatter(
 )
 
 
-# ### Page 1/Row 1 - Scatter Plot 2
+# ### Row 1 - Scatter Plot 2
 
-# In[137]:
+# In[148]:
 
 
 fig_2 = px.scatter(
@@ -166,44 +123,48 @@ fig_2 = px.scatter(
 )
 
 
-# ### Page 1/Row 1 - Columns 1/2
+# ### Row 1 - Columns 1/2
 
-# (# Create the columns
-# col1, col2 = st.columns(2)
-# 
-# (# Create the tabs within col1
-# with col1:
-#     # Create the tabs
-#     tab1, tab2 = st.tabs(["Hard Hit vs. BABIP", "Walks vs Strikeouts"])
-#     
-#     # Display the charts within the tabs
-#     with tab1:
-#         st.plotly_chart(fig_1, theme="streamlit", use_container_width=True)
-#     
-#     with tab2:
-#         st.plotly_chart(fig_2, theme="streamlit", use_container_width=True)
-#         
-# with col2:
-#     st.write("Hello World, column 2 here")
+# In[150]:
 
-# ## Page 1/Row 2
+
+# Create the columns
+col1, col2 = st.columns(2)
+
+# Create the tabs within col1
+with col1:
+    # Create the tabs
+    tab1, tab2 = st.tabs(["Hard Hit vs. BABIP", "Walks vs Strikeouts"])
+    
+    # Display the charts within the tabs
+    with tab1:
+        st.plotly_chart(fig_1, theme="streamlit", use_container_width=True)
+    
+    with tab2:
+        st.plotly_chart(fig_2, theme="streamlit", use_container_width=True)
+        
+with col2:
+    st.write("Hello World, column 2 here")
+
+
+# ## Row 2
 
 # ### Raw Data
 
-# In[139]:
+# In[151]:
 
 
 from st_aggrid import AgGrid, GridOptionsBuilder, DataReturnMode, JsCode
 
 
-# In[140]:
+# In[152]:
 
 
 # Simplify dataframe, narrow to most insightful columns
 df_short = df[['Name', 'Team', 'Age', 'AB', 'BB%+', 'K%+', 'BABIP+', 'Hard%+', 'wRC+']]
 
 
-# In[141]:
+# In[153]:
 
 
 # Builds a gridOptions dictionary using a GridOptionsBuilder instance.
@@ -227,72 +188,10 @@ builder.configure_column("wRC+", width=100)
 go = builder.build()
 
 
-# ### Page 1/Row 2 - Columns
+# ### Row 2 - Columns
 
-# (# Create Streamlit columns
-# col3, col4 = st.columns([1, 1])
-# 
-# (# Set the CSS styles for column widths and heights
-# col3_html = col3.markdown("")
-# col4_html = col4.markdown("")
-# 
-# (# Generate the HTML code for CSS styling
-# col3_css = "<style>div[data-testid='stHorizontalBlock'] > div{width: 100% !important;}</style>"
-# col4_css = "<style>div[data-testid='stHorizontalBlock'] > div{width: 100% !important;}</style>"
-# col3_height_css = f"<style>.st-cc{{height: 500px !important;}}</style>"  # Set the desired height
-# col4_height_css = f"<style>.st-cc{{height: 800px !important;}}</style>"  # Set the desired height
-# 
-# 
-# (# Set the HTML content of the columns
-# col3_html.markdown(col3_css, unsafe_allow_html=True)
-# col4_html.markdown(col4_css, unsafe_allow_html=True)
-# 
-# with col3:
-#     st.subheader("Raw Data")
-#     grid_response = AgGrid(
-#         df_short,
-#         gridOptions=go,
-#         theme="streamlit",
-#         height=470
-#     )
-# 
-# (# Set the HTML content of the height styling
-# col3_html.markdown(col3_height_css, unsafe_allow_html=True)
-# 
-# with col4:
-#     st.write("Other content goes here")
-#     col4_html.markdown(col4_height_css, unsafe_allow_html=True)
+# In[154]:
 
-# ### Publish Page 1
-
-# In[146]:
-
-
-### PUBLISH PAGE ###
-
-st.set_page_config(page_title="Player Batting", page_icon="⚾")
-
-### COLUMNS 1/2 ###
-
-# Create the columns
-col1, col2 = st.columns(2)
-
-# Create the tabs within col1
-with col1:
-    # Create the tabs
-    tab1, tab2 = st.tabs(["Hard Hit vs. BABIP", "Walks vs Strikeouts"])
-    
-    # Display the charts within the tabs
-    with tab1:
-        st.plotly_chart(fig_1, theme="streamlit", use_container_width=True)
-    
-    with tab2:
-        st.plotly_chart(fig_2, theme="streamlit", use_container_width=True)
-        
-with col2:
-    st.write("Hello World, column 2 here")
-    
-### COLUMNS 3/4 ###
 
 # Create Streamlit columns
 col3, col4 = st.columns([1, 1])
@@ -329,38 +228,12 @@ with col4:
     col4_html.markdown(col4_height_css, unsafe_allow_html=True)
 
 
-# In[ ]:
+# ### Publish Page 1
+
+# In[155]:
 
 
-
-
-
-# 
-
-# # Page 2
-
-# In[145]:
-
-
-st.set_page_config(page_title="Mapping Demo", page_icon="🌍")
-
-
-# ### Page 2/Row 1
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
+### PUBLISH PAGE ###
 
 
 
