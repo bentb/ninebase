@@ -68,7 +68,7 @@ st.set_page_config(
 # In[23]:
 
 
-df = pd.read_csv('ninebase/data_storage/player_batting_season.csv')
+df = pd.read_csv('data_storage/player_batting_season.csv')
 
 
 # In[22]:
