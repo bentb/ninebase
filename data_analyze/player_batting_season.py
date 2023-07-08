@@ -299,23 +299,19 @@ go = builder.build()
 
 
 
-# In[77]:
+# In[ ]:
 
 
-col3, col4 = st.columns([2,1])
 
 
-# In[78]:
+
+# In[ ]:
 
 
-col3.subheader("Raw Data")
-col3.AgGrid(df_short, gridOptions=go, height=500, theme="streamlit")
-
-col4.subheader("Filters")
-col4.write("Hi Col 4")
 
 
-# In[81]:
+
+# In[83]:
 
 
 # Create Streamlit columns
