@@ -63,6 +63,38 @@ st.set_page_config(
 )
 
 
+# In[18]:
+
+
+from st_pages import Page, Section, show_pages, add_page_title
+
+#⚾🥇
+
+add_page_title() # By default this also adds indentation
+
+# Specify what pages should be shown in the sidebar, and what their titles and icons
+# should be
+show_pages(
+    [
+        Section("14 Day", icon="🥇"),
+        Section("Season", icon="♂️"),
+        Page("player_batting_season.py", "Player Batting", "🏠"),
+    ]
+)
+
+
+# In[ ]:
+
+
+
+
+
+# In[ ]:
+
+
+
+
+
 # ## Load Data
 
 # In[4]:
@@ -75,7 +107,7 @@ df = pd.read_csv('data_storage/player_batting_season.csv')
 #df = pd.read_csv('C:/Users/b7tbu/NINEBASE/ninebase/data_storage/player_batting_season.csv')
 
 
-# In[5]:
+# In[6]:
 
 
 df.head()
@@ -83,13 +115,13 @@ df.head()
 
 # ## Scatter Chart
 
-# In[38]:
+# In[7]:
 
 
 import plotly.express as px
 
 
-# In[39]:
+# In[8]:
 
 
 fig = px.scatter(
@@ -103,7 +135,7 @@ fig = px.scatter(
 )
 
 
-# In[40]:
+# In[9]:
 
 
 #st.plotly_chart(fig, theme="streamlit", use_container_width = True)
@@ -111,7 +143,7 @@ fig = px.scatter(
 
 # ## Filters
 
-# In[41]:
+# In[10]:
 
 
 # calculate min/max/mean for slider
@@ -125,7 +157,7 @@ max_AB = float(max_AB)
 mean_AB = float(mean_AB)
 
 
-# In[42]:
+# In[11]:
 
 
 # slider
@@ -157,6 +189,18 @@ ab_slider = st.slider('At Bat Range', min_AB, max_AB, (mean_AB, max_AB))
 
 
 
+# In[12]:
+
+
+## Sidebar
+
+
+# In[ ]:
+
+
+
+
+
 # In[ ]:
 
 
@@ -177,13 +221,13 @@ ab_slider = st.slider('At Bat Range', min_AB, max_AB, (mean_AB, max_AB))
 
 # ## Columns
 
-# In[43]:
+# In[13]:
 
 
 col1, col2 = st.columns([2,1])
 
 
-# In[47]:
+# In[14]:
 
 
 col1.subheader("Scatter Chart")
@@ -193,21 +237,10 @@ col2.subheader("Filters")
 col2.write(ab_slider)
 
 
+# In[ ]:
 
-# In[48]:
 
 
-st.data_editor(
-    df,
-    column_config={
-        "Team": st.column_config.ListColumn(
-            "Team",
-            help="Select Team",
-            width="medium",
-        ),
-    },
-    hide_index=True,
-)
 
 
 # In[ ]:
@@ -216,19 +249,31 @@ st.data_editor(
 
 
 
-# ## Print Data
+# ## Raw Data Section
 
-# In[45]:
+# In[15]:
 
 
 from st_aggrid import AgGrid
 
 
-# In[46]:
+# In[16]:
 
 
 st.subheader('Data')
 AgGrid(df)
+
+
+# In[ ]:
+
+
+
+
+
+# In[ ]:
+
+
+
 
 
 # In[ ]:
