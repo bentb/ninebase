@@ -134,7 +134,7 @@ import plotly.express as px
 
 # ### Row 1 - Scatter Plot 1
 
-# In[111]:
+# In[122]:
 
 
 fig_1 = px.scatter(
@@ -143,7 +143,6 @@ fig_1 = px.scatter(
     y = "BABIP+",
     size = "wRC+",
     color = "Team",
-    trendline="ols",
     hover_name = "Name",
     log_x = True,
     size_max = 60,
@@ -152,7 +151,7 @@ fig_1 = px.scatter(
 
 # ### Row 1 - Scatter Plot 2
 
-# In[109]:
+# In[123]:
 
 
 fig_2 = px.scatter(
@@ -161,7 +160,6 @@ fig_2 = px.scatter(
     y = "K%+",
     size = "wRC+",
     color = "Team",
-    trendline="ols",
     hover_name = "Name",
     log_x = True,
     size_max = 60,
