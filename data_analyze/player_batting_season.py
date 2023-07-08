@@ -183,14 +183,14 @@ ab_slider = st.slider('At Bat Range', min_AB, max_AB, (mean_AB, max_AB))
 col1, col2 = st.columns([2,1])
 
 
-# In[44]:
+# In[47]:
 
 
 col1.subheader("Scatter Chart")
 col1.plotly_chart(fig, theme="streamlit", use_container_width = True)
 
 col2.subheader("Filters")
-col2.write('At Bats:', ab_slider)
+col2.write(ab_slider)
 
 
 # ## Print Data
