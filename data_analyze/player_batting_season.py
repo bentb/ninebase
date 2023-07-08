@@ -273,19 +273,19 @@ from st_aggrid.grid_options_builder import GridOptionsBuilder
 
 
 # Simplify dataframe, narrow to most insightful columns
-df_short = df[['Name', 'Team', 'Age', 'AB', 'BB%+', 'K%+', 'BABIP+', 'Hard%+', 'wRC+', 'WAR',]]
+df_short = df[['Name', 'Team', 'Age', 'AB', 'BB%+', 'K%+', 'BABIP+', 'Hard%+', 'wRC+']]
 
 
-# In[44]:
+# In[46]:
 
 
 gd = GridOptionsBuilder.from_dataframe(df_short)
-gd.configure_pagination(enabled=True, paginationAutoPageSize=True, paginationPageSize=10)
+gd.configure_pagination(enabled=True, paginationAutoPageSize=True, paginationPageSize=15)
 gd.configure_default_column(groupable=True)
 gridOptions = gd.build()
 
 
-# In[45]:
+# In[47]:
 
 
 # build section and publish data
@@ -294,7 +294,6 @@ st.subheader('Data')
 grid_table = AgGrid(df_short,
                    gridOptions = gridOptions,
                    fit_columns_on_grid_load = True,
-                   height = 500,
                    width = '100%',
                    theme = "streamlit",
                    update_mode = GridUpdateMode.GRID_CHANGED,
