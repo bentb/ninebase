@@ -297,7 +297,7 @@ go = builder.build()
 
 
 # Uses the gridOptions dictionary to configure AgGrid behavior.
-AgGrid(df_short, gridOptions=go, height="50%")
+AgGrid(df_short, gridOptions=go, height=500)
 
 
 # In[ ]:
