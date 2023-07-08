@@ -293,29 +293,47 @@ builder.configure_column("wRC+", width=100, sort='des')
 go = builder.build()
 
 
-# In[76]:
-
-
-# Uses the gridOptions dictionary to configure AgGrid behavior.
-AgGrid(df_short, gridOptions=go, height=500, theme="streamlit")
-
-
-# In[ ]:
-
-
-col1, col2 = st.columns([2,1])
-
-
-# col3.subheader("Raw Data")
-# col3.AgGrid(df_short, gridOptions=go, height=500, theme="streamlit")
-# 
-# col4.subheader("Filters")
-# col4.write("Hi Col 4")
-
 # In[ ]:
 
 
 
+
+
+# In[77]:
+
+
+col3, col4 = st.columns([2,1])
+
+
+# In[78]:
+
+
+col3.subheader("Raw Data")
+col3.AgGrid(df_short, gridOptions=go, height=500, theme="streamlit")
+
+col4.subheader("Filters")
+col4.write("Hi Col 4")
+
+
+# In[81]:
+
+
+# Create Streamlit columns
+col3, col4 = st.columns([1, 2])  # Adjust the column widths as per your requirements
+
+# Place the AG Grid table in one of the columns
+with col3:
+    grid_response = AgGrid(
+        df_short,
+        gridOptions=go,
+        theme="streamlit",
+        height=500,
+    )
+
+# Use the other column for other content, if desired
+with col4:
+    # Place other Streamlit components or content here
+    st.write("Other content goes here")
 
 
 # In[ ]:
