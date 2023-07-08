@@ -276,22 +276,33 @@ from st_aggrid.grid_options_builder import GridOptionsBuilder
 df_short = df[['Name', 'Team', 'Age', 'AB', 'BB%+', 'K%+', 'BABIP+', 'Hard%+', 'wRC+']]
 
 
-# In[46]:
+# In[52]:
 
 
 gd = GridOptionsBuilder.from_dataframe(df_short)
-gd.configure_pagination(enabled=True, paginationAutoPageSize=True, paginationPageSize=15)
+#gd.configure_pagination(enabled=True, paginationAutoPageSize=True, paginationPageSize=15)
+gd.configure_pagination(enabled=True)
 gd.configure_default_column(groupable=True)
 gridOptions = gd.build()
 
 
-# In[50]:
+# In[53]:
 
 
 # build section and publish data
 st.divider()
 st.subheader('Data')
-grid_table = AgGrid(df_short,gridOptions = gridOptions,fit_columns_on_grid_load = True,height = '400',width = '100%',theme = "streamlit",update_mode = GridUpdateMode.GRID_CHANGED,reload_data = True,allow_unsafe_jscode = True,editable = False)
+grid_table = AgGrid(df_short,
+                    gridOptions = gridOptions,
+                    fit_columns_on_grid_load = True,
+                    height = '400',
+                    width = '100%',
+                    theme = "streamlit",
+                    update_mode = GridUpdateMode.GRID_CHANGED,
+                    reload_data = True,
+                    allow_unsafe_jscode = True,
+                    editable = False
+                   )
 
 
 # In[ ]:
