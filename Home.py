@@ -43,8 +43,20 @@ st.markdown(
 """
 )
 
-
-# In[ ]:
+from pages import second_page
+# Create sidebar navigation
+pages = {
+    "Home": Home,
+    "Player Batting Season": player_batting_season,
+}
+selected_page = st.sidebar.selectbox("Navigation", list(pages.keys()))
+if selected_page != "Home":
+    pages[selected_page].app()
+else:
+    st.write("# Welcome to the Home Page")
+    # Add content for the Home page
+# Render selected page
+selected_page.app()
 
 
 
