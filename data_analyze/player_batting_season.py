@@ -192,7 +192,7 @@ fig_2 = px.scatter(
 
 
 
-# In[115]:
+# In[116]:
 
 
 # Create the columns
@@ -210,34 +210,25 @@ with col1:
     with tab2:
         st.plotly_chart(fig_2, theme="streamlit", use_container_width=True)
 
-# Display the charts in col1 and col2 outside the tabs
-with col1:
-    st.subheader("Charts")
-    st.plotly_chart(fig_1, theme="streamlit", use_container_width=True)
-
-with col2:
-    st.subheader("Filters")
-    st.writet("Hello World")
-
 
 # ## Row 2
 
 # ### Raw Data
 
-# In[114]:
+# In[117]:
 
 
 from st_aggrid import AgGrid, GridOptionsBuilder, DataReturnMode, JsCode
 
 
-# In[48]:
+# In[118]:
 
 
 # Simplify dataframe, narrow to most insightful columns
 df_short = df[['Name', 'Team', 'Age', 'AB', 'BB%+', 'K%+', 'BABIP+', 'Hard%+', 'wRC+']]
 
 
-# In[73]:
+# In[119]:
 
 
 # Builds a gridOptions dictionary using a GridOptionsBuilder instance.
@@ -275,7 +266,7 @@ go = builder.build()
 
 # ### Row 2 - Columns
 
-# In[97]:
+# In[120]:
 
 
 # Create Streamlit columns
