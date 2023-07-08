@@ -275,7 +275,7 @@ df_short = df[['Name', 'Team', 'Age', 'AB', 'BB%+', 'K%+', 'BABIP+', 'Hard%+', '
 #builds a gridOptions dictionary using a GridOptionsBuilder instance.
 builder = GridOptionsBuilder.from_dataframe(df_short)
 builder.configure_column("Name", header_name="First", editable=False)
-builder.configure_pagination(enabled=True, paginationAutoPageSize=True, paginationPageSize=10)
+builder.configure_pagination(enabled=True, paginationAutoPageSize=True, paginationPageSize=100)
 builder.configure_side_bar(filters_panel=True, columns_panel=True)
 builder.configure_column("Team", width=100, enableRowGroup=True)
 builder.configure_column("Age", width=100)
@@ -292,7 +292,7 @@ go = builder.build()
 
 
 #uses the gridOptions dictionary to configure AgGrid behavior.
-AgGrid(df_short, gridOptions=go, height=400)
+AgGrid(df_short, gridOptions=go, height=1000
 
 
 # In[ ]:
