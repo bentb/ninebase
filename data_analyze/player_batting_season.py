@@ -280,7 +280,7 @@ df_short = df[['Name', 'Team', 'Age', 'AB', 'BB%+', 'K%+', 'BABIP+', 'Hard%+', '
 
 
 gd = GridOptionsBuilder.from_dataframe(df_short)
-gd.configure_pagination(enabled=True)
+gd.configure_pagination(enabled=True, paginationAutoPageSize=True, paginationPageSize=10)
 gd.configure_default_column(groupable=True)
 gridOptions = gd.build()
 
