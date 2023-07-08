@@ -276,38 +276,26 @@ from st_aggrid.grid_options_builder import GridOptionsBuilder
 df_short = df[['Name', 'Team', 'Age', 'AB', 'BB%+', 'K%+', 'BABIP+', 'Hard%+', 'wRC+']]
 
 
-# In[52]:
+# In[59]:
 
 
 gd = GridOptionsBuilder.from_dataframe(df_short)
-gd.configure_pagination(enabled=True, paginationPageSize=15)
+gd.configure_pagination(enabled=True)
 gd.configure_default_column(groupable=True)
 gridOptions = gd.build()
 
 
-# In[54]:
-
-
-# build section and publish data
-st.divider()
-st.subheader('Data')
-
-
-# In[58]:
-
-
-grid_table = AgGrid(df_short,
-                   gridOptions=gridOptions,
-                   fit_columns_on_grid_load=True,
-                   height='400',
-                   width='100%',
-                   theme="streamlit",
-                   update_mode=GridUpdateMode.GRID_CHANGED,
-                   reload_data=True,
-                   allow_unsafe_jscode=True,
-                   editable=False
-                   )
-
+# grid_table = AgGrid(df_short,
+#                    gridOptions=gridOptions,
+#                    fit_columns_on_grid_load=True,
+#                    height='400',
+#                    width='100%',
+#                    theme="streamlit",
+#                    update_mode=GridUpdateMode.GRID_CHANGED,
+#                    reload_data=True,
+#                    allow_unsafe_jscode=True,
+#                    editable=False
+#                    )
 
 # In[ ]:
 
@@ -318,8 +306,35 @@ grid_table = AgGrid(df_short,
 # In[ ]:
 
 
+##########################################
 
 
+# from st_aggrid import AgGrid, GridOptionsBuilder
+# import streamlit as st
+# 
+# from st_aggrid import agstyler
+# from src.agstyler import PINLEFT, PRECISION_ZERO, PRECISION_ONE, PRECISION_TWO, draw_grid
+# 
+# formatter = {
+#     'Name': ('Player', PINLEFT),
+#     'Team': ('Team', {'width': 80}),
+#     'Age': ('Age', {'width': 80}),
+#     'AB': ('At Bats', {'width': 80}),
+#     'K%+': ('K%+', {**PRECISION_ZERO,'width': 80}),
+#     'BABIP+': ('BABIP+', {**PRECISION_ZERO,'width': 80}),
+#     'Hard%+': ('Hard%+', {**PRECISION_ZERO,'width': 80}),
+#     'wRC+': ('wRC+', {**PRECISION_ZERO,'width': 80}),
+# }
+# 
+# row_number = st.number_input('Number of rows', min_value=0, value=20)
+# data = draw_grid(
+#     df.head(15),
+#     formatter=formatter,
+#     fit_columns=True,
+#     selection='multiple',  # or 'single', or None
+#     use_checkbox='True',  # or False by default
+#     max_height=300
+# )
 
 # In[ ]:
 
@@ -330,13 +345,12 @@ grid_table = AgGrid(df_short,
 # In[ ]:
 
 
+from st_aggrid import AgGrid
 
+st.set_page_config(page_title="Raw Data", layout="wide") 
+st.title("Raw Data")
 
-
-# In[ ]:
-
-
-
+AgGrid(df_short)
 
 
 # In[ ]:
