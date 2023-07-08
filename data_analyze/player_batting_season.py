@@ -342,11 +342,8 @@ df_short = df[['Name', 'Team', 'Age', 'AB', 'BB%+', 'K%+', 'BABIP+', 'Hard%+', '
 
 
 
-# In[71]:
+# In[72]:
 
-
-from st_aggrid import AgGrid
-from st_aggrid.grid_options_builder import GridOptionsBuilder
 
 st.set_page_config(page_title="Player Batting", layout="wide") 
 st.title("Player Batting")
