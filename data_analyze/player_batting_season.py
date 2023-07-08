@@ -18,7 +18,7 @@
 
 # # Introduction
 
-# In[1]:
+# In[27]:
 
 
 # Import Libraries
@@ -41,7 +41,7 @@ import plotly.figure_factory as ff
 
 # ## Streamlit
 
-# In[2]:
+# In[28]:
 
 
 import streamlit as st
@@ -53,7 +53,7 @@ import streamlit as st
 
 
 
-# In[3]:
+# In[52]:
 
 
 st.set_page_config(
@@ -62,14 +62,14 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="expanded",
     menu_items={
-        'ninebase Info': 'https://www.extremelycoolapp.com/help',
-        'Suggest a Feature!': "https://www.extremelycoolapp.com/bug",
+        'Report a bug': 'https://www.extremelycoolapp.com/help',
+        'Get help': "https://www.extremelycoolapp.com/bug",
         'About': "# This is a header. This is an *extremely* cool app!"
     }
 )
 
 
-# In[ ]:
+# In[53]:
 
 
 #from st_pages import Page, Section, show_pages, add_page_title
@@ -102,7 +102,7 @@ st.set_page_config(
 
 # ## Load Data
 
-# In[4]:
+# In[37]:
 
 
 # Format for GitHub
@@ -112,7 +112,7 @@ df = pd.read_csv('data_storage/player_batting_season.csv')
 #df = pd.read_csv('C:/Users/b7tbu/NINEBASE/ninebase/data_storage/player_batting_season.csv')
 
 
-# In[ ]:
+# In[38]:
 
 
 df.head()
@@ -120,13 +120,13 @@ df.head()
 
 # ## Scatter Chart
 
-# In[ ]:
+# In[39]:
 
 
 import plotly.express as px
 
 
-# In[8]:
+# In[40]:
 
 
 fig = px.scatter(
@@ -140,7 +140,7 @@ fig = px.scatter(
 )
 
 
-# In[9]:
+# In[41]:
 
 
 #st.plotly_chart(fig, theme="streamlit", use_container_width = True)
@@ -148,7 +148,7 @@ fig = px.scatter(
 
 # ## Filters
 
-# In[10]:
+# In[42]:
 
 
 # calculate min/max/mean for slider
@@ -162,7 +162,7 @@ max_AB = float(max_AB)
 mean_AB = float(mean_AB)
 
 
-# In[11]:
+# In[43]:
 
 
 # slider
@@ -194,7 +194,7 @@ ab_slider = st.slider('At Bat Range', min_AB, max_AB, (mean_AB, max_AB))
 
 
 
-# In[12]:
+# In[44]:
 
 
 ## Sidebar
@@ -226,13 +226,13 @@ ab_slider = st.slider('At Bat Range', min_AB, max_AB, (mean_AB, max_AB))
 
 # ## Columns
 
-# In[13]:
+# In[45]:
 
 
 col1, col2 = st.columns([2,1])
 
 
-# In[14]:
+# In[46]:
 
 
 col1.subheader("Scatter Chart")
@@ -256,20 +256,20 @@ col2.write(ab_slider)
 
 # ## Raw Data Display
 
-# In[9]:
+# In[47]:
 
 
 from st_aggrid import AgGrid, GridOptionsBuilder, DataReturnMode, JsCode
 
 
-# In[10]:
+# In[48]:
 
 
 # Simplify dataframe, narrow to most insightful columns
 df_short = df[['Name', 'Team', 'Age', 'AB', 'BB%+', 'K%+', 'BABIP+', 'Hard%+', 'wRC+']]
 
 
-# In[25]:
+# In[49]:
 
 
 #builds a gridOptions dictionary using a GridOptionsBuilder instance.
@@ -278,14 +278,14 @@ builder.configure_column("Name", header_name="First", editable=False)
 go = builder.build()
 
 
-# In[26]:
+# In[50]:
 
 
 #uses the gridOptions dictionary to configure AgGrid behavior.
 AgGrid(df_short, gridOptions=go)
 
 
-# In[24]:
+# In[ ]:
 
 
 
@@ -309,7 +309,7 @@ AgGrid(df_short, gridOptions=go)
 
 
 
-# In[69]:
+# In[ ]:
 
 
 
