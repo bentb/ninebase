@@ -59,3 +59,5 @@ pyjwt==2.7.0
 pynacl==1.5.0
 wrapt==1.15.0
 seaborn==0.12.2
+python-decouple==3.8
+streamlit-aggrid==0.3.4.post3

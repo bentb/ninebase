@@ -18,13 +18,14 @@
 
 # # Introduction
 
-# In[ ]:
+# In[2]:
 
 
 # Install libraries
+pip install plotly
 
 
-# In[1]:
+# In[3]:
 
 
 # Import Libraries
@@ -47,13 +48,13 @@ import plotly.figure_factory as ff
 
 # ## Streamlit
 
-# In[2]:
+# In[4]:
 
 
 import streamlit as st
 
 
-# In[3]:
+# In[5]:
 
 
 st.set_page_config(
@@ -71,13 +72,13 @@ st.set_page_config(
 
 # ## Load Data
 
-# In[4]:
+# In[6]:
 
 
-df = pd.read_csv('C:\\Users\\b7tbu\\JUPYTER PROJECTS\\ANALYTICO\\Data_Exports\\Player\\Batting\\EXPORT_annual.csv')
+df = pd.read_csv('C:\\Users\\b7tbu\\NINEBASE\\ninebase\\data_storage\\player_batting_season.csv')
 
 
-# In[5]:
+# In[7]:
 
 
 df.head()
@@ -85,13 +86,13 @@ df.head()
 
 # ## Scatter Chart
 
-# In[6]:
+# In[8]:
 
 
 import plotly.express as px
 
 
-# In[7]:
+# In[9]:
 
 
 fig = px.scatter(
@@ -105,7 +106,7 @@ fig = px.scatter(
 )
 
 
-# In[8]:
+# In[10]:
 
 
 #st.plotly_chart(fig, theme="streamlit", use_container_width = True)
@@ -163,13 +164,13 @@ fig = px.scatter(
 
 # ## Columns
 
-# In[9]:
+# In[11]:
 
 
 col1, col2 = st.columns([3,1])
 
 
-# In[10]:
+# In[12]:
 
 
 col1.subheader("Scatter Chart")
@@ -181,13 +182,13 @@ col2.write(df)
 
 # ## Print Data
 
-# In[11]:
+# In[16]:
 
 
 from st_aggrid import AgGrid
 
 
-# In[12]:
+# In[17]:
 
 
 st.subheader('Raw data')
