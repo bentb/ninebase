@@ -10,12 +10,6 @@
 # sources:
 # docs.streamlit.io/library/get-started
 
-# In[ ]:
-
-
-
-
-
 # # Introduction
 
 # In[1]:
@@ -61,12 +55,6 @@ st.set_page_config(
         'About': "# This is a header. This is an *extremely* cool app!"
     }
 )
-
-
-# In[ ]:
-
-
-
 
 
 # ## Load Data
@@ -129,7 +117,7 @@ fig_2 = px.scatter(
 
 
 # Create the columns
-col1, col2 = st.columns(2)
+col1, col2 = st.columns([3, 2])
 
 # Create the tabs within col1
 with col1:
@@ -194,7 +182,7 @@ go = builder.build()
 
 
 # Create Streamlit columns
-col3, col4 = st.columns([1, 1])
+col3, col4 = st.columns([3, 2])
 
 # Set the CSS styles for column widths and heights
 col3_html = col3.markdown("")
