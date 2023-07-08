@@ -18,13 +18,6 @@
 
 # # Introduction
 
-# In[2]:
-
-
-# Install libraries
-pip install plotly
-
-
 # In[3]:
 
 
