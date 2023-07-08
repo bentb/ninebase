@@ -12,7 +12,7 @@
 
 # # Introduction
 
-# In[1]:
+# In[11]:
 
 
 # Import Libraries
@@ -35,13 +35,13 @@ import plotly.figure_factory as ff
 
 # ## Streamlit
 
-# In[2]:
+# In[12]:
 
 
 import streamlit as st
 
 
-# In[7]:
+# In[13]:
 
 
 st.set_page_config(
@@ -69,13 +69,13 @@ df = pd.read_csv('data_storage/player_batting_season.csv')
 #df = pd.read_csv('C:/Users/b7tbu/NINEBASE/ninebase/data_storage/player_batting_season.csv')
 
 
-# In[134]:
+# In[14]:
 
 
 df.head()
 
 
-# In[135]:
+# In[15]:
 
 
 import plotly.express as px
@@ -83,7 +83,7 @@ import plotly.express as px
 
 # ### Row 1 - Scatter Plot 1
 
-# In[147]:
+# In[16]:
 
 
 fig_1 = px.scatter(
@@ -98,7 +98,7 @@ fig_1 = px.scatter(
 
 # ### Row 1 - Scatter Plot 2
 
-# In[148]:
+# In[17]:
 
 
 fig_2 = px.scatter(
@@ -111,48 +111,40 @@ fig_2 = px.scatter(
 )
 
 
-# ### Row 1 - Columns 1/2
+# ### Row 1 - Print
 
-# In[150]:
+# In[18]:
 
 
-# Create the columns
-col1, col2 = st.columns([2, 1])
+# Create the tabs
+tab1, tab2 = st.tabs(["Hard Hit vs. BABIP", "Walks vs Strikeouts"])
 
-# Create the tabs within col1
-with col1:
-    # Create the tabs
-    tab1, tab2 = st.tabs(["Hard Hit vs. BABIP", "Walks vs Strikeouts"])
-    
-    # Display the charts within the tabs
-    with tab1:
-        st.plotly_chart(fig_1, theme="streamlit", use_container_width=True)
-    
-    with tab2:
-        st.plotly_chart(fig_2, theme="streamlit", use_container_width=True)
-        
-with col2:
-    st.write("Hello World, column 2 here")
+# Display the charts within the tabs
+with tab1:
+    st.plotly_chart(fig_1, theme="streamlit", use_container_width=True)
+
+with tab2:
+    st.plotly_chart(fig_2, theme="streamlit", use_container_width=True)
 
 
 # ## Row 2
 
 # ### Raw Data
 
-# In[151]:
+# In[19]:
 
 
 from st_aggrid import AgGrid, GridOptionsBuilder, DataReturnMode, JsCode
 
 
-# In[152]:
+# In[20]:
 
 
 # Simplify dataframe, narrow to most insightful columns
 df_short = df[['Name', 'Team', 'Age', 'AB', 'BB%+', 'K%+', 'BABIP+', 'Hard%+', 'wRC+']]
 
 
-# In[153]:
+# In[21]:
 
 
 # Builds a gridOptions dictionary using a GridOptionsBuilder instance.
@@ -176,49 +168,23 @@ builder.configure_column("wRC+", width=100)
 go = builder.build()
 
 
-# ### Row 2 - Columns
+# ### Row 2 - Print
 
-# In[154]:
-
-
-# Create Streamlit columns
-col3, col4 = st.columns([2, 1])
-
-# Set the CSS styles for column widths and heights
-col3_html = col3.markdown("")
-col4_html = col4.markdown("")
-
-# Generate the HTML code for CSS styling
-col3_css = "<style>div[data-testid='stHorizontalBlock'] > div{width: 100% !important;}</style>"
-col4_css = "<style>div[data-testid='stHorizontalBlock'] > div{width: 100% !important;}</style>"
-col3_height_css = f"<style>.st-cc{{height: 500px !important;}}</style>"  # Set the desired height
-col4_height_css = f"<style>.st-cc{{height: 800px !important;}}</style>"  # Set the desired height
+# In[24]:
 
 
-# Set the HTML content of the columns
-col3_html.markdown(col3_css, unsafe_allow_html=True)
-col4_html.markdown(col4_css, unsafe_allow_html=True)
-
-with col3:
-    st.subheader("Raw Data")
-    grid_response = AgGrid(
-        df_short,
-        gridOptions=go,
-        theme="streamlit",
-        height=470
-    )
-
-# Set the HTML content of the height styling
-col3_html.markdown(col3_height_css, unsafe_allow_html=True)
-
-with col4:
-    st.write("Other content goes here")
-    col4_html.markdown(col4_height_css, unsafe_allow_html=True)
+st.subheader("Raw Data")
+grid_response = AgGrid(
+    df_short,
+    gridOptions=go,
+    theme="streamlit",
+    height=470
+)
 
 
 # ### Publish Page 1
 
-# In[155]:
+# In[23]:
 
 
 ### PUBLISH PAGE ###
