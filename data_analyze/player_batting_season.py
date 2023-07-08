@@ -193,6 +193,29 @@ col2.subheader("Filters")
 col2.write(ab_slider)
 
 
+
+# In[48]:
+
+
+st.data_editor(
+    df,
+    column_config={
+        "Team": st.column_config.ListColumn(
+            "Team",
+            help="Select Team",
+            width="medium",
+        ),
+    },
+    hide_index=True,
+)
+
+
+# In[ ]:
+
+
+
+
+
 # ## Print Data
 
 # In[45]:
