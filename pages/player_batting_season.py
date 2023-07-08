@@ -41,13 +41,13 @@ import plotly.figure_factory as ff
 import streamlit as st
 
 
-# In[6]:
+# In[7]:
 
 
 st.set_page_config(
     page_title="Player Batting",
     page_icon="⚾",
-    layout="wide",
+    layout="centered",
     initial_sidebar_state="expanded",
     menu_items={
         'Report a bug': 'https://www.extremelycoolapp.com/help',
