@@ -311,11 +311,11 @@ go = builder.build()
 
 
 
-# In[96]:
+# In[97]:
 
 
 # Create Streamlit columns
-col3, col4 = st.columns([1, 2])  # Adjust the column widths as per your requirements
+col3, col4 = st.columns([1, 1])
 
 # Set the CSS styles for column widths and heights
 col3_html = col3.markdown("")
