@@ -118,21 +118,30 @@ df = pd.read_csv('data_storage/player_batting_season.csv')
 df.head()
 
 
-# ## Scatter Chart
+# # First Row
 
-# In[39]:
+# In[98]:
 
 
 import plotly.express as px
 
 
-# In[40]:
+# In[99]:
 
 
-fig = px.scatter(
+
+
+
+# ### Scatter plot
+
+# In[108]:
+
+
+fig_1 = px.scatter(
     df.query("Season==2023"),
-    x = "wRC+",
-    y = "Hard%+",
+    x = "Hard%+",
+    y = "BABIP+",
+    size = "wRC+",
     color = "Team",
     hover_name = "Name",
     log_x = True,
@@ -140,10 +149,33 @@ fig = px.scatter(
 )
 
 
-# In[41]:
+# ### xya Plot
+
+# In[109]:
 
 
-#st.plotly_chart(fig, theme="streamlit", use_container_width = True)
+fig_2 = px.scatter(
+    df.query("Season==2023"),
+    x = "BB%+",
+    y = "K%+",
+    size = "wRC+",
+    color = "Team",
+    hover_name = "Name",
+    log_x = True,
+    size_max = 60,
+)
+
+
+# ### Tabs
+
+# In[110]:
+
+
+tab1, tab2 = st.tabs(["Hard Hit vs. BABIP", "Walks vs Strikeouts"])
+with tab1:
+    st.plotly_chart(fig_1, theme="streamlit", use_container_width=True)
+with tab2:
+    st.plotly_chart(fig_2, theme="streamlit", use_container_width=True)
 
 
 # ## Filters
@@ -151,23 +183,13 @@ fig = px.scatter(
 # In[42]:
 
 
-# calculate min/max/mean for slider
-min_AB = df['AB'].min()
-max_AB = df['AB'].max()
-mean_AB = df['AB'].mean()
 
-# float em
-min_AB = float(min_AB)
-max_AB = float(max_AB)
-mean_AB = float(mean_AB)
 
 
 # In[43]:
 
 
-# slider
 
-#ab_slider = st.slider('At Bat Range', min_AB, max_AB, (mean_AB, max_AB))
 
 
 # In[ ]:
@@ -229,17 +251,17 @@ mean_AB = float(mean_AB)
 # In[45]:
 
 
-col1, col2 = st.columns([2,1])
+col1, col2 = st.columns([1,1])
 
 
 # In[46]:
 
 
 col1.subheader("Scatter Chart")
-col1.plotly_chart(fig, theme="streamlit", use_container_width = True)
+col1.plotly_chart(fig_1, theme="streamlit", use_container_width = True)
 
 col2.subheader("Filters")
-col2.write("Hi Col 3")
+col2.plotly_chart(fig_2, theme="streamlit", use_container_width = True)
 
 
 # In[ ]:
