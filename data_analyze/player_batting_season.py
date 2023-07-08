@@ -1,2358 +1,390 @@
-{
- "cells": [
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "id": "2994f02c",
-   "metadata": {},
-   "outputs": [],
-   "source": []
-  },
-  {
-   "cell_type": "markdown",
-   "id": "adc17684",
-   "metadata": {},
-   "source": [
-    "sources:\n",
-    "docs.streamlit.io/library/get-started"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "id": "bf43f9ba",
-   "metadata": {},
-   "outputs": [],
-   "source": []
-  },
-  {
-   "cell_type": "markdown",
-   "id": "47dd150c",
-   "metadata": {},
-   "source": [
-    "# Introduction"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 29,
-   "id": "2f035944",
-   "metadata": {},
-   "outputs": [],
-   "source": [
-    "# Import Libraries\n",
-    "import numpy as np\n",
-    "import pandas as pd\n",
-    "\n",
-    "pd.set_option(\"display.precision\", 2)\n",
-    "pd.set_option('display.max_rows', None)\n",
-    "pd.set_option('display.max_columns', None)\n",
-    "pd.set_option('display.float_format', lambda x: '%.5f' % x)\n",
-    "from pandas.api.types import (\n",
-    "    is_categorical_dtype,\n",
-    "    is_datetime64_any_dtype,\n",
-    "    is_numeric_dtype,\n",
-    "    is_object_dtype,\n",
-    ")\n",
-    "\n",
-    "import plotly.figure_factory as ff"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "id": "f0b15390",
-   "metadata": {},
-   "source": [
-    "## Streamlit"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 2,
-   "id": "44929fa4",
-   "metadata": {},
-   "outputs": [],
-   "source": [
-    "import streamlit as st"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "id": "5d765f68",
-   "metadata": {},
-   "outputs": [],
-   "source": []
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 3,
-   "id": "6e05a6c4",
-   "metadata": {},
-   "outputs": [],
-   "source": [
-    "st.set_page_config(\n",
-    "    page_title=\"9base\",\n",
-    "    page_icon=\"⚾\",\n",
-    "    layout=\"wide\",\n",
-    "    initial_sidebar_state=\"expanded\",\n",
-    "    menu_items={\n",
-    "        'Get Help': 'https://www.extremelycoolapp.com/help',\n",
-    "        'Report a bug': \"https://www.extremelycoolapp.com/bug\",\n",
-    "        'About': \"# This is a header. This is an *extremely* cool app!\"\n",
-    "    }\n",
-    ")"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 19,
-   "id": "9e071221",
-   "metadata": {},
-   "outputs": [],
-   "source": [
-    "#from st_pages import Page, Section, show_pages, add_page_title\n",
-    "\n",
-    "##⚾🥇\n",
-    "\n",
-    "#add_page_title() # By default this also adds indentation\n",
-    "\n",
-    "## Specify what pages should be shown in the sidebar, and what their titles and icons should be\n",
-    "#show_pages(\n",
-    "#    [\n",
-    "#        Section(\"14 Day\", icon=\"🥇\"),\n",
-    "#        Section(\"Season\", icon=\"♂️\"),\n",
-    "#        Page(\"player_batting_season.py\", \"Player Batting\", \"🏠\"),\n",
-    "#    ]\n",
-    "#)"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "id": "d5c0a11e",
-   "metadata": {},
-   "outputs": [],
-   "source": []
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "id": "4f924ba2",
-   "metadata": {},
-   "outputs": [],
-   "source": []
-  },
-  {
-   "cell_type": "markdown",
-   "id": "72eb6105",
-   "metadata": {},
-   "source": [
-    "## Load Data"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 4,
-   "id": "ba1672fc",
-   "metadata": {},
-   "outputs": [],
-   "source": [
-    "# Format for GitHub\n",
-    "df = pd.read_csv('data_storage/player_batting_season.csv')\n",
-    "\n",
-    "# Format for Jupyter Notebook\n",
-    "#df = pd.read_csv('C:/Users/b7tbu/NINEBASE/ninebase/data_storage/player_batting_season.csv')"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 6,
-   "id": "19b215a4",
-   "metadata": {},
-   "outputs": [
-    {
-     "data": {
-      "text/html": [
-       "<div>\n",
-       "<style scoped>\n",
-       "    .dataframe tbody tr th:only-of-type {\n",
-       "        vertical-align: middle;\n",
-       "    }\n",
-       "\n",
-       "    .dataframe tbody tr th {\n",
-       "        vertical-align: top;\n",
-       "    }\n",
-       "\n",
-       "    .dataframe thead th {\n",
-       "        text-align: right;\n",
-       "    }\n",
-       "</style>\n",
-       "<table border=\"1\" class=\"dataframe\">\n",
-       "  <thead>\n",
-       "    <tr style=\"text-align: right;\">\n",
-       "      <th></th>\n",
-       "      <th>IDfg</th>\n",
-       "      <th>Season</th>\n",
-       "      <th>Name</th>\n",
-       "      <th>Team</th>\n",
-       "      <th>Age</th>\n",
-       "      <th>G</th>\n",
-       "      <th>AB</th>\n",
-       "      <th>PA</th>\n",
-       "      <th>H</th>\n",
-       "      <th>1B</th>\n",
-       "      <th>2B</th>\n",
-       "      <th>3B</th>\n",
-       "      <th>HR</th>\n",
-       "      <th>R</th>\n",
-       "      <th>RBI</th>\n",
-       "      <th>BB</th>\n",
-       "      <th>IBB</th>\n",
-       "      <th>SO</th>\n",
-       "      <th>HBP</th>\n",
-       "      <th>SF</th>\n",
-       "      <th>SH</th>\n",
-       "      <th>GDP</th>\n",
-       "      <th>SB</th>\n",
-       "      <th>CS</th>\n",
-       "      <th>AVG</th>\n",
-       "      <th>GB</th>\n",
-       "      <th>FB</th>\n",
-       "      <th>LD</th>\n",
-       "      <th>IFFB</th>\n",
-       "      <th>Pitches</th>\n",
-       "      <th>Balls</th>\n",
-       "      <th>Strikes</th>\n",
-       "      <th>IFH</th>\n",
-       "      <th>BU</th>\n",
-       "      <th>BUH</th>\n",
-       "      <th>BB%</th>\n",
-       "      <th>K%</th>\n",
-       "      <th>BB/K</th>\n",
-       "      <th>OBP</th>\n",
-       "      <th>SLG</th>\n",
-       "      <th>OPS</th>\n",
-       "      <th>ISO</th>\n",
-       "      <th>BABIP</th>\n",
-       "      <th>GB/FB</th>\n",
-       "      <th>LD%</th>\n",
-       "      <th>GB%</th>\n",
-       "      <th>FB%</th>\n",
-       "      <th>IFFB%</th>\n",
-       "      <th>HR/FB</th>\n",
-       "      <th>IFH%</th>\n",
-       "      <th>BUH%</th>\n",
-       "      <th>wOBA</th>\n",
-       "      <th>wRAA</th>\n",
-       "      <th>wRC</th>\n",
-       "      <th>Bat</th>\n",
-       "      <th>Fld</th>\n",
-       "      <th>Rep</th>\n",
-       "      <th>Pos</th>\n",
-       "      <th>RAR</th>\n",
-       "      <th>WAR</th>\n",
-       "      <th>Dol</th>\n",
-       "      <th>Spd</th>\n",
-       "      <th>wRC+</th>\n",
-       "      <th>WPA</th>\n",
-       "      <th>-WPA</th>\n",
-       "      <th>+WPA</th>\n",
-       "      <th>RE24</th>\n",
-       "      <th>REW</th>\n",
-       "      <th>pLI</th>\n",
-       "      <th>phLI</th>\n",
-       "      <th>PH</th>\n",
-       "      <th>WPA/LI</th>\n",
-       "      <th>Clutch</th>\n",
-       "      <th>FB% (Pitch)</th>\n",
-       "      <th>FBv</th>\n",
-       "      <th>SL%</th>\n",
-       "      <th>SLv</th>\n",
-       "      <th>CT%</th>\n",
-       "      <th>CTv</th>\n",
-       "      <th>CB%</th>\n",
-       "      <th>CBv</th>\n",
-       "      <th>CH%</th>\n",
-       "      <th>CHv</th>\n",
-       "      <th>SF%</th>\n",
-       "      <th>SFv</th>\n",
-       "      <th>KN%</th>\n",
-       "      <th>KNv</th>\n",
-       "      <th>XX%</th>\n",
-       "      <th>PO%</th>\n",
-       "      <th>wFB</th>\n",
-       "      <th>wSL</th>\n",
-       "      <th>wCT</th>\n",
-       "      <th>wCB</th>\n",
-       "      <th>wCH</th>\n",
-       "      <th>wSF</th>\n",
-       "      <th>wKN</th>\n",
-       "      <th>wFB/C</th>\n",
-       "      <th>wSL/C</th>\n",
-       "      <th>wCT/C</th>\n",
-       "      <th>wCB/C</th>\n",
-       "      <th>...</th>\n",
-       "      <th>KN% (pi)</th>\n",
-       "      <th>SB% (pi)</th>\n",
-       "      <th>SI% (pi)</th>\n",
-       "      <th>SL% (pi)</th>\n",
-       "      <th>XX% (pi)</th>\n",
-       "      <th>vCH (pi)</th>\n",
-       "      <th>vCS (pi)</th>\n",
-       "      <th>vCU (pi)</th>\n",
-       "      <th>vFA (pi)</th>\n",
-       "      <th>vFC (pi)</th>\n",
-       "      <th>vFS (pi)</th>\n",
-       "      <th>vKN (pi)</th>\n",
-       "      <th>vSB (pi)</th>\n",
-       "      <th>vSI (pi)</th>\n",
-       "      <th>vSL (pi)</th>\n",
-       "      <th>vXX (pi)</th>\n",
-       "      <th>CH-X (pi)</th>\n",
-       "      <th>CS-X (pi)</th>\n",
-       "      <th>CU-X (pi)</th>\n",
-       "      <th>FA-X (pi)</th>\n",
-       "      <th>FC-X (pi)</th>\n",
-       "      <th>FS-X (pi)</th>\n",
-       "      <th>KN-X (pi)</th>\n",
-       "      <th>SB-X (pi)</th>\n",
-       "      <th>SI-X (pi)</th>\n",
-       "      <th>SL-X (pi)</th>\n",
-       "      <th>XX-X (pi)</th>\n",
-       "      <th>CH-Z (pi)</th>\n",
-       "      <th>CS-Z (pi)</th>\n",
-       "      <th>CU-Z (pi)</th>\n",
-       "      <th>FA-Z (pi)</th>\n",
-       "      <th>FC-Z (pi)</th>\n",
-       "      <th>FS-Z (pi)</th>\n",
-       "      <th>KN-Z (pi)</th>\n",
-       "      <th>SB-Z (pi)</th>\n",
-       "      <th>SI-Z (pi)</th>\n",
-       "      <th>SL-Z (pi)</th>\n",
-       "      <th>XX-Z (pi)</th>\n",
-       "      <th>wCH (pi)</th>\n",
-       "      <th>wCS (pi)</th>\n",
-       "      <th>wCU (pi)</th>\n",
-       "      <th>wFA (pi)</th>\n",
-       "      <th>wFC (pi)</th>\n",
-       "      <th>wFS (pi)</th>\n",
-       "      <th>wKN (pi)</th>\n",
-       "      <th>wSB (pi)</th>\n",
-       "      <th>wSI (pi)</th>\n",
-       "      <th>wSL (pi)</th>\n",
-       "      <th>wXX (pi)</th>\n",
-       "      <th>wCH/C (pi)</th>\n",
-       "      <th>wCS/C (pi)</th>\n",
-       "      <th>wCU/C (pi)</th>\n",
-       "      <th>wFA/C (pi)</th>\n",
-       "      <th>wFC/C (pi)</th>\n",
-       "      <th>wFS/C (pi)</th>\n",
-       "      <th>wKN/C (pi)</th>\n",
-       "      <th>wSB/C (pi)</th>\n",
-       "      <th>wSI/C (pi)</th>\n",
-       "      <th>wSL/C (pi)</th>\n",
-       "      <th>wXX/C (pi)</th>\n",
-       "      <th>O-Swing% (pi)</th>\n",
-       "      <th>Z-Swing% (pi)</th>\n",
-       "      <th>Swing% (pi)</th>\n",
-       "      <th>O-Contact% (pi)</th>\n",
-       "      <th>Z-Contact% (pi)</th>\n",
-       "      <th>Contact% (pi)</th>\n",
-       "      <th>Zone% (pi)</th>\n",
-       "      <th>Pace (pi)</th>\n",
-       "      <th>FRM</th>\n",
-       "      <th>AVG+</th>\n",
-       "      <th>BB%+</th>\n",
-       "      <th>K%+</th>\n",
-       "      <th>OBP+</th>\n",
-       "      <th>SLG+</th>\n",
-       "      <th>ISO+</th>\n",
-       "      <th>BABIP+</th>\n",
-       "      <th>LD+%</th>\n",
-       "      <th>GB%+</th>\n",
-       "      <th>FB%+</th>\n",
-       "      <th>HR/FB%+</th>\n",
-       "      <th>Pull%+</th>\n",
-       "      <th>Cent%+</th>\n",
-       "      <th>Oppo%+</th>\n",
-       "      <th>Soft%+</th>\n",
-       "      <th>Med%+</th>\n",
-       "      <th>Hard%+</th>\n",
-       "      <th>EV</th>\n",
-       "      <th>LA</th>\n",
-       "      <th>Barrels</th>\n",
-       "      <th>Barrel%</th>\n",
-       "      <th>maxEV</th>\n",
-       "      <th>HardHit</th>\n",
-       "      <th>HardHit%</th>\n",
-       "      <th>Events</th>\n",
-       "      <th>CStr%</th>\n",
-       "      <th>CSW%</th>\n",
-       "      <th>xBA</th>\n",
-       "      <th>xSLG</th>\n",
-       "      <th>xwOBA</th>\n",
-       "      <th>L-WAR</th>\n",
-       "    </tr>\n",
-       "  </thead>\n",
-       "  <tbody>\n",
-       "    <tr>\n",
-       "      <th>0</th>\n",
-       "      <td>18401</td>\n",
-       "      <td>2023</td>\n",
-       "      <td>Ronald Acuna Jr.</td>\n",
-       "      <td>ATL</td>\n",
-       "      <td>25</td>\n",
-       "      <td>86</td>\n",
-       "      <td>347</td>\n",
-       "      <td>396</td>\n",
-       "      <td>117</td>\n",
-       "      <td>71</td>\n",
-       "      <td>24</td>\n",
-       "      <td>1</td>\n",
-       "      <td>21</td>\n",
-       "      <td>78</td>\n",
-       "      <td>54</td>\n",
-       "      <td>43</td>\n",
-       "      <td>2</td>\n",
-       "      <td>49</td>\n",
-       "      <td>4</td>\n",
-       "      <td>2</td>\n",
-       "      <td>0</td>\n",
-       "      <td>7</td>\n",
-       "      <td>41</td>\n",
-       "      <td>7</td>\n",
-       "      <td>0.33700</td>\n",
-       "      <td>150</td>\n",
-       "      <td>91</td>\n",
-       "      <td>59</td>\n",
-       "      <td>6</td>\n",
-       "      <td>1528</td>\n",
-       "      <td>617</td>\n",
-       "      <td>911</td>\n",
-       "      <td>16</td>\n",
-       "      <td>0</td>\n",
-       "      <td>0</td>\n",
-       "      <td>0.10900</td>\n",
-       "      <td>0.12400</td>\n",
-       "      <td>0.88000</td>\n",
-       "      <td>0.41400</td>\n",
-       "      <td>0.59400</td>\n",
-       "      <td>1.00800</td>\n",
-       "      <td>0.25600</td>\n",
-       "      <td>0.34400</td>\n",
-       "      <td>0.01650</td>\n",
-       "      <td>0.19700</td>\n",
-       "      <td>0.50000</td>\n",
-       "      <td>0.30300</td>\n",
-       "      <td>0.06600</td>\n",
-       "      <td>0.23100</td>\n",
-       "      <td>0.10700</td>\n",
-       "      <td>0.00000</td>\n",
-       "      <td>0.42700</td>\n",
-       "      <td>35.50000</td>\n",
-       "      <td>83</td>\n",
-       "      <td>33.50000</td>\n",
-       "      <td>0.30000</td>\n",
-       "      <td>12.20000</td>\n",
-       "      <td>-3.90000</td>\n",
-       "      <td>48.70000</td>\n",
-       "      <td>4.90000</td>\n",
-       "      <td>$39.0</td>\n",
-       "      <td>6.80000</td>\n",
-       "      <td>168</td>\n",
-       "      <td>3.67000</td>\n",
-       "      <td>-5.24000</td>\n",
-       "      <td>8.91000</td>\n",
-       "      <td>42.05000</td>\n",
-       "      <td>4.33000</td>\n",
-       "      <td>0.90000</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>0</td>\n",
-       "      <td>3.65000</td>\n",
-       "      <td>0.43000</td>\n",
-       "      <td>0.50100</td>\n",
-       "      <td>93.70000</td>\n",
-       "      <td>0.23200</td>\n",
-       "      <td>85.10000</td>\n",
-       "      <td>0.06200</td>\n",
-       "      <td>89.30000</td>\n",
-       "      <td>0.08200</td>\n",
-       "      <td>80.00000</td>\n",
-       "      <td>0.09600</td>\n",
-       "      <td>85.40000</td>\n",
-       "      <td>0.02700</td>\n",
-       "      <td>85.00000</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>0.00800</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>17.40000</td>\n",
-       "      <td>11.30000</td>\n",
-       "      <td>1.00000</td>\n",
-       "      <td>6.40000</td>\n",
-       "      <td>-0.90000</td>\n",
-       "      <td>2.30000</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>2.28000</td>\n",
-       "      <td>3.20000</td>\n",
-       "      <td>1.09000</td>\n",
-       "      <td>5.09000</td>\n",
-       "      <td>...</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>0.00100</td>\n",
-       "      <td>0.19800</td>\n",
-       "      <td>0.23700</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>85.40000</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>79.60000</td>\n",
-       "      <td>94.10000</td>\n",
-       "      <td>89.60000</td>\n",
-       "      <td>84.80000</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>81.90000</td>\n",
-       "      <td>94.40000</td>\n",
-       "      <td>85.30000</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>-1.50000</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>2.90000</td>\n",
-       "      <td>-1.90000</td>\n",
-       "      <td>0.70000</td>\n",
-       "      <td>-4.70000</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>-6.60000</td>\n",
-       "      <td>-6.80000</td>\n",
-       "      <td>2.30000</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>2.50000</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>-7.30000</td>\n",
-       "      <td>8.20000</td>\n",
-       "      <td>3.90000</td>\n",
-       "      <td>0.50000</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>-4.10000</td>\n",
-       "      <td>4.20000</td>\n",
-       "      <td>0.10000</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>-0.30000</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>4.10000</td>\n",
-       "      <td>12.80000</td>\n",
-       "      <td>0.90000</td>\n",
-       "      <td>2.00000</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>0.10000</td>\n",
-       "      <td>3.90000</td>\n",
-       "      <td>10.50000</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>-0.20000</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>3.34000</td>\n",
-       "      <td>2.87000</td>\n",
-       "      <td>0.96000</td>\n",
-       "      <td>4.97000</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>4.27000</td>\n",
-       "      <td>1.31000</td>\n",
-       "      <td>2.93000</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>0.22600</td>\n",
-       "      <td>0.67500</td>\n",
-       "      <td>0.45600</td>\n",
-       "      <td>0.65100</td>\n",
-       "      <td>0.87700</td>\n",
-       "      <td>0.82200</td>\n",
-       "      <td>0.51200</td>\n",
-       "      <td>18.10000</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>134</td>\n",
-       "      <td>122</td>\n",
-       "      <td>55</td>\n",
-       "      <td>128</td>\n",
-       "      <td>143</td>\n",
-       "      <td>157</td>\n",
-       "      <td>114</td>\n",
-       "      <td>0.97000</td>\n",
-       "      <td>116</td>\n",
-       "      <td>82</td>\n",
-       "      <td>184</td>\n",
-       "      <td>112</td>\n",
-       "      <td>97</td>\n",
-       "      <td>85</td>\n",
-       "      <td>64</td>\n",
-       "      <td>89</td>\n",
-       "      <td>135</td>\n",
-       "      <td>94.90000</td>\n",
-       "      <td>7.80000</td>\n",
-       "      <td>47</td>\n",
-       "      <td>0.15700</td>\n",
-       "      <td>116.70000</td>\n",
-       "      <td>165</td>\n",
-       "      <td>0.55000</td>\n",
-       "      <td>300</td>\n",
-       "      <td>0.14000</td>\n",
-       "      <td>0.22100</td>\n",
-       "      <td>0.35400</td>\n",
-       "      <td>0.65900</td>\n",
-       "      <td>0.46100</td>\n",
-       "      <td>4.80000</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>1</th>\n",
-       "      <td>19755</td>\n",
-       "      <td>2023</td>\n",
-       "      <td>Shohei Ohtani</td>\n",
-       "      <td>LAA</td>\n",
-       "      <td>28</td>\n",
-       "      <td>87</td>\n",
-       "      <td>334</td>\n",
-       "      <td>389</td>\n",
-       "      <td>99</td>\n",
-       "      <td>48</td>\n",
-       "      <td>15</td>\n",
-       "      <td>5</td>\n",
-       "      <td>31</td>\n",
-       "      <td>61</td>\n",
-       "      <td>68</td>\n",
-       "      <td>47</td>\n",
-       "      <td>4</td>\n",
-       "      <td>86</td>\n",
-       "      <td>1</td>\n",
-       "      <td>2</td>\n",
-       "      <td>0</td>\n",
-       "      <td>7</td>\n",
-       "      <td>11</td>\n",
-       "      <td>4</td>\n",
-       "      <td>0.29600</td>\n",
-       "      <td>110</td>\n",
-       "      <td>102</td>\n",
-       "      <td>38</td>\n",
-       "      <td>6</td>\n",
-       "      <td>1541</td>\n",
-       "      <td>604</td>\n",
-       "      <td>937</td>\n",
-       "      <td>7</td>\n",
-       "      <td>0</td>\n",
-       "      <td>0</td>\n",
-       "      <td>0.12100</td>\n",
-       "      <td>0.22100</td>\n",
-       "      <td>0.55000</td>\n",
-       "      <td>0.38300</td>\n",
-       "      <td>0.65000</td>\n",
-       "      <td>1.03300</td>\n",
-       "      <td>0.35300</td>\n",
-       "      <td>0.31100</td>\n",
-       "      <td>0.01080</td>\n",
-       "      <td>0.15200</td>\n",
-       "      <td>0.44000</td>\n",
-       "      <td>0.40800</td>\n",
-       "      <td>0.05900</td>\n",
-       "      <td>0.30400</td>\n",
-       "      <td>0.06400</td>\n",
-       "      <td>0.00000</td>\n",
-       "      <td>0.42700</td>\n",
-       "      <td>34.90000</td>\n",
-       "      <td>82</td>\n",
-       "      <td>35.20000</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>12.00000</td>\n",
-       "      <td>-9.40000</td>\n",
-       "      <td>39.50000</td>\n",
-       "      <td>4.00000</td>\n",
-       "      <td>$31.7</td>\n",
-       "      <td>6.20000</td>\n",
-       "      <td>177</td>\n",
-       "      <td>2.92000</td>\n",
-       "      <td>-6.26000</td>\n",
-       "      <td>9.18000</td>\n",
-       "      <td>36.48000</td>\n",
-       "      <td>3.81000</td>\n",
-       "      <td>1.03000</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>0</td>\n",
-       "      <td>3.71000</td>\n",
-       "      <td>-0.88000</td>\n",
-       "      <td>0.40600</td>\n",
-       "      <td>94.50000</td>\n",
-       "      <td>0.21700</td>\n",
-       "      <td>84.60000</td>\n",
-       "      <td>0.10800</td>\n",
-       "      <td>89.70000</td>\n",
-       "      <td>0.08600</td>\n",
-       "      <td>80.30000</td>\n",
-       "      <td>0.14100</td>\n",
-       "      <td>86.20000</td>\n",
-       "      <td>0.04200</td>\n",
-       "      <td>87.50000</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>0.01400</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>12.90000</td>\n",
-       "      <td>6.90000</td>\n",
-       "      <td>3.50000</td>\n",
-       "      <td>4.50000</td>\n",
-       "      <td>5.00000</td>\n",
-       "      <td>1.20000</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>2.07000</td>\n",
-       "      <td>2.08000</td>\n",
-       "      <td>2.12000</td>\n",
-       "      <td>3.43000</td>\n",
-       "      <td>...</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>0.10200</td>\n",
-       "      <td>0.24000</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>86.30000</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>80.10000</td>\n",
-       "      <td>94.60000</td>\n",
-       "      <td>90.70000</td>\n",
-       "      <td>87.00000</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>94.10000</td>\n",
-       "      <td>84.70000</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>-7.30000</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>3.50000</td>\n",
-       "      <td>-1.70000</td>\n",
-       "      <td>1.20000</td>\n",
-       "      <td>-6.70000</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>-1.80000</td>\n",
-       "      <td>0.60000</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>2.80000</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>-7.20000</td>\n",
-       "      <td>8.50000</td>\n",
-       "      <td>3.90000</td>\n",
-       "      <td>0.70000</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>4.10000</td>\n",
-       "      <td>-0.40000</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>4.10000</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>4.50000</td>\n",
-       "      <td>6.50000</td>\n",
-       "      <td>1.90000</td>\n",
-       "      <td>1.50000</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>5.40000</td>\n",
-       "      <td>7.90000</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>1.92000</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>3.53000</td>\n",
-       "      <td>1.44000</td>\n",
-       "      <td>1.21000</td>\n",
-       "      <td>2.36000</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>3.45000</td>\n",
-       "      <td>2.15000</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>0.29700</td>\n",
-       "      <td>0.67900</td>\n",
-       "      <td>0.47900</td>\n",
-       "      <td>0.51900</td>\n",
-       "      <td>0.80800</td>\n",
-       "      <td>0.71400</td>\n",
-       "      <td>0.47500</td>\n",
-       "      <td>18.70000</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>121</td>\n",
-       "      <td>144</td>\n",
-       "      <td>97</td>\n",
-       "      <td>121</td>\n",
-       "      <td>160</td>\n",
-       "      <td>220</td>\n",
-       "      <td>105</td>\n",
-       "      <td>0.76000</td>\n",
-       "      <td>104</td>\n",
-       "      <td>108</td>\n",
-       "      <td>252</td>\n",
-       "      <td>97</td>\n",
-       "      <td>103</td>\n",
-       "      <td>102</td>\n",
-       "      <td>65</td>\n",
-       "      <td>95</td>\n",
-       "      <td>124</td>\n",
-       "      <td>93.70000</td>\n",
-       "      <td>13.10000</td>\n",
-       "      <td>46</td>\n",
-       "      <td>0.18000</td>\n",
-       "      <td>117.10000</td>\n",
-       "      <td>130</td>\n",
-       "      <td>0.51000</td>\n",
-       "      <td>255</td>\n",
-       "      <td>0.13000</td>\n",
-       "      <td>0.26500</td>\n",
-       "      <td>0.29100</td>\n",
-       "      <td>0.64100</td>\n",
-       "      <td>0.42600</td>\n",
-       "      <td>4.00000</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>2</th>\n",
-       "      <td>13611</td>\n",
-       "      <td>2023</td>\n",
-       "      <td>Mookie Betts</td>\n",
-       "      <td>LAD</td>\n",
-       "      <td>30</td>\n",
-       "      <td>84</td>\n",
-       "      <td>325</td>\n",
-       "      <td>386</td>\n",
-       "      <td>88</td>\n",
-       "      <td>42</td>\n",
-       "      <td>22</td>\n",
-       "      <td>1</td>\n",
-       "      <td>23</td>\n",
-       "      <td>68</td>\n",
-       "      <td>57</td>\n",
-       "      <td>52</td>\n",
-       "      <td>0</td>\n",
-       "      <td>64</td>\n",
-       "      <td>4</td>\n",
-       "      <td>5</td>\n",
-       "      <td>0</td>\n",
-       "      <td>4</td>\n",
-       "      <td>7</td>\n",
-       "      <td>2</td>\n",
-       "      <td>0.27100</td>\n",
-       "      <td>79</td>\n",
-       "      <td>130</td>\n",
-       "      <td>57</td>\n",
-       "      <td>12</td>\n",
-       "      <td>1482</td>\n",
-       "      <td>620</td>\n",
-       "      <td>862</td>\n",
-       "      <td>5</td>\n",
-       "      <td>0</td>\n",
-       "      <td>0</td>\n",
-       "      <td>0.13500</td>\n",
-       "      <td>0.16600</td>\n",
-       "      <td>0.81000</td>\n",
-       "      <td>0.37300</td>\n",
-       "      <td>0.55700</td>\n",
-       "      <td>0.93000</td>\n",
-       "      <td>0.28600</td>\n",
-       "      <td>0.26700</td>\n",
-       "      <td>0.00610</td>\n",
-       "      <td>0.21400</td>\n",
-       "      <td>0.29700</td>\n",
-       "      <td>0.48900</td>\n",
-       "      <td>0.09200</td>\n",
-       "      <td>0.17700</td>\n",
-       "      <td>0.06300</td>\n",
-       "      <td>0.00000</td>\n",
-       "      <td>0.39300</td>\n",
-       "      <td>23.80000</td>\n",
-       "      <td>71</td>\n",
-       "      <td>23.80000</td>\n",
-       "      <td>0.30000</td>\n",
-       "      <td>11.90000</td>\n",
-       "      <td>-1.70000</td>\n",
-       "      <td>38.10000</td>\n",
-       "      <td>3.80000</td>\n",
-       "      <td>$30.6</td>\n",
-       "      <td>4.90000</td>\n",
-       "      <td>150</td>\n",
-       "      <td>2.73000</td>\n",
-       "      <td>-5.84000</td>\n",
-       "      <td>8.56000</td>\n",
-       "      <td>28.67000</td>\n",
-       "      <td>2.91000</td>\n",
-       "      <td>0.97000</td>\n",
-       "      <td>1.14000</td>\n",
-       "      <td>1</td>\n",
-       "      <td>2.89000</td>\n",
-       "      <td>-0.07000</td>\n",
-       "      <td>0.53500</td>\n",
-       "      <td>94.00000</td>\n",
-       "      <td>0.23100</td>\n",
-       "      <td>84.80000</td>\n",
-       "      <td>0.08100</td>\n",
-       "      <td>88.50000</td>\n",
-       "      <td>0.07100</td>\n",
-       "      <td>79.90000</td>\n",
-       "      <td>0.06500</td>\n",
-       "      <td>86.20000</td>\n",
-       "      <td>0.01800</td>\n",
-       "      <td>89.20000</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>0.00300</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>16.30000</td>\n",
-       "      <td>6.80000</td>\n",
-       "      <td>-0.20000</td>\n",
-       "      <td>2.40000</td>\n",
-       "      <td>1.80000</td>\n",
-       "      <td>-0.70000</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>2.06000</td>\n",
-       "      <td>1.99000</td>\n",
-       "      <td>-0.21000</td>\n",
-       "      <td>2.33000</td>\n",
-       "      <td>...</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>0.00100</td>\n",
-       "      <td>0.21400</td>\n",
-       "      <td>0.23400</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>86.10000</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>79.90000</td>\n",
-       "      <td>94.40000</td>\n",
-       "      <td>88.90000</td>\n",
-       "      <td>88.30000</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>80.10000</td>\n",
-       "      <td>93.50000</td>\n",
-       "      <td>84.70000</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>-1.60000</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>2.80000</td>\n",
-       "      <td>-2.10000</td>\n",
-       "      <td>0.80000</td>\n",
-       "      <td>-6.10000</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>-5.30000</td>\n",
-       "      <td>-4.50000</td>\n",
-       "      <td>3.20000</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>2.30000</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>-6.30000</td>\n",
-       "      <td>8.20000</td>\n",
-       "      <td>3.60000</td>\n",
-       "      <td>1.30000</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>-2.30000</td>\n",
-       "      <td>3.90000</td>\n",
-       "      <td>0.10000</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>-0.20000</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>2.20000</td>\n",
-       "      <td>7.40000</td>\n",
-       "      <td>-1.00000</td>\n",
-       "      <td>0.30000</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>-0.20000</td>\n",
-       "      <td>10.30000</td>\n",
-       "      <td>7.80000</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>-0.25000</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>2.29000</td>\n",
-       "      <td>1.58000</td>\n",
-       "      <td>-0.78000</td>\n",
-       "      <td>1.07000</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>-15.92000</td>\n",
-       "      <td>3.26000</td>\n",
-       "      <td>2.26000</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>0.17200</td>\n",
-       "      <td>0.59200</td>\n",
-       "      <td>0.38100</td>\n",
-       "      <td>0.54300</td>\n",
-       "      <td>0.93100</td>\n",
-       "      <td>0.84300</td>\n",
-       "      <td>0.49800</td>\n",
-       "      <td>17.70000</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>108</td>\n",
-       "      <td>152</td>\n",
-       "      <td>74</td>\n",
-       "      <td>115</td>\n",
-       "      <td>134</td>\n",
-       "      <td>176</td>\n",
-       "      <td>89</td>\n",
-       "      <td>1.06000</td>\n",
-       "      <td>69</td>\n",
-       "      <td>133</td>\n",
-       "      <td>141</td>\n",
-       "      <td>117</td>\n",
-       "      <td>102</td>\n",
-       "      <td>69</td>\n",
-       "      <td>63</td>\n",
-       "      <td>90</td>\n",
-       "      <td>134</td>\n",
-       "      <td>92.40000</td>\n",
-       "      <td>19.60000</td>\n",
-       "      <td>32</td>\n",
-       "      <td>0.12000</td>\n",
-       "      <td>110.10000</td>\n",
-       "      <td>129</td>\n",
-       "      <td>0.48500</td>\n",
-       "      <td>266</td>\n",
-       "      <td>0.20000</td>\n",
-       "      <td>0.26100</td>\n",
-       "      <td>0.28000</td>\n",
-       "      <td>0.55700</td>\n",
-       "      <td>0.40300</td>\n",
-       "      <td>3.80000</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>3</th>\n",
-       "      <td>23667</td>\n",
-       "      <td>2023</td>\n",
-       "      <td>Wander Franco</td>\n",
-       "      <td>TBR</td>\n",
-       "      <td>22</td>\n",
-       "      <td>83</td>\n",
-       "      <td>331</td>\n",
-       "      <td>366</td>\n",
-       "      <td>94</td>\n",
-       "      <td>59</td>\n",
-       "      <td>21</td>\n",
-       "      <td>4</td>\n",
-       "      <td>10</td>\n",
-       "      <td>47</td>\n",
-       "      <td>43</td>\n",
-       "      <td>29</td>\n",
-       "      <td>2</td>\n",
-       "      <td>49</td>\n",
-       "      <td>2</td>\n",
-       "      <td>4</td>\n",
-       "      <td>0</td>\n",
-       "      <td>12</td>\n",
-       "      <td>28</td>\n",
-       "      <td>8</td>\n",
-       "      <td>0.28400</td>\n",
-       "      <td>138</td>\n",
-       "      <td>79</td>\n",
-       "      <td>69</td>\n",
-       "      <td>8</td>\n",
-       "      <td>1419</td>\n",
-       "      <td>526</td>\n",
-       "      <td>893</td>\n",
-       "      <td>7</td>\n",
-       "      <td>0</td>\n",
-       "      <td>0</td>\n",
-       "      <td>0.07900</td>\n",
-       "      <td>0.13400</td>\n",
-       "      <td>0.59000</td>\n",
-       "      <td>0.34200</td>\n",
-       "      <td>0.46200</td>\n",
-       "      <td>0.80400</td>\n",
-       "      <td>0.17800</td>\n",
-       "      <td>0.30400</td>\n",
-       "      <td>0.01750</td>\n",
-       "      <td>0.24100</td>\n",
-       "      <td>0.48300</td>\n",
-       "      <td>0.27600</td>\n",
-       "      <td>0.10100</td>\n",
-       "      <td>0.12700</td>\n",
-       "      <td>0.05100</td>\n",
-       "      <td>0.00000</td>\n",
-       "      <td>0.34400</td>\n",
-       "      <td>7.70000</td>\n",
-       "      <td>52</td>\n",
-       "      <td>11.00000</td>\n",
-       "      <td>9.20000</td>\n",
-       "      <td>11.30000</td>\n",
-       "      <td>3.50000</td>\n",
-       "      <td>38.00000</td>\n",
-       "      <td>3.80000</td>\n",
-       "      <td>$30.5</td>\n",
-       "      <td>7.20000</td>\n",
-       "      <td>125</td>\n",
-       "      <td>0.59000</td>\n",
-       "      <td>-5.56000</td>\n",
-       "      <td>6.15000</td>\n",
-       "      <td>13.35000</td>\n",
-       "      <td>1.49000</td>\n",
-       "      <td>0.89000</td>\n",
-       "      <td>1.46000</td>\n",
-       "      <td>2</td>\n",
-       "      <td>1.37000</td>\n",
-       "      <td>-0.70000</td>\n",
-       "      <td>0.41200</td>\n",
-       "      <td>93.80000</td>\n",
-       "      <td>0.17400</td>\n",
-       "      <td>84.50000</td>\n",
-       "      <td>0.09100</td>\n",
-       "      <td>89.30000</td>\n",
-       "      <td>0.09300</td>\n",
-       "      <td>80.50000</td>\n",
-       "      <td>0.19900</td>\n",
-       "      <td>85.70000</td>\n",
-       "      <td>0.03100</td>\n",
-       "      <td>87.30000</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>0.00800</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>11.00000</td>\n",
-       "      <td>5.10000</td>\n",
-       "      <td>-1.50000</td>\n",
-       "      <td>-2.00000</td>\n",
-       "      <td>-0.90000</td>\n",
-       "      <td>-2.20000</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>1.89000</td>\n",
-       "      <td>2.07000</td>\n",
-       "      <td>-1.17000</td>\n",
-       "      <td>-1.54000</td>\n",
-       "      <td>...</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>0.12100</td>\n",
-       "      <td>0.18500</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>86.00000</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>80.60000</td>\n",
-       "      <td>94.10000</td>\n",
-       "      <td>89.70000</td>\n",
-       "      <td>87.00000</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>93.80000</td>\n",
-       "      <td>84.50000</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>-5.60000</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>3.40000</td>\n",
-       "      <td>-2.30000</td>\n",
-       "      <td>1.00000</td>\n",
-       "      <td>-6.90000</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>-4.20000</td>\n",
-       "      <td>2.80000</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>2.10000</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>-7.80000</td>\n",
-       "      <td>8.60000</td>\n",
-       "      <td>4.20000</td>\n",
-       "      <td>1.10000</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>4.00000</td>\n",
-       "      <td>-0.50000</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>-2.00000</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>-1.20000</td>\n",
-       "      <td>9.10000</td>\n",
-       "      <td>-0.40000</td>\n",
-       "      <td>-1.30000</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>1.40000</td>\n",
-       "      <td>3.30000</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>-0.69000</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>-1.04000</td>\n",
-       "      <td>2.24000</td>\n",
-       "      <td>-0.30000</td>\n",
-       "      <td>-3.63000</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>0.84000</td>\n",
-       "      <td>1.26000</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>0.25600</td>\n",
-       "      <td>0.60900</td>\n",
-       "      <td>0.44500</td>\n",
-       "      <td>0.76300</td>\n",
-       "      <td>0.91600</td>\n",
-       "      <td>0.87500</td>\n",
-       "      <td>0.53500</td>\n",
-       "      <td>18.80000</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>116</td>\n",
-       "      <td>95</td>\n",
-       "      <td>59</td>\n",
-       "      <td>108</td>\n",
-       "      <td>114</td>\n",
-       "      <td>111</td>\n",
-       "      <td>103</td>\n",
-       "      <td>1.20000</td>\n",
-       "      <td>115</td>\n",
-       "      <td>73</td>\n",
-       "      <td>105</td>\n",
-       "      <td>102</td>\n",
-       "      <td>101</td>\n",
-       "      <td>96</td>\n",
-       "      <td>91</td>\n",
-       "      <td>97</td>\n",
-       "      <td>109</td>\n",
-       "      <td>88.90000</td>\n",
-       "      <td>8.30000</td>\n",
-       "      <td>18</td>\n",
-       "      <td>0.06300</td>\n",
-       "      <td>111.00000</td>\n",
-       "      <td>112</td>\n",
-       "      <td>0.39200</td>\n",
-       "      <td>286</td>\n",
-       "      <td>0.18200</td>\n",
-       "      <td>0.23700</td>\n",
-       "      <td>0.29200</td>\n",
-       "      <td>0.45100</td>\n",
-       "      <td>0.34900</td>\n",
-       "      <td>3.10000</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>4</th>\n",
-       "      <td>25878</td>\n",
-       "      <td>2023</td>\n",
-       "      <td>Corbin Carroll</td>\n",
-       "      <td>ARI</td>\n",
-       "      <td>22</td>\n",
-       "      <td>83</td>\n",
-       "      <td>297</td>\n",
-       "      <td>335</td>\n",
-       "      <td>86</td>\n",
-       "      <td>45</td>\n",
-       "      <td>20</td>\n",
-       "      <td>3</td>\n",
-       "      <td>18</td>\n",
-       "      <td>61</td>\n",
-       "      <td>46</td>\n",
-       "      <td>30</td>\n",
-       "      <td>1</td>\n",
-       "      <td>66</td>\n",
-       "      <td>6</td>\n",
-       "      <td>1</td>\n",
-       "      <td>1</td>\n",
-       "      <td>3</td>\n",
-       "      <td>24</td>\n",
-       "      <td>2</td>\n",
-       "      <td>0.29000</td>\n",
-       "      <td>105</td>\n",
-       "      <td>85</td>\n",
-       "      <td>38</td>\n",
-       "      <td>9</td>\n",
-       "      <td>1293</td>\n",
-       "      <td>487</td>\n",
-       "      <td>806</td>\n",
-       "      <td>6</td>\n",
-       "      <td>5</td>\n",
-       "      <td>2</td>\n",
-       "      <td>0.09000</td>\n",
-       "      <td>0.19700</td>\n",
-       "      <td>0.45000</td>\n",
-       "      <td>0.36500</td>\n",
-       "      <td>0.55900</td>\n",
-       "      <td>0.92400</td>\n",
-       "      <td>0.26900</td>\n",
-       "      <td>0.31800</td>\n",
-       "      <td>0.01240</td>\n",
-       "      <td>0.16700</td>\n",
-       "      <td>0.46100</td>\n",
-       "      <td>0.37300</td>\n",
-       "      <td>0.10600</td>\n",
-       "      <td>0.21200</td>\n",
-       "      <td>0.05700</td>\n",
-       "      <td>0.40000</td>\n",
-       "      <td>0.39200</td>\n",
-       "      <td>20.30000</td>\n",
-       "      <td>61</td>\n",
-       "      <td>18.80000</td>\n",
-       "      <td>0.70000</td>\n",
-       "      <td>10.40000</td>\n",
-       "      <td>-2.60000</td>\n",
-       "      <td>36.50000</td>\n",
-       "      <td>3.70000</td>\n",
-       "      <td>$29.3</td>\n",
-       "      <td>8.30000</td>\n",
-       "      <td>145</td>\n",
-       "      <td>2.81000</td>\n",
-       "      <td>-4.71000</td>\n",
-       "      <td>7.52000</td>\n",
-       "      <td>26.36000</td>\n",
-       "      <td>2.75000</td>\n",
-       "      <td>0.98000</td>\n",
-       "      <td>1.30000</td>\n",
-       "      <td>3</td>\n",
-       "      <td>2.64000</td>\n",
-       "      <td>0.24000</td>\n",
-       "      <td>0.46300</td>\n",
-       "      <td>94.00000</td>\n",
-       "      <td>0.21300</td>\n",
-       "      <td>83.80000</td>\n",
-       "      <td>0.10000</td>\n",
-       "      <td>90.60000</td>\n",
-       "      <td>0.10000</td>\n",
-       "      <td>80.20000</td>\n",
-       "      <td>0.10100</td>\n",
-       "      <td>86.60000</td>\n",
-       "      <td>0.02400</td>\n",
-       "      <td>86.20000</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>0.00400</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>20.40000</td>\n",
-       "      <td>3.70000</td>\n",
-       "      <td>-3.00000</td>\n",
-       "      <td>-0.20000</td>\n",
-       "      <td>-1.20000</td>\n",
-       "      <td>1.10000</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>3.41000</td>\n",
-       "      <td>1.36000</td>\n",
-       "      <td>-2.30000</td>\n",
-       "      <td>-0.14000</td>\n",
-       "      <td>...</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>0.00200</td>\n",
-       "      <td>0.14600</td>\n",
-       "      <td>0.23000</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>86.20000</td>\n",
-       "      <td>77.40000</td>\n",
-       "      <td>80.00000</td>\n",
-       "      <td>94.30000</td>\n",
-       "      <td>90.80000</td>\n",
-       "      <td>87.30000</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>82.80000</td>\n",
-       "      <td>93.50000</td>\n",
-       "      <td>84.10000</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>-6.80000</td>\n",
-       "      <td>7.00000</td>\n",
-       "      <td>5.20000</td>\n",
-       "      <td>-2.20000</td>\n",
-       "      <td>0.80000</td>\n",
-       "      <td>-5.90000</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>-8.30000</td>\n",
-       "      <td>-3.20000</td>\n",
-       "      <td>1.20000</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>2.10000</td>\n",
-       "      <td>-10.50000</td>\n",
-       "      <td>-6.90000</td>\n",
-       "      <td>8.10000</td>\n",
-       "      <td>4.40000</td>\n",
-       "      <td>1.20000</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>-2.40000</td>\n",
-       "      <td>3.10000</td>\n",
-       "      <td>0.00000</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>-1.20000</td>\n",
-       "      <td>0.00000</td>\n",
-       "      <td>0.00000</td>\n",
-       "      <td>10.80000</td>\n",
-       "      <td>-2.40000</td>\n",
-       "      <td>-0.10000</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>1.30000</td>\n",
-       "      <td>8.90000</td>\n",
-       "      <td>3.20000</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>-1.00000</td>\n",
-       "      <td>3.61000</td>\n",
-       "      <td>0.04000</td>\n",
-       "      <td>2.71000</td>\n",
-       "      <td>-1.96000</td>\n",
-       "      <td>-0.19000</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>62.60000</td>\n",
-       "      <td>4.71000</td>\n",
-       "      <td>1.09000</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>0.27700</td>\n",
-       "      <td>0.62500</td>\n",
-       "      <td>0.44800</td>\n",
-       "      <td>0.69800</td>\n",
-       "      <td>0.86600</td>\n",
-       "      <td>0.81300</td>\n",
-       "      <td>0.49100</td>\n",
-       "      <td>18.40000</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>115</td>\n",
-       "      <td>101</td>\n",
-       "      <td>88</td>\n",
-       "      <td>113</td>\n",
-       "      <td>135</td>\n",
-       "      <td>165</td>\n",
-       "      <td>106</td>\n",
-       "      <td>0.82000</td>\n",
-       "      <td>107</td>\n",
-       "      <td>101</td>\n",
-       "      <td>169</td>\n",
-       "      <td>107</td>\n",
-       "      <td>88</td>\n",
-       "      <td>105</td>\n",
-       "      <td>77</td>\n",
-       "      <td>107</td>\n",
-       "      <td>100</td>\n",
-       "      <td>90.70000</td>\n",
-       "      <td>11.80000</td>\n",
-       "      <td>22</td>\n",
-       "      <td>0.09400</td>\n",
-       "      <td>113.80000</td>\n",
-       "      <td>101</td>\n",
-       "      <td>0.43300</td>\n",
-       "      <td>233</td>\n",
-       "      <td>0.17500</td>\n",
-       "      <td>0.25900</td>\n",
-       "      <td>0.26100</td>\n",
-       "      <td>0.45300</td>\n",
-       "      <td>0.34700</td>\n",
-       "      <td>3.50000</td>\n",
-       "    </tr>\n",
-       "  </tbody>\n",
-       "</table>\n",
-       "<p>5 rows × 320 columns</p>\n",
-       "</div>"
-      ],
-      "text/plain": [
-       "    IDfg  Season              Name Team  Age   G   AB   PA    H  1B  2B  3B  \\\n",
-       "0  18401    2023  Ronald Acuna Jr.  ATL   25  86  347  396  117  71  24   1   \n",
-       "1  19755    2023     Shohei Ohtani  LAA   28  87  334  389   99  48  15   5   \n",
-       "2  13611    2023      Mookie Betts  LAD   30  84  325  386   88  42  22   1   \n",
-       "3  23667    2023     Wander Franco  TBR   22  83  331  366   94  59  21   4   \n",
-       "4  25878    2023    Corbin Carroll  ARI   22  83  297  335   86  45  20   3   \n",
-       "\n",
-       "   HR   R  RBI  BB  IBB  SO  HBP  SF  SH  GDP  SB  CS     AVG   GB   FB  LD  \\\n",
-       "0  21  78   54  43    2  49    4   2   0    7  41   7 0.33700  150   91  59   \n",
-       "1  31  61   68  47    4  86    1   2   0    7  11   4 0.29600  110  102  38   \n",
-       "2  23  68   57  52    0  64    4   5   0    4   7   2 0.27100   79  130  57   \n",
-       "3  10  47   43  29    2  49    2   4   0   12  28   8 0.28400  138   79  69   \n",
-       "4  18  61   46  30    1  66    6   1   1    3  24   2 0.29000  105   85  38   \n",
-       "\n",
-       "   IFFB  Pitches  Balls  Strikes  IFH  BU  BUH     BB%      K%    BB/K  \\\n",
-       "0     6     1528    617      911   16   0    0 0.10900 0.12400 0.88000   \n",
-       "1     6     1541    604      937    7   0    0 0.12100 0.22100 0.55000   \n",
-       "2    12     1482    620      862    5   0    0 0.13500 0.16600 0.81000   \n",
-       "3     8     1419    526      893    7   0    0 0.07900 0.13400 0.59000   \n",
-       "4     9     1293    487      806    6   5    2 0.09000 0.19700 0.45000   \n",
-       "\n",
-       "      OBP     SLG     OPS     ISO   BABIP   GB/FB     LD%     GB%     FB%  \\\n",
-       "0 0.41400 0.59400 1.00800 0.25600 0.34400 0.01650 0.19700 0.50000 0.30300   \n",
-       "1 0.38300 0.65000 1.03300 0.35300 0.31100 0.01080 0.15200 0.44000 0.40800   \n",
-       "2 0.37300 0.55700 0.93000 0.28600 0.26700 0.00610 0.21400 0.29700 0.48900   \n",
-       "3 0.34200 0.46200 0.80400 0.17800 0.30400 0.01750 0.24100 0.48300 0.27600   \n",
-       "4 0.36500 0.55900 0.92400 0.26900 0.31800 0.01240 0.16700 0.46100 0.37300   \n",
-       "\n",
-       "    IFFB%   HR/FB    IFH%    BUH%    wOBA     wRAA  wRC      Bat     Fld  \\\n",
-       "0 0.06600 0.23100 0.10700 0.00000 0.42700 35.50000   83 33.50000 0.30000   \n",
-       "1 0.05900 0.30400 0.06400 0.00000 0.42700 34.90000   82 35.20000     NaN   \n",
-       "2 0.09200 0.17700 0.06300 0.00000 0.39300 23.80000   71 23.80000 0.30000   \n",
-       "3 0.10100 0.12700 0.05100 0.00000 0.34400  7.70000   52 11.00000 9.20000   \n",
-       "4 0.10600 0.21200 0.05700 0.40000 0.39200 20.30000   61 18.80000 0.70000   \n",
-       "\n",
-       "       Rep      Pos      RAR     WAR    Dol     Spd  wRC+     WPA     -WPA  \\\n",
-       "0 12.20000 -3.90000 48.70000 4.90000  $39.0 6.80000   168 3.67000 -5.24000   \n",
-       "1 12.00000 -9.40000 39.50000 4.00000  $31.7 6.20000   177 2.92000 -6.26000   \n",
-       "2 11.90000 -1.70000 38.10000 3.80000  $30.6 4.90000   150 2.73000 -5.84000   \n",
-       "3 11.30000  3.50000 38.00000 3.80000  $30.5 7.20000   125 0.59000 -5.56000   \n",
-       "4 10.40000 -2.60000 36.50000 3.70000  $29.3 8.30000   145 2.81000 -4.71000   \n",
-       "\n",
-       "     +WPA     RE24     REW     pLI    phLI  PH  WPA/LI   Clutch  FB% (Pitch)  \\\n",
-       "0 8.91000 42.05000 4.33000 0.90000     NaN   0 3.65000  0.43000      0.50100   \n",
-       "1 9.18000 36.48000 3.81000 1.03000     NaN   0 3.71000 -0.88000      0.40600   \n",
-       "2 8.56000 28.67000 2.91000 0.97000 1.14000   1 2.89000 -0.07000      0.53500   \n",
-       "3 6.15000 13.35000 1.49000 0.89000 1.46000   2 1.37000 -0.70000      0.41200   \n",
-       "4 7.52000 26.36000 2.75000 0.98000 1.30000   3 2.64000  0.24000      0.46300   \n",
-       "\n",
-       "       FBv     SL%      SLv     CT%      CTv     CB%      CBv     CH%  \\\n",
-       "0 93.70000 0.23200 85.10000 0.06200 89.30000 0.08200 80.00000 0.09600   \n",
-       "1 94.50000 0.21700 84.60000 0.10800 89.70000 0.08600 80.30000 0.14100   \n",
-       "2 94.00000 0.23100 84.80000 0.08100 88.50000 0.07100 79.90000 0.06500   \n",
-       "3 93.80000 0.17400 84.50000 0.09100 89.30000 0.09300 80.50000 0.19900   \n",
-       "4 94.00000 0.21300 83.80000 0.10000 90.60000 0.10000 80.20000 0.10100   \n",
-       "\n",
-       "       CHv     SF%      SFv  KN%  KNv     XX%  PO%      wFB      wSL      wCT  \\\n",
-       "0 85.40000 0.02700 85.00000  NaN  NaN 0.00800  NaN 17.40000 11.30000  1.00000   \n",
-       "1 86.20000 0.04200 87.50000  NaN  NaN 0.01400  NaN 12.90000  6.90000  3.50000   \n",
-       "2 86.20000 0.01800 89.20000  NaN  NaN 0.00300  NaN 16.30000  6.80000 -0.20000   \n",
-       "3 85.70000 0.03100 87.30000  NaN  NaN 0.00800  NaN 11.00000  5.10000 -1.50000   \n",
-       "4 86.60000 0.02400 86.20000  NaN  NaN 0.00400  NaN 20.40000  3.70000 -3.00000   \n",
-       "\n",
-       "       wCB      wCH      wSF  wKN   wFB/C   wSL/C    wCT/C    wCB/C  ...  \\\n",
-       "0  6.40000 -0.90000  2.30000  NaN 2.28000 3.20000  1.09000  5.09000  ...   \n",
-       "1  4.50000  5.00000  1.20000  NaN 2.07000 2.08000  2.12000  3.43000  ...   \n",
-       "2  2.40000  1.80000 -0.70000  NaN 2.06000 1.99000 -0.21000  2.33000  ...   \n",
-       "3 -2.00000 -0.90000 -2.20000  NaN 1.89000 2.07000 -1.17000 -1.54000  ...   \n",
-       "4 -0.20000 -1.20000  1.10000  NaN 3.41000 1.36000 -2.30000 -0.14000  ...   \n",
-       "\n",
-       "   KN% (pi)  SB% (pi)  SI% (pi)  SL% (pi)  XX% (pi)  vCH (pi)  vCS (pi)  \\\n",
-       "0       NaN   0.00100   0.19800   0.23700       NaN  85.40000       NaN   \n",
-       "1       NaN       NaN   0.10200   0.24000       NaN  86.30000       NaN   \n",
-       "2       NaN   0.00100   0.21400   0.23400       NaN  86.10000       NaN   \n",
-       "3       NaN       NaN   0.12100   0.18500       NaN  86.00000       NaN   \n",
-       "4       NaN   0.00200   0.14600   0.23000       NaN  86.20000  77.40000   \n",
-       "\n",
-       "   vCU (pi)  vFA (pi)  vFC (pi)  vFS (pi)  vKN (pi)  vSB (pi)  vSI (pi)  \\\n",
-       "0  79.60000  94.10000  89.60000  84.80000       NaN  81.90000  94.40000   \n",
-       "1  80.10000  94.60000  90.70000  87.00000       NaN       NaN  94.10000   \n",
-       "2  79.90000  94.40000  88.90000  88.30000       NaN  80.10000  93.50000   \n",
-       "3  80.60000  94.10000  89.70000  87.00000       NaN       NaN  93.80000   \n",
-       "4  80.00000  94.30000  90.80000  87.30000       NaN  82.80000  93.50000   \n",
-       "\n",
-       "   vSL (pi)  vXX (pi)  CH-X (pi)  CS-X (pi)  CU-X (pi)  FA-X (pi)  FC-X (pi)  \\\n",
-       "0  85.30000       NaN   -1.50000        NaN    2.90000   -1.90000    0.70000   \n",
-       "1  84.70000       NaN   -7.30000        NaN    3.50000   -1.70000    1.20000   \n",
-       "2  84.70000       NaN   -1.60000        NaN    2.80000   -2.10000    0.80000   \n",
-       "3  84.50000       NaN   -5.60000        NaN    3.40000   -2.30000    1.00000   \n",
-       "4  84.10000       NaN   -6.80000    7.00000    5.20000   -2.20000    0.80000   \n",
-       "\n",
-       "   FS-X (pi)  KN-X (pi)  SB-X (pi)  SI-X (pi)  SL-X (pi)  XX-X (pi)  \\\n",
-       "0   -4.70000        NaN   -6.60000   -6.80000    2.30000        NaN   \n",
-       "1   -6.70000        NaN        NaN   -1.80000    0.60000        NaN   \n",
-       "2   -6.10000        NaN   -5.30000   -4.50000    3.20000        NaN   \n",
-       "3   -6.90000        NaN        NaN   -4.20000    2.80000        NaN   \n",
-       "4   -5.90000        NaN   -8.30000   -3.20000    1.20000        NaN   \n",
-       "\n",
-       "   CH-Z (pi)  CS-Z (pi)  CU-Z (pi)  FA-Z (pi)  FC-Z (pi)  FS-Z (pi)  \\\n",
-       "0    2.50000        NaN   -7.30000    8.20000    3.90000    0.50000   \n",
-       "1    2.80000        NaN   -7.20000    8.50000    3.90000    0.70000   \n",
-       "2    2.30000        NaN   -6.30000    8.20000    3.60000    1.30000   \n",
-       "3    2.10000        NaN   -7.80000    8.60000    4.20000    1.10000   \n",
-       "4    2.10000  -10.50000   -6.90000    8.10000    4.40000    1.20000   \n",
-       "\n",
-       "   KN-Z (pi)  SB-Z (pi)  SI-Z (pi)  SL-Z (pi)  XX-Z (pi)  wCH (pi)  wCS (pi)  \\\n",
-       "0        NaN   -4.10000    4.20000    0.10000        NaN  -0.30000       NaN   \n",
-       "1        NaN        NaN    4.10000   -0.40000        NaN   4.10000       NaN   \n",
-       "2        NaN   -2.30000    3.90000    0.10000        NaN  -0.20000       NaN   \n",
-       "3        NaN        NaN    4.00000   -0.50000        NaN  -2.00000       NaN   \n",
-       "4        NaN   -2.40000    3.10000    0.00000        NaN  -1.20000   0.00000   \n",
-       "\n",
-       "   wCU (pi)  wFA (pi)  wFC (pi)  wFS (pi)  wKN (pi)  wSB (pi)  wSI (pi)  \\\n",
-       "0   4.10000  12.80000   0.90000   2.00000       NaN   0.10000   3.90000   \n",
-       "1   4.50000   6.50000   1.90000   1.50000       NaN       NaN   5.40000   \n",
-       "2   2.20000   7.40000  -1.00000   0.30000       NaN  -0.20000  10.30000   \n",
-       "3  -1.20000   9.10000  -0.40000  -1.30000       NaN       NaN   1.40000   \n",
-       "4   0.00000  10.80000  -2.40000  -0.10000       NaN   1.30000   8.90000   \n",
-       "\n",
-       "   wSL (pi)  wXX (pi)  wCH/C (pi)  wCS/C (pi)  wCU/C (pi)  wFA/C (pi)  \\\n",
-       "0  10.50000       NaN    -0.20000         NaN     3.34000     2.87000   \n",
-       "1   7.90000       NaN     1.92000         NaN     3.53000     1.44000   \n",
-       "2   7.80000       NaN    -0.25000         NaN     2.29000     1.58000   \n",
-       "3   3.30000       NaN    -0.69000         NaN    -1.04000     2.24000   \n",
-       "4   3.20000       NaN    -1.00000     3.61000     0.04000     2.71000   \n",
-       "\n",
-       "   wFC/C (pi)  wFS/C (pi)  wKN/C (pi)  wSB/C (pi)  wSI/C (pi)  wSL/C (pi)  \\\n",
-       "0     0.96000     4.97000         NaN     4.27000     1.31000     2.93000   \n",
-       "1     1.21000     2.36000         NaN         NaN     3.45000     2.15000   \n",
-       "2    -0.78000     1.07000         NaN   -15.92000     3.26000     2.26000   \n",
-       "3    -0.30000    -3.63000         NaN         NaN     0.84000     1.26000   \n",
-       "4    -1.96000    -0.19000         NaN    62.60000     4.71000     1.09000   \n",
-       "\n",
-       "   wXX/C (pi)  O-Swing% (pi)  Z-Swing% (pi)  Swing% (pi)  O-Contact% (pi)  \\\n",
-       "0         NaN        0.22600        0.67500      0.45600          0.65100   \n",
-       "1         NaN        0.29700        0.67900      0.47900          0.51900   \n",
-       "2         NaN        0.17200        0.59200      0.38100          0.54300   \n",
-       "3         NaN        0.25600        0.60900      0.44500          0.76300   \n",
-       "4         NaN        0.27700        0.62500      0.44800          0.69800   \n",
-       "\n",
-       "   Z-Contact% (pi)  Contact% (pi)  Zone% (pi)  Pace (pi)  FRM  AVG+  BB%+  \\\n",
-       "0          0.87700        0.82200     0.51200   18.10000  NaN   134   122   \n",
-       "1          0.80800        0.71400     0.47500   18.70000  NaN   121   144   \n",
-       "2          0.93100        0.84300     0.49800   17.70000  NaN   108   152   \n",
-       "3          0.91600        0.87500     0.53500   18.80000  NaN   116    95   \n",
-       "4          0.86600        0.81300     0.49100   18.40000  NaN   115   101   \n",
-       "\n",
-       "   K%+  OBP+  SLG+  ISO+  BABIP+    LD+%  GB%+  FB%+  HR/FB%+  Pull%+  Cent%+  \\\n",
-       "0   55   128   143   157     114 0.97000   116    82      184     112      97   \n",
-       "1   97   121   160   220     105 0.76000   104   108      252      97     103   \n",
-       "2   74   115   134   176      89 1.06000    69   133      141     117     102   \n",
-       "3   59   108   114   111     103 1.20000   115    73      105     102     101   \n",
-       "4   88   113   135   165     106 0.82000   107   101      169     107      88   \n",
-       "\n",
-       "   Oppo%+  Soft%+  Med%+  Hard%+       EV       LA  Barrels  Barrel%  \\\n",
-       "0      85      64     89     135 94.90000  7.80000       47  0.15700   \n",
-       "1     102      65     95     124 93.70000 13.10000       46  0.18000   \n",
-       "2      69      63     90     134 92.40000 19.60000       32  0.12000   \n",
-       "3      96      91     97     109 88.90000  8.30000       18  0.06300   \n",
-       "4     105      77    107     100 90.70000 11.80000       22  0.09400   \n",
-       "\n",
-       "      maxEV  HardHit  HardHit%  Events   CStr%    CSW%     xBA    xSLG  \\\n",
-       "0 116.70000      165   0.55000     300 0.14000 0.22100 0.35400 0.65900   \n",
-       "1 117.10000      130   0.51000     255 0.13000 0.26500 0.29100 0.64100   \n",
-       "2 110.10000      129   0.48500     266 0.20000 0.26100 0.28000 0.55700   \n",
-       "3 111.00000      112   0.39200     286 0.18200 0.23700 0.29200 0.45100   \n",
-       "4 113.80000      101   0.43300     233 0.17500 0.25900 0.26100 0.45300   \n",
-       "\n",
-       "    xwOBA   L-WAR  \n",
-       "0 0.46100 4.80000  \n",
-       "1 0.42600 4.00000  \n",
-       "2 0.40300 3.80000  \n",
-       "3 0.34900 3.10000  \n",
-       "4 0.34700 3.50000  \n",
-       "\n",
-       "[5 rows x 320 columns]"
-      ]
-     },
-     "execution_count": 6,
-     "metadata": {},
-     "output_type": "execute_result"
+#!/usr/bin/env python
+# coding: utf-8
+
+# In[ ]:
+
+
+
+
+
+# sources:
+# docs.streamlit.io/library/get-started
+
+# In[ ]:
+
+
+
+
+
+# # Introduction
+
+# In[29]:
+
+
+# Import Libraries
+import numpy as np
+import pandas as pd
+
+pd.set_option("display.precision", 2)
+pd.set_option('display.max_rows', None)
+pd.set_option('display.max_columns', None)
+pd.set_option('display.float_format', lambda x: '%.5f' % x)
+from pandas.api.types import (
+    is_categorical_dtype,
+    is_datetime64_any_dtype,
+    is_numeric_dtype,
+    is_object_dtype,
+)
+
+import plotly.figure_factory as ff
+
+
+# ## Streamlit
+
+# In[2]:
+
+
+import streamlit as st
+
+
+# In[ ]:
+
+
+
+
+
+# In[3]:
+
+
+st.set_page_config(
+    page_title="9base",
+    page_icon="⚾",
+    layout="wide",
+    initial_sidebar_state="expanded",
+    menu_items={
+        'Get Help': 'https://www.extremelycoolapp.com/help',
+        'Report a bug': "https://www.extremelycoolapp.com/bug",
+        'About': "# This is a header. This is an *extremely* cool app!"
     }
-   ],
-   "source": [
-    "df.head()"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "id": "96782ce9",
-   "metadata": {},
-   "source": [
-    "## Scatter Chart"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 7,
-   "id": "03c1f54e",
-   "metadata": {},
-   "outputs": [],
-   "source": [
-    "import plotly.express as px"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 8,
-   "id": "da6d975d",
-   "metadata": {},
-   "outputs": [],
-   "source": [
-    "fig = px.scatter(\n",
-    "    df.query(\"Season==2023\"),\n",
-    "    x = \"wRC+\",\n",
-    "    y = \"Hard%+\",\n",
-    "    color = \"Team\",\n",
-    "    hover_name = \"Name\",\n",
-    "    log_x = True,\n",
-    "    size_max = 60,\n",
-    ")"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 9,
-   "id": "18ed8fde",
-   "metadata": {
-    "scrolled": true
-   },
-   "outputs": [],
-   "source": [
-    "#st.plotly_chart(fig, theme=\"streamlit\", use_container_width = True)"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "id": "6d3f76f5",
-   "metadata": {},
-   "source": [
-    "## Filters"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 10,
-   "id": "c9aac4b7",
-   "metadata": {},
-   "outputs": [],
-   "source": [
-    "# calculate min/max/mean for slider\n",
-    "min_AB = df['AB'].min()\n",
-    "max_AB = df['AB'].max()\n",
-    "mean_AB = df['AB'].mean()\n",
-    "\n",
-    "# float em\n",
-    "min_AB = float(min_AB)\n",
-    "max_AB = float(max_AB)\n",
-    "mean_AB = float(mean_AB)"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 11,
-   "id": "13414c39",
-   "metadata": {},
-   "outputs": [
-    {
-     "name": "stderr",
-     "output_type": "stream",
-     "text": [
-      "2023-07-08 09:27:04.206 \n",
-      "  \u001b[33m\u001b[1mWarning:\u001b[0m to view this Streamlit app on a browser, run it with the following\n",
-      "  command:\n",
-      "\n",
-      "    streamlit run C:\\Users\\b7tbu\\anaconda3\\envs\\ninebase\\lib\\site-packages\\ipykernel_launcher.py [ARGUMENTS]\n"
-     ]
-    }
-   ],
-   "source": [
-    "# slider\n",
-    "\n",
-    "ab_slider = st.slider('At Bat Range', min_AB, max_AB, (mean_AB, max_AB))\n"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "id": "86e2e3db",
-   "metadata": {},
-   "outputs": [],
-   "source": []
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "id": "2d9f5e43",
-   "metadata": {},
-   "outputs": [],
-   "source": []
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "id": "5748089e",
-   "metadata": {},
-   "outputs": [],
-   "source": []
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "id": "68bd8e09",
-   "metadata": {},
-   "outputs": [],
-   "source": []
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 12,
-   "id": "c1313884",
-   "metadata": {},
-   "outputs": [],
-   "source": [
-    "## Sidebar"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "id": "9d6c08c6",
-   "metadata": {},
-   "outputs": [],
-   "source": []
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "id": "6b5ac2dc",
-   "metadata": {},
-   "outputs": [],
-   "source": []
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "id": "149d8cb1",
-   "metadata": {},
-   "outputs": [],
-   "source": []
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "id": "4dd3c1b4",
-   "metadata": {},
-   "outputs": [],
-   "source": []
-  },
-  {
-   "cell_type": "markdown",
-   "id": "aa83dad3",
-   "metadata": {},
-   "source": [
-    "## Columns"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 13,
-   "id": "7fdbea4e",
-   "metadata": {},
-   "outputs": [],
-   "source": [
-    "col1, col2 = st.columns([2,1])"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 14,
-   "id": "e06700cb",
-   "metadata": {},
-   "outputs": [],
-   "source": [
-    "col1.subheader(\"Scatter Chart\")\n",
-    "col1.plotly_chart(fig, theme=\"streamlit\", use_container_width = True)\n",
-    "\n",
-    "col2.subheader(\"Filters\")\n",
-    "col2.write(ab_slider)"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "id": "91c0e087",
-   "metadata": {},
-   "outputs": [],
-   "source": []
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "id": "c0fea2d5",
-   "metadata": {},
-   "outputs": [],
-   "source": []
-  },
-  {
-   "cell_type": "markdown",
-   "id": "ee538f99",
-   "metadata": {},
-   "source": [
-    "## Raw Data Section"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 37,
-   "id": "2b9227a0",
-   "metadata": {},
-   "outputs": [],
-   "source": [
-    "from st_aggrid import AgGrid, GridUpdateMode, JsCode\n",
-    "from st_aggrid.grid_options_builder import GridOptionsBuilder"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "id": "e9e552e9",
-   "metadata": {},
-   "outputs": [],
-   "source": []
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 34,
-   "id": "a63217eb",
-   "metadata": {},
-   "outputs": [],
-   "source": [
-    "# Simplify dataframe, narrow to most insightful columns\n",
-    "df_short = df[['Name', 'Team', 'Age', 'AB', 'BB%+', 'K%+', 'BABIP+', 'Hard%+', 'wRC+']]"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 68,
-   "id": "12f5baf9",
-   "metadata": {},
-   "outputs": [],
-   "source": [
-    "#gd = GridOptionsBuilder.from_dataframe(df_short)\n",
-    "#gd.configure_pagination(enabled=True)\n",
-    "#gd.configure_default_column(groupable=True)\n",
-    "#gridOptions = gd.build()"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "id": "987583cf",
-   "metadata": {},
-   "source": [
-    "grid_table = AgGrid(df_short,\n",
-    "                   gridOptions=gridOptions,\n",
-    "                   fit_columns_on_grid_load=True,\n",
-    "                   height='400',\n",
-    "                   width='100%',\n",
-    "                   theme=\"streamlit\",\n",
-    "                   update_mode=GridUpdateMode.GRID_CHANGED,\n",
-    "                   reload_data=True,\n",
-    "                   allow_unsafe_jscode=True,\n",
-    "                   editable=False\n",
-    "                   )"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "id": "0b3da0c8",
-   "metadata": {},
-   "outputs": [],
-   "source": []
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 69,
-   "id": "c4247033",
-   "metadata": {},
-   "outputs": [],
-   "source": [
-    "##########################################"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "id": "261ee6cc",
-   "metadata": {},
-   "source": [
-    "from st_aggrid import AgGrid, GridOptionsBuilder\n",
-    "import streamlit as st\n",
-    "\n",
-    "from st_aggrid import agstyler\n",
-    "from src.agstyler import PINLEFT, PRECISION_ZERO, PRECISION_ONE, PRECISION_TWO, draw_grid\n",
-    "\n",
-    "formatter = {\n",
-    "    'Name': ('Player', PINLEFT),\n",
-    "    'Team': ('Team', {'width': 80}),\n",
-    "    'Age': ('Age', {'width': 80}),\n",
-    "    'AB': ('At Bats', {'width': 80}),\n",
-    "    'K%+': ('K%+', {**PRECISION_ZERO,'width': 80}),\n",
-    "    'BABIP+': ('BABIP+', {**PRECISION_ZERO,'width': 80}),\n",
-    "    'Hard%+': ('Hard%+', {**PRECISION_ZERO,'width': 80}),\n",
-    "    'wRC+': ('wRC+', {**PRECISION_ZERO,'width': 80}),\n",
-    "}\n",
-    "\n",
-    "row_number = st.number_input('Number of rows', min_value=0, value=20)\n",
-    "data = draw_grid(\n",
-    "    df.head(15),\n",
-    "    formatter=formatter,\n",
-    "    fit_columns=True,\n",
-    "    selection='multiple',  # or 'single', or None\n",
-    "    use_checkbox='True',  # or False by default\n",
-    "    max_height=300\n",
-    ")"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "id": "1a8d0ccf",
-   "metadata": {},
-   "outputs": [],
-   "source": []
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 71,
-   "id": "fc796fbd",
-   "metadata": {},
-   "outputs": [
-    {
-     "data": {
-      "text/plain": [
-       "AgGridReturn(data=                      Name Team  Age   AB  BB%+  K%+  BABIP+  Hard%+  wRC+  \\\n",
-       "0         Ronald Acuna Jr.  ATL   25  347   122   55     114     135   168   \n",
-       "1            Shohei Ohtani  LAA   28  334   144   97     105     124   177   \n",
-       "2             Mookie Betts  LAD   30  325   152   74      89     134   150   \n",
-       "3            Wander Franco  TBR   22  331    95   59     103     109   125   \n",
-       "4           Corbin Carroll  ARI   22  297   101   88     106     100   145   \n",
-       "5              Luis Robert  CHW   25  327    69  123     109     106   144   \n",
-       "6          Freddie Freeman  LAD   33  347   113   76     119     121   152   \n",
-       "7                Juan Soto  SDP   24  298   238   89     105     117   153   \n",
-       "8       Fernando Tatis Jr.  SDP   24  282    90   85     104     124   139   \n",
-       "9             Jose Ramirez  CLE   30  325   128   42      97      93   132   \n",
-       "10           Adolis Garcia  TEX   30  336   110  111     100     140   131   \n",
-       "11              Mike Trout  LAA   31  304   150  126     114     125   137   \n",
-       "12              Jonah Heim  TEX   28  284    89   77     105     117   124   \n",
-       "13           Marcus Semien  TEX   32  373   106   62     101     106   115   \n",
-       "14             Bo Bichette  TOR   25  372    46   79     123     119   136   \n",
-       "15        Christian Yelich  MIL   31  314   140   94     116     127   129   \n",
-       "16        Francisco Lindor  NYM   29  326   106   93      82     120   117   \n",
-       "17          Dansby Swanson  CHC   29  325   123  102     107     110   108   \n",
-       "18             Luis Arraez  MIA   26  320    86   23     134      87   152   \n",
-       "19              Will Smith  LAD   28  224   174   61      91     110   140   \n",
-       "20            Ha-seong Kim  SDP   27  268   133  101     102      83   111   \n",
-       "21         Randy Arozarena  TBR   28  305   148  107     117     133   149   \n",
-       "22        Paul Goldschmidt  STL   35  328   132   96     111     133   134   \n",
-       "23            Matt Chapman  TOR   30  317   117  124     117     141   122   \n",
-       "24           Isaac Paredes  TBR   24  254   128   76      94      98   147   \n",
-       "25           Brandon Nimmo  NYM   30  331   125  100     109     117   131   \n",
-       "26       Jeimer Candelario  WSN   29  314    96   89     100     105   118   \n",
-       "27          Thairo Estrada  SFG   27  290    54  109     114      92   108   \n",
-       "28              Matt Olson  ATL   29  331   157  120      92     130   146   \n",
-       "29        Christian Walker  ARI   32  318   101   78      92     106   124   \n",
-       "30           Jack Suwinski  PIT   24  233   178  139      94     121   138   \n",
-       "31         Julio Rodriguez  SEA   22  351    84  112     106     122   107   \n",
-       "32              Yandy Diaz  TBR   31  284   142   68     116     123   157   \n",
-       "33             Kyle Tucker  HOU   26  314   128   57     104     122   134   \n",
-       "34               Josh Jung  TEX   25  337    72  126     117     137   122   \n",
-       "35             Ketel Marte  ARI   29  309   112   72     101     112   131   \n",
-       "36            Ozzie Albies  ATL   26  331    77   66      84     111   119   \n",
-       "37       William Contreras  MIL   25  247   116   89      98      96   110   \n",
-       "38         Xander Bogaerts  SDP   30  304   123   83      99      92   111   \n",
-       "39           Leody Taveras  TEX   24  263    76   86     118     100   129   \n",
-       "40         Adley Rutschman  BAL   25  317   173   63     102      87   124   \n",
-       "41            Nico Hoerner  CHC   26  331    63   51     100      61    94   \n",
-       "42             Lane Thomas  WSN   27  341    64  113     127     106   129   \n",
-       "43          Bobby Witt Jr.  KCR   23  350    66   90      97     118    92   \n",
-       "44        LaMonte Wade Jr.  SFG   29  251   191   83     109     100   140   \n",
-       "45             Austin Hays  BAL   27  279    71  102     131     116   133   \n",
-       "46              J.D. Davis  SFG   30  273   108  122     123     114   122   \n",
-       "47        Gunnar Henderson  BAL   22  256   139  135     111     129   123   \n",
-       "48            Alex Verdugo  BOS   27  320   103   56     107     110   117   \n",
-       "49          Nathaniel Lowe  TEX   27  344   144   89     111     111   120   \n",
-       "50             Jorge Soler  MIA   31  309   136  100      90     130   136   \n",
-       "51           Nolan Arenado  STL   32  321    77   82      99     108   123   \n",
-       "52           Rafael Devers  BOS   26  325   102   88      91     124   118   \n",
-       "53            Austin Riley  ATL   26  340    92  104     103     112   108   \n",
-       "54         Brendan Donovan  STL   26  265   111   66     104     104   120   \n",
-       "55            Bryson Stott  PHI   25  323    58   71     113      86   104   \n",
-       "56           Brandon Drury  LAA   30  282    62  114     113     103   122   \n",
-       "57           Brandon Marsh  PHI   25  252   118  142     130     101   111   \n",
-       "58                Ian Happ  CHC   28  297   189  110     111      86   118   \n",
-       "59           J.P. Crawford  SEA   28  283   175   82     102      99   123   \n",
-       "60            Alex Bregman  HOU   29  336   154   55      85      96   108   \n",
-       "61          Andres Gimenez  CLE   24  294    65   73      97      82   100   \n",
-       "62             Cal Raleigh  SEA   26  256   118  111      92     101   101   \n",
-       "63           Spencer Steer  CIN   25  314   127   79     106     105   130   \n",
-       "64            Nolan Gorman  STL   23  262   128  134      95     101   118   \n",
-       "65               Ryan Noda  OAK   27  248   223  145     119     117   132   \n",
-       "66       Cedric Mullins II  BAL   28  238   151   84      97      92   118   \n",
-       "67            James Outman  LAD   26  259   100  154     112      97   103   \n",
-       "68        Nick Castellanos  PHI   31  334    72  112     127     112   128   \n",
-       "69             Pete Alonso  NYM   28  294   105   92      64     111   126   \n",
-       "70       Anthony Santander  BAL   28  316   102   97     106     112   125   \n",
-       "71            Ryan McMahon  COL   28  311   125  138     117     135   103   \n",
-       "72          Zach McKinstry  DET   28  236   124   88     101      87   101   \n",
-       "73             Trea Turner  PHI   30  356    74  107     104      95    85   \n",
-       "74           Anthony Volpe  NYY   22  295   106  129      96     111    90   \n",
-       "75        Masataka Yoshida  BOS   29  292    99   47     112      95   135   \n",
-       "76           Justin Turner  BOS   38  323   108   71     106     102   123   \n",
-       "77          Bryan Reynolds  PIT   28  279   107   84     102     103   115   \n",
-       "78           Manny Machado  SDP   30  283    70   83      93      95   100   \n",
-       "79         Whit Merrifield  TOR   34  289    87   77     115      78   104   \n",
-       "80             Jeremy Pena  HOU   25  303    62   99     100      92    95   \n",
-       "81             Josh Naylor  CLE   26  282    74   73     110     111   120   \n",
-       "82           Anthony Rizzo  NYY   33  299   115   99     108      91   117   \n",
-       "83          Jonathan India  CIN   26  337   101   83      94      99   102   \n",
-       "84          Jarred Kelenic  SEA   23  296   112  147     118     105   109   \n",
-       "85         George Springer  TOR   33  341    93   72     100     105   106   \n",
-       "86          Eugenio Suarez  SEA   31  313   115  122     100     121   100   \n",
-       "87             Joey Wiemer  MIL   24  260   104  127      84     112    82   \n",
-       "88        Andrew McCutchen  PIT   36  261   175   90     104     102   123   \n",
-       "89     Lourdes Gurriel Jr.  ARI   29  293    68   80      94     114   112   \n",
-       "90               Max Muncy  LAD   32  241   172  126      64     121   114   \n",
-       "91          Hunter Renfroe  LAA   31  309    72   95      94     114   103   \n",
-       "92          Mauricio Dubon  HOU   28  275    41   53     107      74    99   \n",
-       "93             Steven Kwan  CLE   25  346   116   53     102      48    95   \n",
-       "94             Tommy Edman  STL   28  274    88   72      88     123    90   \n",
-       "95            Brent Rooker  OAK   28  249   132  135     105     112   126   \n",
-       "96           J.T. Realmuto  PHI   32  274    78  107     101      96   101   \n",
-       "97       Teoscar Hernandez  SEA   30  332    70  138     111     119   106   \n",
-       "98          Ezequiel Tovar  COL   21  293    47  119     115      98    82   \n",
-       "99       Willson Contreras  STL   31  277   107  101      95     127   104   \n",
-       "100          Carlos Correa  MIN   28  297   112  104      91     104    96   \n",
-       "101         Ke'Bryan Hayes  PIT   26  290    59   90     101     103    83   \n",
-       "102           Willy Adames  MIL   27  291   114  114      79     100    82   \n",
-       "103         Gleyber Torres  NYY   26  322   119   62      86      85   104   \n",
-       "104           Esteury Ruiz  OAK   24  334    45   81     108      48    85   \n",
-       "105          Marcell Ozuna  ATL   32  253   111   96      91     115   119   \n",
-       "106           Byron Buxton  MIN   29  247   134  129      85     101   110   \n",
-       "107      Andrew Benintendi  CHW   28  309   104   65     113      77   100   \n",
-       "108         Daulton Varsho  TOR   26  308    95   99      86      96    84   \n",
-       "109          J.D. Martinez  LAD   35  279    67  137      95     146   119   \n",
-       "110             Elias Diaz  COL   32  269    84   93     109     119    94   \n",
-       "111              Ty France  SEA   28  325    63   75     104      78   110   \n",
-       "112            Taylor Ward  LAA   29  301   105   87      95     114    93   \n",
-       "113            Jeff McNeil  NYM   31  308    87   51      95      64    93   \n",
-       "114          Eddie Rosario  ATL   31  263    79  105      98     115   110   \n",
-       "115           Seiya Suzuki  CHC   28  248   130  112     111     122   105   \n",
-       "116         Carlos Santana  PIT   37  294   119   79      89      93    95   \n",
-       "117          Trent Grisham  SDP   26  267   148  125      91     102    96   \n",
-       "118  Vladimir Guerrero Jr.  TOR   24  331    97   71     103     121   123   \n",
-       "119       Michael Conforto  SFG   30  248   133  111      90     100   102   \n",
-       "120         Brian Anderson  MIL   30  281   119  134     103     100    89   \n",
-       "121          Jace Peterson  OAK   33  243   125  102      87      86    76   \n",
-       "122            Javier Baez  DET   30  323    45   98      94      84    64   \n",
-       "123          Andrew Vaughn  CHW   25  324    92   83      93     111   109   \n",
-       "124              Alec Bohm  PHI   26  278    67   75     104      92   103   \n",
-       "125       Bryan De La Cruz  MIA   26  321    80  110     116     110   104   \n",
-       "126       Jake Cronenworth  SDP   29  303   124   91      85      81    91   \n",
-       "127         Salvador Perez  KCR   33  307    44  105      96     109    93   \n",
-       "128              CJ Abrams  WSN   22  270    43  101      95      82    80   \n",
-       "129      Spencer Torkelson  DET   23  320   122  103      90     120    97   \n",
-       "130           Adam Frazier  BAL   31  263    98   52      79      75    94   \n",
-       "131          Miguel Vargas  LAD   23  254   136   91      75      92    84   \n",
-       "132           Amed Rosario  CLE   27  327    71   83     109      92    85   \n",
-       "133         Starling Marte  NYM   34  293    57   84     104      88    86   \n",
-       "134            Luis Garcia  WSN   23  307    61   52      95     102    81   \n",
-       "135            DJ LeMahieu  NYY   34  269    97  105      91      99    78   \n",
-       "136       Tyler Stephenson  CIN   26  296   114  119     116      94    94   \n",
-       "137         Kyle Schwarber  PHI   30  318   172  130      68     114   104   \n",
-       "138          Triston Casas  BOS   23  241   165  117      94     113    96   \n",
-       "139          Dominic Smith  WSN   28  308    86   67     100      71    82   \n",
-       "140        Shea Langeliers  OAK   25  261    75  129      89      95    77   \n",
-       "141              Josh Bell  CLE   30  284   137   96      90      98    88   \n",
-       "142            Myles Straw  CLE   28  287   105   88     103      49    71   \n",
-       "143           Joey Meneses  WSN   31  323    69   90     116      91    86   \n",
-       "144             Jose Abreu  HOU   36  325    74  101     100      85    77   \n",
-       "145            MJ Melendez  KCR   24  295   122  130      97     122    71   \n",
-       "146           Tim Anderson  CHW   30  260    61   92     100      93    49   \n",
-       "147           Rowdy Tellez  MIL   28  258   106  106      79      98    79   \n",
-       "148       Jurickson Profar  COL   30  301   118   80      95     106    80   \n",
-       "149           Keibert Ruiz  WSN   24  275    61   39      73      97    72   \n",
-       "150      Enrique Hernandez  BOS   31  271    85   93      91      77    65   \n",
-       "\n",
-       "         WAR  \n",
-       "0    4.90000  \n",
-       "1    4.00000  \n",
-       "2    3.80000  \n",
-       "3    3.80000  \n",
-       "4    3.70000  \n",
-       "5    3.70000  \n",
-       "6    3.50000  \n",
-       "7    3.40000  \n",
-       "8    3.40000  \n",
-       "9    3.30000  \n",
-       "10   3.30000  \n",
-       "11   3.10000  \n",
-       "12   3.10000  \n",
-       "13   3.10000  \n",
-       "14   3.00000  \n",
-       "15   3.00000  \n",
-       "16   3.00000  \n",
-       "17   2.90000  \n",
-       "18   2.80000  \n",
-       "19   2.80000  \n",
-       "20   2.80000  \n",
-       "21   2.70000  \n",
-       "22   2.70000  \n",
-       "23   2.70000  \n",
-       "24   2.60000  \n",
-       "25   2.60000  \n",
-       "26   2.60000  \n",
-       "27   2.60000  \n",
-       "28   2.50000  \n",
-       "29   2.50000  \n",
-       "30   2.40000  \n",
-       "31   2.40000  \n",
-       "32   2.30000  \n",
-       "33   2.30000  \n",
-       "34   2.30000  \n",
-       "35   2.20000  \n",
-       "36   2.20000  \n",
-       "37   2.20000  \n",
-       "38   2.20000  \n",
-       "39   2.10000  \n",
-       "40   2.10000  \n",
-       "41   2.10000  \n",
-       "42   2.00000  \n",
-       "43   2.00000  \n",
-       "44   1.90000  \n",
-       "45   1.90000  \n",
-       "46   1.90000  \n",
-       "47   1.90000  \n",
-       "48   1.90000  \n",
-       "49   1.90000  \n",
-       "50   1.80000  \n",
-       "51   1.80000  \n",
-       "52   1.80000  \n",
-       "53   1.80000  \n",
-       "54   1.80000  \n",
-       "55   1.80000  \n",
-       "56   1.70000  \n",
-       "57   1.70000  \n",
-       "58   1.70000  \n",
-       "59   1.70000  \n",
-       "60   1.70000  \n",
-       "61   1.70000  \n",
-       "62   1.70000  \n",
-       "63   1.60000  \n",
-       "64   1.60000  \n",
-       "65   1.60000  \n",
-       "66   1.60000  \n",
-       "67   1.60000  \n",
-       "68   1.50000  \n",
-       "69   1.50000  \n",
-       "70   1.50000  \n",
-       "71   1.50000  \n",
-       "72   1.50000  \n",
-       "73   1.50000  \n",
-       "74   1.50000  \n",
-       "75   1.40000  \n",
-       "76   1.40000  \n",
-       "77   1.40000  \n",
-       "78   1.40000  \n",
-       "79   1.40000  \n",
-       "80   1.40000  \n",
-       "81   1.30000  \n",
-       "82   1.30000  \n",
-       "83   1.30000  \n",
-       "84   1.30000  \n",
-       "85   1.30000  \n",
-       "86   1.30000  \n",
-       "87   1.30000  \n",
-       "88   1.20000  \n",
-       "89   1.20000  \n",
-       "90   1.20000  \n",
-       "91   1.20000  \n",
-       "92   1.20000  \n",
-       "93   1.20000  \n",
-       "94   1.20000  \n",
-       "95   1.10000  \n",
-       "96   1.10000  \n",
-       "97   1.10000  \n",
-       "98   1.10000  \n",
-       "99   1.10000  \n",
-       "100  1.10000  \n",
-       "101  1.10000  \n",
-       "102  1.10000  \n",
-       "103  1.00000  \n",
-       "104  1.00000  \n",
-       "105  0.90000  \n",
-       "106  0.90000  \n",
-       "107  0.90000  \n",
-       "108  0.90000  \n",
-       "109  0.80000  \n",
-       "110  0.80000  \n",
-       "111  0.80000  \n",
-       "112  0.80000  \n",
-       "113  0.80000  \n",
-       "114  0.70000  \n",
-       "115  0.70000  \n",
-       "116  0.70000  \n",
-       "117  0.70000  \n",
-       "118  0.60000  \n",
-       "119  0.60000  \n",
-       "120  0.60000  \n",
-       "121  0.50000  \n",
-       "122  0.50000  \n",
-       "123  0.40000  \n",
-       "124  0.40000  \n",
-       "125  0.40000  \n",
-       "126  0.30000  \n",
-       "127  0.20000  \n",
-       "128  0.20000  \n",
-       "129  0.10000  \n",
-       "130  0.10000  \n",
-       "131  0.10000  \n",
-       "132  0.10000  \n",
-       "133  0.10000  \n",
-       "134  0.00000  \n",
-       "135  0.00000  \n",
-       "136 -0.10000  \n",
-       "137 -0.20000  \n",
-       "138 -0.30000  \n",
-       "139 -0.30000  \n",
-       "140 -0.30000  \n",
-       "141 -0.40000  \n",
-       "142 -0.40000  \n",
-       "143 -0.60000  \n",
-       "144 -0.70000  \n",
-       "145 -0.80000  \n",
-       "146 -0.80000  \n",
-       "147 -0.90000  \n",
-       "148 -1.00000  \n",
-       "149 -1.00000  \n",
-       "150 -1.10000  , selected_rows=[])"
-      ]
-     },
-     "execution_count": 71,
-     "metadata": {},
-     "output_type": "execute_result"
-    }
-   ],
-   "source": [
-    "from st_aggrid import AgGrid\n",
-    "from st_aggrid.grid_options_builder import GridOptionsBuilder\n",
-    "\n",
-    "st.set_page_config(page_title=\"Player Batting\", layout=\"wide\") \n",
-    "st.title(\"Player Batting\")\n",
-    "\n",
-    "# add this\n",
-    "gb = GridOptionsBuilder.from_dataframe(df_short)\n",
-    "gb.configure_pagination()\n",
-    "gridOptions = gb.build()\n",
-    "\n",
-    "AgGrid(df_short, gridOptions=gridOptions)"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "id": "5bea1464",
-   "metadata": {},
-   "outputs": [],
-   "source": []
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "id": "168d7f01",
-   "metadata": {},
-   "outputs": [],
-   "source": []
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "id": "e673489f",
-   "metadata": {},
-   "outputs": [],
-   "source": []
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "id": "3fbb7fd2",
-   "metadata": {},
-   "outputs": [],
-   "source": []
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "id": "1f287d1e",
-   "metadata": {},
-   "outputs": [],
-   "source": []
-  }
- ],
- "metadata": {
-  "kernelspec": {
-   "display_name": "Python 3 (ipykernel)",
-   "language": "python",
-   "name": "python3"
-  },
-  "language_info": {
-   "codemirror_mode": {
-    "name": "ipython",
-    "version": 3
-   },
-   "file_extension": ".py",
-   "mimetype": "text/x-python",
-   "name": "python",
-   "nbconvert_exporter": "python",
-   "pygments_lexer": "ipython3",
-   "version": "3.10.11"
-  }
- },
- "nbformat": 4,
- "nbformat_minor": 5
-}
+)
+
+
+# In[19]:
+
+
+#from st_pages import Page, Section, show_pages, add_page_title
+
+##⚾🥇
+
+#add_page_title() # By default this also adds indentation
+
+## Specify what pages should be shown in the sidebar, and what their titles and icons should be
+#show_pages(
+#    [
+#        Section("14 Day", icon="🥇"),
+#        Section("Season", icon="♂️"),
+#        Page("player_batting_season.py", "Player Batting", "🏠"),
+#    ]
+#)
+
+
+# In[ ]:
+
+
+
+
+
+# In[ ]:
+
+
+
+
+
+# ## Load Data
+
+# In[4]:
+
+
+# Format for GitHub
+df = pd.read_csv('data_storage/player_batting_season.csv')
+
+# Format for Jupyter Notebook
+#df = pd.read_csv('C:/Users/b7tbu/NINEBASE/ninebase/data_storage/player_batting_season.csv')
+
+
+# In[6]:
+
+
+df.head()
+
+
+# ## Scatter Chart
+
+# In[7]:
+
+
+import plotly.express as px
+
+
+# In[8]:
+
+
+fig = px.scatter(
+    df.query("Season==2023"),
+    x = "wRC+",
+    y = "Hard%+",
+    color = "Team",
+    hover_name = "Name",
+    log_x = True,
+    size_max = 60,
+)
+
+
+# In[9]:
+
+
+#st.plotly_chart(fig, theme="streamlit", use_container_width = True)
+
+
+# ## Filters
+
+# In[10]:
+
+
+# calculate min/max/mean for slider
+min_AB = df['AB'].min()
+max_AB = df['AB'].max()
+mean_AB = df['AB'].mean()
+
+# float em
+min_AB = float(min_AB)
+max_AB = float(max_AB)
+mean_AB = float(mean_AB)
+
+
+# In[11]:
+
+
+# slider
+
+ab_slider = st.slider('At Bat Range', min_AB, max_AB, (mean_AB, max_AB))
+
+
+# In[ ]:
+
+
+
+
+
+# In[ ]:
+
+
+
+
+
+# In[ ]:
+
+
+
+
+
+# In[ ]:
+
+
+
+
+
+# In[12]:
+
+
+## Sidebar
+
+
+# In[ ]:
+
+
+
+
+
+# In[ ]:
+
+
+
+
+
+# In[ ]:
+
+
+
+
+
+# In[ ]:
+
+
+
+
+
+# ## Columns
+
+# In[13]:
+
+
+col1, col2 = st.columns([2,1])
+
+
+# In[14]:
+
+
+col1.subheader("Scatter Chart")
+col1.plotly_chart(fig, theme="streamlit", use_container_width = True)
+
+col2.subheader("Filters")
+col2.write(ab_slider)
+
+
+# In[ ]:
+
+
+
+
+
+# In[ ]:
+
+
+
+
+
+# ## Raw Data Section
+
+# In[37]:
+
+
+from st_aggrid import AgGrid, GridUpdateMode, JsCode
+from st_aggrid.grid_options_builder import GridOptionsBuilder
+
+
+# In[ ]:
+
+
+
+
+
+# In[34]:
+
+
+# Simplify dataframe, narrow to most insightful columns
+df_short = df[['Name', 'Team', 'Age', 'AB', 'BB%+', 'K%+', 'BABIP+', 'Hard%+', 'wRC+']]
+
+
+# In[68]:
+
+
+#gd = GridOptionsBuilder.from_dataframe(df_short)
+#gd.configure_pagination(enabled=True)
+#gd.configure_default_column(groupable=True)
+#gridOptions = gd.build()
+
+
+# grid_table = AgGrid(df_short,
+#                    gridOptions=gridOptions,
+#                    fit_columns_on_grid_load=True,
+#                    height='400',
+#                    width='100%',
+#                    theme="streamlit",
+#                    update_mode=GridUpdateMode.GRID_CHANGED,
+#                    reload_data=True,
+#                    allow_unsafe_jscode=True,
+#                    editable=False
+#                    )
+
+# In[ ]:
+
+
+
+
+
+# In[69]:
+
+
+##########################################
+
+
+# from st_aggrid import AgGrid, GridOptionsBuilder
+# import streamlit as st
+# 
+# from st_aggrid import agstyler
+# from src.agstyler import PINLEFT, PRECISION_ZERO, PRECISION_ONE, PRECISION_TWO, draw_grid
+# 
+# formatter = {
+#     'Name': ('Player', PINLEFT),
+#     'Team': ('Team', {'width': 80}),
+#     'Age': ('Age', {'width': 80}),
+#     'AB': ('At Bats', {'width': 80}),
+#     'K%+': ('K%+', {**PRECISION_ZERO,'width': 80}),
+#     'BABIP+': ('BABIP+', {**PRECISION_ZERO,'width': 80}),
+#     'Hard%+': ('Hard%+', {**PRECISION_ZERO,'width': 80}),
+#     'wRC+': ('wRC+', {**PRECISION_ZERO,'width': 80}),
+# }
+# 
+# row_number = st.number_input('Number of rows', min_value=0, value=20)
+# data = draw_grid(
+#     df.head(15),
+#     formatter=formatter,
+#     fit_columns=True,
+#     selection='multiple',  # or 'single', or None
+#     use_checkbox='True',  # or False by default
+#     max_height=300
+# )
+
+# In[ ]:
+
+
+
+
+
+# In[71]:
+
+
+from st_aggrid import AgGrid
+from st_aggrid.grid_options_builder import GridOptionsBuilder
+
+st.set_page_config(page_title="Player Batting", layout="wide") 
+st.title("Player Batting")
+
+# add this
+gb = GridOptionsBuilder.from_dataframe(df_short)
+gb.configure_pagination()
+gridOptions = gb.build()
+
+AgGrid(df_short, gridOptions=gridOptions)
+
+
+# In[ ]:
+
+
+
+
+
+# In[ ]:
+
+
+
+
+
+# In[ ]:
+
+
+
+
+
+# In[ ]:
+
+
+
+
+
+# In[ ]:
+
+
+
+
