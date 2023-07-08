@@ -276,13 +276,13 @@ from st_aggrid.grid_options_builder import GridOptionsBuilder
 df_short = df[['Name', 'Team', 'Age', 'AB', 'BB%+', 'K%+', 'BABIP+', 'Hard%+', 'wRC+']]
 
 
-# In[59]:
+# In[68]:
 
 
-gd = GridOptionsBuilder.from_dataframe(df_short)
-gd.configure_pagination(enabled=True)
-gd.configure_default_column(groupable=True)
-gridOptions = gd.build()
+#gd = GridOptionsBuilder.from_dataframe(df_short)
+#gd.configure_pagination(enabled=True)
+#gd.configure_default_column(groupable=True)
+#gridOptions = gd.build()
 
 
 # grid_table = AgGrid(df_short,
@@ -303,7 +303,7 @@ gridOptions = gd.build()
 
 
 
-# In[ ]:
+# In[69]:
 
 
 ##########################################
@@ -342,7 +342,7 @@ gridOptions = gd.build()
 
 
 
-# In[ ]:
+# In[70]:
 
 
 from st_aggrid import AgGrid
@@ -351,6 +351,12 @@ st.set_page_config(page_title="Raw Data", layout="wide")
 st.title("Raw Data")
 
 AgGrid(df_short)
+
+
+# In[ ]:
+
+
+
 
 
 # In[ ]:
