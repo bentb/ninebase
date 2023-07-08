@@ -97,7 +97,10 @@ st.set_page_config(
 # In[ ]:
 
 
+from streamlit_extras.app_logo import add_logo
 
+
+add_logo("/images/9base_white", height=300)
 
 
 # In[129]:
