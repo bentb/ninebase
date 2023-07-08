@@ -285,7 +285,7 @@ gd.configure_default_column(groupable=True)
 gridOptions = gd.build()
 
 
-# In[47]:
+# In[48]:
 
 
 # build section and publish data
@@ -294,6 +294,7 @@ st.subheader('Data')
 grid_table = AgGrid(df_short,
                    gridOptions = gridOptions,
                    fit_columns_on_grid_load = True,
+                   height = '400',
                    width = '100%',
                    theme = "streamlit",
                    update_mode = GridUpdateMode.GRID_CHANGED,
