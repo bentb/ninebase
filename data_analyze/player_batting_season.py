@@ -18,7 +18,7 @@
 
 # # Introduction
 
-# In[3]:
+# In[1]:
 
 
 # Import Libraries
@@ -41,13 +41,13 @@ import plotly.figure_factory as ff
 
 # ## Streamlit
 
-# In[4]:
+# In[2]:
 
 
 import streamlit as st
 
 
-# In[5]:
+# In[3]:
 
 
 st.set_page_config(
@@ -65,13 +65,17 @@ st.set_page_config(
 
 # ## Load Data
 
-# In[23]:
+# In[4]:
 
 
+# Format for GitHub
 df = pd.read_csv('data_storage/player_batting_season.csv')
 
+# Format for Jupyter Notebook
+#df = pd.read_csv('C:/Users/b7tbu/NINEBASE/ninebase/data_storage/player_batting_season.csv')
 
-# In[22]:
+
+# In[5]:
 
 
 df.head()
@@ -79,13 +83,13 @@ df.head()
 
 # ## Scatter Chart
 
-# In[8]:
+# In[6]:
 
 
 import plotly.express as px
 
 
-# In[9]:
+# In[7]:
 
 
 fig = px.scatter(
@@ -99,7 +103,7 @@ fig = px.scatter(
 )
 
 
-# In[10]:
+# In[8]:
 
 
 #st.plotly_chart(fig, theme="streamlit", use_container_width = True)
@@ -107,10 +111,27 @@ fig = px.scatter(
 
 # ## Filters
 
-# In[ ]:
+# In[28]:
 
 
+# calculate min/max/mean for slider
+min_AB = df['AB'].min()
+max_AB = df['AB'].max()
+mean_AB = df['AB'].mean()
 
+# float em
+min_AB = float(min_AB)
+max_AB = float(max_AB)
+mean_AB = float(mean_AB)
+
+
+# In[30]:
+
+
+# slider
+
+ab_slider = st.slider('Select At Bat Range', min_AB, max_AB, (mean_AB, max_AB))
+st.write('At Bats:', "AB")
 
 
 # In[ ]:
@@ -157,31 +178,31 @@ fig = px.scatter(
 
 # ## Columns
 
-# In[11]:
+# In[9]:
 
 
 col1, col2 = st.columns([3,1])
 
 
-# In[12]:
+# In[31]:
 
 
 col1.subheader("Scatter Chart")
 col1.plotly_chart(fig, theme="streamlit", use_container_width = True)
 
 col2.subheader("Filters")
-col2.write(df)
+col2.write(ab_slider)
 
 
 # ## Print Data
 
-# In[16]:
+# In[11]:
 
 
 from st_aggrid import AgGrid
 
 
-# In[17]:
+# In[12]:
 
 
 st.subheader('Raw data')
