@@ -309,7 +309,7 @@ container.markdown(f'<div style="{container_style}">', unsafe_allow_html=True)
 grid_table = AgGrid(df_short,
                    gridOptions=gridOptions,
                    fit_columns_on_grid_load=True,
-                   height='100%',
+                   height='400',
                    width='100%',
                    theme="streamlit",
                    update_mode=GridUpdateMode.GRID_CHANGED,
