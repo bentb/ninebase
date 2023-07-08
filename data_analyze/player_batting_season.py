@@ -269,13 +269,13 @@ from st_aggrid import AgGrid, GridOptionsBuilder, DataReturnMode, JsCode
 df_short = df[['Name', 'Team', 'Age', 'AB', 'BB%+', 'K%+', 'BABIP+', 'Hard%+', 'wRC+']]
 
 
-# In[54]:
+# In[57]:
 
 
 #builds a gridOptions dictionary using a GridOptionsBuilder instance.
 builder = GridOptionsBuilder.from_dataframe(df_short)
 builder.configure_column("Name", header_name="First", editable=False)
-builder.configure_pagination(enabled=True)
+builder.configure_pagination(enabled=True, paginationPageSize=25)
 go = builder.build()
 
 
