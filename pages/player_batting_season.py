@@ -47,7 +47,7 @@ import streamlit as st
 st.set_page_config(
     page_title="Player Batting",
     page_icon="⚾",
-    layout="centered",
+    layout="wide",
     initial_sidebar_state="expanded",
     menu_items={
         'Report a bug': 'https://www.extremelycoolapp.com/help',
@@ -84,7 +84,7 @@ add_logo()
 
 # ## Load Data
 
-# In[11]:
+# In[9]:
 
 
 # Format for GitHub
@@ -100,7 +100,7 @@ df = pd.read_csv('data_storage/player_batting_season.csv')
 df.head()
 
 
-# In[13]:
+# In[7]:
 
 
 import plotly.express as px
@@ -108,7 +108,7 @@ import plotly.express as px
 
 # ### Row 1 - Scatter Plot 1
 
-# In[14]:
+# In[10]:
 
 
 fig_1 = px.scatter(
@@ -118,12 +118,14 @@ fig_1 = px.scatter(
     hover_name = "Name",
     log_x = True,
     size_max = 60,
+    width = 800,
+    height = 400
 )
 
 
 # ### Row 1 - Scatter Plot 2
 
-# In[15]:
+# In[11]:
 
 
 fig_2 = px.scatter(
@@ -133,6 +135,8 @@ fig_2 = px.scatter(
     hover_name = "Name",
     log_x = True,
     size_max = 60,
+    width = 500,
+    height = 500
 )
 
 
