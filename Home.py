@@ -26,7 +26,7 @@ st.set_page_config(
 st.sidebar.success("Select a page above")
 
 
-# In[12]:
+# In[13]:
 
 
 def add_logo():
@@ -34,7 +34,7 @@ def add_logo():
         """
         <style>
             [data-testid="stSidebarNav"] {
-                background-image: url(https://imgur.com/a/tPZHV47;
+                background-image: url(https://i.imgur.com/nuEg4fJ.png);
                 background-repeat: no-repeat;
                 padding-top: 120px;
                 background-position: 20px 20px;
