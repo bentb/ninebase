@@ -203,7 +203,7 @@ go = builder.build()
 
 col1, col2, = st.columns([0.75, 0.25])
 
-with col1():
+with col1:
     st.subheader("Raw Data")
     grid_response = AgGrid(
         df_short,
@@ -212,7 +212,7 @@ with col1():
         height=600
     )
     
-with col2():
+with col2:
     st.subheader("Col2")
 
 
