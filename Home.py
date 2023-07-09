@@ -26,7 +26,7 @@ st.set_page_config(
 st.sidebar.success("Select a page above")
 
 
-# In[9]:
+# In[12]:
 
 
 def add_logo():
@@ -34,13 +34,13 @@ def add_logo():
         """
         <style>
             [data-testid="stSidebarNav"] {
-                background-image: url(http://placekitten.com/200/200);
+                background-image: url(logos/9base_white.png);
                 background-repeat: no-repeat;
                 padding-top: 120px;
                 background-position: 20px 20px;
             }
             [data-testid="stSidebarNav"]::before {
-                content: "My Company Name";
+                content: "ninebase";
                 margin-left: 20px;
                 margin-top: 20px;
                 font-size: 30px;
