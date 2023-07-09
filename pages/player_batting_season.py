@@ -174,7 +174,6 @@ df_short = df[['Name', 'Team', 'Age', 'AB', 'BB%+', 'K%+', 'BABIP+', 'Hard%+', '
 
 # Builds a gridOptions dictionary using a GridOptionsBuilder instance.
 builder = GridOptionsBuilder.from_dataframe(df_short)
-builder.configure_pagination(enabled=True, paginationAutoPageSize=True, paginationPageSize=100)
 builder.configure_side_bar(filters_panel=True, columns_panel=True)
 
 # Columns
