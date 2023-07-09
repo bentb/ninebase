@@ -12,7 +12,7 @@
 
 # # Introduction
 
-# In[1]:
+# In[2]:
 
 
 # Import Libraries
@@ -35,19 +35,19 @@ import plotly.figure_factory as ff
 
 # ## Streamlit
 
-# In[2]:
+# In[3]:
 
 
 import streamlit as st
 
 
-# In[3]:
+# In[4]:
 
 
 st.set_page_config(
     page_title="Player Batting",
     page_icon="⚾",
-    layout="wide",
+    layout="centered",
     initial_sidebar_state="expanded",
     menu_items={
         'Report a bug': 'https://www.extremelycoolapp.com/help',
@@ -202,8 +202,7 @@ grid_response = AgGrid(
     df_short,
     gridOptions=go,
     theme="streamlit",
-    height=450,
-    width=450
+    height=450
 )
 
 
