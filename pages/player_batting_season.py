@@ -375,7 +375,7 @@ col1, col2 = st.columns([0.75, 0.25])
 with col1:
     st.subheader("Raw Data")
     grid_response = AgGrid(
-        df_short,
+        df,
         gridOptions=go,
         theme="streamlit",
         height=600
