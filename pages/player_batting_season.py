@@ -317,6 +317,12 @@ st.divider()
 
 # ### Playground
 
+# In[ ]:
+
+
+
+
+
 # In[86]:
 
 
@@ -358,7 +364,7 @@ column_defs = [
             {"field": "HR"},
             {"field": "BABIP+"},
             {"field": "Hard%+"},
-            {"field": "wRC+", "columnGroupShow": "open"},
+            {"field": "wRC+"},
         ]
     },
     {
