@@ -599,10 +599,28 @@ st.markdown(
 )
 
 
-# In[ ]:
+# In[138]:
 
 
+# Merge columnDefs with existing column definitions
+grid_options = {"columnDefs": column_defs}
 
+# Launch
+go = grid_options
+
+col1, col2 = st.columns([0.75, 0.25])
+
+with col1:
+    st.subheader("Raw Data")
+    grid_response = AgGrid(
+        df,
+        gridOptions=go,
+        theme="streamlit",
+        height=600
+    )
+
+with col2:
+    st.subheader("")
 
 
 # In[ ]:
