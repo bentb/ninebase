@@ -192,26 +192,6 @@ fig_13.update_layout(
 )
 
 
-# In[ ]:
-
-
-fig_14 = px.box(
-    df.query("Season==2023"),
-    y = "wRC+",
-    points="all",
-    hover_name = "Name",
-    height = 500,
-    width = 500,
-)
-
-fig_14.update_layout(
-    title=dict(text="wRC+", font=dict(size=26), automargin=True, yref='paper'),
-    title_font_color="darkslategrey",
-    yaxis=dict(title=""),
-    xaxis=dict(title="")
-)
-
-
 # ### Row 1 - Tab 2
 
 # In[121]:
@@ -274,9 +254,71 @@ fig_23.update_layout(
 )
 
 
+# ### Row 1 - Tab 3
+
+# In[127]:
+
+
+fig_31 = px.box(
+    df.query("Season==2023"),
+    y = "Pull%",
+    points="all",
+    hover_name = "Name",
+    height = 500,
+    width = 500,
+)
+
+fig_31.update_layout(
+    title=dict(text="Pull %", font=dict(size=26), automargin=True, yref='paper'),
+    title_font_color="darkslategrey",
+    yaxis=dict(title=""),
+    xaxis=dict(title="")
+)
+
+
+# In[128]:
+
+
+fig_32 = px.box(
+    df.query("Season==2023"),
+    y = "Cent%",
+    points="all",
+    hover_name = "Name",
+    height = 500,
+    width = 500,
+)
+
+fig_32.update_layout(
+    title=dict(text="Center %", font=dict(size=26), automargin=True, yref='paper'),
+    title_font_color="darkslategrey",
+    yaxis=dict(title=""),
+    xaxis=dict(title="")
+)
+
+
+# In[129]:
+
+
+fig_33 = px.box(
+    df.query("Season==2023"),
+    y = "Oppo%",
+    points="all",
+    hover_name = "Name",
+    height = 500,
+    width = 500,
+)
+
+fig_33.update_layout(
+    title=dict(text="Oppo %", font=dict(size=26), automargin=True, yref='paper'),
+    title_font_color="darkslategrey",
+    yaxis=dict(title=""),
+    xaxis=dict(title="")
+)
+
+
 # ### Row 1 - Print
 
-# In[72]:
+# In[131]:
 
 
 # Subheader
@@ -287,17 +329,22 @@ tabs = st.tabs(["Power", "Plate Discipline", "Clutch"])
 
 # Display the charts within the tabs
 with tabs[0]:
-    col1, col2, col3, col4 = st.columns(4)
+    col1, col2, col3 = st.columns(3)
     col1.plotly_chart(fig_11, theme="streamlit", use_container_width=False)
     col2.plotly_chart(fig_12, theme="streamlit", use_container_width=False)
     col3.plotly_chart(fig_13, theme="streamlit", use_container_width=False)
-    col4.plotly_chart(fig_14, theme="streamlit", use_container_width=False)
 
 with tabs[1]:
-    col4, col5, col6 = st.columns(3)
+    col5, col5, col6 = st.columns(3)
     col4.plotly_chart(fig_21, theme="streamlit", use_container_width=False)
     col5.plotly_chart(fig_22, theme="streamlit", use_container_width=False)
     col6.plotly_chart(fig_23, theme="streamlit", use_container_width=False)
+    
+with tabs[2]:
+    col7, col8, col9 = st.columns(3)
+    col7.plotly_chart(fig_31, theme="streamlit", use_container_width=False)
+    col8.plotly_chart(fig_32, theme="streamlit", use_container_width=False)
+    col9.plotly_chart(fig_33, theme="streamlit", use_container_width=False)
 
 
 # ## Row 2
