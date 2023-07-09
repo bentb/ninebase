@@ -132,7 +132,7 @@ import statsmodels.api as sm
 
 # ### Row 1 - Tab 1
 
-# In[107]:
+# In[113]:
 
 
 fig_11 = px.box(
@@ -147,12 +147,8 @@ fig_11 = px.box(
 
 fig_11.update_layout(
     title=dict(text="Hard Hit %+", font=dict(size=26), automargin=True, yref='paper'),
-    font_family="sans serif",
-    font_color="blue",
-    title_font_family="Lato",
-    title_font_color="green"
+    title_font_color="darkslategrey"
 )
-fig_11.update_xaxes(title_font_family="Lato")
 
 
 # In[60]:
