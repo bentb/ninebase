@@ -146,10 +146,10 @@ tab1, tab2 = st.tabs(["Hard Hit vs. BABIP", "Walks vs Strikeouts"])
 
 # Display the charts within the tabs
 with tab1:
-    st.plotly_chart(fig_1, height=800, width=800, theme="streamlit", use_container_width=False)
+    st.plotly_chart(fig_1, height=1000, width=1000, theme="streamlit", use_container_width=False)
 
 with tab2:
-    st.plotly_chart(fig_2, height=500, width=500, theme="streamlit", use_container_width=False)
+    st.plotly_chart(fig_2, height=1000, width=1000, theme="streamlit", use_container_width=False)
 
 
 # ## Row 2
