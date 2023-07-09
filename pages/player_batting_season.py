@@ -317,7 +317,7 @@ st.divider()
 
 # ### Playground
 
-# In[83]:
+# In[85]:
 
 
 # Builds a gridOptions dictionary using a GridOptionsBuilder instance.
@@ -336,11 +336,16 @@ builder.configure_column('Hard%+', width=100)
 builder.configure_column("wRC+", width=100, sort='desc')
 
 # Column Grouping
-column_defs = [
+column_defs = [        
     {
         "headerName": "Player Details",
         "children": [
             {"field": "Name", "headerName": "Player", "pinned": 'left'},
+        ]
+    },
+    {
+        "headerName": "Player Details",
+        "children": [
             {"field": "Team"},
             {"field": "Age"},
             {"field": "AB", "headerName": "At Bats"},
