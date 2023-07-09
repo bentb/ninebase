@@ -479,6 +479,7 @@ col1, col2 = st.columns([0.75, 0.25])
 
 with col1:
     st.subheader("Raw Data")
+    st.text("Default Sort: wRC+")
     grid_response = AgGrid(
         df,
         gridOptions=go,
