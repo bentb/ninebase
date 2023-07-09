@@ -574,32 +574,7 @@ column_defs = [
 ]
 
 
-# In[137]:
-
-
-st.markdown(
-    """
-    <style>
-    .ag-theme-alpine .ag-header-group-cell.player-details-group {
-        background-color: #ffcc00;  /* Set the desired background color for this group */
-        color: white;
-        font-weight: normal;
-        font-size: 22px;
-    }
-    .ag-theme-alpine .ag-header-group-cell.power-group {
-        background-color: #00ccff;  /* Set the desired background color for this group */
-        color: white;
-        font-weight: normal;
-        font-size: 22px;
-    }
-    /* Define styles for other groups similarly */
-    </style>
-    """,
-    unsafe_allow_html=True
-)
-
-
-# In[138]:
+# In[140]:
 
 
 # Merge columnDefs with existing column definitions
@@ -612,15 +587,40 @@ col1, col2 = st.columns([0.75, 0.25])
 
 with col1:
     st.subheader("Raw Data")
+    st.markdown(
+        """
+        <style>
+        .ag-theme-alpine .ag-header-group-cell.player-details-group {
+            background-color: #ffcc00;  /* Set the desired background color for this group */
+            color: white;
+            font-weight: normal;
+            font-size: 22px;
+        }
+        .ag-theme-alpine .ag-header-group-cell.power-group {
+            background-color: #00ccff;  /* Set the desired background color for this group */
+            color: white;
+            font-weight: normal;
+            font-size: 22px;
+        }
+        /* Define styles for other groups similarly */
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
     grid_response = AgGrid(
         df,
         gridOptions=go,
-        theme="streamlit",
         height=600
     )
 
 with col2:
     st.subheader("")
+
+
+# In[138]:
+
+
+
 
 
 # In[ ]:
