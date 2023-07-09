@@ -118,8 +118,8 @@ fig_1 = px.scatter(
     hover_name = "Name",
     log_x = True,
     size_max = 60,
-    height = 500,
-    width = 500,
+    height = 750,
+    width = 750,
 )
 
 
@@ -135,8 +135,8 @@ fig_2 = px.scatter(
     hover_name = "Name",
     log_x = True,
     size_max = 60,
-    height = 1000,
-    width = 1000,
+    height = 750,
+    width = 750,
 )
 
 
