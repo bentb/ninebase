@@ -37,7 +37,6 @@ def add_logo():
                 background-image: url(https://i.imgur.com/OBQbrzX.png);
                 background-repeat: no-repeat;
                 padding-top: 120px;
-                padding_bottom: 120px;
                 background-position: 20px 20px;
             }
         </style>
@@ -50,6 +49,16 @@ def add_logo():
 
 
 add_logo()
+
+
+# In[14]:
+
+
+from PIL import Image
+
+image = Image.open('assets/cards_at_mets.jpg')
+
+st.image(image, caption='Cards at Mets')
 
 
 # In[11]:
