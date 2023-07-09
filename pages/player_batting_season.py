@@ -115,53 +115,92 @@ import plotly.express as px
 import statsmodels.api as sm
 
 
-# ### Row 1 - Plot 1
+# ### Row 1 - Plot 1 (outdated)
 
-# In[52]:
+# fig_1 = px.scatter(
+#     df.query("Season==2023"),
+#     title="Hard%+ vs. BABIP+",
+#     x = "Hard%+",
+#     y = "BABIP+",
+#     hover_name = "Name",
+#     log_x = True,
+#     trendline = "ols",
+#     size_max = 60,
+#     height = 750,
+#     width = 750,
+# )
+
+# ### Row 1 - Tab 1
+
+# In[59]:
 
 
-fig_1 = px.scatter(
+fig_11 = px.box(
     df.query("Season==2023"),
-    title="Hard%+ vs. BABIP+",
-    x = "Hard%+",
-    y = "BABIP+",
+    title="Hard Hit %+",
+    y = "Hard%+",
+    points="all",
     hover_name = "Name",
-    log_x = True,
-    trendline = "ols",
-    size_max = 60,
-    height = 750,
-    width = 750,
 )
 
 
-# ### Row 1 - Plot 2
-
-# In[53]:
+# In[60]:
 
 
-fig_2 = px.scatter(
+fig_12 = px.box(
     df.query("Season==2023"),
-    title="BB%+ vs. K%+",
-    x = "BB%+",
-    y = "K%+",
+    title="Home Runs",
+    y = "HR",
+    points="all",
     hover_name = "Name",
-    log_x = True,
-    trendline = "ols",
-    size_max = 60,
-    height = 750,
-    width = 750,
 )
 
 
-# ### Row 1 - Plot 3
-
-# In[54]:
+# In[61]:
 
 
-fig_3 = px.box(
+fig_13 = px.box(
     df.query("Season==2023"),
-    title="K%+",
+    title="wRC+",
+    y = "wRC+",
+    points="all",
+    hover_name = "Name",
+)
+
+
+# ### Row 1 - Tab 2
+
+# In[62]:
+
+
+fig_21 = px.box(
+    df.query("Season==2023"),
+    title="Walk %+",
+    y = "BB%+",
+    points="all",
+    hover_name = "Name",
+)
+
+
+# In[67]:
+
+
+fig_22 = px.box(
+    df.query("Season==2023"),
+    title="Strikeout %+",
     y = "K%+",
+    points="all",
+    hover_name = "Name",
+)
+
+
+# In[68]:
+
+
+fig_23 = px.box(
+    df.query("Season==2023"),
+    title="Out of Zone Swing %",
+    y = "O-Swing%",
     points="all",
     hover_name = "Name",
 )
@@ -169,24 +208,30 @@ fig_3 = px.box(
 
 # ### Row 1 - Print
 
-# In[51]:
+# In[69]:
 
 
 # Subheader
 st.subheader('Player Batting')
 
 # Create the tabs
-tab1, tab2, tab3 = st.tabs(["Power", "Plate Discipline", "Clutch"])
+tabs = st.tabs(["Power", "Plate Discipline", "Clutch"])
 
 # Display the charts within the tabs
-with tab1:
-    st.plotly_chart(fig_1, theme="streamlit", use_container_width=False)
+with tabs[0]:
+    st.subheader("Power")
+    st.plotly_chart(fig_11, theme="streamlit", use_container_width=False)
+    st.plotly_chart(fig_12, theme="streamlit", use_container_width=False)
+    st.plotly_chart(fig_13, theme="streamlit", use_container_width=False)
 
-with tab2:
-    st.plotly_chart(fig_2, theme="streamlit", use_container_width=False)
+with tabs[1]:
+    st.subheader("Plate Discipline")
+    st.plotly_chart(fig_21, theme="streamlit", use_container_width=False)
+    st.plotly_chart(fig_22, theme="streamlit", use_container_width=False)
+    st.plotly_chart(fig_23, theme="streamlit", use_container_width=False)
     
-with tab3:
-    st.plotly_chart(fig_3, theme="streamlit", use_container_width=False)
+with tabs[2]:
+    st.subheader("Tab 3")
 
 
 # ## Row 2
