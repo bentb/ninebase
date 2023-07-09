@@ -57,6 +57,31 @@ st.set_page_config(
 )
 
 
+# In[ ]:
+
+
+def add_logo():
+    st.markdown(
+        """
+        <style>
+            [data-testid="stSidebarNav"] {
+                background-image: url(https://i.imgur.com/OBQbrzX.png);
+                background-repeat: no-repeat;
+                padding-top: 120px;
+                background-position: 20px 20px;
+            }
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
+
+
+# In[ ]:
+
+
+add_logo()
+
+
 # ## Load Data
 
 # In[11]:
