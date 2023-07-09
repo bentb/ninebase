@@ -203,7 +203,7 @@ grid_response = AgGrid(
     gridOptions=go,
     theme="streamlit",
     height=450,
-    width='50%'
+    width=450
 )
 
 
