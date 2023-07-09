@@ -574,7 +574,7 @@ column_defs = [
 ]
 
 
-# In[144]:
+# In[146]:
 
 
 import json
@@ -593,8 +593,10 @@ with col1:
         """
         <div id="custom-styles"></div>
         <div id="ag-grid"></div>
+        """
+        + """
         <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        (function() {
             var styleEl = document.createElement('style');
             styleEl.innerHTML = `
                 .ag-header-group-cell.player-details-group {
@@ -612,11 +614,11 @@ with col1:
                 /* Define styles for other groups similarly */
             `;
             document.getElementById('custom-styles').appendChild(styleEl);
-            
+
             var gridOptions = """ + json.dumps(go) + """;
             var gridDiv = document.getElementById('ag-grid');
             new agGrid.Grid(gridDiv, gridOptions);
-        });
+        })();
         </script>
         """
     , unsafe_allow_html=True)
