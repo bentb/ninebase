@@ -261,7 +261,7 @@ fig_23.update_layout(
 
 fig_31 = px.box(
     df.query("Season==2023"),
-    y = "Pull%",
+    y = "Pull%+",
     points="all",
     hover_name = "Name",
     height = 500,
@@ -269,7 +269,7 @@ fig_31 = px.box(
 )
 
 fig_31.update_layout(
-    title=dict(text="Pull %", font=dict(size=26), automargin=True, yref='paper'),
+    title=dict(text="Pull %+", font=dict(size=26), automargin=True, yref='paper'),
     title_font_color="darkslategrey",
     yaxis=dict(title=""),
     xaxis=dict(title="")
@@ -281,7 +281,7 @@ fig_31.update_layout(
 
 fig_32 = px.box(
     df.query("Season==2023"),
-    y = "Cent%",
+    y = "Cent%+",
     points="all",
     hover_name = "Name",
     height = 500,
@@ -289,7 +289,7 @@ fig_32 = px.box(
 )
 
 fig_32.update_layout(
-    title=dict(text="Center %", font=dict(size=26), automargin=True, yref='paper'),
+    title=dict(text="Center %+", font=dict(size=26), automargin=True, yref='paper'),
     title_font_color="darkslategrey",
     yaxis=dict(title=""),
     xaxis=dict(title="")
@@ -301,7 +301,7 @@ fig_32.update_layout(
 
 fig_33 = px.box(
     df.query("Season==2023"),
-    y = "Oppo%",
+    y = "Oppo%+",
     points="all",
     hover_name = "Name",
     height = 500,
@@ -309,7 +309,7 @@ fig_33 = px.box(
 )
 
 fig_33.update_layout(
-    title=dict(text="Oppo %", font=dict(size=26), automargin=True, yref='paper'),
+    title=dict(text="Oppo %+", font=dict(size=26), automargin=True, yref='paper'),
     title_font_color="darkslategrey",
     yaxis=dict(title=""),
     xaxis=dict(title="")
@@ -415,7 +415,7 @@ st.divider()
 
 
 
-# In[134]:
+# In[135]:
 
 
 # Builds a gridOptions dictionary using a GridOptionsBuilder instance.
@@ -454,9 +454,19 @@ column_defs = [
         "children": [
             {"field": "Hard%+"},
             {"field": "HR"},
-            {"field": "BABIP+"},
+            {"field": "Soft%+"},
+            {"field": "Med%+"},
             {"field": "Hard%+"},
             {"field": "wRC+"},
+        ]
+    },
+    {
+        "headerName": "Contact",
+        "children": [
+            {"field": "BABIP+"},
+            {"field": "Contact%"},
+            {"field": "O-Contact%"},
+            {"field": "Z-Contact%"},
         ]
     },
     {
@@ -464,14 +474,17 @@ column_defs = [
         "children": [
             {"field": "BB%+"},
             {"field": "K%+"},
+            {"field": "Swing%"},
+            {"field": "O-Swing%"},
+            {"field": "Z-Swing%"},
         ]
     },
     {
         "headerName": "Pull/Oppo",
         "children": [
-            {"field": "Pull%"},
-            {"field": "Cent%"},
-            {"field": "Oppo%"},
+            {"field": "Pull%+"},
+            {"field": "Cent%+"},
+            {"field": "Oppo%+"},
         ]
     }
 ]
