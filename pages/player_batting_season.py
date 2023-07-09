@@ -145,6 +145,9 @@ fig_2 = px.scatter(
 # In[12]:
 
 
+# Subheader
+st.subheader('Player Batting')
+
 # Create the tabs
 tab1, tab2 = st.tabs(["Hard Hit vs. BABIP", "Walks vs Strikeouts"])
 
@@ -213,7 +216,7 @@ with col1:
     )
     
 with col2:
-    st.subheader("Col2")
+    st.subheader("")
 
 
 # 
