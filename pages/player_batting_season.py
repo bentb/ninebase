@@ -142,7 +142,7 @@ fig_11 = px.box(
     points="all",
     hover_name = "Name",
     height = 500,
-    width = 300,
+    width = 350,
 )
 
 
@@ -156,7 +156,7 @@ fig_12 = px.box(
     points="all",
     hover_name = "Name",
     height = 500,
-    width = 300,
+    width = 350,
 )
 
 
@@ -170,7 +170,7 @@ fig_13 = px.box(
     points="all",
     hover_name = "Name",
     height = 500,
-    width = 300,
+    width = 350,
 )
 
 
@@ -186,7 +186,7 @@ fig_21 = px.box(
     points="all",
     hover_name = "Name",
     height = 500,
-    width = 300,
+    width = 350,
 )
 
 
@@ -200,7 +200,7 @@ fig_22 = px.box(
     points="all",
     hover_name = "Name",
     height = 500,
-    width = 300,
+    width = 350,
 )
 
 
@@ -214,7 +214,7 @@ fig_23 = px.box(
     points="all",
     hover_name = "Name",
     height = 500,
-    width = 300,
+    width = 350,
 )
 
 
@@ -320,5 +320,5 @@ with col2:
 # In[ ]:
 
 
-
+st.divider()
 
