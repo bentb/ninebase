@@ -141,6 +141,8 @@ fig_11 = px.box(
     y = "Hard%+",
     points="all",
     hover_name = "Name",
+    height = 600,
+    width = 300,
 )
 
 
@@ -153,6 +155,8 @@ fig_12 = px.box(
     y = "HR",
     points="all",
     hover_name = "Name",
+    height = 600,
+    width = 300,
 )
 
 
@@ -165,6 +169,8 @@ fig_13 = px.box(
     y = "wRC+",
     points="all",
     hover_name = "Name",
+    height = 600,
+    width = 300,
 )
 
 
@@ -179,10 +185,12 @@ fig_21 = px.box(
     y = "BB%+",
     points="all",
     hover_name = "Name",
+    height = 600,
+    width = 300,
 )
 
 
-# In[67]:
+# In[71]:
 
 
 fig_22 = px.box(
@@ -191,6 +199,8 @@ fig_22 = px.box(
     y = "K%+",
     points="all",
     hover_name = "Name",
+    height = 600,
+    width = 300,
 )
 
 
@@ -203,6 +213,8 @@ fig_23 = px.box(
     y = "O-Swing%",
     points="all",
     hover_name = "Name",
+    height = 600,
+    width = 300,
 )
 
 
