@@ -35,7 +35,7 @@ def add_logo():
             [data-testid="stSidebarNav"] {
                 background-image: url(https://i.imgur.com/sLSMBYJ.png);
                 background-repeat: no-repeat;
-                padding-top: 60px;
+                padding-top: 40px;
                 background-position: 20px 20px;
             }
             [data-testid="stSidebarNav"]::before {
