@@ -12,7 +12,7 @@
 
 # # Introduction
 
-# In[11]:
+# In[1]:
 
 
 # Import Libraries
@@ -35,19 +35,19 @@ import plotly.figure_factory as ff
 
 # ## Streamlit
 
-# In[12]:
+# In[2]:
 
 
 import streamlit as st
 
 
-# In[13]:
+# In[3]:
 
 
 st.set_page_config(
     page_title="Player Batting",
     page_icon="⚾",
-    layout="centered",
+    layout="wide",
     initial_sidebar_state="expanded",
     menu_items={
         'Report a bug': 'https://www.extremelycoolapp.com/help',
@@ -59,7 +59,7 @@ st.set_page_config(
 
 # ## Load Data
 
-# In[4]:
+# In[11]:
 
 
 # Format for GitHub
@@ -69,13 +69,13 @@ df = pd.read_csv('data_storage/player_batting_season.csv')
 #df = pd.read_csv('C:/Users/b7tbu/NINEBASE/ninebase/data_storage/player_batting_season.csv')
 
 
-# In[14]:
+# In[12]:
 
 
 df.head()
 
 
-# In[15]:
+# In[13]:
 
 
 import plotly.express as px
@@ -83,7 +83,7 @@ import plotly.express as px
 
 # ### Row 1 - Scatter Plot 1
 
-# In[16]:
+# In[14]:
 
 
 fig_1 = px.scatter(
@@ -98,7 +98,7 @@ fig_1 = px.scatter(
 
 # ### Row 1 - Scatter Plot 2
 
-# In[17]:
+# In[15]:
 
 
 fig_2 = px.scatter(
@@ -113,7 +113,7 @@ fig_2 = px.scatter(
 
 # ### Row 1 - Print
 
-# In[18]:
+# In[16]:
 
 
 # Create the tabs
@@ -129,22 +129,22 @@ with tab2:
 
 # ## Row 2
 
-# ### Raw Data
+# ### Row - Raw Data
 
-# In[19]:
+# In[22]:
 
 
 from st_aggrid import AgGrid, GridOptionsBuilder, DataReturnMode, JsCode
 
 
-# In[20]:
+# In[23]:
 
 
 # Simplify dataframe, narrow to most insightful columns
 df_short = df[['Name', 'Team', 'Age', 'AB', 'BB%+', 'K%+', 'BABIP+', 'Hard%+', 'wRC+']]
 
 
-# In[21]:
+# In[24]:
 
 
 # Builds a gridOptions dictionary using a GridOptionsBuilder instance.
@@ -170,7 +170,7 @@ go = builder.build()
 
 # ### Row 2 - Print
 
-# In[24]:
+# In[20]:
 
 
 st.subheader("Raw Data")
@@ -182,12 +182,10 @@ grid_response = AgGrid(
 )
 
 
-# ### Publish Page 1
+# 
 
-# In[23]:
+# In[21]:
 
-
-### PUBLISH PAGE ###
 
 
 
