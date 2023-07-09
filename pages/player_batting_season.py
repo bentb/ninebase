@@ -12,7 +12,7 @@
 
 # # Introduction
 
-# In[2]:
+# In[16]:
 
 
 # Import Libraries
@@ -35,13 +35,13 @@ import plotly.figure_factory as ff
 
 # ## Streamlit
 
-# In[3]:
+# In[17]:
 
 
 import streamlit as st
 
 
-# In[4]:
+# In[18]:
 
 
 st.set_page_config(
@@ -57,7 +57,7 @@ st.set_page_config(
 )
 
 
-# In[ ]:
+# In[19]:
 
 
 def add_logo():
@@ -84,7 +84,7 @@ def add_logo():
     )
 
 
-# In[ ]:
+# In[20]:
 
 
 add_logo()
@@ -92,7 +92,7 @@ add_logo()
 
 # ## Load Data
 
-# In[9]:
+# In[21]:
 
 
 # Format for GitHub
@@ -102,13 +102,13 @@ df = pd.read_csv('data_storage/player_batting_season.csv')
 #df = pd.read_csv('C:/Users/b7tbu/NINEBASE/ninebase/data_storage/player_batting_season.csv')
 
 
-# In[12]:
+# In[22]:
 
 
 df.head()
 
 
-# In[7]:
+# In[23]:
 
 
 import plotly.express as px
@@ -116,15 +116,17 @@ import plotly.express as px
 
 # ### Row 1 - Scatter Plot 1
 
-# In[10]:
+# In[27]:
 
 
 fig_1 = px.scatter(
     df.query("Season==2023"),
+    title="Hard%+ vs. BABIP+",
     x = "Hard%+",
     y = "BABIP+",
     hover_name = "Name",
     log_x = True,
+    trendline = "ols",
     size_max = 60,
     height = 750,
     width = 750,
@@ -133,15 +135,17 @@ fig_1 = px.scatter(
 
 # ### Row 1 - Scatter Plot 2
 
-# In[14]:
+# In[30]:
 
 
 fig_2 = px.scatter(
     df.query("Season==2023"),
+    title="BB%+ vs. K%+",
     x = "BB%+",
     y = "K%+",
     hover_name = "Name",
     log_x = True,
+    trendline = "ols",
     size_max = 60,
     height = 750,
     width = 750,
