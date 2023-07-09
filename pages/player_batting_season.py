@@ -132,12 +132,11 @@ import statsmodels.api as sm
 
 # ### Row 1 - Tab 1
 
-# In[113]:
+# In[118]:
 
 
 fig_11 = px.box(
     df.query("Season==2023"),
-    title="Hard Hit %+",
     y = "Hard%+",
     points="all",
     hover_name = "Name",
@@ -147,16 +146,17 @@ fig_11 = px.box(
 
 fig_11.update_layout(
     title=dict(text="Hard Hit %+", font=dict(size=26), automargin=True, yref='paper'),
-    title_font_color="darkslategrey"
+    title_font_color="darkslategrey",
+    yaxis=dict(title=""),
+    xaxis=dict(title="")
 )
 
 
-# In[60]:
+# In[119]:
 
 
 fig_12 = px.box(
     df.query("Season==2023"),
-    title="Home Runs",
     y = "HR",
     points="all",
     hover_name = "Name",
@@ -164,13 +164,19 @@ fig_12 = px.box(
     width = 500,
 )
 
+fig_12.update_layout(
+    title=dict(text="Home Runs", font=dict(size=26), automargin=True, yref='paper'),
+    title_font_color="darkslategrey",
+    yaxis=dict(title=""),
+    xaxis=dict(title="")
+)
 
-# In[61]:
+
+# In[120]:
 
 
 fig_13 = px.box(
     df.query("Season==2023"),
-    title="wRC+",
     y = "wRC+",
     points="all",
     hover_name = "Name",
@@ -178,15 +184,21 @@ fig_13 = px.box(
     width = 500,
 )
 
+fig_13.update_layout(
+    title=dict(text="wRC+", font=dict(size=26), automargin=True, yref='paper'),
+    title_font_color="darkslategrey",
+    yaxis=dict(title=""),
+    xaxis=dict(title="")
+)
+
 
 # ### Row 1 - Tab 2
 
-# In[62]:
+# In[121]:
 
 
 fig_21 = px.box(
     df.query("Season==2023"),
-    title="Walk %+",
     y = "BB%+",
     points="all",
     hover_name = "Name",
@@ -194,13 +206,19 @@ fig_21 = px.box(
     width = 500,
 )
 
+fig_21.update_layout(
+    title=dict(text="Walk %+", font=dict(size=26), automargin=True, yref='paper'),
+    title_font_color="darkslategrey",
+    yaxis=dict(title=""),
+    xaxis=dict(title="")
+)
 
-# In[71]:
+
+# In[122]:
 
 
 fig_22 = px.box(
     df.query("Season==2023"),
-    title="Strikeout %+",
     y = "K%+",
     points="all",
     hover_name = "Name",
@@ -208,18 +226,31 @@ fig_22 = px.box(
     width = 500,
 )
 
+fig_22.update_layout(
+    title=dict(text="Strikeout %+", font=dict(size=26), automargin=True, yref='paper'),
+    title_font_color="darkslategrey",
+    yaxis=dict(title=""),
+    xaxis=dict(title="")
+)
 
-# In[68]:
+
+# In[123]:
 
 
 fig_23 = px.box(
     df.query("Season==2023"),
-    title="Out of Zone Swing %",
     y = "O-Swing%",
     points="all",
     hover_name = "Name",
     height = 500,
     width = 500,
+)
+
+fig_23.update_layout(
+    title=dict(text="Out of Zone Swing %+", font=dict(size=26), automargin=True, yref='paper'),
+    title_font_color="darkslategrey",
+    yaxis=dict(title=""),
+    xaxis=dict(title="")
 )
 
 
