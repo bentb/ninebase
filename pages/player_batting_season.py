@@ -115,9 +115,9 @@ import plotly.express as px
 import statsmodels.api as sm
 
 
-# ### Row 1 - Scatter Plot 1
+# ### Row 1 - Plot 1
 
-# In[39]:
+# In[52]:
 
 
 fig_1 = px.scatter(
@@ -134,9 +134,9 @@ fig_1 = px.scatter(
 )
 
 
-# ### Row 1 - Scatter Plot 2
+# ### Row 1 - Plot 2
 
-# In[33]:
+# In[53]:
 
 
 fig_2 = px.scatter(
@@ -153,6 +153,19 @@ fig_2 = px.scatter(
 )
 
 
+# ### Row 1 - Plot 3
+
+# In[54]:
+
+
+fig_3 = px.box(
+    df.query("Season==2023"),
+    title="K%+",
+    y = "K%+",
+    points="all",
+)
+
+
 # ### Row 1 - Print
 
 # In[51]:
@@ -162,7 +175,7 @@ fig_2 = px.scatter(
 st.subheader('Player Batting')
 
 # Create the tabs
-tab1, tab2 = st.tabs(["Hard Hit vs. BABIP", "Walks vs Strikeouts"])
+tab1, tab2, tab3 = st.tabs(["Hard Hit vs. BABIP", "Walks vs Strikeouts", "K%+"])
 
 # Display the charts within the tabs
 with tab1:
@@ -170,6 +183,9 @@ with tab1:
 
 with tab2:
     st.plotly_chart(fig_2, theme="streamlit", use_container_width=False)
+    
+with tab3:
+    st.plotly_chart(fig_3, theme="streamlit", use_container_width=False)
 
 
 # ## Row 2
