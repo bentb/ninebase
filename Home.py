@@ -56,7 +56,7 @@ def add_logo():
 # In[10]:
 
 
-add_logo()
+
 
 
 # In[11]:
