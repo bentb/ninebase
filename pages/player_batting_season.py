@@ -117,13 +117,15 @@ fig_1 = px.scatter(
     y = "BABIP+",
     hover_name = "Name",
     log_x = True,
-    size_max = None,
+    size_max = 60,
+    height = 500,
+    width = 500,
 )
 
 
 # ### Row 1 - Scatter Plot 2
 
-# In[13]:
+# In[14]:
 
 
 fig_2 = px.scatter(
@@ -132,7 +134,9 @@ fig_2 = px.scatter(
     y = "K%+",
     hover_name = "Name",
     log_x = True,
-    size_max = None,
+    size_max = 60,
+    height = 1000,
+    width = 1000,
 )
 
 
@@ -146,10 +150,10 @@ tab1, tab2 = st.tabs(["Hard Hit vs. BABIP", "Walks vs Strikeouts"])
 
 # Display the charts within the tabs
 with tab1:
-    st.plotly_chart(fig_1, height=1000, width=1000, theme="streamlit", use_container_width=False)
+    st.plotly_chart(fig_1, theme="streamlit", use_container_width=False)
 
 with tab2:
-    st.plotly_chart(fig_2, height=1000, width=1000, theme="streamlit", use_container_width=False)
+    st.plotly_chart(fig_2, theme="streamlit", use_container_width=False)
 
 
 # ## Row 2
