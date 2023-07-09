@@ -12,7 +12,7 @@
 
 # # Introduction
 
-# In[16]:
+# In[1]:
 
 
 # Import Libraries
@@ -35,13 +35,13 @@ import plotly.figure_factory as ff
 
 # ## Streamlit
 
-# In[17]:
+# In[2]:
 
 
 import streamlit as st
 
 
-# In[18]:
+# In[3]:
 
 
 st.set_page_config(
@@ -57,7 +57,7 @@ st.set_page_config(
 )
 
 
-# In[19]:
+# In[4]:
 
 
 def add_logo():
@@ -84,7 +84,7 @@ def add_logo():
     )
 
 
-# In[20]:
+# In[5]:
 
 
 add_logo()
@@ -92,7 +92,7 @@ add_logo()
 
 # ## Load Data
 
-# In[21]:
+# In[6]:
 
 
 # Format for GitHub
@@ -102,13 +102,13 @@ df = pd.read_csv('data_storage/player_batting_season.csv')
 #df = pd.read_csv('C:/Users/b7tbu/NINEBASE/ninebase/data_storage/player_batting_season.csv')
 
 
-# In[22]:
+# In[7]:
 
 
 df.head()
 
 
-# In[31]:
+# In[8]:
 
 
 import plotly.express as px
@@ -132,7 +132,7 @@ import statsmodels.api as sm
 
 # ### Row 1 - Tab 1
 
-# In[118]:
+# In[9]:
 
 
 fig_11 = px.box(
@@ -152,7 +152,7 @@ fig_11.update_layout(
 )
 
 
-# In[119]:
+# In[10]:
 
 
 fig_12 = px.box(
@@ -172,7 +172,7 @@ fig_12.update_layout(
 )
 
 
-# In[120]:
+# In[11]:
 
 
 fig_13 = px.box(
@@ -194,7 +194,7 @@ fig_13.update_layout(
 
 # ### Row 1 - Tab 2
 
-# In[121]:
+# In[12]:
 
 
 fig_21 = px.box(
@@ -214,7 +214,7 @@ fig_21.update_layout(
 )
 
 
-# In[122]:
+# In[13]:
 
 
 fig_22 = px.box(
@@ -234,7 +234,7 @@ fig_22.update_layout(
 )
 
 
-# In[123]:
+# In[14]:
 
 
 fig_23 = px.box(
@@ -256,7 +256,7 @@ fig_23.update_layout(
 
 # ### Row 1 - Tab 3
 
-# In[127]:
+# In[15]:
 
 
 fig_31 = px.box(
@@ -276,7 +276,7 @@ fig_31.update_layout(
 )
 
 
-# In[128]:
+# In[16]:
 
 
 fig_32 = px.box(
@@ -296,7 +296,7 @@ fig_32.update_layout(
 )
 
 
-# In[129]:
+# In[17]:
 
 
 fig_33 = px.box(
@@ -318,7 +318,7 @@ fig_33.update_layout(
 
 # ### Row 1 - Print
 
-# In[132]:
+# In[18]:
 
 
 # Subheader
@@ -351,7 +351,7 @@ with tabs[2]:
 
 # ### Row - Raw Data
 
-# In[74]:
+# In[19]:
 
 
 from st_aggrid import AgGrid, GridOptionsBuilder, DataReturnMode, JsCode
@@ -395,7 +395,7 @@ from st_aggrid import AgGrid, GridOptionsBuilder, DataReturnMode, JsCode
 # with col2:
 #     st.subheader("")
 
-# In[135]:
+# In[20]:
 
 
 # Builds a gridOptions dictionary using a GridOptionsBuilder instance.
@@ -437,7 +437,7 @@ column_defs = [
             {"field": "Soft%+"},
             {"field": "Med%+"},
             {"field": "Hard%+"},
-            {"field": "wRC+"},
+            {"field": "wRC+", "sort": "desc"},
         ]
     },
     {
@@ -490,7 +490,7 @@ with col2:
     st.subheader("")
 
 
-# In[ ]:
+# In[21]:
 
 
 st.divider()
@@ -510,13 +510,13 @@ st.divider()
 
 # ### Playground
 
-# In[136]:
+# In[ ]:
 
 
 
 
 
-# In[149]:
+# In[22]:
 
 
 import streamlit as st
@@ -581,7 +581,7 @@ with col2:
     st.subheader("")
 
 
-# In[138]:
+# In[ ]:
 
 
 
