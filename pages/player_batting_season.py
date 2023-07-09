@@ -177,14 +177,14 @@ fig_2 = px.scatter(
 
 # ### Row 1 - Print
 
-# In[12]:
+# In[47]:
 
 
 # Subheader
 st.subheader('Player Batting')
 
 # Create the tabs
-tab1, tab2 = st.tabs(["Hard Hit vs. BABIP", "Walks vs Strikeouts"])
+tab1, tab2, tab3 = st.tabs(["Hard Hit vs. BABIP", "Walks vs Strikeouts"])
 
 # Display the charts within the tabs
 with tab1:
@@ -194,7 +194,7 @@ with tab2:
     st.plotly_chart(fig_2, theme="streamlit", use_container_width=False)
     
 with tab3:
-    st.plotly_chart(fig_3, theme="streamlit", use_container_width=False)
+    st.plotly_chart(fig_3)
 
 
 # ## Row 2
