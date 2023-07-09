@@ -38,6 +38,14 @@ def add_logo():
                 padding-top: 120px;
                 background-position: 20px 20px;
             }
+            [data-testid="stSidebarNav"]::before {
+                content: "Navigation Menu";
+                margin-left: 20px;
+                margin-top: 20px;
+                font-size: 26px;
+                position: relative;
+                top: 100px;
+            }
         </style>
         """,
         unsafe_allow_html=True,
