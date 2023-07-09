@@ -253,55 +253,43 @@ with tabs[1]:
 from st_aggrid import AgGrid, GridOptionsBuilder, DataReturnMode, JsCode
 
 
-# In[75]:
+# # Simplify dataframe, narrow to most insightful columns
+# df_short = df[['Name', 'Team', 'Age', 'AB', 'BB%+', 'K%+', 'BABIP+', 'Hard%+', 'wRC+']]
 
-
-# Simplify dataframe, narrow to most insightful columns
-df_short = df[['Name', 'Team', 'Age', 'AB', 'BB%+', 'K%+', 'BABIP+', 'Hard%+', 'wRC+']]
-
-
-# In[24]:
-
-
-# Builds a gridOptions dictionary using a GridOptionsBuilder instance.
-builder = GridOptionsBuilder.from_dataframe(df_short)
-builder.configure_side_bar(filters_panel=True, columns_panel=True)
-
-# Columns
-
-builder.configure_column("Name", header_name="Player", width=150, editable=False)
-builder.configure_column("Team", width=100, enableRowGroup=True)
-builder.configure_column("Age", width=100)
-builder.configure_column("AB", width=100)
-builder.configure_column("BB%+", width=100)
-builder.configure_column('K%+', width=100)
-builder.configure_column('BABIP+', width=100)
-builder.configure_column('Hard%+', width=100)
-builder.configure_column("wRC+", width=100, sort='desc')
-
-# Launch
-go = builder.build()
-
+# # Builds a gridOptions dictionary using a GridOptionsBuilder instance.
+# builder = GridOptionsBuilder.from_dataframe(df_short)
+# builder.configure_side_bar(filters_panel=True, columns_panel=True)
+# 
+# # Columns
+# 
+# builder.configure_column("Name", header_name="Player", width=150, editable=False)
+# builder.configure_column("Team", width=100, enableRowGroup=True)
+# builder.configure_column("Age", width=100)
+# builder.configure_column("AB", width=100)
+# builder.configure_column("BB%+", width=100)
+# builder.configure_column('K%+', width=100)
+# builder.configure_column('BABIP+', width=100)
+# builder.configure_column('Hard%+', width=100)
+# builder.configure_column("wRC+", width=100, sort='desc')
+# 
+# # Launch
+# go = builder.build()
 
 # ### Row 2 - Print
 
-# In[20]:
-
-
-col1, col2, = st.columns([0.75, 0.25])
-
-with col1:
-    st.subheader("Raw Data")
-    grid_response = AgGrid(
-        df_short,
-        gridOptions=go,
-        theme="streamlit",
-        height=600
-    )
-    
-with col2:
-    st.subheader("")
-
+# col1, col2, = st.columns([0.75, 0.25])
+# 
+# with col1:
+#     st.subheader("Raw Data")
+#     grid_response = AgGrid(
+#         df_short,
+#         gridOptions=go,
+#         theme="streamlit",
+#         height=600
+#     )
+#     
+# with col2:
+#     st.subheader("")
 
 # In[ ]:
 
@@ -323,7 +311,7 @@ st.divider()
 
 
 
-# In[86]:
+# In[91]:
 
 
 # Builds a gridOptions dictionary using a GridOptionsBuilder instance.
