@@ -395,26 +395,6 @@ from st_aggrid import AgGrid, GridOptionsBuilder, DataReturnMode, JsCode
 # with col2:
 #     st.subheader("")
 
-# In[ ]:
-
-
-st.divider()
-
-
-# In[ ]:
-
-
-
-
-
-# ### Playground
-
-# In[ ]:
-
-
-
-
-
 # In[135]:
 
 
@@ -508,6 +488,121 @@ with col1:
 
 with col2:
     st.subheader("")
+
+
+# In[ ]:
+
+
+st.divider()
+
+
+# In[ ]:
+
+
+
+
+
+# In[ ]:
+
+
+
+
+
+# ### Playground
+
+# In[136]:
+
+
+column_defs = [        
+    {
+        "headerName": "",
+        "children": [
+            {"field": "Name", "headerName": "Player", "pinned": 'left'},
+        ]
+    },
+    {
+        "headerName": "Player Details",
+        "children": [
+            {"field": "Team"},
+            {"field": "Age"},
+            {"field": "AB", "headerName": "At Bats"},
+        ],
+        "headerClass": "player-details-group"  # Assign custom class to this group
+    },
+    {
+        "headerName": "Power",
+        "children": [
+            {"field": "Hard%+"},
+            {"field": "HR"},
+            {"field": "Soft%+"},
+            {"field": "Med%+"},
+            {"field": "Hard%+"},
+            {"field": "wRC+"},
+        ],
+        "headerClass": "power-group"  # Assign custom class to this group
+    },
+    {
+        "headerName": "Contact",
+        "children": [
+            {"field": "BABIP+"},
+            {"field": "Contact%"},
+            {"field": "O-Contact%"},
+            {"field": "Z-Contact%"},
+        ],
+        "headerClass": "contact-group"  # Assign custom class to this group
+    },
+    {
+        "headerName": "Plate Disciplline",
+        "children": [
+            {"field": "BB%+"},
+            {"field": "K%+"},
+            {"field": "Swing%"},
+            {"field": "O-Swing%"},
+            {"field": "Z-Swing%"},
+        ],
+        "headerClass": "plate-discipline-group"  # Assign custom class to this group
+    },
+    {
+        "headerName": "Pull/Oppo",
+        "children": [
+            {"field": "Pull%+"},
+            {"field": "Cent%+"},
+            {"field": "Oppo%+"},
+        ],
+        "headerClass": "pull-oppo-group"  # Assign custom class to this group
+    }
+]
+
+
+# In[137]:
+
+
+st.markdown(
+    """
+    <style>
+    .ag-theme-alpine .ag-header-group-cell.player-details-group {
+        background-color: #ffcc00;  /* Set the desired background color for this group */
+        color: white;
+        font-weight: normal;
+        font-size: 22px;
+    }
+    .ag-theme-alpine .ag-header-group-cell.power-group {
+        background-color: #00ccff;  /* Set the desired background color for this group */
+        color: white;
+        font-weight: normal;
+        font-size: 22px;
+    }
+    /* Define styles for other groups similarly */
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+
+# In[ ]:
+
+
+
 
 
 # In[ ]:
