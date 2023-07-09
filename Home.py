@@ -34,7 +34,7 @@ def add_logo():
         """
         <style>
             [data-testid="stSidebarNav"] {
-                background-image: url(assets/ninebase_light.jpg);
+                background-image: url(https://imgur.com/a/tPZHV47;
                 background-repeat: no-repeat;
                 padding-top: 120px;
                 background-position: 20px 20px;
