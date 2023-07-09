@@ -134,28 +134,6 @@ fig_1 = px.scatter(
 )
 
 
-# In[46]:
-
-
-fig_3 = px.scatter(df, x='Hard%+', y='BABIP+')
-
-fig_3.update_layout(
-    title = "Hard%+ vs 'BABIP+",
-    xaxis_title = "Hard Hit%+",
-    yaxis_title = "BABIP+",
-    barmode = 'group',
-    showlegend = True,
-    legend_title = 'Legend',
-    template = 'plotly_dark'
-)
-
-
-# In[43]:
-
-
-
-
-
 # ### Row 1 - Scatter Plot 2
 
 # In[33]:
@@ -177,14 +155,14 @@ fig_2 = px.scatter(
 
 # ### Row 1 - Print
 
-# In[47]:
+# In[48]:
 
 
 # Subheader
 st.subheader('Player Batting')
 
 # Create the tabs
-tab1, tab2, tab3 = st.tabs(["Hard Hit vs. BABIP", "Walks vs Strikeouts", "Tab 3"])
+tab1, tab2, tab3 = st.tabs(["Hard Hit vs. BABIP", "Walks vs Strikeouts"])
 
 # Display the charts within the tabs
 with tab1:
@@ -192,9 +170,6 @@ with tab1:
 
 with tab2:
     st.plotly_chart(fig_2, theme="streamlit", use_container_width=False)
-    
-with tab3:
-    st.plotly_chart(fig_3)
 
 
 # ## Row 2
