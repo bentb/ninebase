@@ -192,6 +192,26 @@ fig_13.update_layout(
 )
 
 
+# In[ ]:
+
+
+fig_14 = px.box(
+    df.query("Season==2023"),
+    y = "wRC+",
+    points="all",
+    hover_name = "Name",
+    height = 500,
+    width = 500,
+)
+
+fig_14.update_layout(
+    title=dict(text="wRC+", font=dict(size=26), automargin=True, yref='paper'),
+    title_font_color="darkslategrey",
+    yaxis=dict(title=""),
+    xaxis=dict(title="")
+)
+
+
 # ### Row 1 - Tab 2
 
 # In[121]:
@@ -267,10 +287,11 @@ tabs = st.tabs(["Power", "Plate Discipline", "Clutch"])
 
 # Display the charts within the tabs
 with tabs[0]:
-    col1, col2, col3 = st.columns(3)
+    col1, col2, col3, col4 = st.columns(4)
     col1.plotly_chart(fig_11, theme="streamlit", use_container_width=False)
     col2.plotly_chart(fig_12, theme="streamlit", use_container_width=False)
     col3.plotly_chart(fig_13, theme="streamlit", use_container_width=False)
+    col4.plotly_chart(fig_14, theme="streamlit", use_container_width=False)
 
 with tabs[1]:
     col4, col5, col6 = st.columns(3)
