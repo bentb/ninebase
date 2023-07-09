@@ -318,14 +318,14 @@ fig_33.update_layout(
 
 # ### Row 1 - Print
 
-# In[131]:
+# In[132]:
 
 
 # Subheader
 st.subheader('Player Batting')
 
 # Create the tabs
-tabs = st.tabs(["Power", "Plate Discipline", "Clutch"])
+tabs = st.tabs(["Power", "Plate Discipline", "Pull/Oppo"])
 
 # Display the charts within the tabs
 with tabs[0]:
@@ -335,7 +335,7 @@ with tabs[0]:
     col3.plotly_chart(fig_13, theme="streamlit", use_container_width=False)
 
 with tabs[1]:
-    col5, col5, col6 = st.columns(3)
+    col4, col5, col6 = st.columns(3)
     col4.plotly_chart(fig_21, theme="streamlit", use_container_width=False)
     col5.plotly_chart(fig_22, theme="streamlit", use_container_width=False)
     col6.plotly_chart(fig_23, theme="streamlit", use_container_width=False)
