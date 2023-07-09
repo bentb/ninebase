@@ -117,7 +117,7 @@ fig_1 = px.scatter(
     y = "BABIP+",
     hover_name = "Name",
     log_x = True,
-    size_max = 60,
+    size_max = None,
 )
 
 
@@ -132,7 +132,7 @@ fig_2 = px.scatter(
     y = "K%+",
     hover_name = "Name",
     log_x = True,
-    size_max = 60,
+    size_max = None,
 )
 
 
