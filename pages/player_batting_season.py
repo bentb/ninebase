@@ -415,7 +415,7 @@ st.divider()
 
 
 
-# In[92]:
+# In[134]:
 
 
 # Builds a gridOptions dictionary using a GridOptionsBuilder instance.
@@ -464,6 +464,14 @@ column_defs = [
         "children": [
             {"field": "BB%+"},
             {"field": "K%+"},
+        ]
+    },
+    {
+        "headerName": "Pull/Oppo",
+        "children": [
+            {"field": "Pull%"},
+            {"field": "Cent%"},
+            {"field": "Oppo%"},
         ]
     }
 ]
