@@ -208,7 +208,7 @@ fig_23 = px.box(
 
 # ### Row 1 - Print
 
-# In[69]:
+# In[70]:
 
 
 # Subheader
@@ -220,15 +220,17 @@ tabs = st.tabs(["Power", "Plate Discipline", "Clutch"])
 # Display the charts within the tabs
 with tabs[0]:
     st.subheader("Power")
-    st.plotly_chart(fig_11, theme="streamlit", use_container_width=False)
-    st.plotly_chart(fig_12, theme="streamlit", use_container_width=False)
-    st.plotly_chart(fig_13, theme="streamlit", use_container_width=False)
+    col1, col2, col3 = st.columns(3)
+    col1.plotly_chart(fig_11, theme="streamlit", use_container_width=False)
+    col2.plotly_chart(fig_12, theme="streamlit", use_container_width=False)
+    col3.plotly_chart(fig_13, theme="streamlit", use_container_width=False)
 
 with tabs[1]:
     st.subheader("Plate Discipline")
-    st.plotly_chart(fig_21, theme="streamlit", use_container_width=False)
-    st.plotly_chart(fig_22, theme="streamlit", use_container_width=False)
-    st.plotly_chart(fig_23, theme="streamlit", use_container_width=False)
+    col4, col5, col6 = st.columns(3)
+    col4.plotly_chart(fig_21, theme="streamlit", use_container_width=False)
+    col5.plotly_chart(fig_22, theme="streamlit", use_container_width=False)
+    col6.plotly_chart(fig_23, theme="streamlit", use_container_width=False)
     
 with tabs[2]:
     st.subheader("Tab 3")
