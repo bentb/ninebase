@@ -141,7 +141,7 @@ fig_11 = px.box(
     y = "Hard%+",
     points="all",
     hover_name = "Name",
-    height = 600,
+    height = 500,
     width = 300,
 )
 
@@ -155,7 +155,7 @@ fig_12 = px.box(
     y = "HR",
     points="all",
     hover_name = "Name",
-    height = 600,
+    height = 500,
     width = 300,
 )
 
@@ -169,7 +169,7 @@ fig_13 = px.box(
     y = "wRC+",
     points="all",
     hover_name = "Name",
-    height = 600,
+    height = 500,
     width = 300,
 )
 
@@ -185,7 +185,7 @@ fig_21 = px.box(
     y = "BB%+",
     points="all",
     hover_name = "Name",
-    height = 600,
+    height = 500,
     width = 300,
 )
 
@@ -199,7 +199,7 @@ fig_22 = px.box(
     y = "K%+",
     points="all",
     hover_name = "Name",
-    height = 600,
+    height = 500,
     width = 300,
 )
 
@@ -213,14 +213,14 @@ fig_23 = px.box(
     y = "O-Swing%",
     points="all",
     hover_name = "Name",
-    height = 600,
+    height = 500,
     width = 300,
 )
 
 
 # ### Row 1 - Print
 
-# In[70]:
+# In[72]:
 
 
 # Subheader
@@ -231,21 +231,16 @@ tabs = st.tabs(["Power", "Plate Discipline", "Clutch"])
 
 # Display the charts within the tabs
 with tabs[0]:
-    st.subheader("Power")
     col1, col2, col3 = st.columns(3)
     col1.plotly_chart(fig_11, theme="streamlit", use_container_width=False)
     col2.plotly_chart(fig_12, theme="streamlit", use_container_width=False)
     col3.plotly_chart(fig_13, theme="streamlit", use_container_width=False)
 
 with tabs[1]:
-    st.subheader("Plate Discipline")
     col4, col5, col6 = st.columns(3)
     col4.plotly_chart(fig_21, theme="streamlit", use_container_width=False)
     col5.plotly_chart(fig_22, theme="streamlit", use_container_width=False)
     col6.plotly_chart(fig_23, theme="streamlit", use_container_width=False)
-    
-with tabs[2]:
-    st.subheader("Tab 3")
 
 
 # ## Row 2
