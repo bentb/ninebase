@@ -163,6 +163,7 @@ fig_3 = px.box(
     title="K%+",
     y = "K%+",
     points="all",
+    hover_name = "Name",
 )
 
 
@@ -175,7 +176,7 @@ fig_3 = px.box(
 st.subheader('Player Batting')
 
 # Create the tabs
-tab1, tab2, tab3 = st.tabs(["Hard Hit vs. BABIP", "Walks vs Strikeouts", "K%+"])
+tab1, tab2, tab3 = st.tabs(["Power", "Plate Discipline", "Clutch"])
 
 # Display the charts within the tabs
 with tab1:
