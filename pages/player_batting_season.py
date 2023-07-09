@@ -184,7 +184,7 @@ fig_2 = px.scatter(
 st.subheader('Player Batting')
 
 # Create the tabs
-tab1, tab2, tab3 = st.tabs(["Hard Hit vs. BABIP", "Walks vs Strikeouts"])
+tab1, tab2, tab3 = st.tabs(["Hard Hit vs. BABIP", "Walks vs Strikeouts", "Tab 3"])
 
 # Display the charts within the tabs
 with tab1:
