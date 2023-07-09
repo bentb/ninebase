@@ -340,7 +340,7 @@ column_defs = [
     {
         "headerName": "Player Details",
         "children": [
-            {"field": "Name", "headerName": "Player", pinned: 'left'},
+            {"field": "Name", "headerName": "Player", "pinned": 'left'},
             {"field": "Team"},
             {"field": "Age"},
             {"field": "AB", "headerName": "At Bats"},
