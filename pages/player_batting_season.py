@@ -574,7 +574,7 @@ column_defs = [
 ]
 
 
-# In[146]:
+# In[147]:
 
 
 import json
@@ -589,39 +589,35 @@ col1, col2 = st.columns([0.75, 0.25])
 
 with col1:
     st.subheader("Raw Data")
-    st.markdown(
-        """
-        <div id="custom-styles"></div>
-        <div id="ag-grid"></div>
-        """
-        + """
-        <script>
-        (function() {
-            var styleEl = document.createElement('style');
-            styleEl.innerHTML = `
-                .ag-header-group-cell.player-details-group {
-                    background-color: #ffcc00;  /* Set the desired background color for this group */
-                    color: white;
-                    font-weight: normal;
-                    font-size: 22px;
-                }
-                .ag-header-group-cell.power-group {
-                    background-color: #00ccff;  /* Set the desired background color for this group */
-                    color: white;
-                    font-weight: normal;
-                    font-size: 22px;
-                }
-                /* Define styles for other groups similarly */
-            `;
-            document.getElementById('custom-styles').appendChild(styleEl);
-
-            var gridOptions = """ + json.dumps(go) + """;
-            var gridDiv = document.getElementById('ag-grid');
-            new agGrid.Grid(gridDiv, gridOptions);
-        })();
-        </script>
-        """
-    , unsafe_allow_html=True)
+    custom_styles = """
+    <style>
+    .ag-header-group-cell.player-details-group {
+        background-color: #ffcc00;  /* Set the desired background color for this group */
+        color: white;
+        font-weight: normal;
+        font-size: 22px;
+    }
+    .ag-header-group-cell.power-group {
+        background-color: #00ccff;  /* Set the desired background color for this group */
+        color: white;
+        font-weight: normal;
+        font-size: 22px;
+    }
+    /* Define styles for other groups similarly */
+    </style>
+    """
+    script = """
+    <script>
+    (function() {
+        var gridOptions = """ + json.dumps(go) + """;
+        var gridDiv = document.createElement('div');
+        gridDiv.id = 'ag-grid';
+        document.body.appendChild(gridDiv);
+        new agGrid.Grid(gridDiv, gridOptions);
+    })();
+    </script>
+    """
+    st.components.v1.html(custom_styles + script, height=600)
 
 with col2:
     st.subheader("")
