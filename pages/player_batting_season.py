@@ -247,13 +247,13 @@ with tabs[1]:
 
 # ### Row - Raw Data
 
-# In[22]:
+# In[74]:
 
 
 from st_aggrid import AgGrid, GridOptionsBuilder, DataReturnMode, JsCode
 
 
-# In[23]:
+# In[75]:
 
 
 # Simplify dataframe, narrow to most insightful columns
@@ -303,22 +303,111 @@ with col2:
     st.subheader("")
 
 
-# 
-
-# In[21]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
 # In[ ]:
 
 
 st.divider()
+
+
+# In[ ]:
+
+
+
+
+
+# ### Playground
+
+# In[83]:
+
+
+# Builds a gridOptions dictionary using a GridOptionsBuilder instance.
+builder = GridOptionsBuilder.from_dataframe(df_short)
+builder.configure_side_bar(filters_panel=True, columns_panel=True)
+
+# Columns
+builder.configure_column("Name", header_name="Player", width=150, editable=False)
+builder.configure_column("Team", width=100, enableRowGroup=True)
+builder.configure_column("Age", width=100)
+builder.configure_column("AB", width=100)
+builder.configure_column("BB%+", width=100)
+builder.configure_column('K%+', width=100)
+builder.configure_column('BABIP+', width=100)
+builder.configure_column('Hard%+', width=100)
+builder.configure_column("wRC+", width=100, sort='desc')
+
+# Column Grouping
+column_defs = [
+    {
+        "headerName": "Player Details",
+        "children": [
+            {"field": "Name", "headerName": "Player"},
+            {"field": "Team"},
+            {"field": "Age"},
+            {"field": "AB", "headerName": "At Bats"},
+        ]
+    },
+    {
+        "headerName": "Power",
+        "children": [
+            {"field": "Hard%+"},
+            {"field": "HR"},
+            {"field": ""},
+            {"field": "BABIP+"},
+            {"field": "Hard%+"},
+            {"field": "wRC+", "columnGroupShow": "open"},
+        ]
+    },
+    {
+        "headerName": "Plate Disciplline",
+        "children": [
+            {"field": "BB%+"},
+            {"field": "K%+"},
+        ]
+    }
+]
+
+# Merge columnDefs with existing column definitions
+grid_options = {"columnDefs": column_defs}
+
+# Launch
+go = grid_options
+
+col1, col2 = st.columns([0.75, 0.25])
+
+with col1:
+    st.subheader("Raw Data")
+    grid_response = AgGrid(
+        df_short,
+        gridOptions=go,
+        theme="streamlit",
+        height=600
+    )
+
+with col2:
+    st.subheader("")
+
+
+
+# In[84]:
+
+
+col1, col2, = st.columns([0.75, 0.25])
+
+with col1:
+    st.subheader("Raw Data")
+    grid_response = AgGrid(
+        df_short,
+        gridOptions=go,
+        theme="streamlit",
+        height=600
+    )
+    
+with col2:
+    st.subheader("")
+
+
+# In[ ]:
+
+
+
 
