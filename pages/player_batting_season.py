@@ -201,13 +201,14 @@ go = builder.build()
 # In[20]:
 
 
-st.subheader("Raw Data")
-grid_response = AgGrid(
-    df_short,
-    gridOptions=go,
-    theme="streamlit",
-    height=450
-)
+with st.container():
+    st.subheader("Raw Data")
+    grid_response = AgGrid(
+        df_short,
+        gridOptions=go,
+        theme="streamlit",
+        height=600
+    )
 
 
 # 
