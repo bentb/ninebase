@@ -340,7 +340,7 @@ column_defs = [
     {
         "headerName": "Player Details",
         "children": [
-            {"field": "Name", "headerName": "Player"},
+            {"field": "Name", "headerName": "Player", pinned: 'left'},
             {"field": "Team"},
             {"field": "Age"},
             {"field": "AB", "headerName": "At Bats"},
@@ -383,25 +383,6 @@ with col1:
         height=600
     )
 
-with col2:
-    st.subheader("")
-
-
-
-# In[84]:
-
-
-col1, col2, = st.columns([0.75, 0.25])
-
-with col1:
-    st.subheader("Raw Data")
-    grid_response = AgGrid(
-        df_short,
-        gridOptions=go,
-        theme="streamlit",
-        height=600
-    )
-    
 with col2:
     st.subheader("")
 
