@@ -311,11 +311,11 @@ st.divider()
 
 
 
-# In[91]:
+# In[92]:
 
 
 # Builds a gridOptions dictionary using a GridOptionsBuilder instance.
-builder = GridOptionsBuilder.from_dataframe(df_short)
+builder = GridOptionsBuilder.from_dataframe(df)
 builder.configure_side_bar(filters_panel=True, columns_panel=True)
 
 # Columns
