@@ -112,6 +112,7 @@ df.head()
 
 
 import plotly.express as px
+import statsmodels.api as sm
 
 
 # ### Row 1 - Scatter Plot 1
