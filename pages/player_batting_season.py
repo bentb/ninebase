@@ -574,7 +574,7 @@ column_defs = [
 ]
 
 
-# In[140]:
+# In[141]:
 
 
 # Merge columnDefs with existing column definitions
@@ -590,13 +590,13 @@ with col1:
     st.markdown(
         """
         <style>
-        .ag-theme-alpine .ag-header-group-cell.player-details-group {
+        .ag-header-group-cell.player-details-group {
             background-color: #ffcc00;  /* Set the desired background color for this group */
             color: white;
             font-weight: normal;
             font-size: 22px;
         }
-        .ag-theme-alpine .ag-header-group-cell.power-group {
+        .ag-header-group-cell.power-group {
             background-color: #00ccff;  /* Set the desired background color for this group */
             color: white;
             font-weight: normal;
