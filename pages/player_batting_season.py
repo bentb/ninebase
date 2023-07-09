@@ -186,7 +186,7 @@ builder.configure_column("BB%+", width=100)
 builder.configure_column('K%+', width=100)
 builder.configure_column('BABIP+', width=100)
 builder.configure_column('Hard%+', width=100)
-builder.configure_column("wRC+", width=100, sort='asc')
+builder.configure_column("wRC+", width=100, sort='desc')
 
 # Launch
 go = builder.build()
@@ -202,7 +202,8 @@ grid_response = AgGrid(
     df_short,
     gridOptions=go,
     theme="streamlit",
-    height=450
+    height=450,
+    width="50%"
 )
 
 
