@@ -108,7 +108,7 @@ df = pd.read_csv('data_storage/player_batting_season.csv')
 df.head()
 
 
-# In[23]:
+# In[31]:
 
 
 import plotly.express as px
@@ -117,7 +117,7 @@ import statsmodels.api as sm
 
 # ### Row 1 - Scatter Plot 1
 
-# In[27]:
+# In[39]:
 
 
 fig_1 = px.scatter(
@@ -134,9 +134,31 @@ fig_1 = px.scatter(
 )
 
 
+# In[46]:
+
+
+fig_3 = px.scatter(df, x='Hard%+', y='BABIP+')
+
+fig_3.update_layout(
+    title = "Hard%+ vs 'BABIP+",
+    xaxis_title = "Hard Hit%+",
+    yaxis_title = "BABIP+",
+    barmode = 'group',
+    showlegend = True,
+    legend_title = 'Legend',
+    template = 'plotly_dark'
+)
+
+
+# In[43]:
+
+
+
+
+
 # ### Row 1 - Scatter Plot 2
 
-# In[30]:
+# In[33]:
 
 
 fig_2 = px.scatter(
@@ -170,6 +192,9 @@ with tab1:
 
 with tab2:
     st.plotly_chart(fig_2, theme="streamlit", use_container_width=False)
+    
+with tab3:
+    st.plotly_chart(fig_3, theme="streamlit", use_container_width=False)
 
 
 # ## Row 2
