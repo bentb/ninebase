@@ -3,12 +3,6 @@
 
 # # ninebase Home Page
 
-# In[ ]:
-
-
-
-
-
 # In[7]:
 
 
@@ -21,7 +15,7 @@ import streamlit as st
 st.set_page_config(
     page_title="ninebase",
     page_icon="👋",
-    layout="wide",
+    layout="centered",
     initial_sidebar_state="expanded",
     menu_items={
         'Report a bug': 'https://www.extremelycoolapp.com/help',
@@ -29,8 +23,6 @@ st.set_page_config(
         'About': "# This is a header. This is an *extremely* cool app!"
     }
 )
-
-st.sidebar.success("Select a page above")
 
 
 # In[13]:
@@ -58,24 +50,30 @@ def add_logo():
 add_logo()
 
 
-# In[14]:
+# In[15]:
 
 
 from PIL import Image
 
-image = Image.open('assets/cards_at_mets.jpg')
+header_img = Image.open('assets/cards_at_mets.jpg')
 
-st.image(image, caption='Cards at Mets')
+st.image(header_img)
 
 
 # In[11]:
 
 
-st.write("Home Page 👋")
+st.header('ninebase')
 
 
 # In[ ]:
 
 
+st.subheader('Use the Navigation Menu to browse reports')
 
+
+# In[ ]:
+
+
+st.divider()
 
