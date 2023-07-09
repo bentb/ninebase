@@ -37,7 +37,7 @@ def add_logo():
                 background-image: url(https://i.imgur.com/nuEg4fJ.png);
                 background-repeat: no-repeat;
                 padding-top: 5px;
-                background-position: 20px 20px;
+                background-position: 5px 5px;
             }
         </style>
         """,
