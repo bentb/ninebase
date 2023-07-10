@@ -58,7 +58,7 @@ def add_logo():
 add_logo()
 
 
-# In[19]:
+# In[21]:
 
 
 # Define the layout
@@ -69,18 +69,13 @@ st.markdown(
             margin: 0;
         }
 
-        .stApp {
-            padding-top: 0;
-        }
-
         .container {
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            max-width: 800px;
-            padding-top: 0;
-            padding-bottom: 0;
+            height: 100vh;
+            padding: 0;
         }
 
         .title {
