@@ -68,7 +68,7 @@ header_img = Image.open('assets/cards_at_mets.jpg')
 st.image(header_img)
 
 
-# In[13]:
+# In[14]:
 
 
 # Define the layout
@@ -109,7 +109,7 @@ st.markdown(
             padding: 12px 24px;
             border-radius: 8px;
             background-color: darkslategrey;
-            color: white;
+            color: #fff; /* Adjust the font color here */
             text-decoration: none;
             transition: background-color 0.3s;
         }
