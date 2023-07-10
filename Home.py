@@ -58,29 +58,13 @@ def add_logo():
 add_logo()
 
 
-# In[23]:
+# In[24]:
 
 
 # Define the layout
 st.markdown(
     """
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-        }
-
-        .container {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            padding: 0 20px; /* Adjust the horizontal padding as needed */
-            box-sizing: border-box;
-        }
-
         .title {
             font-size: 48px;
             font-weight: bold;
@@ -112,22 +96,25 @@ st.markdown(
 )
 
 # Render the home screen
-st.markdown('<div class="container">', unsafe_allow_html=True)
-st.markdown('<h1 class="title">ninebase</h1>', unsafe_allow_html=True)
-st.markdown('<p class="description">identify who is hot, and who is not</p>', unsafe_allow_html=True)
-
 col1, col2, col3 = st.columns(3)  # Adjust the number of columns as needed
 
 with col1:
-    st.markdown('<div class="cta-button"><a href="https://ninebase.streamlit.app/player_batting_season">Batting Stats</a></div>', unsafe_allow_html=True)
+    st.empty()
 
 with col2:
-    st.markdown('<div class="cta-button"><a href="https://ninebase.streamlit.app/player_pitching_season">*Pitching Stats*</a></div>', unsafe_allow_html=True)
+    st.empty()
 
 with col3:
-    st.markdown('<div class="cta-button"><a href="https://ninebase.streamlit.app/team_stats">*Team Stats*</a></div>', unsafe_allow_html=True)
+    st.empty()
 
-st.markdown('</div>', unsafe_allow_html=True)
+centered_container = st.beta_container()
+
+with centered_container:
+    st.markdown('<div class="title">ninebase</div>', unsafe_allow_html=True)
+    st.markdown('<p class="description">identify who is hot, and who is not</p>', unsafe_allow_html=True)
+    st.markdown('<div class="cta-button"><a href="https://ninebase.streamlit.app/player_batting_season">Batting Stats</a></div>', unsafe_allow_html=True)
+    st.markdown('<div class="cta-button"><a href="https://ninebase.streamlit.app/player_pitching_season">*Pitching Stats*</a></div>', unsafe_allow_html=True)
+    st.markdown('<div class="cta-button"><a href="https://ninebase.streamlit.app/team_stats">*Team Stats*</a></div>', unsafe_allow_html=True)
 
 
 # In[ ]:
