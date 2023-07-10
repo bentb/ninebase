@@ -442,7 +442,7 @@ fig_53.update_layout(
 
 # ### Row 1 - Print
 
-# In[104]:
+# In[105]:
 
 
 # Subheader
@@ -450,6 +450,16 @@ st.subheader('Player Batting')
 
 # Create the tabs
 tabs = st.tabs(["Summary", "Power", "Contact", "Plate Discipline", "Pull/Oppo"])
+
+# Inject custom CSS styling to increase font size
+tabs_html = """
+<style>
+.st-bt span {
+    font-size: 18px !important;
+}
+</style>
+"""
+st.markdown(tabs_html, unsafe_allow_html=True)
 
 # Display the charts within the tabs
 with tabs[0]:
