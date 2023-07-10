@@ -132,7 +132,7 @@ import statsmodels.api as sm
 
 # ### Row 1 - Tab 1
 
-# In[37]:
+# In[41]:
 
 
 fig_11 = px.box(
@@ -150,13 +150,7 @@ fig_11.update_layout(
     title=dict(text="Batting WAR", font=dict(size=24), automargin=True, yref='paper'),
     title_font_color="darkslategrey",
     yaxis=dict(title=""),
-    xaxis=dict(title=""),
-    template="plotly",
-    font=dict(
-        family="Arial, sans-serif",
-        size=18,
-        color="darkslategrey"
-    )
+    xaxis=dict(title="")
 )
 
 
