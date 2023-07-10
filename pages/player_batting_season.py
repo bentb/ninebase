@@ -41,7 +41,7 @@ import plotly.figure_factory as ff
 import streamlit as st
 
 
-# In[111]:
+# In[3]:
 
 
 st.set_page_config(
@@ -92,7 +92,7 @@ add_logo()
 
 # ## Load Data
 
-# In[7]:
+# In[6]:
 
 
 # Format for GitHub
@@ -102,13 +102,13 @@ df = pd.read_csv('data_storage/player_batting_season.csv')
 #df = pd.read_csv('C:/Users/b7tbu/NINEBASE/ninebase/data_storage/player_batting_season.csv')
 
 
-# In[8]:
+# In[7]:
 
 
 df.head()
 
 
-# In[64]:
+# In[8]:
 
 
 import plotly.express as px
@@ -132,7 +132,7 @@ import statsmodels.api as sm
 
 # ### Row 1 - Tab 1
 
-# In[85]:
+# In[9]:
 
 
 fig_11 = px.box(
@@ -152,7 +152,7 @@ fig_11.update_layout(
 )
 
 
-# In[86]:
+# In[10]:
 
 
 fig_12 = px.box(
@@ -172,7 +172,7 @@ fig_12.update_layout(
 )
 
 
-# In[101]:
+# In[11]:
 
 
 fig_13 = px.box(
@@ -194,7 +194,7 @@ fig_13.update_layout(
 
 # ### Row 1 - Tab 2
 
-# In[88]:
+# In[12]:
 
 
 fig_21 = px.box(
@@ -214,7 +214,7 @@ fig_21.update_layout(
 )
 
 
-# In[89]:
+# In[13]:
 
 
 fig_22 = px.box(
@@ -234,7 +234,7 @@ fig_22.update_layout(
 )
 
 
-# In[90]:
+# In[14]:
 
 
 fig_23 = px.box(
@@ -256,7 +256,7 @@ fig_23.update_layout(
 
 # ### Row 1 - Tab 3
 
-# In[91]:
+# In[15]:
 
 
 fig_31 = px.box(
@@ -276,7 +276,7 @@ fig_31.update_layout(
 )
 
 
-# In[92]:
+# In[16]:
 
 
 fig_32 = px.box(
@@ -296,7 +296,7 @@ fig_32.update_layout(
 )
 
 
-# In[93]:
+# In[17]:
 
 
 fig_33 = px.box(
@@ -318,7 +318,7 @@ fig_33.update_layout(
 
 # ### Row 1 - Tab 4
 
-# In[94]:
+# In[18]:
 
 
 fig_41 = px.box(
@@ -338,7 +338,7 @@ fig_41.update_layout(
 )
 
 
-# In[95]:
+# In[19]:
 
 
 fig_42 = px.box(
@@ -358,7 +358,7 @@ fig_42.update_layout(
 )
 
 
-# In[96]:
+# In[20]:
 
 
 fig_43 = px.box(
@@ -380,7 +380,7 @@ fig_43.update_layout(
 
 # ### Row 1 - Tab 5
 
-# In[97]:
+# In[21]:
 
 
 fig_51 = px.box(
@@ -400,7 +400,7 @@ fig_51.update_layout(
 )
 
 
-# In[98]:
+# In[22]:
 
 
 fig_52 = px.box(
@@ -420,7 +420,7 @@ fig_52.update_layout(
 )
 
 
-# In[99]:
+# In[30]:
 
 
 fig_53 = px.box(
@@ -432,6 +432,8 @@ fig_53 = px.box(
     width = 500,
 )
 
+fig_53.update_traces(marker=dict(color="red"))
+
 fig_53.update_layout(
     title=dict(text="Oppo %+", font=dict(size=26), automargin=True, yref='paper'),
     title_font_color="darkslategrey",
@@ -442,7 +444,7 @@ fig_53.update_layout(
 
 # ### Row 1 - Print
 
-# In[112]:
+# In[24]:
 
 
 # Subheader
@@ -487,13 +489,13 @@ with tabs[4]:
 
 # ### Raw Data
 
-# In[42]:
+# In[25]:
 
 
 from st_aggrid import AgGrid, GridOptionsBuilder, DataReturnMode, JsCode
 
 
-# In[57]:
+# In[26]:
 
 
 # Builds a gridOptions dictionary using a GridOptionsBuilder instance.
@@ -599,13 +601,13 @@ with col2:
     st.subheader("")
 
 
-# In[44]:
+# In[27]:
 
 
 st.divider()
 
 
-# In[102]:
+# In[28]:
 
 
 from PIL import Image
@@ -623,13 +625,13 @@ st.image(header_img)
 
 # ### Playground
 
-# In[58]:
+# In[ ]:
 
 
 st.write("⛔ NO ENTRY ⛔ 🏗️ construction in progress...")
 
 
-# In[45]:
+# In[ ]:
 
 
 import streamlit as st
