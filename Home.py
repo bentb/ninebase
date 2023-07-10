@@ -3,7 +3,13 @@
 
 # # ninebase Home Page
 
+# In[10]:
+
+
 import streamlit as st
+
+
+# In[11]:
 
 
 st.set_page_config(
@@ -17,6 +23,9 @@ st.set_page_config(
         'About': "# This is a header. This is an *extremely* cool app!"
     }
 )
+
+
+# In[12]:
 
 
 def add_logo():
@@ -43,21 +52,41 @@ def add_logo():
     )
 
 
+# In[13]:
+
+
 add_logo()
 
 
+# In[14]:
+
+
+import streamlit as st
 from datetime import datetime
 
 def countdown_to_playoffs():
+    # Get the current date
     now = datetime.now().date()
+
+    # Set the target date as October 3rd
     target_date = datetime(now.year, 10, 3).date()
+
+    # Calculate the remaining days
     remaining_days = (target_date - now).days
+
+    # Customize the countdown style
     countdown_style = f"<p style='text-align: right; color: darkslategrey; font-size: 18px; padding: 0; margin: 0;'>Days until playoffs:</p>"
     remaining_days_style = f"<p style='text-align: right; color: darkslategrey; font-size: 32px; padding: 0; margin: 0;'>{remaining_days}</p>"
+
+    # Display the countdown
     st.markdown(countdown_style, unsafe_allow_html=True)
     st.markdown(remaining_days_style, unsafe_allow_html=True)
 
+# Run the countdown function
 countdown_to_playoffs()
+
+
+# In[15]:
 
 
 st.markdown(
@@ -141,3 +170,32 @@ with col2:
 
 with col3:
     st.write("#")
+
+
+# In[16]:
+
+
+st.write("#")
+
+
+# In[17]:
+
+
+from PIL import Image
+
+header_img = Image.open('assets/cards_at_mets.jpg')
+
+st.image(header_img)
+
+
+# In[18]:
+
+
+st.divider()
+
+
+# In[ ]:
+
+
+
+
