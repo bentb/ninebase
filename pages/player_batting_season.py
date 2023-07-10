@@ -147,7 +147,7 @@ fig_11 = px.box(
 fig_11.update_traces(marker=dict(color="#7284cc"))
 
 fig_11.update_layout(
-    title=dict(text="wRC+", font=dict(size=24), automargin=True, yref='paper'),
+    title=dict(text="wRC+", font=dict(size=22), automargin=True, yref='paper'),
     title_font_color="#164f5e",
     yaxis=dict(title=""),
     xaxis=dict(title="")
@@ -169,7 +169,7 @@ fig_12 = px.box(
 fig_12.update_traces(marker=dict(color="#7284cc"))
 
 fig_12.update_layout(
-    title=dict(text="Batting WAR", font=dict(size=24), automargin=True, yref='paper'),
+    title=dict(text="Batting WAR", font=dict(size=22), automargin=True, yref='paper'),
     title_font_color="#164f5e",
     yaxis=dict(title=""),
     xaxis=dict(title="")
@@ -191,7 +191,7 @@ fig_13 = px.box(
 fig_13.update_traces(marker=dict(color="#7284cc"))
 
 fig_13.update_layout(
-    title=dict(text="Positon Batting WAR", font=dict(size=24), automargin=True, yref='paper'),
+    title=dict(text="Positon Batting WAR", font=dict(size=22), automargin=True, yref='paper'),
     title_font_color="#164f5e",
     yaxis=dict(title=""),
     xaxis=dict(title="")
@@ -215,7 +215,7 @@ fig_21 = px.box(
 fig_21.update_traces(marker=dict(color="#7284cc"))
 
 fig_21.update_layout(
-    title=dict(text="Soft Hit%+", font=dict(size=24), automargin=True, yref='paper'),
+    title=dict(text="Soft Hit%+", font=dict(size=22), automargin=True, yref='paper'),
     title_font_color="#164f5e",
     yaxis=dict(title=""),
     xaxis=dict(title="")
@@ -237,7 +237,7 @@ fig_22 = px.box(
 fig_22.update_traces(marker=dict(color="#7284cc"))
 
 fig_22.update_layout(
-    title=dict(text="Hard Hit%+", font=dict(size=24), automargin=True, yref='paper'),
+    title=dict(text="Hard Hit%+", font=dict(size=22), automargin=True, yref='paper'),
     title_font_color="#164f5e",
     yaxis=dict(title=""),
     xaxis=dict(title="")
@@ -259,7 +259,7 @@ fig_23 = px.box(
 fig_23.update_traces(marker=dict(color="#7284cc"))
 
 fig_23.update_layout(
-    title=dict(text="Home Runs", font=dict(size=24), automargin=True, yref='paper'),
+    title=dict(text="Home Runs", font=dict(size=22), automargin=True, yref='paper'),
     title_font_color="#164f5e",
     yaxis=dict(title=""),
     xaxis=dict(title="")
@@ -283,7 +283,7 @@ fig_31 = px.box(
 fig_31.update_traces(marker=dict(color="#7284cc"))
 
 fig_31.update_layout(
-    title=dict(text="Contact%", font=dict(size=24), automargin=True, yref='paper'),
+    title=dict(text="Contact%", font=dict(size=22), automargin=True, yref='paper'),
     title_font_color="#164f5e",
     yaxis=dict(title=""),
     xaxis=dict(title="")
@@ -305,7 +305,7 @@ fig_32 = px.box(
 fig_32.update_traces(marker=dict(color="#7284cc"))
 
 fig_32.update_layout(
-    title=dict(text="In-Zone Contact%", font=dict(size=24), automargin=True, yref='paper'),
+    title=dict(text="In-Zone Contact%", font=dict(size=22), automargin=True, yref='paper'),
     title_font_color="#164f5e",
     yaxis=dict(title=""),
     xaxis=dict(title="")
@@ -327,7 +327,7 @@ fig_33 = px.box(
 fig_33.update_traces(marker=dict(color="#7284cc"))
 
 fig_33.update_layout(
-    title=dict(text="Out-Zone Contact%", font=dict(size=24), automargin=True, yref='paper'),
+    title=dict(text="Out-Zone Contact%", font=dict(size=22), automargin=True, yref='paper'),
     title_font_color="#164f5e",
     yaxis=dict(title=""),
     xaxis=dict(title="")
@@ -351,7 +351,7 @@ fig_41 = px.box(
 fig_41.update_traces(marker=dict(color="#7284cc"))
 
 fig_41.update_layout(
-    title=dict(text="Walk%+", font=dict(size=24), automargin=True, yref='paper'),
+    title=dict(text="Walk%+", font=dict(size=22), automargin=True, yref='paper'),
     title_font_color="#164f5e",
     yaxis=dict(title=""),
     xaxis=dict(title="")
@@ -373,7 +373,7 @@ fig_42 = px.box(
 fig_42.update_traces(marker=dict(color="#7284cc"))
 
 fig_42.update_layout(
-    title=dict(text="Strikeout%+", font=dict(size=24), automargin=True, yref='paper'),
+    title=dict(text="Strikeout%+", font=dict(size=22), automargin=True, yref='paper'),
     title_font_color="#164f5e",
     yaxis=dict(title=""),
     xaxis=dict(title="")
@@ -395,7 +395,7 @@ fig_43 = px.box(
 fig_43.update_traces(marker=dict(color="#7284cc"))
 
 fig_43.update_layout(
-    title=dict(text="Out-Zone Swing%", font=dict(size=24), automargin=True, yref='paper'),
+    title=dict(text="Out-Zone Swing%", font=dict(size=22), automargin=True, yref='paper'),
     title_font_color="#164f5e",
     yaxis=dict(title=""),
     xaxis=dict(title="")
@@ -419,7 +419,7 @@ fig_51 = px.box(
 fig_51.update_traces(marker=dict(color="#7284cc"))
 
 fig_51.update_layout(
-    title=dict(text="Pull%+", font=dict(size=24), automargin=True, yref='paper'),
+    title=dict(text="Pull%+", font=dict(size=22), automargin=True, yref='paper'),
     title_font_color="#164f5e",
     yaxis=dict(title=""),
     xaxis=dict(title="")
@@ -441,7 +441,7 @@ fig_52 = px.box(
 fig_52.update_traces(marker=dict(color="#7284cc"))
 
 fig_52.update_layout(
-    title=dict(text="Center%+", font=dict(size=24), automargin=True, yref='paper'),
+    title=dict(text="Center%+", font=dict(size=22), automargin=True, yref='paper'),
     title_font_color="#164f5e",
     yaxis=dict(title=""),
     xaxis=dict(title="")
@@ -463,7 +463,7 @@ fig_53 = px.box(
 fig_53.update_traces(marker=dict(color="#7284cc"))
 
 fig_53.update_layout(
-    title=dict(text="Oppo%+", font=dict(size=24), automargin=True, yref='paper'),
+    title=dict(text="Oppo%+", font=dict(size=22), automargin=True, yref='paper'),
     title_font_color="#164f5e",
     yaxis=dict(title=""),
     xaxis=dict(title="")
