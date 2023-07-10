@@ -68,7 +68,7 @@ header_img = Image.open('assets/cards_at_mets.jpg')
 st.image(header_img)
 
 
-# In[11]:
+# In[13]:
 
 
 # Define the layout
@@ -108,14 +108,14 @@ st.markdown(
             font-size: 20px;
             padding: 12px 24px;
             border-radius: 8px;
-            background-color: #4CAF50;
+            background-color: darkslategrey;
             color: white;
             text-decoration: none;
             transition: background-color 0.3s;
         }
 
         .cta-button:hover {
-            background-color: #45a049;
+            background-color: #366e6e;
         }
     </style>
     """,
