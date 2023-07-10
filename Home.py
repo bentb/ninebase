@@ -58,7 +58,7 @@ def add_logo():
 add_logo()
 
 
-# In[22]:
+# In[23]:
 
 
 # Define the layout
@@ -68,6 +68,7 @@ st.markdown(
         body {
             margin: 0;
             padding: 0;
+            overflow: hidden;
         }
 
         .container {
@@ -77,6 +78,7 @@ st.markdown(
             align-items: center;
             height: 100vh;
             padding: 0 20px; /* Adjust the horizontal padding as needed */
+            box-sizing: border-box;
         }
 
         .title {
