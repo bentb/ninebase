@@ -544,7 +544,12 @@ column_defs = [
     {
         "headerName": "Player Details",
         "children": [
-            {"field": "Team", "headerName": "Team", "width": 150},
+            {
+                "field": "Team",
+                "headerName": "Team",
+                "width": 150,
+                "enableRowGroup": True  # Enable row grouping on the "Team" column
+            },
             {"field": "Age", "headerName": "Age", "width": 150},
             {"field": "AB", "headerName": "At Bats", "width": 150},
         ],
