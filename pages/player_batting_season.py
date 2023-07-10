@@ -351,7 +351,7 @@ fig_41 = px.box(
 fig_41.update_traces(marker=dict(color="darkslategrey"))
 
 fig_41.update_layout(
-    title=dict(text="Walk %+", font=dict(size=24), automargin=True, yref='paper'),
+    title=dict(text="Walk%+", font=dict(size=24), automargin=True, yref='paper'),
     title_font_color="darkslategrey",
     yaxis=dict(title=""),
     xaxis=dict(title="")
@@ -373,7 +373,7 @@ fig_42 = px.box(
 fig_42.update_traces(marker=dict(color="darkslategrey"))
 
 fig_42.update_layout(
-    title=dict(text="Strikeout %+", font=dict(size=24), automargin=True, yref='paper'),
+    title=dict(text="Strikeout%+", font=dict(size=24), automargin=True, yref='paper'),
     title_font_color="darkslategrey",
     yaxis=dict(title=""),
     xaxis=dict(title="")
@@ -395,7 +395,7 @@ fig_43 = px.box(
 fig_43.update_traces(marker=dict(color="darkslategrey"))
 
 fig_43.update_layout(
-    title=dict(text="Out of Zone Swing %", font=dict(size=24), automargin=True, yref='paper'),
+    title=dict(text="Out-of-Zone Swing%", font=dict(size=24), automargin=True, yref='paper'),
     title_font_color="darkslategrey",
     yaxis=dict(title=""),
     xaxis=dict(title="")
@@ -419,7 +419,7 @@ fig_51 = px.box(
 fig_51.update_traces(marker=dict(color="darkslategrey"))
 
 fig_51.update_layout(
-    title=dict(text="Pull %+", font=dict(size=24), automargin=True, yref='paper'),
+    title=dict(text="Pull%+", font=dict(size=24), automargin=True, yref='paper'),
     title_font_color="darkslategrey",
     yaxis=dict(title=""),
     xaxis=dict(title="")
@@ -441,7 +441,7 @@ fig_52 = px.box(
 fig_52.update_traces(marker=dict(color="darkslategrey"))
 
 fig_52.update_layout(
-    title=dict(text="Center %+", font=dict(size=24), automargin=True, yref='paper'),
+    title=dict(text="Center%+", font=dict(size=24), automargin=True, yref='paper'),
     title_font_color="darkslategrey",
     yaxis=dict(title=""),
     xaxis=dict(title="")
@@ -463,7 +463,7 @@ fig_53 = px.box(
 fig_53.update_traces(marker=dict(color="darkslategrey"))
 
 fig_53.update_layout(
-    title=dict(text="Oppo %+", font=dict(size=24), automargin=True, yref='paper'),
+    title=dict(text="Oppo%+", font=dict(size=24), automargin=True, yref='paper'),
     title_font_color="darkslategrey",
     yaxis=dict(title=""),
     xaxis=dict(title="")
@@ -532,78 +532,67 @@ builder = GridOptionsBuilder.from_dataframe(df)
 # Configs
 builder.configure_side_bar(filters_panel=True, columns_panel=True)
 
-# Columns
-builder.configure_column("Name", header_name="Player", width=150, editable=False)
-builder.configure_column("Team", width=100, enableRowGroup=True)
-builder.configure_column("Age", width=100)
-builder.configure_column("AB", width=100)
-builder.configure_column("BB%+", width=100)
-builder.configure_column('K%+', width=100)
-builder.configure_column('BABIP+', width=100)
-builder.configure_column('Hard%+', width=100)
-builder.configure_column('Pos', width=100)
-builder.configure_column("wRC+", width=100, sort='desc')
-
 # Column Grouping
-column_defs = [        
+column_defs = [
     {
-        "headerName": "",
-        "children": [
-            {"field": "Name", "headerName": "Player", "pinned": 'left'},
-        ]
+        "headerName": "Player",
+        "field": "Name",
+        "headerClass": "column-header",
+        "width": 150,
+        "pinned": "left",
     },
     {
         "headerName": "Player Details",
         "children": [
-            {"field": "Team"},
-            {"field": "Age"},
-            {"field": "AB", "headerName": "At Bats"},
-        ]
+            {"field": "Team", "headerName": "Team", "width": 100},
+            {"field": "Age", "headerName": "Age", "width": 100},
+            {"field": "AB", "headerName": "At Bats", "width": 100},
+        ],
     },
     {
         "headerName": "Batting Summary",
         "children": [
-            {"field": "wRC+", "sort": "desc"},
-            {"field": "Bat", "headerName": "Batting WAR"},
-            {"field": "Pos", "headerName": "Positional Batting WAR"},
-        ]
+            {"field": "wRC+", "headerName": "wRC+", "sort": "desc", "width": 100},
+            {"field": "Bat", "headerName": "Batting WAR", "width": 100},
+            {"field": "Pos", "headerName": "Positional Batting WAR", "width": 100},
+        ],
     },
     {
         "headerName": "Power",
         "children": [
-            {"field": "Soft%+", "headerName": "Soft Hit%+"},
-            {"field": "Med%+", "headerName": "Med Hit%+"},
-            {"field": "Hard%+", "headerName": "Hard Hit%+"},
-            {"field": "HR", "headerName": "Home Runs"},
-        ]
+            {"field": "Soft%+", "headerName": "Soft Hit%+", "width": 100},
+            {"field": "Med%+", "headerName": "Med Hit%+", "width": 100},
+            {"field": "Hard%+", "headerName": "Hard Hit%+", "width": 100},
+            {"field": "HR", "headerName": "Home Runs", "width": 100},
+        ],
     },
     {
         "headerName": "Contact",
         "children": [
-            {"field": "Contact%", "headerName": "Contact %"},
-            {"field": "Z-Contact%", "headerName": "In-Zone Contact %"},
-            {"field": "O-Contact%", "headerName": "Out-of-Zone Contact %"},
-            {"field": "BABIP+"},
-        ]
+            {"field": "Contact%", "headerName": "Contact%", "width": 100},
+            {"field": "Z-Contact%", "headerName": "In-Zone Contact%", "width": 100},
+            {"field": "O-Contact%", "headerName": "Out-of-Zone Contact%", "width": 100},
+            {"field": "BABIP+", "headerName": "BABIP+", "width": 100},
+        ],
     },
     {
-        "headerName": "Plate Disciplline",
+        "headerName": "Plate Discipline",
         "children": [
-            {"field": "BB%+", "headerName": "Walk %+"},
-            {"field": "K%+", "headerName": "Strikeout %+"},
-            {"field": "Swing%", "headerName": "Swing %"},
-            {"field": "Z-Swing%", "headerName": "In-Zone Swing %"},
-            {"field": "O-Swing%", "headerName": "Out-of-Zone Swing%"},
-        ]
+            {"field": "BB%+", "headerName": "Walk%+", "width": 100},
+            {"field": "K%+", "headerName": "Strikeout%+", "width": 100},
+            {"field": "Swing%", "headerName": "Swing%", "width": 100},
+            {"field": "Z-Swing%", "headerName": "In-Zone Swing%", "width": 100},
+            {"field": "O-Swing%", "headerName": "Out-of-Zone Swing%", "width": 100},
+        ],
     },
     {
         "headerName": "Pull/Oppo",
         "children": [
-            {"field": "Pull%+"},
-            {"field": "Cent%+"},
-            {"field": "Oppo%+"},
-        ]
-    }
+            {"field": "Pull%+", "headerName": "Pull%+", "width": 100},
+            {"field": "Cent%+", "headerName": "Cent%+", "width": 100},
+            {"field": "Oppo%+", "headerName": "Oppo%+", "width": 100},
+        ],
+    },
 ]
 
 # Merge columnDefs with existing column definitions
