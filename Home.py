@@ -58,13 +58,22 @@ def add_logo():
 add_logo()
 
 
-# In[24]:
+# In[25]:
 
 
 # Define the layout
 st.markdown(
     """
     <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
         .title {
             font-size: 48px;
             font-weight: bold;
@@ -96,24 +105,18 @@ st.markdown(
 )
 
 # Render the home screen
+st.markdown('<div class="title">ninebase</div>', unsafe_allow_html=True)
+st.markdown('<p class="description">identify who is hot, and who is not</p>', unsafe_allow_html=True)
+
 col1, col2, col3 = st.columns(3)  # Adjust the number of columns as needed
 
 with col1:
-    st.empty()
+    st.markdown('<div class="cta-button"><a href="https://ninebase.streamlit.app/player_batting_season">Batting Stats</a></div>', unsafe_allow_html=True)
 
 with col2:
-    st.empty()
+    st.markdown('<div class="cta-button"><a href="https://ninebase.streamlit.app/player_pitching_season">*Pitching Stats*</a></div>', unsafe_allow_html=True)
 
 with col3:
-    st.empty()
-
-centered_container = st.beta_container()
-
-with centered_container:
-    st.markdown('<div class="title">ninebase</div>', unsafe_allow_html=True)
-    st.markdown('<p class="description">identify who is hot, and who is not</p>', unsafe_allow_html=True)
-    st.markdown('<div class="cta-button"><a href="https://ninebase.streamlit.app/player_batting_season">Batting Stats</a></div>', unsafe_allow_html=True)
-    st.markdown('<div class="cta-button"><a href="https://ninebase.streamlit.app/player_pitching_season">*Pitching Stats*</a></div>', unsafe_allow_html=True)
     st.markdown('<div class="cta-button"><a href="https://ninebase.streamlit.app/team_stats">*Team Stats*</a></div>', unsafe_allow_html=True)
 
 
