@@ -3,13 +3,13 @@
 
 # # ninebase Home Page
 
-# In[7]:
+# In[2]:
 
 
 import streamlit as st
 
 
-# In[8]:
+# In[3]:
 
 
 st.set_page_config(
@@ -25,7 +25,7 @@ st.set_page_config(
 )
 
 
-# In[13]:
+# In[4]:
 
 
 def add_logo():
@@ -52,13 +52,13 @@ def add_logo():
     )
 
 
-# In[10]:
+# In[5]:
 
 
 add_logo()
 
 
-# In[15]:
+# In[6]:
 
 
 from PIL import Image
@@ -68,20 +68,90 @@ header_img = Image.open('assets/cards_at_mets.jpg')
 st.image(header_img)
 
 
-# In[11]:
+# In[ ]:
 
 
 st.header('ninebase')
 
 
-# In[ ]:
+# In[7]:
 
 
 st.subheader('Use the Navigation Menu to browse reports')
 
 
-# In[ ]:
+# In[8]:
 
 
 st.divider()
+
+
+# In[9]:
+
+
+# Define the layout
+st.markdown(
+    """
+    <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .title {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 24px;
+        }
+
+        .description {
+            font-size: 24px;
+            margin-bottom: 48px;
+        }
+
+        .cta-button {
+            font-size: 20px;
+            padding: 12px 24px;
+            border-radius: 8px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+# Render the home screen
+st.markdown('<div class="container">', unsafe_allow_html=True)
+st.markdown('<h1 class="title">Welcome to My Streamlit App</h1>', unsafe_allow_html=True)
+st.markdown('<p class="description">Explore the amazing features of my app</p>', unsafe_allow_html=True)
+st.markdown('<a href="#" class="cta-button">Get Started</a>', unsafe_allow_html=True)
+st.markdown('</div>', unsafe_allow_html=True)
+
+
+# In[10]:
+
+
+st.divider()
+
+
+# In[ ]:
+
+
+
+
+
+# In[ ]:
+
+
+
 
