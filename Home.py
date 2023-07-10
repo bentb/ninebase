@@ -68,10 +68,9 @@ from PIL import Image
 header_img = Image.open('assets/cards_at_mets.jpg')
 
 
-# In[34]:
+# In[37]:
 
 
-import streamlit as st
 from datetime import datetime
 
 def countdown_to_playoffs():
@@ -85,8 +84,8 @@ def countdown_to_playoffs():
     remaining_days = (target_date - now).days
 
     # Customize the countdown style
-    countdown_style = f"<p style='text-align: right; color: darkslategrey; font-size: 18px; padding: 0; margin: 0;'>Days until playoffs:</p>"
-    remaining_days_style = f"<p style='text-align: right; color: darkslategrey; font-size: 32px; padding: 0; margin: 0;'>{remaining_days}</p>"
+    countdown_style = f"<p style='display: flex; justify-content: flex-end; align-items: baseline; color: darkslategrey; font-size: 18px; margin: 0;'>Days until playoffs:</p>"
+    remaining_days_style = f"<p style='display: flex; justify-content: flex-end; align-items: baseline; color: darkslategrey; font-size: 32px; margin: 0; margin-left: 8px;'>{remaining_days}</p>"
 
     # Display the countdown
     st.markdown(countdown_style, unsafe_allow_html=True)
@@ -174,7 +173,6 @@ with col2:
 
 with col3:
     countdown_to_playoffs()
-    st.image('assets/cards_at_mets.jpg')
     st.divider()
 
 
