@@ -3,13 +3,13 @@
 
 # # ninebase Home Page
 
-# In[20]:
+# In[27]:
 
 
 import streamlit as st
 
 
-# In[21]:
+# In[28]:
 
 
 st.set_page_config(
@@ -25,7 +25,7 @@ st.set_page_config(
 )
 
 
-# In[22]:
+# In[29]:
 
 
 def add_logo():
@@ -52,13 +52,13 @@ def add_logo():
     )
 
 
-# In[23]:
+# In[30]:
 
 
 add_logo()
 
 
-# In[24]:
+# In[31]:
 
 
 # Add Assets
@@ -68,7 +68,7 @@ from PIL import Image
 header_img = Image.open('assets/cards_at_mets.jpg')
 
 
-# In[25]:
+# In[32]:
 
 
 import streamlit as st
@@ -96,7 +96,7 @@ def countdown_to_playoffs():
 countdown_to_playoffs()
 
 
-# In[26]:
+# In[33]:
 
 
 st.markdown(
@@ -171,10 +171,6 @@ with col2:
         st.markdown('<div class="cta-button"><a href="https://ninebase.streamlit.app/team_stats">*Team Stats*</a></div>', unsafe_allow_html=True)
         st.markdown('</div>', unsafe_allow_html=True)
 
-    st.image('assets/cards_at_mets.jpg')
-
-    st.divider()
-
 with col3:
     st.write("#")
 
@@ -182,11 +178,15 @@ with col3:
 # In[ ]:
 
 
+from PIL import Image
 
+header_img = Image.open('assets/cards_at_mets.jpg')
 
 
 # In[ ]:
 
 
+st.image('assets/cards_at_mets.jpg')
 
+st.divider()
 
