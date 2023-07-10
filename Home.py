@@ -58,16 +58,6 @@ def add_logo():
 add_logo()
 
 
-# In[6]:
-
-
-from PIL import Image
-
-header_img = Image.open('assets/cards_at_mets.jpg')
-
-st.image(header_img)
-
-
 # In[16]:
 
 
@@ -134,28 +124,26 @@ with col1:
     st.markdown('<div class="cta-button"><a href="https://ninebase.streamlit.app/player_batting_season">Batting Stats</a></div>', unsafe_allow_html=True)
 
 with col2:
-    st.markdown('<div class="cta-button"><a href="https://ninebase.streamlit.app/player_pitching_season">Pitching Stats</a></div>', unsafe_allow_html=True)
+    st.markdown('<div class="cta-button"><a href="https://ninebase.streamlit.app/player_pitching_season">*Pitching Stats*</a></div>', unsafe_allow_html=True)
 
 with col3:
-    st.markdown('<div class="cta-button"><a href="https://ninebase.streamlit.app/team_stats">Team Stats</a></div>', unsafe_allow_html=True)
+    st.markdown('<div class="cta-button"><a href="https://ninebase.streamlit.app/team_stats">*Team Stats*</a></div>', unsafe_allow_html=True)
 
 st.markdown('</div>', unsafe_allow_html=True)
 
 
-# In[10]:
+# In[ ]:
+
+
+from PIL import Image
+
+header_img = Image.open('assets/cards_at_mets.jpg')
+
+st.image(header_img)
+
+
+# In[ ]:
 
 
 st.divider()
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
 
