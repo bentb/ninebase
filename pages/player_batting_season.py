@@ -172,7 +172,7 @@ fig_12.update_layout(
 )
 
 
-# In[87]:
+# In[101]:
 
 
 fig_13 = px.box(
@@ -185,7 +185,7 @@ fig_13 = px.box(
 )
 
 fig_13.update_layout(
-    title=dict(text="Runs above Replacement", font=dict(size=26), automargin=True, yref='paper'),
+    title=dict(text="Runs Above Replacement", font=dict(size=26), automargin=True, yref='paper'),
     title_font_color="darkslategrey",
     yaxis=dict(title=""),
     xaxis=dict(title="")
@@ -462,7 +462,7 @@ with tabs[1]:
     col4, col5, col6 = st.columns(3)
     col4.plotly_chart(fig_21, theme="streamlit", use_container_width=False)
     col5.plotly_chart(fig_22, theme="streamlit", use_container_width=False)
-    col6.plotly_chart(fig_33, theme="streamlit", use_container_width=False)
+    col6.plotly_chart(fig_23, theme="streamlit", use_container_width=False)
 
 with tabs[2]:
     col7, col8, col9 = st.columns(3)
