@@ -25,6 +25,25 @@ st.set_page_config(
 )
 
 
+# In[ ]:
+
+
+from st_pages import Page, show_pages, add_page_title
+
+# Optional -- adds the title and icon to the current page
+add_page_title("Page Title")
+
+# Specify what pages should be shown in the sidebar, and what their titles and icons
+# should be
+show_pages(
+    [
+        Page("Home.py", "Home", "🏠"),
+        Section("Player", icon="🏠"),
+        Page("Player/batting.py", "Batting", ":books:"),
+    ]
+)
+
+
 # In[3]:
 
 
@@ -81,7 +100,7 @@ def countdown_to_playoffs():
     st.markdown(countdown_style, unsafe_allow_html=True)
 
 
-# In[6]:
+# In[10]:
 
 
 st.markdown(
