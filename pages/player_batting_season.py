@@ -464,7 +464,7 @@ fig_53.update_traces(marker=dict(color="darkslategrey"))
 
 fig_53.update_layout(
     title=dict(text="Oppo%+", font=dict(size=24), automargin=True, yref='paper'),
-    title_font_color="#9fafa1",
+    title_font_color="#3c4a3e",
     yaxis=dict(title=""),
     xaxis=dict(title="")
 )
