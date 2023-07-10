@@ -449,7 +449,7 @@ fig_53.update_layout(
 st.subheader('Player Batting')
 
 # Create the tabs
-tabs = st.tabs(["Summary", "Power", "Plate Discipline", "Pull/Oppo", "Contact"])
+tabs = st.tabs(["Summary", "Power", "Contact", "Plate Discipline", "Pull/Oppo"])
 
 # Display the charts within the tabs
 with tabs[0]:
