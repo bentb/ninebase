@@ -378,16 +378,78 @@ fig_33.update_layout(
 )
 
 
+# ### Row 1 - Tab 4
+
+# In[60]:
+
+
+fig_41 = px.box(
+    df.query("Season==2023"),
+    y = "Contact%",
+    points="all",
+    hover_name = "Name",
+    height = 500,
+    width = 500,
+)
+
+fig_41.update_layout(
+    title=dict(text="Contact%", font=dict(size=26), automargin=True, yref='paper'),
+    title_font_color="darkslategrey",
+    yaxis=dict(title=""),
+    xaxis=dict(title="")
+)
+
+
+# In[61]:
+
+
+fig_42 = px.box(
+    df.query("Season==2023"),
+    y = "O-Contact%",
+    points="all",
+    hover_name = "Name",
+    height = 500,
+    width = 500,
+)
+
+fig_42.update_layout(
+    title=dict(text="O-Contact%", font=dict(size=26), automargin=True, yref='paper'),
+    title_font_color="darkslategrey",
+    yaxis=dict(title=""),
+    xaxis=dict(title="")
+)
+
+
+# In[62]:
+
+
+fig_43 = px.box(
+    df.query("Season==2023"),
+    y = "Z-Contact%",
+    points="all",
+    hover_name = "Name",
+    height = 500,
+    width = 500,
+)
+
+fig_43.update_layout(
+    title=dict(text="Z-Contact%", font=dict(size=26), automargin=True, yref='paper'),
+    title_font_color="darkslategrey",
+    yaxis=dict(title=""),
+    xaxis=dict(title="")
+)
+
+
 # ### Row 1 - Print
 
-# In[41]:
+# In[63]:
 
 
 # Subheader
 st.subheader('Player Batting')
 
 # Create the tabs
-tabs = st.tabs(["Summary", "Power", "Plate Discipline", "Pull/Oppo"])
+tabs = st.tabs(["Summary", "Power", "Plate Discipline", "Pull/Oppo", "Contact"])
 
 # Display the charts within the tabs
 with tabs[0]:
@@ -413,55 +475,23 @@ with tabs[3]:
     col10.plotly_chart(fig_31, theme="streamlit", use_container_width=False)
     col11.plotly_chart(fig_32, theme="streamlit", use_container_width=False)
     col12.plotly_chart(fig_33, theme="streamlit", use_container_width=False)
+    
+with tabs[4]:
+    col13, col14, col15 = st.columns(3)
+    col13.plotly_chart(fig_41, theme="streamlit", use_container_width=False)
+    col14.plotly_chart(fig_42, theme="streamlit", use_container_width=False)
+    col15.plotly_chart(fig_43, theme="streamlit", use_container_width=False)
 
 
 # ## Row 2
 
-# ### Row - Raw Data
+# ### Raw Data
 
 # In[42]:
 
 
 from st_aggrid import AgGrid, GridOptionsBuilder, DataReturnMode, JsCode
 
-
-# # Simplify dataframe, narrow to most insightful columns
-# df_short = df[['Name', 'Team', 'Age', 'AB', 'BB%+', 'K%+', 'BABIP+', 'Hard%+', 'wRC+']]
-
-# # Builds a gridOptions dictionary using a GridOptionsBuilder instance.
-# builder = GridOptionsBuilder.from_dataframe(df_short)
-# builder.configure_side_bar(filters_panel=True, columns_panel=True)
-# 
-# # Columns
-# 
-# builder.configure_column("Name", header_name="Player", width=150, editable=False)
-# builder.configure_column("Team", width=100, enableRowGroup=True)
-# builder.configure_column("Age", width=100)
-# builder.configure_column("AB", width=100)
-# builder.configure_column("BB%+", width=100)
-# builder.configure_column('K%+', width=100)
-# builder.configure_column('BABIP+', width=100)
-# builder.configure_column('Hard%+', width=100)
-# builder.configure_column("wRC+", width=100, sort='desc')
-# 
-# # Launch
-# go = builder.build()
-
-# ### Row 2 - Print
-
-# col1, col2, = st.columns([0.75, 0.25])
-# 
-# with col1:
-#     st.subheader("Raw Data")
-#     grid_response = AgGrid(
-#         df_short,
-#         gridOptions=go,
-#         theme="streamlit",
-#         height=600
-#     )
-#     
-# with col2:
-#     st.subheader("")
 
 # In[57]:
 
@@ -589,10 +619,10 @@ st.divider()
 
 # ### Playground
 
-# In[ ]:
+# In[58]:
 
 
-
+st.write("⛔ NO ENTRY ⛔ 🏗️ construction in progress...")
 
 
 # In[45]:
