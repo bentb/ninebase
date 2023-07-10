@@ -144,7 +144,7 @@ fig_11 = px.box(
     width = 500,
 )
 
-fig_11.update_traces(marker=dict(color="darkslategrey"))
+fig_11.update_traces(marker=dict(color="#7284cc"))
 
 fig_11.update_layout(
     title=dict(text="wRC+", font=dict(size=24), automargin=True, yref='paper'),
@@ -166,7 +166,7 @@ fig_12 = px.box(
     width = 500,
 )
 
-fig_12.update_traces(marker=dict(color="darkslategrey"))
+fig_12.update_traces(marker=dict(color="#7284cc"))
 
 fig_12.update_layout(
     title=dict(text="Batting WAR", font=dict(size=24), automargin=True, yref='paper'),
@@ -188,7 +188,7 @@ fig_13 = px.box(
     width = 500,
 )
 
-fig_13.update_traces(marker=dict(color="darkslategrey"))
+fig_13.update_traces(marker=dict(color="#7284cc"))
 
 fig_13.update_layout(
     title=dict(text="Positon Batting WAR", font=dict(size=24), automargin=True, yref='paper'),
@@ -212,7 +212,7 @@ fig_21 = px.box(
     width = 500,
 )
 
-fig_21.update_traces(marker=dict(color="darkslategrey"))
+fig_21.update_traces(marker=dict(color="#7284cc"))
 
 fig_21.update_layout(
     title=dict(text="Soft Hit%+", font=dict(size=24), automargin=True, yref='paper'),
@@ -234,7 +234,7 @@ fig_22 = px.box(
     width = 500,
 )
 
-fig_22.update_traces(marker=dict(color="darkslategrey"))
+fig_22.update_traces(marker=dict(color="#7284cc"))
 
 fig_22.update_layout(
     title=dict(text="Hard Hit%+", font=dict(size=24), automargin=True, yref='paper'),
@@ -256,7 +256,7 @@ fig_23 = px.box(
     width = 500,
 )
 
-fig_23.update_traces(marker=dict(color="darkslategrey"))
+fig_23.update_traces(marker=dict(color="#7284cc"))
 
 fig_23.update_layout(
     title=dict(text="Home Runs", font=dict(size=24), automargin=True, yref='paper'),
@@ -280,7 +280,7 @@ fig_31 = px.box(
     width = 500,
 )
 
-fig_31.update_traces(marker=dict(color="darkslategrey"))
+fig_31.update_traces(marker=dict(color="#7284cc"))
 
 fig_31.update_layout(
     title=dict(text="Contact%", font=dict(size=24), automargin=True, yref='paper'),
@@ -302,7 +302,7 @@ fig_32 = px.box(
     width = 500,
 )
 
-fig_32.update_traces(marker=dict(color="darkslategrey"))
+fig_32.update_traces(marker=dict(color="#7284cc"))
 
 fig_32.update_layout(
     title=dict(text="In-Zone Contact%", font=dict(size=24), automargin=True, yref='paper'),
@@ -324,7 +324,7 @@ fig_33 = px.box(
     width = 500,
 )
 
-fig_33.update_traces(marker=dict(color="darkslategrey"))
+fig_33.update_traces(marker=dict(color="#7284cc"))
 
 fig_33.update_layout(
     title=dict(text="Out-Zone Contact%", font=dict(size=24), automargin=True, yref='paper'),
@@ -348,7 +348,7 @@ fig_41 = px.box(
     width = 500,
 )
 
-fig_41.update_traces(marker=dict(color="darkslategrey"))
+fig_41.update_traces(marker=dict(color="#7284cc"))
 
 fig_41.update_layout(
     title=dict(text="Walk%+", font=dict(size=24), automargin=True, yref='paper'),
@@ -370,7 +370,7 @@ fig_42 = px.box(
     width = 500,
 )
 
-fig_42.update_traces(marker=dict(color="darkslategrey"))
+fig_42.update_traces(marker=dict(color="#7284cc"))
 
 fig_42.update_layout(
     title=dict(text="Strikeout%+", font=dict(size=24), automargin=True, yref='paper'),
@@ -392,7 +392,7 @@ fig_43 = px.box(
     width = 500,
 )
 
-fig_43.update_traces(marker=dict(color="darkslategrey"))
+fig_43.update_traces(marker=dict(color="#7284cc"))
 
 fig_43.update_layout(
     title=dict(text="Out-Zone Swing%", font=dict(size=24), automargin=True, yref='paper'),
@@ -416,7 +416,7 @@ fig_51 = px.box(
     width = 500,
 )
 
-fig_51.update_traces(marker=dict(color="darkslategrey"))
+fig_51.update_traces(marker=dict(color="#7284cc"))
 
 fig_51.update_layout(
     title=dict(text="Pull%+", font=dict(size=24), automargin=True, yref='paper'),
@@ -438,7 +438,7 @@ fig_52 = px.box(
     width = 500,
 )
 
-fig_52.update_traces(marker=dict(color="darkslategrey"))
+fig_52.update_traces(marker=dict(color="#7284cc"))
 
 fig_52.update_layout(
     title=dict(text="Center%+", font=dict(size=24), automargin=True, yref='paper'),
@@ -460,7 +460,7 @@ fig_53 = px.box(
     width = 500,
 )
 
-fig_53.update_traces(marker=dict(color="darkslategrey"))
+fig_53.update_traces(marker=dict(color="#7284cc"))
 
 fig_53.update_layout(
     title=dict(text="Oppo%+", font=dict(size=24), automargin=True, yref='paper'),
