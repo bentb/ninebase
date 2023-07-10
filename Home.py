@@ -161,15 +161,21 @@ with col2:
     st.markdown('<div class="title">ninebase</div>', unsafe_allow_html=True)
     st.markdown('<p class="description">identify who is hot, and who is not</p>', unsafe_allow_html=True)
 
-    with st.container():
-        st.markdown('<div style="display: flex; justify-content: center;">', unsafe_allow_html=True)
-        st.markdown('<div class="cta-button" style="margin-right: 12px;"><a href="https://ninebase.streamlit.app/player_batting_season">Batting Stats</a></div>', unsafe_allow_html=True)
-        st.markdown('<div class="cta-button" style="margin-right: 12px;"><a href="https://ninebase.streamlit.app/player_pitching_season">*Pitching Stats*</a></div>', unsafe_allow_html=True)
+    col_cta1, col_cta2, col_cta3 = st.columns(3)
+
+    with col_cta1:
+        st.markdown('<div class="cta-button"><a href="https://ninebase.streamlit.app/player_batting_season">Batting Stats</a></div>', unsafe_allow_html=True)
+
+    with col_cta2:
+        st.markdown('<div class="cta-button"><a href="https://ninebase.streamlit.app/player_pitching_season">*Pitching Stats*</a></div>', unsafe_allow_html=True)
+
+    with col_cta3:
         st.markdown('<div class="cta-button"><a href="https://ninebase.streamlit.app/team_stats">*Team Stats*</a></div>', unsafe_allow_html=True)
-        st.markdown('</div>', unsafe_allow_html=True)
 
 with col3:
     countdown_to_playoffs()
+    st.image('assets/cards_at_mets.jpg')
+    st.divider()
 
 
 # In[36]:
