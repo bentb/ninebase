@@ -41,7 +41,7 @@ import plotly.figure_factory as ff
 import streamlit as st
 
 
-# In[3]:
+# In[111]:
 
 
 st.set_page_config(
@@ -442,7 +442,7 @@ fig_53.update_layout(
 
 # ### Row 1 - Print
 
-# In[105]:
+# In[112]:
 
 
 # Subheader
@@ -451,15 +451,16 @@ st.subheader('Player Batting')
 # Create the tabs
 tabs = st.tabs(["Summary", "Power", "Contact", "Plate Discipline", "Pull/Oppo"])
 
-# Inject custom CSS styling to increase font size
-tabs_html = """
+# Inject custom CSS to increase font size of tab labels
+custom_css = """
 <style>
-.st-bt span {
+.stTabs .stHorizontal {
     font-size: 18px !important;
 }
 </style>
 """
-st.markdown(tabs_html, unsafe_allow_html=True)
+
+st.markdown(custom_css)
 
 # Display the charts within the tabs
 with tabs[0]:
