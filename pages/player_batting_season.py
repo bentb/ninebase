@@ -552,7 +552,7 @@ grid_options = {"columnDefs": column_defs}
 # Launch
 go = grid_options
 
-col1, col2 = st.columns([10, 1])
+col1, col2 = st.columns([95, 5])
 
 with col1:
     st.subheader("Raw Data")
