@@ -132,7 +132,7 @@ import statsmodels.api as sm
 
 # ### Row 1 - Tab 1
 
-# In[24]:
+# In[29]:
 
 
 fig_01 = px.box(
@@ -152,10 +152,10 @@ fig_01.update_layout(
 )
 
 
-# In[25]:
+# In[30]:
 
 
-fig_01 = px.box(
+fig_02 = px.box(
     df.query("Season==2023"),
     y = "wRC+",
     points="all",
@@ -164,7 +164,7 @@ fig_01 = px.box(
     width = 500,
 )
 
-fig_01.update_layout(
+fig_02.update_layout(
     title=dict(text="wRC+", font=dict(size=26), automargin=True, yref='paper'),
     title_font_color="darkslategrey",
     yaxis=dict(title=""),
@@ -172,10 +172,10 @@ fig_01.update_layout(
 )
 
 
-# In[26]:
+# In[31]:
 
 
-fig_01 = px.box(
+fig_03 = px.box(
     df.query("Season==2023"),
     y = "Pos",
     points="all",
@@ -184,7 +184,7 @@ fig_01 = px.box(
     width = 500,
 )
 
-fig_01.update_layout(
+fig_03.update_layout(
     title=dict(text="Positional", font=dict(size=26), automargin=True, yref='paper'),
     title_font_color="darkslategrey",
     yaxis=dict(title=""),
@@ -194,7 +194,7 @@ fig_01.update_layout(
 
 # ### Row 1 - Tab 2
 
-# In[10]:
+# In[32]:
 
 
 fig_11 = px.box(
@@ -214,7 +214,7 @@ fig_11.update_layout(
 )
 
 
-# In[11]:
+# In[33]:
 
 
 fig_12 = px.box(
@@ -234,7 +234,7 @@ fig_12.update_layout(
 )
 
 
-# In[12]:
+# In[34]:
 
 
 fig_13 = px.box(
@@ -256,7 +256,7 @@ fig_13.update_layout(
 
 # ### Row 1 - Tab 3
 
-# In[13]:
+# In[35]:
 
 
 fig_21 = px.box(
@@ -276,7 +276,7 @@ fig_21.update_layout(
 )
 
 
-# In[14]:
+# In[36]:
 
 
 fig_22 = px.box(
@@ -296,7 +296,7 @@ fig_22.update_layout(
 )
 
 
-# In[15]:
+# In[37]:
 
 
 fig_23 = px.box(
@@ -318,7 +318,7 @@ fig_23.update_layout(
 
 # ### Row 1 - Tab 4
 
-# In[16]:
+# In[38]:
 
 
 fig_31 = px.box(
@@ -338,7 +338,7 @@ fig_31.update_layout(
 )
 
 
-# In[17]:
+# In[39]:
 
 
 fig_32 = px.box(
@@ -358,7 +358,7 @@ fig_32.update_layout(
 )
 
 
-# In[18]:
+# In[40]:
 
 
 fig_33 = px.box(
@@ -380,7 +380,7 @@ fig_33.update_layout(
 
 # ### Row 1 - Print
 
-# In[19]:
+# In[41]:
 
 
 # Subheader
@@ -419,7 +419,7 @@ with tabs[3]:
 
 # ### Row - Raw Data
 
-# In[20]:
+# In[42]:
 
 
 from st_aggrid import AgGrid, GridOptionsBuilder, DataReturnMode, JsCode
@@ -463,7 +463,7 @@ from st_aggrid import AgGrid, GridOptionsBuilder, DataReturnMode, JsCode
 # with col2:
 #     st.subheader("")
 
-# In[27]:
+# In[43]:
 
 
 # Builds a gridOptions dictionary using a GridOptionsBuilder instance.
@@ -568,7 +568,7 @@ with col2:
     st.subheader("")
 
 
-# In[22]:
+# In[44]:
 
 
 st.divider()
@@ -594,7 +594,7 @@ st.divider()
 
 
 
-# In[23]:
+# In[45]:
 
 
 import streamlit as st
