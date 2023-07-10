@@ -14,7 +14,7 @@ import streamlit as st
 
 st.set_page_config(
     page_title="ninebase",
-    page_icon="👋",
+    page_icon="⚾",
     layout="centered",
     initial_sidebar_state="expanded",
     menu_items={
@@ -86,12 +86,12 @@ st.markdown(
         .title {
             font-size: 48px;
             font-weight: bold;
-            margin-bottom: 24px;
+            margin-bottom: 12px;
         }
 
         .description {
             font-size: 24px;
-            margin-bottom: 48px;
+            margin-bottom: 96px;
         }
 
         .cta-button a {
@@ -135,8 +135,6 @@ st.markdown('</div>', unsafe_allow_html=True)
 # In[ ]:
 
 
-st.write("#")
-st.write("#")
 st.write("#")
 
 
