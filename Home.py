@@ -58,10 +58,9 @@ def add_logo():
 add_logo()
 
 
-# In[26]:
+# In[27]:
 
 
-import streamlit as st
 from datetime import datetime
 
 def countdown_to_october_3():
@@ -75,8 +74,8 @@ def countdown_to_october_3():
     remaining_days = (target_date - now).days
 
     # Customize the countdown style
-    countdown_style = f"<p style='text-align: right; color: blue; font-size: 24px;'>Days Until Playoffs:</p>"
-    remaining_days_style = f"<p style='text-align: right; color: red; font-size: 36px;'>{remaining_days} days</p>"
+    countdown_style = f"<p style='text-align: right; color: darkslategrey; font-size: 24px; padding-right: 20px; margin-bottom: 5px;'>Countdown to October 3rd:</p>"
+    remaining_days_style = f"<p style='text-align: right; color: darkslategrey; font-size: 36px; padding-right: 20px; margin-top: 0;'>{remaining_days} days</p>"
 
     # Display the countdown
     st.markdown(countdown_style, unsafe_allow_html=True)
