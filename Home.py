@@ -3,19 +3,13 @@
 
 # # ninebase Home Page
 
-# In[10]:
-
-
 import streamlit as st
-
-
-# In[11]:
 
 
 st.set_page_config(
     page_title="ninebase",
     page_icon="⚾",
-    layout="centered",
+    layout="wide",
     initial_sidebar_state="expanded",
     menu_items={
         'Report a bug': 'https://www.extremelycoolapp.com/help',
@@ -23,9 +17,6 @@ st.set_page_config(
         'About': "# This is a header. This is an *extremely* cool app!"
     }
 )
-
-
-# In[12]:
 
 
 def add_logo():
@@ -52,52 +43,31 @@ def add_logo():
     )
 
 
-# In[13]:
-
-
 add_logo()
 
 
-# In[14]:
-
-
-import streamlit as st
 from datetime import datetime
 
 def countdown_to_playoffs():
-    # Get the current date
     now = datetime.now().date()
-
-    # Set the target date as October 3rd
     target_date = datetime(now.year, 10, 3).date()
-
-    # Calculate the remaining days
     remaining_days = (target_date - now).days
-
-    # Customize the countdown style
     countdown_style = f"<p style='text-align: right; color: darkslategrey; font-size: 18px; padding: 0; margin: 0;'>Days until playoffs:</p>"
     remaining_days_style = f"<p style='text-align: right; color: darkslategrey; font-size: 32px; padding: 0; margin: 0;'>{remaining_days}</p>"
-
-    # Display the countdown
     st.markdown(countdown_style, unsafe_allow_html=True)
     st.markdown(remaining_days_style, unsafe_allow_html=True)
 
-# Run the countdown function
 countdown_to_playoffs()
 
 
-# In[15]:
-
-
-# Define the layout
 st.markdown(
     """
     <style>
         body {
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
             justify-content: center;
-            align-items: center;
+            align-items: flex-start;
             height: 100vh;
             margin: 0;
         }
@@ -114,6 +84,13 @@ st.markdown(
             font-size: 24px;
             margin-bottom: 96px;
             font-family: Lato, sans-serif;
+        }
+
+        .cta-button {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 24px;
         }
 
         .cta-button a {
@@ -139,46 +116,28 @@ st.markdown(
 )
 
 
-# Render the home screen
-st.markdown('<div class="title">ninebase</div>', unsafe_allow_html=True)
-st.markdown('<p class="description">identify who is hot, and who is not</p>', unsafe_allow_html=True)
-
-col1, col2, col3 = st.columns(3)  # Adjust the number of columns as needed
+col1, col2, col3 = st.columns(3)
 
 with col1:
-    st.markdown('<div class="cta-button"><a href="https://ninebase.streamlit.app/player_batting_season">Batting Stats</a></div>', unsafe_allow_html=True)
+    st.write("#")
 
 with col2:
-    st.markdown('<div class="cta-button"><a href="https://ninebase.streamlit.app/player_pitching_season">*Pitching Stats*</a></div>', unsafe_allow_html=True)
+    st.markdown('<div class="title">ninebase</div>', unsafe_allow_html=True)
+    st.markdown('<p class="description">identify who is hot, and who is not</p>', unsafe_allow_html=True)
+
+    with st.container():
+        st.markdown('<div class="cta-button"><a href="https://ninebase.streamlit.app/player_batting_season">Batting Stats</a></div>', unsafe_allow_html=True)
+
+    with st.container():
+        st.markdown('<div class="cta-button"><a href="https://ninebase.streamlit.app/player_pitching_season">*Pitching Stats*</a></div>', unsafe_allow_html=True)
+
+    with st.container():
+        st.markdown('<div class="cta-button"><a href="https://ninebase.streamlit.app/team_stats">*Team Stats*</a></div>', unsafe_allow_html=True)
+
+    st.write("Content of the current page goes here.")
+    st.image('assets/cards_at_mets.jpg')
+
+    st.divider()
 
 with col3:
-    st.markdown('<div class="cta-button"><a href="https://ninebase.streamlit.app/team_stats">*Team Stats*</a></div>', unsafe_allow_html=True)
-
-
-# In[16]:
-
-
-st.write("#")
-
-
-# In[17]:
-
-
-from PIL import Image
-
-header_img = Image.open('assets/cards_at_mets.jpg')
-
-st.image(header_img)
-
-
-# In[18]:
-
-
-st.divider()
-
-
-# In[ ]:
-
-
-
-
+    st.write("#")
