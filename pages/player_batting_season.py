@@ -613,8 +613,7 @@ go = grid_options
 col1, col2 = st.columns([98, 2])
 
 with col1:
-    st.write('<span style="font-family: Lato, sans-serif; font-size: 26px; font-weight: bold; color: darkslategrey;">Raw Data</span>', unsafe_allow_html=True)
-    st.text("Default Sort: wRC+")
+    st.write('<div style="display: flex; align-items: baseline;"><span style="font-family: Lato, sans-serif; font-size: 26px; font-weight: bold; color: darkslategrey; margin-right: auto;">Raw Data</span><span>Default Sort: wRC+</span></div>', unsafe_allow_html=True)
     grid_response = AgGrid(
         df,
         gridOptions=go,
