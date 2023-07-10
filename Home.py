@@ -103,7 +103,7 @@ st.markdown(
         }
 
         .title {
-            font-size: 32px;
+            font-size: 46px;
             font-weight: bold;
             margin-bottom: 12px;
             font-family: Lato, sans-serif;
@@ -126,7 +126,7 @@ st.markdown(
             text-decoration: none;
             transition: background-color 0.3s;
             font-family: Lato, sans-serif;
-            font-size: 24px;
+            font-size: 16px;
             font-weight: bold;
         }
 
