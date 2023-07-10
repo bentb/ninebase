@@ -109,13 +109,15 @@ st.markdown(
             padding: 12px 24px;
             border-radius: 8px;
             background-color: darkslategrey;
-            color: #fff; /* Adjust the font color here */
-            text-decoration: none;
             transition: background-color 0.3s;
         }
 
         .cta-button:hover {
             background-color: #366e6e;
+        }
+        
+        .cta-button span {
+            color: white;
         }
     </style>
     """,
