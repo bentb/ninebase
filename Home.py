@@ -150,7 +150,7 @@ st.markdown(
 )
 
 
-col1, col2, col3 = st.columns([1, 8, 1])
+col1, col2, col3 = st.columns([2, 6, 2])
 
 with col1:
     st.write("#")
@@ -185,7 +185,7 @@ header_img = Image.open('assets/cards_at_mets.jpg')
 # In[ ]:
 
 
-col1, col2, col3 = st.columns([1, 8, 1])
+col1, col2, col3 = st.columns([2, 6, 2])
 
 with col1:
     st.write("#")
