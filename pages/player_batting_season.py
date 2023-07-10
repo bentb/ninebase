@@ -501,20 +501,19 @@ column_defs = [
     {
         "headerName": "Batting Summary",
         "children": [
-            {"field": "WAR"},
-            {"field": "wRC+"},
+            {"field": "Bat"},
             {"field": "Pos"},
+            {"field": "WAR"},
         ]
     },
     {
         "headerName": "Power",
         "children": [
-            {"field": "Hard%+"},
-            {"field": "HR"},
+            {"field": "wRC+", "sort": "desc"},
             {"field": "Soft%+"},
             {"field": "Med%+"},
             {"field": "Hard%+"},
-            {"field": "wRC+", "sort": "desc"},
+            {"field": "HR"},
         ]
     },
     {
