@@ -12,7 +12,7 @@
 
 # # Introduction
 
-# In[1]:
+# In[42]:
 
 
 # Import Libraries
@@ -35,13 +35,13 @@ import plotly.figure_factory as ff
 
 # ## Streamlit
 
-# In[2]:
+# In[43]:
 
 
 import streamlit as st
 
 
-# In[3]:
+# In[44]:
 
 
 st.set_page_config(
@@ -57,7 +57,7 @@ st.set_page_config(
 )
 
 
-# In[4]:
+# In[45]:
 
 
 def add_logo():
@@ -102,13 +102,13 @@ df = pd.read_csv('data_storage/player_batting_season.csv')
 #df = pd.read_csv('C:/Users/b7tbu/NINEBASE/ninebase/data_storage/player_batting_season.csv')
 
 
-# In[7]:
+# In[46]:
 
 
 df.head()
 
 
-# In[8]:
+# In[47]:
 
 
 import plotly.express as px
@@ -132,12 +132,12 @@ import statsmodels.api as sm
 
 # ### Row 1 - Tab 1
 
-# In[41]:
+# In[ ]:
 
 
 fig_11 = px.box(
     df.query("Season==2023"),
-    y = "Bat",
+    y = "wRC+",
     points="all",
     hover_name = "Name",
     height = 500,
@@ -147,6 +147,28 @@ fig_11 = px.box(
 fig_11.update_traces(marker=dict(color="darkslategrey"))
 
 fig_11.update_layout(
+    title=dict(text="wRC+", font=dict(size=24), automargin=True, yref='paper'),
+    title_font_color="darkslategrey",
+    yaxis=dict(title=""),
+    xaxis=dict(title="")
+)
+
+
+# In[41]:
+
+
+fig_12 = px.box(
+    df.query("Season==2023"),
+    y = "Bat",
+    points="all",
+    hover_name = "Name",
+    height = 500,
+    width = 500,
+)
+
+fig_12.update_traces(marker=dict(color="darkslategrey"))
+
+fig_12.update_layout(
     title=dict(text="Batting WAR", font=dict(size=24), automargin=True, yref='paper'),
     title_font_color="darkslategrey",
     yaxis=dict(title=""),
@@ -157,31 +179,9 @@ fig_11.update_layout(
 # In[10]:
 
 
-fig_12 = px.box(
-    df.query("Season==2023"),
-    y = "Pos",
-    points="all",
-    hover_name = "Name",
-    height = 500,
-    width = 500,
-)
-
-fig_12.update_traces(marker=dict(color="darkslategrey"))
-
-fig_12.update_layout(
-    title=dict(text="Positional", font=dict(size=24), automargin=True, yref='paper'),
-    title_font_color="darkslategrey",
-    yaxis=dict(title=""),
-    xaxis=dict(title="")
-)
-
-
-# In[11]:
-
-
 fig_13 = px.box(
     df.query("Season==2023"),
-    y = "RAR",
+    y = "Pos",
     points="all",
     hover_name = "Name",
     height = 500,
@@ -191,7 +191,7 @@ fig_13 = px.box(
 fig_13.update_traces(marker=dict(color="darkslategrey"))
 
 fig_13.update_layout(
-    title=dict(text="RAR", font=dict(size=24), automargin=True, yref='paper'),
+    title=dict(text="Position WAR", font=dict(size=24), automargin=True, yref='paper'),
     title_font_color="darkslategrey",
     yaxis=dict(title=""),
     xaxis=dict(title="")
