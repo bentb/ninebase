@@ -205,7 +205,7 @@ fig_13.update_layout(
 
 fig_21 = px.box(
     df.query("Season==2023"),
-    y = "HR",
+    y = "Soft%+",
     points="all",
     hover_name = "Name",
     height = 500,
@@ -215,7 +215,7 @@ fig_21 = px.box(
 fig_21.update_traces(marker=dict(color="darkslategrey"))
 
 fig_21.update_layout(
-    title=dict(text="Home Runs", font=dict(size=24), automargin=True, yref='paper'),
+    title=dict(text="Soft Hit%+", font=dict(size=24), automargin=True, yref='paper'),
     title_font_color="darkslategrey",
     yaxis=dict(title=""),
     xaxis=dict(title="")
@@ -227,7 +227,7 @@ fig_21.update_layout(
 
 fig_22 = px.box(
     df.query("Season==2023"),
-    y = "Soft%+",
+    y = "Hard%+",
     points="all",
     hover_name = "Name",
     height = 500,
@@ -237,7 +237,7 @@ fig_22 = px.box(
 fig_22.update_traces(marker=dict(color="darkslategrey"))
 
 fig_22.update_layout(
-    title=dict(text="Soft Hit %+", font=dict(size=24), automargin=True, yref='paper'),
+    title=dict(text="Hard Hit%+", font=dict(size=24), automargin=True, yref='paper'),
     title_font_color="darkslategrey",
     yaxis=dict(title=""),
     xaxis=dict(title="")
@@ -249,7 +249,7 @@ fig_22.update_layout(
 
 fig_23 = px.box(
     df.query("Season==2023"),
-    y = "Hard%+",
+    y = "HR",
     points="all",
     hover_name = "Name",
     height = 500,
@@ -259,7 +259,7 @@ fig_23 = px.box(
 fig_23.update_traces(marker=dict(color="darkslategrey"))
 
 fig_23.update_layout(
-    title=dict(text="Hard Hit %+", font=dict(size=24), automargin=True, yref='paper'),
+    title=dict(text="Home Runs", font=dict(size=24), automargin=True, yref='paper'),
     title_font_color="darkslategrey",
     yaxis=dict(title=""),
     xaxis=dict(title="")
@@ -295,7 +295,7 @@ fig_31.update_layout(
 
 fig_32 = px.box(
     df.query("Season==2023"),
-    y = "O-Contact%",
+    y = "Z-Contact%",
     points="all",
     hover_name = "Name",
     height = 500,
@@ -305,7 +305,7 @@ fig_32 = px.box(
 fig_32.update_traces(marker=dict(color="darkslategrey"))
 
 fig_32.update_layout(
-    title=dict(text="Out of Zone Contact%", font=dict(size=24), automargin=True, yref='paper'),
+    title=dict(text="In-Zone Contact%", font=dict(size=24), automargin=True, yref='paper'),
     title_font_color="darkslategrey",
     yaxis=dict(title=""),
     xaxis=dict(title="")
@@ -317,7 +317,7 @@ fig_32.update_layout(
 
 fig_33 = px.box(
     df.query("Season==2023"),
-    y = "Z-Contact%",
+    y = "O-Contact%",
     points="all",
     hover_name = "Name",
     height = 500,
@@ -327,7 +327,7 @@ fig_33 = px.box(
 fig_33.update_traces(marker=dict(color="darkslategrey"))
 
 fig_33.update_layout(
-    title=dict(text="Within Zone Contact%", font=dict(size=24), automargin=True, yref='paper'),
+    title=dict(text="Out-of-Zone Contact%", font=dict(size=24), automargin=True, yref='paper'),
     title_font_color="darkslategrey",
     yaxis=dict(title=""),
     xaxis=dict(title="")
