@@ -563,38 +563,37 @@ column_defs = [
     {
         "headerName": "Batting Summary",
         "children": [
-            {"field": "Bat"},
-            {"field": "Pos"},
-            {"field": "WAR"},
+            {"field": "wRC+", "sort": "desc"},
+            {"field": "Bat", "headerName": "Batting WAR"},
+            {"field": "Pos", "headerName": "Positional Batting WAR"},
         ]
     },
     {
         "headerName": "Power",
         "children": [
-            {"field": "wRC+", "sort": "desc"},
-            {"field": "Soft%+"},
-            {"field": "Med%+"},
-            {"field": "Hard%+"},
-            {"field": "HR"},
+            {"field": "Soft%+", "headerName": "Soft Hit%+"},
+            {"field": "Med%+", "headerName": "Med Hit%+"},
+            {"field": "Hard%+", "headerName": "Hard Hit%+"},
+            {"field": "HR", "headerName": "Home Runs"},
         ]
     },
     {
         "headerName": "Contact",
         "children": [
+            {"field": "Contact%", "headerName": "Contact %"},
+            {"field": "Z-Contact%", "headerName": "In-Zone Contact %"},
+            {"field": "O-Contact%", "headerName": "Out-of-Zone Contact %"},
             {"field": "BABIP+"},
-            {"field": "Contact%"},
-            {"field": "O-Contact%"},
-            {"field": "Z-Contact%"},
         ]
     },
     {
         "headerName": "Plate Disciplline",
         "children": [
-            {"field": "BB%+"},
-            {"field": "K%+"},
-            {"field": "Swing%"},
-            {"field": "O-Swing%"},
-            {"field": "Z-Swing%"},
+            {"field": "BB%+", "headerName": "Walk %+"},
+            {"field": "K%+", "headerName": "Strikeout %+"},
+            {"field": "Swing%", "headerName": "Swing %"},
+            {"field": "Z-Swing%", "headerName": "In-Zone Swing %"},
+            {"field": "O-Swing%", "headerName": "Out-of-Zone Swing%"},
         ]
     },
     {
