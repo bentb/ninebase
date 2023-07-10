@@ -68,24 +68,6 @@ header_img = Image.open('assets/cards_at_mets.jpg')
 st.image(header_img)
 
 
-# In[ ]:
-
-
-st.header('ninebase')
-
-
-# In[7]:
-
-
-st.subheader('Use the Navigation Menu to browse reports')
-
-
-# In[8]:
-
-
-st.divider()
-
-
 # In[9]:
 
 
@@ -132,9 +114,9 @@ st.markdown(
 
 # Render the home screen
 st.markdown('<div class="container">', unsafe_allow_html=True)
-st.markdown('<h1 class="title">Welcome to My Streamlit App</h1>', unsafe_allow_html=True)
-st.markdown('<p class="description">Explore the amazing features of my app</p>', unsafe_allow_html=True)
-st.markdown('<a href="#" class="cta-button">Get Started</a>', unsafe_allow_html=True)
+st.markdown('<h1 class="title">ninebase</h1>', unsafe_allow_html=True)
+st.markdown('<p class="description">identify who is hot, and who is not</p>', unsafe_allow_html=True)
+st.markdown('<a href="https://ninebase.streamlit.app/player_batting_season" class="cta-button">Batting Stats</a>', unsafe_allow_html=True)
 st.markdown('</div>', unsafe_allow_html=True)
 
 
