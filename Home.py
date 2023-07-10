@@ -68,7 +68,7 @@ header_img = Image.open('assets/cards_at_mets.jpg')
 st.image(header_img)
 
 
-# In[15]:
+# In[16]:
 
 
 # Define the layout
@@ -104,12 +104,15 @@ st.markdown(
             margin-bottom: 48px;
         }
 
+        .cta-button a {
+            color: white;
+        }
+
         .cta-button {
             font-size: 20px;
             padding: 12px 24px;
             border-radius: 8px;
             background-color: darkslategrey;
-            color: white;
             text-decoration: none;
             transition: background-color 0.3s;
         }
@@ -127,7 +130,7 @@ st.markdown('<div class="container">', unsafe_allow_html=True)
 st.markdown('<h1 class="title">ninebase</h1>', unsafe_allow_html=True)
 st.markdown('<p class="description">identify who is hot, and who is not</p>', unsafe_allow_html=True)
 st.write(
-    f'<a href="https://ninebase.streamlit.app/player_batting_season" class="cta-button">Batting Stats</a>',
+    f'<div class="cta-button"><a href="https://ninebase.streamlit.app/player_batting_season">Batting Stats</a></div>',
     unsafe_allow_html=True
 )
 st.markdown('</div>', unsafe_allow_html=True)
