@@ -108,7 +108,7 @@ df = pd.read_csv('data_storage/player_batting_season.csv')
 df.head()
 
 
-# In[9]:
+# In[64]:
 
 
 import plotly.express as px
@@ -132,10 +132,10 @@ import statsmodels.api as sm
 
 # ### Row 1 - Tab 1
 
-# In[46]:
+# In[65]:
 
 
-fig_01 = px.box(
+fig_11 = px.box(
     df.query("Season==2023"),
     y = "Bat",
     points="all",
@@ -144,7 +144,7 @@ fig_01 = px.box(
     width = 500,
 )
 
-fig_01.update_layout(
+fig_11.update_layout(
     title=dict(text="Batting WAR", font=dict(size=26), automargin=True, yref='paper'),
     title_font_color="darkslategrey",
     yaxis=dict(title=""),
@@ -152,10 +152,10 @@ fig_01.update_layout(
 )
 
 
-# In[47]:
+# In[66]:
 
 
-fig_02 = px.box(
+fig_12 = px.box(
     df.query("Season==2023"),
     y = "Pos",
     points="all",
@@ -164,7 +164,7 @@ fig_02 = px.box(
     width = 500,
 )
 
-fig_02.update_layout(
+fig_12.update_layout(
     title=dict(text="Positional", font=dict(size=26), automargin=True, yref='paper'),
     title_font_color="darkslategrey",
     yaxis=dict(title=""),
@@ -172,10 +172,10 @@ fig_02.update_layout(
 )
 
 
-# In[48]:
+# In[67]:
 
 
-fig_03 = px.box(
+fig_13 = px.box(
     df.query("Season==2023"),
     y = "RAR",
     points="all",
@@ -184,7 +184,7 @@ fig_03 = px.box(
     width = 500,
 )
 
-fig_03.update_layout(
+fig_13.update_layout(
     title=dict(text="Runs above Replacement", font=dict(size=26), automargin=True, yref='paper'),
     title_font_color="darkslategrey",
     yaxis=dict(title=""),
@@ -194,10 +194,10 @@ fig_03.update_layout(
 
 # ### Row 1 - Tab 2
 
-# In[49]:
+# In[68]:
 
 
-fig_11 = px.box(
+fig_21 = px.box(
     df.query("Season==2023"),
     y = "Hard%+",
     points="all",
@@ -206,7 +206,7 @@ fig_11 = px.box(
     width = 500,
 )
 
-fig_11.update_layout(
+fig_21.update_layout(
     title=dict(text="Hard Hit %+", font=dict(size=26), automargin=True, yref='paper'),
     title_font_color="darkslategrey",
     yaxis=dict(title=""),
@@ -214,10 +214,10 @@ fig_11.update_layout(
 )
 
 
-# In[50]:
+# In[69]:
 
 
-fig_12 = px.box(
+fig_22 = px.box(
     df.query("Season==2023"),
     y = "HR",
     points="all",
@@ -226,7 +226,7 @@ fig_12 = px.box(
     width = 500,
 )
 
-fig_12.update_layout(
+fig_22.update_layout(
     title=dict(text="Home Runs", font=dict(size=26), automargin=True, yref='paper'),
     title_font_color="darkslategrey",
     yaxis=dict(title=""),
@@ -234,10 +234,10 @@ fig_12.update_layout(
 )
 
 
-# In[34]:
+# In[70]:
 
 
-fig_13 = px.box(
+fig_23 = px.box(
     df.query("Season==2023"),
     y = "wRC+",
     points="all",
@@ -246,7 +246,7 @@ fig_13 = px.box(
     width = 500,
 )
 
-fig_13.update_layout(
+fig_23.update_layout(
     title=dict(text="wRC+", font=dict(size=26), automargin=True, yref='paper'),
     title_font_color="darkslategrey",
     yaxis=dict(title=""),
@@ -256,10 +256,10 @@ fig_13.update_layout(
 
 # ### Row 1 - Tab 3
 
-# In[35]:
+# In[71]:
 
 
-fig_21 = px.box(
+fig_31 = px.box(
     df.query("Season==2023"),
     y = "BB%+",
     points="all",
@@ -268,7 +268,7 @@ fig_21 = px.box(
     width = 500,
 )
 
-fig_21.update_layout(
+fig_31.update_layout(
     title=dict(text="Walk %+", font=dict(size=26), automargin=True, yref='paper'),
     title_font_color="darkslategrey",
     yaxis=dict(title=""),
@@ -276,10 +276,10 @@ fig_21.update_layout(
 )
 
 
-# In[36]:
+# In[72]:
 
 
-fig_22 = px.box(
+fig_32 = px.box(
     df.query("Season==2023"),
     y = "K%+",
     points="all",
@@ -288,7 +288,7 @@ fig_22 = px.box(
     width = 500,
 )
 
-fig_22.update_layout(
+fig_32.update_layout(
     title=dict(text="Strikeout %+", font=dict(size=26), automargin=True, yref='paper'),
     title_font_color="darkslategrey",
     yaxis=dict(title=""),
@@ -296,10 +296,10 @@ fig_22.update_layout(
 )
 
 
-# In[37]:
+# In[73]:
 
 
-fig_23 = px.box(
+fig_33 = px.box(
     df.query("Season==2023"),
     y = "O-Swing%",
     points="all",
@@ -308,7 +308,7 @@ fig_23 = px.box(
     width = 500,
 )
 
-fig_23.update_layout(
+fig_33.update_layout(
     title=dict(text="Out of Zone Swing %+", font=dict(size=26), automargin=True, yref='paper'),
     title_font_color="darkslategrey",
     yaxis=dict(title=""),
@@ -318,10 +318,10 @@ fig_23.update_layout(
 
 # ### Row 1 - Tab 4
 
-# In[38]:
+# In[74]:
 
 
-fig_31 = px.box(
+fig_41 = px.box(
     df.query("Season==2023"),
     y = "Pull%+",
     points="all",
@@ -330,7 +330,7 @@ fig_31 = px.box(
     width = 500,
 )
 
-fig_31.update_layout(
+fig_41.update_layout(
     title=dict(text="Pull %+", font=dict(size=26), automargin=True, yref='paper'),
     title_font_color="darkslategrey",
     yaxis=dict(title=""),
@@ -338,10 +338,10 @@ fig_31.update_layout(
 )
 
 
-# In[39]:
+# In[75]:
 
 
-fig_32 = px.box(
+fig_42 = px.box(
     df.query("Season==2023"),
     y = "Cent%+",
     points="all",
@@ -350,7 +350,7 @@ fig_32 = px.box(
     width = 500,
 )
 
-fig_32.update_layout(
+fig_42.update_layout(
     title=dict(text="Center %+", font=dict(size=26), automargin=True, yref='paper'),
     title_font_color="darkslategrey",
     yaxis=dict(title=""),
@@ -358,10 +358,10 @@ fig_32.update_layout(
 )
 
 
-# In[40]:
+# In[76]:
 
 
-fig_33 = px.box(
+fig_43 = px.box(
     df.query("Season==2023"),
     y = "Oppo%+",
     points="all",
@@ -370,7 +370,7 @@ fig_33 = px.box(
     width = 500,
 )
 
-fig_33.update_layout(
+fig_43.update_layout(
     title=dict(text="Oppo %+", font=dict(size=26), automargin=True, yref='paper'),
     title_font_color="darkslategrey",
     yaxis=dict(title=""),
@@ -378,12 +378,12 @@ fig_33.update_layout(
 )
 
 
-# ### Row 1 - Tab 4
+# ### Row 1 - Tab 5
 
-# In[60]:
+# In[77]:
 
 
-fig_41 = px.box(
+fig_51 = px.box(
     df.query("Season==2023"),
     y = "Contact%",
     points="all",
@@ -392,7 +392,7 @@ fig_41 = px.box(
     width = 500,
 )
 
-fig_41.update_layout(
+fig_51.update_layout(
     title=dict(text="Contact%", font=dict(size=26), automargin=True, yref='paper'),
     title_font_color="darkslategrey",
     yaxis=dict(title=""),
@@ -400,10 +400,10 @@ fig_41.update_layout(
 )
 
 
-# In[61]:
+# In[78]:
 
 
-fig_42 = px.box(
+fig_52 = px.box(
     df.query("Season==2023"),
     y = "O-Contact%",
     points="all",
@@ -412,7 +412,7 @@ fig_42 = px.box(
     width = 500,
 )
 
-fig_42.update_layout(
+fig_52.update_layout(
     title=dict(text="O-Contact%", font=dict(size=26), automargin=True, yref='paper'),
     title_font_color="darkslategrey",
     yaxis=dict(title=""),
@@ -420,10 +420,10 @@ fig_42.update_layout(
 )
 
 
-# In[62]:
+# In[79]:
 
 
-fig_43 = px.box(
+fig_53 = px.box(
     df.query("Season==2023"),
     y = "Z-Contact%",
     points="all",
@@ -432,7 +432,7 @@ fig_43 = px.box(
     width = 500,
 )
 
-fig_43.update_layout(
+fig_53.update_layout(
     title=dict(text="Z-Contact%", font=dict(size=26), automargin=True, yref='paper'),
     title_font_color="darkslategrey",
     yaxis=dict(title=""),
@@ -442,7 +442,7 @@ fig_43.update_layout(
 
 # ### Row 1 - Print
 
-# In[63]:
+# In[80]:
 
 
 # Subheader
@@ -454,33 +454,33 @@ tabs = st.tabs(["Summary", "Power", "Plate Discipline", "Pull/Oppo", "Contact"])
 # Display the charts within the tabs
 with tabs[0]:
     col1, col2, col3 = st.columns(3)
-    col1.plotly_chart(fig_01, theme="streamlit", use_container_width=False)
-    col2.plotly_chart(fig_02, theme="streamlit", use_container_width=False)
-    col3.plotly_chart(fig_03, theme="streamlit", use_container_width=False)
+    col1.plotly_chart(fig_11, theme="streamlit", use_container_width=False)
+    col2.plotly_chart(fig_12, theme="streamlit", use_container_width=False)
+    col3.plotly_chart(fig_13, theme="streamlit", use_container_width=False)
 
 with tabs[1]:
     col4, col5, col6 = st.columns(3)
-    col4.plotly_chart(fig_11, theme="streamlit", use_container_width=False)
-    col5.plotly_chart(fig_12, theme="streamlit", use_container_width=False)
-    col6.plotly_chart(fig_13, theme="streamlit", use_container_width=False)
+    col4.plotly_chart(fig_21, theme="streamlit", use_container_width=False)
+    col5.plotly_chart(fig_22, theme="streamlit", use_container_width=False)
+    col6.plotly_chart(fig_33, theme="streamlit", use_container_width=False)
 
 with tabs[2]:
     col7, col8, col9 = st.columns(3)
-    col7.plotly_chart(fig_21, theme="streamlit", use_container_width=False)
-    col8.plotly_chart(fig_22, theme="streamlit", use_container_width=False)
-    col9.plotly_chart(fig_23, theme="streamlit", use_container_width=False)
+    col7.plotly_chart(fig_31, theme="streamlit", use_container_width=False)
+    col8.plotly_chart(fig_32, theme="streamlit", use_container_width=False)
+    col9.plotly_chart(fig_33, theme="streamlit", use_container_width=False)
     
 with tabs[3]:
     col10, col11, col12 = st.columns(3)
-    col10.plotly_chart(fig_31, theme="streamlit", use_container_width=False)
-    col11.plotly_chart(fig_32, theme="streamlit", use_container_width=False)
-    col12.plotly_chart(fig_33, theme="streamlit", use_container_width=False)
+    col10.plotly_chart(fig_41, theme="streamlit", use_container_width=False)
+    col11.plotly_chart(fig_42, theme="streamlit", use_container_width=False)
+    col12.plotly_chart(fig_43, theme="streamlit", use_container_width=False)
     
 with tabs[4]:
     col13, col14, col15 = st.columns(3)
-    col13.plotly_chart(fig_41, theme="streamlit", use_container_width=False)
-    col14.plotly_chart(fig_42, theme="streamlit", use_container_width=False)
-    col15.plotly_chart(fig_43, theme="streamlit", use_container_width=False)
+    col13.plotly_chart(fig_51, theme="streamlit", use_container_width=False)
+    col14.plotly_chart(fig_52, theme="streamlit", use_container_width=False)
+    col15.plotly_chart(fig_53, theme="streamlit", use_container_width=False)
 
 
 # ## Row 2
