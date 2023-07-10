@@ -476,7 +476,7 @@ fig_53.update_layout(
 
 
 # Heading
-st.markdown('<span style="font-family: Lato, sans-serif; font-size: 24px; color: darkslategrey;">Player Batting</span>', unsafe_allow_html=True)
+st.markdown('<span style="font-family: Lato, sans-serif; font-size: 32px; color: darkslategrey; font-weight: bold;">Player Batting</span>', unsafe_allow_html=True)
 
 # Create the tabs
 tabs = st.tabs(["Summary", "Power", "Contact", "Plate Discipline", "Pull/Oppo"])
@@ -616,7 +616,7 @@ go = grid_options
 col1, col2 = st.columns([98, 2])
 
 with col1:
-    st.write('<span style="font-family: Lato, sans-serif; font-size: 18px; color: darkslategrey;">Raw Data</span>', unsafe_allow_html=True)
+    st.write('<span style="font-family: Lato, sans-serif; font-size: 26px; font-weight: bold; color: darkslategrey;">Raw Data</span>', unsafe_allow_html=True)
     st.text("Default Sort: wRC+")
     grid_response = AgGrid(
         df,
