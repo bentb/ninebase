@@ -142,7 +142,7 @@ st.markdown(
         }
 
         .cta-button a:hover {
-            background-color: #366e6e;
+            background-color: #1a6330;
         }
     </style>
     """,
