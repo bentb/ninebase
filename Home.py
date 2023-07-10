@@ -68,7 +68,7 @@ from PIL import Image
 header_img = Image.open('assets/cards_at_mets.jpg')
 
 
-# In[32]:
+# In[34]:
 
 
 import streamlit as st
@@ -92,11 +92,8 @@ def countdown_to_playoffs():
     st.markdown(countdown_style, unsafe_allow_html=True)
     st.markdown(remaining_days_style, unsafe_allow_html=True)
 
-# Run the countdown function
-countdown_to_playoffs()
 
-
-# In[33]:
+# In[35]:
 
 
 st.markdown(
@@ -172,10 +169,10 @@ with col2:
         st.markdown('</div>', unsafe_allow_html=True)
 
 with col3:
-    st.write("#")
+    countdown_to_playoffs()
 
 
-# In[ ]:
+# In[36]:
 
 
 from PIL import Image
