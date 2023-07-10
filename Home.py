@@ -3,13 +3,13 @@
 
 # # ninebase Home Page
 
-# In[2]:
+# In[10]:
 
 
 import streamlit as st
 
 
-# In[3]:
+# In[11]:
 
 
 st.set_page_config(
@@ -25,7 +25,7 @@ st.set_page_config(
 )
 
 
-# In[17]:
+# In[12]:
 
 
 def add_logo():
@@ -52,13 +52,13 @@ def add_logo():
     )
 
 
-# In[18]:
+# In[13]:
 
 
 add_logo()
 
 
-# In[27]:
+# In[14]:
 
 
 import streamlit as st
@@ -86,7 +86,7 @@ def countdown_to_playoffs():
 countdown_to_playoffs()
 
 
-# In[25]:
+# In[15]:
 
 
 # Define the layout
@@ -103,14 +103,17 @@ st.markdown(
         }
 
         .title {
-            font-size: 48px;
+            font-size: 32px;
             font-weight: bold;
             margin-bottom: 12px;
+            font-family: Lato, sans-serif;
+            color: darkslategrey;
         }
 
         .description {
             font-size: 24px;
             margin-bottom: 96px;
+            font-family: Lato, sans-serif;
         }
 
         .cta-button a {
@@ -122,6 +125,9 @@ st.markdown(
             background-color: darkslategrey;
             text-decoration: none;
             transition: background-color 0.3s;
+            font-family: Lato, sans-serif;
+            font-size: 24px;
+            font-weight: bold;
         }
 
         .cta-button a:hover {
@@ -131,6 +137,7 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
+
 
 # Render the home screen
 st.markdown('<div class="title">ninebase</div>', unsafe_allow_html=True)
@@ -148,13 +155,13 @@ with col3:
     st.markdown('<div class="cta-button"><a href="https://ninebase.streamlit.app/team_stats">*Team Stats*</a></div>', unsafe_allow_html=True)
 
 
-# In[ ]:
+# In[16]:
 
 
 st.write("#")
 
 
-# In[ ]:
+# In[17]:
 
 
 from PIL import Image
@@ -164,8 +171,14 @@ header_img = Image.open('assets/cards_at_mets.jpg')
 st.image(header_img)
 
 
-# In[ ]:
+# In[18]:
 
 
 st.divider()
+
+
+# In[ ]:
+
+
+
 
