@@ -3,13 +3,13 @@
 
 # # ninebase Home Page
 
-# In[27]:
+# In[1]:
 
 
 import streamlit as st
 
 
-# In[28]:
+# In[2]:
 
 
 st.set_page_config(
@@ -25,7 +25,7 @@ st.set_page_config(
 )
 
 
-# In[29]:
+# In[3]:
 
 
 def add_logo():
@@ -52,23 +52,13 @@ def add_logo():
     )
 
 
-# In[30]:
+# In[4]:
 
 
 add_logo()
 
 
-# In[31]:
-
-
-# Add Assets
-
-from PIL import Image
-
-header_img = Image.open('assets/cards_at_mets.jpg')
-
-
-# In[38]:
+# In[ ]:
 
 
 import streamlit as st
@@ -91,7 +81,7 @@ def countdown_to_playoffs():
     st.markdown(countdown_style, unsafe_allow_html=True)
 
 
-# In[35]:
+# In[6]:
 
 
 st.markdown(
@@ -125,31 +115,7 @@ st.markdown(
 )
 
 
-col1, col2, col3 = st.columns([2, 6, 2])
-
-with col1:
-    st.write("#")
-
-with col2:
-    st.markdown('<div class="title">ninebase</div>', unsafe_allow_html=True)
-    st.markdown('<p class="description">identify who is hot, and who is not</p>', unsafe_allow_html=True)
-
-    col_cta1, col_cta2, col_cta3 = st.columns(3)
-
-    with col_cta1:
-        st.markdown('<div class="cta-button"><a href="https://ninebase.streamlit.app/player_batting_season">Batting Stats</a></div>', unsafe_allow_html=True)
-
-    with col_cta2:
-        st.markdown('<div class="cta-button"><a href="https://ninebase.streamlit.app/player_pitching_season">*Pitching Stats*</a></div>', unsafe_allow_html=True)
-
-    with col_cta3:
-        st.markdown('<div class="cta-button"><a href="https://ninebase.streamlit.app/team_stats">*Team Stats*</a></div>', unsafe_allow_html=True)
-
-with col3:
-    countdown_to_playoffs()
-
-
-# In[ ]:
+# In[7]:
 
 
 st.markdown("")
@@ -157,7 +123,7 @@ st.markdown("")
 st.markdown("")
 
 
-# In[36]:
+# In[8]:
 
 
 from PIL import Image

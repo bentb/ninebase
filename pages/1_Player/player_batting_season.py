@@ -57,6 +57,42 @@ st.set_page_config(
 )
 
 
+# In[ ]:
+
+
+### trying st-pages
+
+
+# In[1]:
+
+
+from st_pages import Page, show_pages, add_page_title
+
+# Optional -- adds the title and icon to the current page
+add_page_title("Page Title")
+
+# Specify what pages should be shown in the sidebar, and what their titles and icons
+# should be
+show_pages(
+    [
+        Page("Home.py", "Home", "🏠"),
+        Page("pages/Player/player_batting_season.py", "Batting", ":books:"),
+    ]
+)
+
+
+# In[ ]:
+
+
+
+
+
+# In[ ]:
+
+
+
+
+
 # In[83]:
 
 
@@ -476,10 +512,10 @@ fig_53.update_layout(
 
 
 # Title
-st.markdown('<span style="font-family: Lato, sans-serif; font-size: 28px; color: #2f4858; font-weight: bold;">Hitting Disciplines</span>', unsafe_allow_html=True)
+st.markdown('<span style="font-family: Lato, sans-serif; font-size: 28px; color: #2f4858; font-weight: bold;">Hitting Specialties</span>', unsafe_allow_html=True)
 
 # Create the tabs
-tabs = st.tabs(["Summary", "Power", "Contact", "Plate Discipline", "Pull/Oppo"])
+tabs = st.tabs(["Overall", "Power", "Contact", "Plate Discipline", "Pull/Oppo"])
 
 # Display the charts within the tabs
 with tabs[0]:
