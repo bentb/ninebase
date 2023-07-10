@@ -145,7 +145,7 @@ st.markdown(
 )
 
 
-col1, col2, col3 = st.columns([1,5,1])
+col1, col2, col3 = st.columns([1, 5, 1])
 
 with col1:
     st.write("#")
@@ -155,13 +155,11 @@ with col2:
     st.markdown('<p class="description">identify who is hot, and who is not</p>', unsafe_allow_html=True)
 
     with st.container():
-        st.markdown('<div class="cta-button"><a href="https://ninebase.streamlit.app/player_batting_season">Batting Stats</a></div>', unsafe_allow_html=True)
-
-    with st.container():
-        st.markdown('<div class="cta-button"><a href="https://ninebase.streamlit.app/player_pitching_season">*Pitching Stats*</a></div>', unsafe_allow_html=True)
-
-    with st.container():
+        st.markdown('<div style="display: flex; justify-content: space-between;">', unsafe_allow_html=True)
+        st.markdown('<div class="cta-button" style="margin-right: 12px;"><a href="https://ninebase.streamlit.app/player_batting_season">Batting Stats</a></div>', unsafe_allow_html=True)
+        st.markdown('<div class="cta-button" style="margin-right: 12px;"><a href="https://ninebase.streamlit.app/player_pitching_season">*Pitching Stats*</a></div>', unsafe_allow_html=True)
         st.markdown('<div class="cta-button"><a href="https://ninebase.streamlit.app/team_stats">*Team Stats*</a></div>', unsafe_allow_html=True)
+        st.markdown('</div>', unsafe_allow_html=True)
 
     st.write("Content of the current page goes here.")
     st.image('assets/cards_at_mets.jpg')
