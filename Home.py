@@ -80,7 +80,9 @@ st.markdown(
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
+            padding: 0 20px;
+            box-sizing: border-box;
         }
 
         .title {
