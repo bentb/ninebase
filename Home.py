@@ -106,10 +106,8 @@ st.markdown(
 
         .cta-button a {
             color: white;
-        }
-
-        .cta-button {
-            font-size: 20px;
+            display: block;
+            text-align: center;
             padding: 12px 24px;
             border-radius: 8px;
             background-color: darkslategrey;
@@ -117,7 +115,7 @@ st.markdown(
             transition: background-color 0.3s;
         }
 
-        .cta-button:hover {
+        .cta-button a:hover {
             background-color: #366e6e;
         }
     </style>
@@ -129,10 +127,12 @@ st.markdown(
 st.markdown('<div class="container">', unsafe_allow_html=True)
 st.markdown('<h1 class="title">ninebase</h1>', unsafe_allow_html=True)
 st.markdown('<p class="description">identify who is hot, and who is not</p>', unsafe_allow_html=True)
-st.write(
-    f'<div class="cta-button"><a href="https://ninebase.streamlit.app/player_batting_season">Batting Stats</a></div>',
-    unsafe_allow_html=True
-)
+
+col1, col2 = st.columns([1, 2])  # Adjust the column widths as needed
+
+with col1:
+    st.markdown('<div class="cta-button"><a href="https://ninebase.streamlit.app/player_batting_season">Batting Stats</a></div>', unsafe_allow_html=True)
+
 st.markdown('</div>', unsafe_allow_html=True)
 
 
