@@ -128,10 +128,16 @@ st.markdown('<div class="container">', unsafe_allow_html=True)
 st.markdown('<h1 class="title">ninebase</h1>', unsafe_allow_html=True)
 st.markdown('<p class="description">identify who is hot, and who is not</p>', unsafe_allow_html=True)
 
-col1, col2 = st.columns([1, 2])  # Adjust the column widths as needed
+col1, col2, col3 = st.columns(3)  # Adjust the number of columns as needed
 
 with col1:
     st.markdown('<div class="cta-button"><a href="https://ninebase.streamlit.app/player_batting_season">Batting Stats</a></div>', unsafe_allow_html=True)
+
+with col2:
+    st.markdown('<div class="cta-button"><a href="https://ninebase.streamlit.app/player_pitching_season">Pitching Stats</a></div>', unsafe_allow_html=True)
+
+with col3:
+    st.markdown('<div class="cta-button"><a href="https://ninebase.streamlit.app/team_stats">Team Stats</a></div>', unsafe_allow_html=True)
 
 st.markdown('</div>', unsafe_allow_html=True)
 
