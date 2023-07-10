@@ -463,7 +463,7 @@ from st_aggrid import AgGrid, GridOptionsBuilder, DataReturnMode, JsCode
 # with col2:
 #     st.subheader("")
 
-# In[55]:
+# In[57]:
 
 
 # Builds a gridOptions dictionary using a GridOptionsBuilder instance.
@@ -553,7 +553,7 @@ grid_options = {"columnDefs": column_defs}
 # Launch
 go = grid_options
 
-col1, col2 = st.columns([95, 5])
+col1, col2 = st.columns([98, 2])
 
 with col1:
     st.subheader("Raw Data")
