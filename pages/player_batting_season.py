@@ -323,7 +323,7 @@ fig_33.update_layout(
 
 fig_41 = px.box(
     df.query("Season==2023"),
-    y = "Walk%+",
+    y = "BB%+",
     points="all",
     hover_name = "Name",
     height = 500,
