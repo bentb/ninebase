@@ -111,7 +111,7 @@ st.markdown(
             font-weight: bold;
             margin-bottom: 12px;
             font-family: Lato, sans-serif;
-            color: darkslategrey;
+            color: #164f5e;
         }
 
         .description {
@@ -133,7 +133,7 @@ st.markdown(
             text-align: center;
             padding: 12px 24px;
             border-radius: 8px;
-            background-color: darkslategrey;
+            background-color: #164f5e;
             text-decoration: none;
             transition: background-color 0.3s;
             font-family: Lato, sans-serif;
