@@ -25,7 +25,7 @@ st.set_page_config(
 )
 
 
-# In[4]:
+# In[17]:
 
 
 def add_logo():
@@ -35,7 +35,7 @@ def add_logo():
             [data-testid="stSidebarNav"] {
                 background-image: url(https://i.imgur.com/sLSMBYJ.png);
                 background-repeat: no-repeat;
-                padding-top: 0px;
+                padding-top: 40px;
                 background-position: 20px 20px;
             }
             [data-testid="stSidebarNav"]::before {
@@ -52,7 +52,7 @@ def add_logo():
     )
 
 
-# In[5]:
+# In[18]:
 
 
 add_logo()
@@ -79,23 +79,20 @@ st.markdown(
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            flex: 1;
             max-width: 800px;
-            margin-top: 0; /* Remove top margin */
-            padding-top: 0; /* Remove top padding */
+            padding-top: 0;
+            padding-bottom: 0;
         }
 
         .title {
             font-size: 48px;
             font-weight: bold;
             margin-bottom: 12px;
-            margin-top: 0; /* Remove top margin */
         }
 
         .description {
             font-size: 24px;
             margin-bottom: 96px;
-            margin-top: 0; /* Remove top margin */
         }
 
         .cta-button a {
