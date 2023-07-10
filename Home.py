@@ -119,31 +119,6 @@ st.markdown(
             margin-bottom: 96px;
             font-family: Lato, sans-serif;
         }
-
-        .cta-button {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-bottom: 24px;
-        }
-
-        .cta-button a {
-            color: white;
-            display: block;
-            text-align: center;
-            padding: 12px 24px;
-            border-radius: 8px;
-            background-color: #1a6330;
-            text-decoration: none;
-            transition: background-color 0.3s;
-            font-family: Lato, sans-serif;
-            font-size: 16px;
-            font-weight: bold;
-        }
-
-        .cta-button a:hover {
-            background-color: #3e834d;
-        }
     </style>
     """,
     unsafe_allow_html=True
@@ -172,6 +147,14 @@ with col2:
 
 with col3:
     countdown_to_playoffs()
+
+
+# In[ ]:
+
+
+st.markdown("")
+st.markdown("")
+st.markdown("")
 
 
 # In[36]:
