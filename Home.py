@@ -81,17 +81,21 @@ st.markdown(
             align-items: center;
             flex: 1;
             max-width: 800px;
+            margin-top: 0; /* Remove top margin */
+            padding-top: 0; /* Remove top padding */
         }
 
         .title {
             font-size: 48px;
             font-weight: bold;
             margin-bottom: 12px;
+            margin-top: 0; /* Remove top margin */
         }
 
         .description {
             font-size: 24px;
             margin-bottom: 96px;
+            margin-top: 0; /* Remove top margin */
         }
 
         .cta-button a {
