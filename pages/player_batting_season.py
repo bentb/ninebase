@@ -132,7 +132,7 @@ import statsmodels.api as sm
 
 # ### Row 1 - Tab 1
 
-# In[65]:
+# In[85]:
 
 
 fig_11 = px.box(
@@ -152,7 +152,7 @@ fig_11.update_layout(
 )
 
 
-# In[66]:
+# In[86]:
 
 
 fig_12 = px.box(
@@ -172,7 +172,7 @@ fig_12.update_layout(
 )
 
 
-# In[67]:
+# In[87]:
 
 
 fig_13 = px.box(
@@ -194,7 +194,7 @@ fig_13.update_layout(
 
 # ### Row 1 - Tab 2
 
-# In[68]:
+# In[88]:
 
 
 fig_21 = px.box(
@@ -214,7 +214,7 @@ fig_21.update_layout(
 )
 
 
-# In[69]:
+# In[89]:
 
 
 fig_22 = px.box(
@@ -234,7 +234,7 @@ fig_22.update_layout(
 )
 
 
-# In[70]:
+# In[90]:
 
 
 fig_23 = px.box(
@@ -256,7 +256,7 @@ fig_23.update_layout(
 
 # ### Row 1 - Tab 3
 
-# In[71]:
+# In[91]:
 
 
 fig_31 = px.box(
@@ -276,7 +276,7 @@ fig_31.update_layout(
 )
 
 
-# In[72]:
+# In[92]:
 
 
 fig_32 = px.box(
@@ -296,7 +296,7 @@ fig_32.update_layout(
 )
 
 
-# In[73]:
+# In[93]:
 
 
 fig_33 = px.box(
@@ -318,7 +318,7 @@ fig_33.update_layout(
 
 # ### Row 1 - Tab 4
 
-# In[74]:
+# In[94]:
 
 
 fig_41 = px.box(
@@ -338,7 +338,7 @@ fig_41.update_layout(
 )
 
 
-# In[75]:
+# In[95]:
 
 
 fig_42 = px.box(
@@ -358,12 +358,12 @@ fig_42.update_layout(
 )
 
 
-# In[76]:
+# In[96]:
 
 
 fig_43 = px.box(
     df.query("Season==2023"),
-    y = "O-Swing% ",
+    y = "O-Swing%",
     points="all",
     hover_name = "Name",
     height = 500,
@@ -380,7 +380,7 @@ fig_43.update_layout(
 
 # ### Row 1 - Tab 5
 
-# In[77]:
+# In[97]:
 
 
 fig_51 = px.box(
@@ -400,7 +400,7 @@ fig_51.update_layout(
 )
 
 
-# In[78]:
+# In[98]:
 
 
 fig_52 = px.box(
@@ -420,7 +420,7 @@ fig_52.update_layout(
 )
 
 
-# In[79]:
+# In[99]:
 
 
 fig_53 = px.box(
@@ -442,7 +442,7 @@ fig_53.update_layout(
 
 # ### Row 1 - Print
 
-# In[80]:
+# In[100]:
 
 
 # Subheader
