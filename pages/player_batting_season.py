@@ -523,7 +523,7 @@ with tabs[4]:
 from st_aggrid import AgGrid, GridOptionsBuilder, DataReturnMode, JsCode
 
 
-# In[26]:
+# In[48]:
 
 
 # Builds a gridOptions dictionary using a GridOptionsBuilder instance.
@@ -552,6 +552,13 @@ column_defs = [
                 "width": 150,
                 "enableRowGroup": True,  # Enable row grouping on the "Team" column
                 "enableValue": False,  # Disable column aggregation for the "Team" column
+                "cellStyle": {
+                    "STL": "red",
+                    "NYY": "black",
+                    "NYM": "orange",
+                    # more
+                },
+                "default": "white"
             },
             {"field": "Age", "headerName": "Age", "width": 150, "enableValue": True},
             {"field": "AB", "headerName": "At Bats", "width": 150, "enableValue": True},
