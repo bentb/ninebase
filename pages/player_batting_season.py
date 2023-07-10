@@ -548,18 +548,7 @@ column_defs = [
 ]
 
 # Merge columnDefs with existing column definitions
-grid_options = {
-    "columnDefs": column_defs,
-    "groupDefaultExpanded": 1,
-    "autoGroupColumnDef": {
-        "headerName": "Group",
-        "width": 200,
-        "cellRenderer": "agGroupCellRenderer",
-        "cellRendererParams": {
-            "suppressCount": True
-        }
-    }
-}
+grid_options = {"columnDefs": column_defs}
 
 # Launch
 go = grid_options
