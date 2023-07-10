@@ -532,19 +532,7 @@ builder = GridOptionsBuilder.from_dataframe(df)
 # Configs
 builder.configure_side_bar(filters_panel=True, columns_panel=True)
 
-def team_name_formatter(params):
-    team_name = params.value
-    team_colors = {
-        "team1": "red",
-        "team2": "blue",
-        "team3": "green",
-        # Add color mappings for other teams
-    }
-    if team_name in team_colors:
-        return f'<span style="color: {team_colors[team_name]}; font-weight: bold;">{team_name}</span>'
-    else:
-        return team_name
-
+# Column Grouping
 column_defs = [
     {
         "headerName": "Player",
@@ -552,8 +540,8 @@ column_defs = [
         "headerClass": "column-header",
         "width": 150,
         "pinned": "left",
-        "enableRowGroup": True,
-        "enableValue": False,
+        "enableRowGroup": True,  # Enable row grouping on the "Name" column
+        "enableValue": False,  # Disable column aggregation for the "Name" column
     },
     {
         "headerName": "Player Details",
@@ -562,16 +550,59 @@ column_defs = [
                 "field": "Team",
                 "headerName": "Team",
                 "width": 150,
-                "enableRowGroup": True,
-                "enableValue": False,
-                "valueFormatter": team_name_formatter,
+                "enableRowGroup": True,  # Enable row grouping on the "Team" column
+                "enableValue": False,  # Disable column aggregation for the "Team" column
             },
             {"field": "Age", "headerName": "Age", "width": 150, "enableValue": True},
             {"field": "AB", "headerName": "At Bats", "width": 150, "enableValue": True},
         ],
     },
-    # Other column definitions...
+    {
+        "headerName": "Batting Summary",
+        "children": [
+            {"field": "wRC+", "headerName": "wRC+", "sort": "desc", "width": 150, "enableValue": True},
+            {"field": "Bat", "headerName": "Batting WAR", "width": 150, "enableValue": True},
+            {"field": "Pos", "headerName": "Pos Batting WAR", "width": 150, "enableValue": True},
+        ],
+    },
+    {
+        "headerName": "Power",
+        "children": [
+            {"field": "Soft%+", "headerName": "Soft Hit%+", "width": 150, "enableValue": True},
+            {"field": "Med%+", "headerName": "Med Hit%+", "width": 150, "enableValue": True},
+            {"field": "Hard%+", "headerName": "Hard Hit%+", "width": 150, "enableValue": True},
+            {"field": "HR", "headerName": "Home Runs", "width": 150, "enableValue": True},
+        ],
+    },
+    {
+        "headerName": "Contact",
+        "children": [
+            {"field": "Contact%", "headerName": "Contact%", "width": 150, "enableValue": True},
+            {"field": "Z-Contact%", "headerName": "In-Zone Contact%", "width": 150, "enableValue": True},
+            {"field": "O-Contact%", "headerName": "Out-Zone Contact%", "width": 150, "enableValue": True},
+            {"field": "BABIP+", "headerName": "BABIP+", "width": 150, "enableValue": True},
+        ],
+    },
+    {
+        "headerName": "Plate Discipline",
+        "children": [
+            {"field": "BB%+", "headerName": "Walk%+", "width": 150, "enableValue": True},
+            {"field": "K%+", "headerName": "Strikeout%+", "width": 150, "enableValue": True},
+            {"field": "Swing%", "headerName": "Swing%", "width": 150, "enableValue": True},
+            {"field": "Z-Swing%", "headerName": "In-Zone Swing%", "width": 150, "enableValue": True},
+            {"field": "O-Swing%", "headerName": "Out-Zone Swing%", "width": 150, "enableValue": True},
+        ],
+    },
+    {
+        "headerName": "Pull/Oppo",
+        "children": [
+            {"field": "Pull%+", "headerName": "Pull%+", "width": 150, "enableValue": True},
+            {"field": "Cent%+", "headerName": "Cent%+", "width": 150, "enableValue": True},
+            {"field": "Oppo%+", "headerName": "Oppo%+", "width": 150, "enableValue": True},
+        ],
+    },
 ]
+
 
 # Merge columnDefs with existing column definitions
 grid_options = {"columnDefs": column_defs}
