@@ -638,7 +638,20 @@ from PIL import Image
 
 header_img = Image.open('assets/stevens_bat.jpg')
 
-st.image(header_img)
+
+# In[49]:
+
+
+img_col1, img_col2, img_col3 = st.columns([1,8,1])
+
+with img_col1:
+    pass
+
+with img_col2:
+    st.image('assets/cards_at_mets.jpg')
+
+with img_col3:
+    pass
 
 
 # In[ ]:
