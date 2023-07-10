@@ -92,7 +92,7 @@ add_logo()
 
 # ## Load Data
 
-# In[6]:
+# In[7]:
 
 
 # Format for GitHub
@@ -102,13 +102,13 @@ df = pd.read_csv('data_storage/player_batting_season.csv')
 #df = pd.read_csv('C:/Users/b7tbu/NINEBASE/ninebase/data_storage/player_batting_season.csv')
 
 
-# In[7]:
+# In[8]:
 
 
 df.head()
 
 
-# In[8]:
+# In[9]:
 
 
 import plotly.express as px
@@ -132,7 +132,69 @@ import statsmodels.api as sm
 
 # ### Row 1 - Tab 1
 
-# In[9]:
+# In[24]:
+
+
+fig_01 = px.box(
+    df.query("Season==2023"),
+    y = "WAR",
+    points="all",
+    hover_name = "Name",
+    height = 500,
+    width = 500,
+)
+
+fig_01.update_layout(
+    title=dict(text="wins Above Replacement", font=dict(size=26), automargin=True, yref='paper'),
+    title_font_color="darkslategrey",
+    yaxis=dict(title=""),
+    xaxis=dict(title="")
+)
+
+
+# In[25]:
+
+
+fig_01 = px.box(
+    df.query("Season==2023"),
+    y = "wRC+",
+    points="all",
+    hover_name = "Name",
+    height = 500,
+    width = 500,
+)
+
+fig_01.update_layout(
+    title=dict(text="wRC+", font=dict(size=26), automargin=True, yref='paper'),
+    title_font_color="darkslategrey",
+    yaxis=dict(title=""),
+    xaxis=dict(title="")
+)
+
+
+# In[26]:
+
+
+fig_01 = px.box(
+    df.query("Season==2023"),
+    y = "Pos",
+    points="all",
+    hover_name = "Name",
+    height = 500,
+    width = 500,
+)
+
+fig_01.update_layout(
+    title=dict(text="Positional", font=dict(size=26), automargin=True, yref='paper'),
+    title_font_color="darkslategrey",
+    yaxis=dict(title=""),
+    xaxis=dict(title="")
+)
+
+
+# ### Row 1 - Tab 2
+
+# In[10]:
 
 
 fig_11 = px.box(
@@ -152,7 +214,7 @@ fig_11.update_layout(
 )
 
 
-# In[10]:
+# In[11]:
 
 
 fig_12 = px.box(
@@ -172,7 +234,7 @@ fig_12.update_layout(
 )
 
 
-# In[11]:
+# In[12]:
 
 
 fig_13 = px.box(
@@ -192,9 +254,9 @@ fig_13.update_layout(
 )
 
 
-# ### Row 1 - Tab 2
+# ### Row 1 - Tab 3
 
-# In[12]:
+# In[13]:
 
 
 fig_21 = px.box(
@@ -214,7 +276,7 @@ fig_21.update_layout(
 )
 
 
-# In[13]:
+# In[14]:
 
 
 fig_22 = px.box(
@@ -234,7 +296,7 @@ fig_22.update_layout(
 )
 
 
-# In[14]:
+# In[15]:
 
 
 fig_23 = px.box(
@@ -254,9 +316,9 @@ fig_23.update_layout(
 )
 
 
-# ### Row 1 - Tab 3
+# ### Row 1 - Tab 4
 
-# In[15]:
+# In[16]:
 
 
 fig_31 = px.box(
@@ -276,7 +338,7 @@ fig_31.update_layout(
 )
 
 
-# In[16]:
+# In[17]:
 
 
 fig_32 = px.box(
@@ -296,7 +358,7 @@ fig_32.update_layout(
 )
 
 
-# In[17]:
+# In[18]:
 
 
 fig_33 = px.box(
@@ -318,40 +380,46 @@ fig_33.update_layout(
 
 # ### Row 1 - Print
 
-# In[18]:
+# In[19]:
 
 
 # Subheader
 st.subheader('Player Batting')
 
 # Create the tabs
-tabs = st.tabs(["Power", "Plate Discipline", "Pull/Oppo"])
+tabs = st.tabs(["Summary", "Power", "Plate Discipline", "Pull/Oppo"])
 
 # Display the charts within the tabs
 with tabs[0]:
     col1, col2, col3 = st.columns(3)
-    col1.plotly_chart(fig_11, theme="streamlit", use_container_width=False)
-    col2.plotly_chart(fig_12, theme="streamlit", use_container_width=False)
-    col3.plotly_chart(fig_13, theme="streamlit", use_container_width=False)
+    col1.plotly_chart(fig_01, theme="streamlit", use_container_width=False)
+    col2.plotly_chart(fig_02, theme="streamlit", use_container_width=False)
+    col3.plotly_chart(fig_03, theme="streamlit", use_container_width=False)
 
 with tabs[1]:
     col4, col5, col6 = st.columns(3)
-    col4.plotly_chart(fig_21, theme="streamlit", use_container_width=False)
-    col5.plotly_chart(fig_22, theme="streamlit", use_container_width=False)
-    col6.plotly_chart(fig_23, theme="streamlit", use_container_width=False)
-    
+    col4.plotly_chart(fig_11, theme="streamlit", use_container_width=False)
+    col5.plotly_chart(fig_12, theme="streamlit", use_container_width=False)
+    col6.plotly_chart(fig_13, theme="streamlit", use_container_width=False)
+
 with tabs[2]:
     col7, col8, col9 = st.columns(3)
-    col7.plotly_chart(fig_31, theme="streamlit", use_container_width=False)
-    col8.plotly_chart(fig_32, theme="streamlit", use_container_width=False)
-    col9.plotly_chart(fig_33, theme="streamlit", use_container_width=False)
+    col7.plotly_chart(fig_21, theme="streamlit", use_container_width=False)
+    col8.plotly_chart(fig_22, theme="streamlit", use_container_width=False)
+    col9.plotly_chart(fig_23, theme="streamlit", use_container_width=False)
+    
+with tabs[3]:
+    col10, col11, col12 = st.columns(3)
+    col10.plotly_chart(fig_31, theme="streamlit", use_container_width=False)
+    col11.plotly_chart(fig_32, theme="streamlit", use_container_width=False)
+    col12.plotly_chart(fig_33, theme="streamlit", use_container_width=False)
 
 
 # ## Row 2
 
 # ### Row - Raw Data
 
-# In[19]:
+# In[20]:
 
 
 from st_aggrid import AgGrid, GridOptionsBuilder, DataReturnMode, JsCode
@@ -395,7 +463,7 @@ from st_aggrid import AgGrid, GridOptionsBuilder, DataReturnMode, JsCode
 # with col2:
 #     st.subheader("")
 
-# In[20]:
+# In[27]:
 
 
 # Builds a gridOptions dictionary using a GridOptionsBuilder instance.
@@ -411,6 +479,7 @@ builder.configure_column("BB%+", width=100)
 builder.configure_column('K%+', width=100)
 builder.configure_column('BABIP+', width=100)
 builder.configure_column('Hard%+', width=100)
+builder.configure_column('Pos', width=100)
 builder.configure_column("wRC+", width=100, sort='desc')
 
 # Column Grouping
@@ -427,6 +496,14 @@ column_defs = [
             {"field": "Team"},
             {"field": "Age"},
             {"field": "AB", "headerName": "At Bats"},
+        ]
+    },
+    {
+        "headerName": "Batting Summary",
+        "children": [
+            {"field": "WAR"},
+            {"field": "wRC+"},
+            {"field": "Pos"},
         ]
     },
     {
@@ -491,7 +568,7 @@ with col2:
     st.subheader("")
 
 
-# In[21]:
+# In[22]:
 
 
 st.divider()
@@ -517,7 +594,7 @@ st.divider()
 
 
 
-# In[22]:
+# In[23]:
 
 
 import streamlit as st
