@@ -639,6 +639,7 @@ from PIL import Image
 header_img = Image.open('assets/stevens_bat.jpg')
 
 # Print as Columns
+st.markdown("")
 img_col1, img_col2, img_col3 = st.columns([20,60,20])
 
 with img_col1:
