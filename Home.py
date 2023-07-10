@@ -25,7 +25,7 @@ st.set_page_config(
 )
 
 
-# In[13]:
+# In[15]:
 
 
 from st_pages import Page, Section, show_pages, add_page_title
@@ -37,10 +37,10 @@ add_page_title("Page Title")
 # should be
 show_pages(
     [
-        Page("Home.py", "Home", "🏠"),
-        Section("Player", icon="🏠"),
-            Page("Player/batting.py", "Batting", ":books:"),
-            Page("Player/pitching.py", "Throwing", ":books:"),
+        Page("Home.py", "Home"),
+        Section("Player"),
+            Page("pages/Player/batting.py"),
+            Page("pages/Player/pitching.py"),
     ]
 )
 
