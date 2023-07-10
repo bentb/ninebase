@@ -61,21 +61,29 @@ add_logo()
 # In[26]:
 
 
-from datetime import datetime
+import streamlit as st
+from datetime import datetime, timedelta
 
 def countdown_to_october_3():
-    # Get the current date
-    now = datetime.now().date()
+    # Get the current date and time
+    now = datetime.now()
 
     # Set the target date as October 3rd
-    target_date = datetime(now.year, 10, 3).date()
+    target_date = datetime(now.year, 10, 3)
 
-    # Calculate the remaining days
-    remaining_days = (target_date - now).days
+    # Calculate the remaining time
+    remaining_time = target_date - now
+
+    # Format the remaining time as a countdown string
+    countdown_str = f"{remaining_time.days} days, {remaining_time.seconds // 3600} hours, " \
+                    f"{(remaining_time.seconds % 3600) // 60} minutes, {remaining_time.seconds % 60} seconds"
 
     # Display the countdown
-    st.write("Countdown to October 3rd:")
-    st.write(f"{remaining_days} days")
+    countdown_text = f"<p style='text-align: right; font-size: 24px; color: red;'>{countdown_str}</p>"
+    st.markdown(countdown_text, unsafe_allow_html=True)
+
+# Configure Streamlit layout
+st.markdown("<style>body {background-color: #f5f5f5;}</style>", unsafe_allow_html=True)
 
 # Run the countdown function
 countdown_to_october_3()
