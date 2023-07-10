@@ -68,21 +68,29 @@ header_img = Image.open('assets/cards_at_mets.jpg')
 st.image(header_img)
 
 
-# In[9]:
+# In[11]:
 
 
 # Define the layout
 st.markdown(
     """
     <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
         .container {
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
-            padding: 0 20px;
-            box-sizing: border-box;
+            flex: 1;
+            max-width: 800px;
         }
 
         .title {
