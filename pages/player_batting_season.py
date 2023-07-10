@@ -451,17 +451,6 @@ st.subheader('Player Batting')
 # Create the tabs
 tabs = st.tabs(["Summary", "Power", "Contact", "Plate Discipline", "Pull/Oppo"])
 
-# Inject custom CSS to increase font size of tab labels
-custom_css = """
-<style>
-.stTabs .stHorizontal {
-    font-size: 18px !important;
-}
-</style>
-"""
-
-st.markdown(custom_css)
-
 # Display the charts within the tabs
 with tabs[0]:
     col1, col2, col3 = st.columns(3)
