@@ -76,7 +76,8 @@ add_page_title("Page Title")
 show_pages(
     [
         Page("Home.py", "Home", "🏠"),
-        Page("pages/Player/player_batting_season.py", "Batting", ":books:"),
+        Section("Player", icon="🎈️"),
+            Page("pages/Player/player_batting_season.py", "Batting", ":books:"),
     ]
 )
 
