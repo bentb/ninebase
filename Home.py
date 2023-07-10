@@ -133,7 +133,7 @@ st.markdown(
             text-align: center;
             padding: 12px 24px;
             border-radius: 8px;
-            background-color: #164f5e;
+            background-color: #1a6330;
             text-decoration: none;
             transition: background-color 0.3s;
             font-family: Lato, sans-serif;
@@ -142,7 +142,7 @@ st.markdown(
         }
 
         .cta-button a:hover {
-            background-color: #1a6330;
+            background-color: #3e834d;
         }
     </style>
     """,

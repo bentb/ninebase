@@ -476,7 +476,7 @@ fig_53.update_layout(
 
 
 # Heading
-st.markdown('<span style="font-family: Lato, sans-serif; font-size: 32px; color: darkslategrey; font-weight: bold;">Player Batting</span>', unsafe_allow_html=True)
+st.markdown('<span style="font-family: Lato, sans-serif; font-size: 32px; color: #2f4858; font-weight: bold;">Player Batting</span>', unsafe_allow_html=True)
 
 # Create the tabs
 tabs = st.tabs(["Summary", "Power", "Contact", "Plate Discipline", "Pull/Oppo"])
