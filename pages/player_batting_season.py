@@ -476,7 +476,7 @@ fig_53.update_layout(
 
 
 # Heading
-st.markdown('<h2 style="color: darkslategrey;">Player Batting</h2>', unsafe_allow_html=True)
+st.markdown('<h1 style="color: darkslategrey;">Player Batting</h1>', unsafe_allow_html=True)
 
 # Create the tabs
 tabs = st.tabs(["Summary", "Power", "Contact", "Plate Discipline", "Pull/Oppo"])
