@@ -132,12 +132,12 @@ import statsmodels.api as sm
 
 # ### Row 1 - Tab 1
 
-# In[29]:
+# In[46]:
 
 
 fig_01 = px.box(
     df.query("Season==2023"),
-    y = "WAR",
+    y = "Bat",
     points="all",
     hover_name = "Name",
     height = 500,
@@ -145,37 +145,17 @@ fig_01 = px.box(
 )
 
 fig_01.update_layout(
-    title=dict(text="wins Above Replacement", font=dict(size=26), automargin=True, yref='paper'),
+    title=dict(text="Batting WAR", font=dict(size=26), automargin=True, yref='paper'),
     title_font_color="darkslategrey",
     yaxis=dict(title=""),
     xaxis=dict(title="")
 )
 
 
-# In[30]:
+# In[47]:
 
 
 fig_02 = px.box(
-    df.query("Season==2023"),
-    y = "wRC+",
-    points="all",
-    hover_name = "Name",
-    height = 500,
-    width = 500,
-)
-
-fig_02.update_layout(
-    title=dict(text="wRC+", font=dict(size=26), automargin=True, yref='paper'),
-    title_font_color="darkslategrey",
-    yaxis=dict(title=""),
-    xaxis=dict(title="")
-)
-
-
-# In[31]:
-
-
-fig_03 = px.box(
     df.query("Season==2023"),
     y = "Pos",
     points="all",
@@ -184,8 +164,28 @@ fig_03 = px.box(
     width = 500,
 )
 
-fig_03.update_layout(
+fig_02.update_layout(
     title=dict(text="Positional", font=dict(size=26), automargin=True, yref='paper'),
+    title_font_color="darkslategrey",
+    yaxis=dict(title=""),
+    xaxis=dict(title="")
+)
+
+
+# In[48]:
+
+
+fig_03 = px.box(
+    df.query("Season==2023"),
+    y = "RAR",
+    points="all",
+    hover_name = "Name",
+    height = 500,
+    width = 500,
+)
+
+fig_03.update_layout(
+    title=dict(text="Runs above Replacement", font=dict(size=26), automargin=True, yref='paper'),
     title_font_color="darkslategrey",
     yaxis=dict(title=""),
     xaxis=dict(title="")
@@ -194,7 +194,7 @@ fig_03.update_layout(
 
 # ### Row 1 - Tab 2
 
-# In[32]:
+# In[49]:
 
 
 fig_11 = px.box(
@@ -214,7 +214,7 @@ fig_11.update_layout(
 )
 
 
-# In[33]:
+# In[50]:
 
 
 fig_12 = px.box(
@@ -463,7 +463,7 @@ from st_aggrid import AgGrid, GridOptionsBuilder, DataReturnMode, JsCode
 # with col2:
 #     st.subheader("")
 
-# In[43]:
+# In[51]:
 
 
 # Builds a gridOptions dictionary using a GridOptionsBuilder instance.
@@ -552,7 +552,7 @@ grid_options = {"columnDefs": column_defs}
 # Launch
 go = grid_options
 
-col1, col2 = st.columns([0.95, 0.5])
+col1, col2 = st.columns([10, 1])
 
 with col1:
     st.subheader("Raw Data")
