@@ -58,7 +58,7 @@ def add_logo():
 add_logo()
 
 
-# In[21]:
+# In[22]:
 
 
 # Define the layout
@@ -67,6 +67,7 @@ st.markdown(
     <style>
         body {
             margin: 0;
+            padding: 0;
         }
 
         .container {
@@ -75,7 +76,7 @@ st.markdown(
             justify-content: center;
             align-items: center;
             height: 100vh;
-            padding: 0;
+            padding: 0 20px; /* Adjust the horizontal padding as needed */
         }
 
         .title {
