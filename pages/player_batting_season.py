@@ -463,11 +463,13 @@ from st_aggrid import AgGrid, GridOptionsBuilder, DataReturnMode, JsCode
 # with col2:
 #     st.subheader("")
 
-# In[51]:
+# In[54]:
 
 
 # Builds a gridOptions dictionary using a GridOptionsBuilder instance.
 builder = GridOptionsBuilder.from_dataframe(df)
+
+# Configs
 builder.configure_side_bar(filters_panel=True, columns_panel=True)
 
 # Columns
@@ -546,7 +548,10 @@ column_defs = [
 ]
 
 # Merge columnDefs with existing column definitions
-grid_options = {"columnDefs": column_defs}
+grid_options = {
+    "columnDefs": column_defs,
+    "enableGroupEdit": True
+}
 
 # Launch
 go = grid_options
