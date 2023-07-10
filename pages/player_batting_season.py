@@ -449,38 +449,34 @@ fig_53.update_layout(
 st.subheader('Player Batting')
 
 # Create the tabs
-tabs_html = """
-<style>
-.st-ar {
-    font-size: 18px !important;
-}
-</style>
-"""
-st.markdown(tabs_html, unsafe_allow_html=True)
-tabs = st.radio("Tabs", ["Summary", "Power", "Contact", "Plate Discipline", "Pull/Oppo"])
+tabs = st.tabs(["Summary", "Power", "Contact", "Plate Discipline", "Pull/Oppo"])
 
 # Display the charts within the tabs
-if tabs == "Summary":
+with tabs[0]:
     col1, col2, col3 = st.columns(3)
     col1.plotly_chart(fig_11, theme="streamlit", use_container_width=False)
     col2.plotly_chart(fig_12, theme="streamlit", use_container_width=False)
     col3.plotly_chart(fig_13, theme="streamlit", use_container_width=False)
-elif tabs == "Power":
+
+with tabs[1]:
     col4, col5, col6 = st.columns(3)
     col4.plotly_chart(fig_21, theme="streamlit", use_container_width=False)
     col5.plotly_chart(fig_22, theme="streamlit", use_container_width=False)
     col6.plotly_chart(fig_23, theme="streamlit", use_container_width=False)
-elif tabs == "Contact":
+
+with tabs[2]:
     col7, col8, col9 = st.columns(3)
     col7.plotly_chart(fig_31, theme="streamlit", use_container_width=False)
     col8.plotly_chart(fig_32, theme="streamlit", use_container_width=False)
     col9.plotly_chart(fig_33, theme="streamlit", use_container_width=False)
-elif tabs == "Plate Discipline":
+    
+with tabs[3]:
     col10, col11, col12 = st.columns(3)
     col10.plotly_chart(fig_41, theme="streamlit", use_container_width=False)
     col11.plotly_chart(fig_42, theme="streamlit", use_container_width=False)
     col12.plotly_chart(fig_43, theme="streamlit", use_container_width=False)
-elif tabs == "Pull/Oppo":
+    
+with tabs[4]:
     col13, col14, col15 = st.columns(3)
     col13.plotly_chart(fig_51, theme="streamlit", use_container_width=False)
     col14.plotly_chart(fig_52, theme="streamlit", use_container_width=False)
