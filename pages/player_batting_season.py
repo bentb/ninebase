@@ -605,10 +605,14 @@ with col2:
 st.divider()
 
 
-# In[ ]:
+# In[102]:
 
 
+from PIL import Image
 
+header_img = Image.open('assets/stevens_bat.jpg')
+
+st.image(header_img)
 
 
 # In[ ]:
