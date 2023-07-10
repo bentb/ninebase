@@ -191,7 +191,7 @@ fig_13 = px.box(
 fig_13.update_traces(marker=dict(color="darkslategrey"))
 
 fig_13.update_layout(
-    title=dict(text="Position WAR", font=dict(size=24), automargin=True, yref='paper'),
+    title=dict(text="Positon Batting WAR", font=dict(size=24), automargin=True, yref='paper'),
     title_font_color="darkslategrey",
     yaxis=dict(title=""),
     xaxis=dict(title="")
@@ -327,7 +327,7 @@ fig_33 = px.box(
 fig_33.update_traces(marker=dict(color="darkslategrey"))
 
 fig_33.update_layout(
-    title=dict(text="Out-of-Zone Contact%", font=dict(size=24), automargin=True, yref='paper'),
+    title=dict(text="Out-Zone Contact%", font=dict(size=24), automargin=True, yref='paper'),
     title_font_color="darkslategrey",
     yaxis=dict(title=""),
     xaxis=dict(title="")
@@ -395,7 +395,7 @@ fig_43 = px.box(
 fig_43.update_traces(marker=dict(color="darkslategrey"))
 
 fig_43.update_layout(
-    title=dict(text="Out-of-Zone Swing%", font=dict(size=24), automargin=True, yref='paper'),
+    title=dict(text="Out-Zone Swing%", font=dict(size=24), automargin=True, yref='paper'),
     title_font_color="darkslategrey",
     yaxis=dict(title=""),
     xaxis=dict(title="")
@@ -554,7 +554,7 @@ column_defs = [
         "children": [
             {"field": "wRC+", "headerName": "wRC+", "sort": "desc", "width": 150},
             {"field": "Bat", "headerName": "Batting WAR", "width": 150},
-            {"field": "Pos", "headerName": "Positional Batting WAR", "width": 150},
+            {"field": "Pos", "headerName": "Pos Batting WAR", "width": 150},
         ],
     },
     {
@@ -571,7 +571,7 @@ column_defs = [
         "children": [
             {"field": "Contact%", "headerName": "Contact%", "width": 150},
             {"field": "Z-Contact%", "headerName": "In-Zone Contact%", "width": 150},
-            {"field": "O-Contact%", "headerName": "Out-of-Zone Contact%", "width": 150},
+            {"field": "O-Contact%", "headerName": "Out-Zone Contact%", "width": 150},
             {"field": "BABIP+", "headerName": "BABIP+", "width": 150},
         ],
     },
@@ -582,7 +582,7 @@ column_defs = [
             {"field": "K%+", "headerName": "Strikeout%+", "width": 150},
             {"field": "Swing%", "headerName": "Swing%", "width": 150},
             {"field": "Z-Swing%", "headerName": "In-Zone Swing%", "width": 150},
-            {"field": "O-Swing%", "headerName": "Out-of-Zone Swing%", "width": 150},
+            {"field": "O-Swing%", "headerName": "Out-Zone Swing%", "width": 150},
         ],
     },
     {
