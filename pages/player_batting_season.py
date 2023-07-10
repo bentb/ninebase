@@ -12,7 +12,7 @@
 
 # # Introduction
 
-# In[42]:
+# In[50]:
 
 
 # Import Libraries
@@ -35,13 +35,13 @@ import plotly.figure_factory as ff
 
 # ## Streamlit
 
-# In[43]:
+# In[51]:
 
 
 import streamlit as st
 
 
-# In[44]:
+# In[52]:
 
 
 st.set_page_config(
@@ -57,7 +57,7 @@ st.set_page_config(
 )
 
 
-# In[45]:
+# In[53]:
 
 
 def add_logo():
@@ -84,7 +84,7 @@ def add_logo():
     )
 
 
-# In[5]:
+# In[54]:
 
 
 add_logo()
@@ -102,13 +102,13 @@ df = pd.read_csv('data_storage/player_batting_season.csv')
 #df = pd.read_csv('C:/Users/b7tbu/NINEBASE/ninebase/data_storage/player_batting_season.csv')
 
 
-# In[46]:
+# In[55]:
 
 
 df.head()
 
 
-# In[47]:
+# In[56]:
 
 
 import plotly.express as px
@@ -132,7 +132,7 @@ import statsmodels.api as sm
 
 # ### Row 1 - Tab 1
 
-# In[ ]:
+# In[57]:
 
 
 fig_11 = px.box(
@@ -154,7 +154,7 @@ fig_11.update_layout(
 )
 
 
-# In[41]:
+# In[58]:
 
 
 fig_12 = px.box(
@@ -176,7 +176,7 @@ fig_12.update_layout(
 )
 
 
-# In[10]:
+# In[59]:
 
 
 fig_13 = px.box(
@@ -200,7 +200,7 @@ fig_13.update_layout(
 
 # ### Row 1 - Tab 2
 
-# In[32]:
+# In[60]:
 
 
 fig_21 = px.box(
@@ -222,7 +222,7 @@ fig_21.update_layout(
 )
 
 
-# In[33]:
+# In[61]:
 
 
 fig_22 = px.box(
@@ -244,7 +244,7 @@ fig_22.update_layout(
 )
 
 
-# In[34]:
+# In[62]:
 
 
 fig_23 = px.box(
@@ -268,7 +268,7 @@ fig_23.update_layout(
 
 # ### Row 1 - Tab 3
 
-# In[15]:
+# In[63]:
 
 
 fig_31 = px.box(
@@ -290,7 +290,7 @@ fig_31.update_layout(
 )
 
 
-# In[16]:
+# In[64]:
 
 
 fig_32 = px.box(
@@ -312,7 +312,7 @@ fig_32.update_layout(
 )
 
 
-# In[17]:
+# In[65]:
 
 
 fig_33 = px.box(
@@ -336,7 +336,7 @@ fig_33.update_layout(
 
 # ### Row 1 - Tab 4
 
-# In[18]:
+# In[66]:
 
 
 fig_41 = px.box(
@@ -358,7 +358,7 @@ fig_41.update_layout(
 )
 
 
-# In[19]:
+# In[67]:
 
 
 fig_42 = px.box(
@@ -380,7 +380,7 @@ fig_42.update_layout(
 )
 
 
-# In[20]:
+# In[68]:
 
 
 fig_43 = px.box(
@@ -404,7 +404,7 @@ fig_43.update_layout(
 
 # ### Row 1 - Tab 5
 
-# In[21]:
+# In[69]:
 
 
 fig_51 = px.box(
@@ -426,7 +426,7 @@ fig_51.update_layout(
 )
 
 
-# In[22]:
+# In[70]:
 
 
 fig_52 = px.box(
@@ -448,7 +448,7 @@ fig_52.update_layout(
 )
 
 
-# In[31]:
+# In[71]:
 
 
 fig_53 = px.box(
@@ -472,7 +472,7 @@ fig_53.update_layout(
 
 # ### Row 1 - Print
 
-# In[36]:
+# In[72]:
 
 
 # Heading
@@ -517,13 +517,13 @@ with tabs[4]:
 
 # ### Raw Data
 
-# In[25]:
+# In[73]:
 
 
 from st_aggrid import AgGrid, GridOptionsBuilder, DataReturnMode, JsCode
 
 
-# In[48]:
+# In[74]:
 
 
 # Builds a gridOptions dictionary using a GridOptionsBuilder instance.
@@ -625,24 +625,21 @@ with col2:
     st.subheader("")
 
 
-# In[27]:
+# In[75]:
 
 
-st.divider()
 
 
-# In[28]:
+
+# In[77]:
 
 
+# Import Asset
 from PIL import Image
-
 header_img = Image.open('assets/stevens_bat.jpg')
 
-
-# In[49]:
-
-
-img_col1, img_col2, img_col3 = st.columns([1,8,1])
+# Print as Columns
+img_col1, img_col2, img_col3 = st.columns([20,60,20])
 
 with img_col1:
     pass
@@ -662,10 +659,10 @@ with img_col3:
 
 # ### Playground
 
-# In[ ]:
+# In[78]:
 
 
-st.write("⛔ NO ENTRY ⛔ 🏗️ construction in progress...")
+st.subheader("⛔ NO ENTRY ⛔ ...construction in progress 🏗️...")
 
 
 # In[ ]:
