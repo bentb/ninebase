@@ -191,7 +191,7 @@ fig_13 = px.box(
 fig_13.update_traces(marker=dict(color="darkslategrey"))
 
 fig_13.update_layout(
-    title=dict(text="Runs Above Replacement", font=dict(size=26), automargin=True, yref='paper'),
+    title=dict(text="RAR", font=dict(size=26), automargin=True, yref='paper'),
     title_font_color="darkslategrey",
     yaxis=dict(title=""),
     xaxis=dict(title="")
@@ -200,12 +200,12 @@ fig_13.update_layout(
 
 # ### Row 1 - Tab 2
 
-# In[12]:
+# In[32]:
 
 
 fig_21 = px.box(
     df.query("Season==2023"),
-    y = "Hard%+",
+    y = "HR",
     points="all",
     hover_name = "Name",
     height = 500,
@@ -215,19 +215,19 @@ fig_21 = px.box(
 fig_21.update_traces(marker=dict(color="darkslategrey"))
 
 fig_21.update_layout(
-    title=dict(text="Hard Hit %+", font=dict(size=26), automargin=True, yref='paper'),
+    title=dict(text="Home Runs", font=dict(size=26), automargin=True, yref='paper'),
     title_font_color="darkslategrey",
     yaxis=dict(title=""),
     xaxis=dict(title="")
 )
 
 
-# In[13]:
+# In[33]:
 
 
 fig_22 = px.box(
     df.query("Season==2023"),
-    y = "HR",
+    y = "Soft%+",
     points="all",
     hover_name = "Name",
     height = 500,
@@ -237,19 +237,19 @@ fig_22 = px.box(
 fig_22.update_traces(marker=dict(color="darkslategrey"))
 
 fig_22.update_layout(
-    title=dict(text="Home Runs", font=dict(size=26), automargin=True, yref='paper'),
+    title=dict(text="Soft Hit %+", font=dict(size=26), automargin=True, yref='paper'),
     title_font_color="darkslategrey",
     yaxis=dict(title=""),
     xaxis=dict(title="")
 )
 
 
-# In[14]:
+# In[34]:
 
 
 fig_23 = px.box(
     df.query("Season==2023"),
-    y = "wRC+",
+    y = "Hard%+",
     points="all",
     hover_name = "Name",
     height = 500,
@@ -259,7 +259,7 @@ fig_23 = px.box(
 fig_23.update_traces(marker=dict(color="darkslategrey"))
 
 fig_23.update_layout(
-    title=dict(text="wRC+", font=dict(size=26), automargin=True, yref='paper'),
+    title=dict(text="Hard Hit %+", font=dict(size=26), automargin=True, yref='paper'),
     title_font_color="darkslategrey",
     yaxis=dict(title=""),
     xaxis=dict(title="")
@@ -472,11 +472,11 @@ fig_53.update_layout(
 
 # ### Row 1 - Print
 
-# In[24]:
+# In[35]:
 
 
-# Subheader
-st.subheader('Player Batting')
+# Heading
+st.markdown('<h2 style="color: darkslategrey;">Player Batting</h2>', unsafe_allow_html=True)
 
 # Create the tabs
 tabs = st.tabs(["Summary", "Power", "Contact", "Plate Discipline", "Pull/Oppo"])
