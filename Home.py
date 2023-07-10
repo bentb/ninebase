@@ -58,6 +58,29 @@ def add_logo():
 add_logo()
 
 
+# In[26]:
+
+
+from datetime import datetime
+
+def countdown_to_october_3():
+    # Get the current date
+    now = datetime.now().date()
+
+    # Set the target date as October 3rd
+    target_date = datetime(now.year, 10, 3).date()
+
+    # Calculate the remaining days
+    remaining_days = (target_date - now).days
+
+    # Display the countdown
+    st.write("Countdown to October 3rd:")
+    st.write(f"{remaining_days} days")
+
+# Run the countdown function
+countdown_to_october_3()
+
+
 # In[25]:
 
 
