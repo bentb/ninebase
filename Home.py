@@ -63,30 +63,37 @@ add_logo()
 
 import streamlit as st
 from datetime import datetime, timedelta
+import time
 
 def countdown_to_october_3():
-    # Get the current date and time
-    now = datetime.now()
+    # Create an empty placeholder
+    countdown_placeholder = st.empty()
 
-    # Set the target date as October 3rd
-    target_date = datetime(now.year, 10, 3)
+    # Update the countdown every second
+    while True:
+        # Get the current date and time
+        now = datetime.now()
 
-    # Calculate the remaining time
-    remaining_time = target_date - now
+        # Set the target date as October 3rd
+        target_date = datetime(now.year, 10, 3)
 
-    # Format the remaining time as a countdown string
-    countdown_str = f"{remaining_time.days} days, {remaining_time.seconds // 3600} hours, " \
-                    f"{(remaining_time.seconds % 3600) // 60} minutes, {remaining_time.seconds % 60} seconds"
+        # Calculate the remaining time
+        remaining_time = target_date - now
 
-    # Display the countdown
-    countdown_text = f"<p style='text-align: right; font-size: 24px; color: red;'>{countdown_str}</p>"
-    st.markdown(countdown_text, unsafe_allow_html=True)
+        # Format the remaining time as a countdown string
+        countdown_str = f"{remaining_time.days} days, {remaining_time.seconds // 3600} hours, " \
+                        f"{(remaining_time.seconds % 3600) // 60} minutes, {remaining_time.seconds % 60} seconds"
+
+        # Display the countdown
+        countdown_text = f"<p style='text-align: right; font-size: 24px; color: red;'>{countdown_str}</p>"
+        countdown_placeholder.markdown(countdown_text, unsafe_allow_html=True)
+
+        # Wait for 1 second before updating again
+        time.sleep(1)
 
 # Configure Streamlit layout
 st.markdown("<style>body {background-color: #f5f5f5;}</style>", unsafe_allow_html=True)
 
-# Run the countdown function
-countdown_to_october_3()
 
 
 # In[25]:
