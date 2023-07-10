@@ -463,7 +463,7 @@ from st_aggrid import AgGrid, GridOptionsBuilder, DataReturnMode, JsCode
 # with col2:
 #     st.subheader("")
 
-# In[54]:
+# In[55]:
 
 
 # Builds a gridOptions dictionary using a GridOptionsBuilder instance.
@@ -550,7 +550,15 @@ column_defs = [
 # Merge columnDefs with existing column definitions
 grid_options = {
     "columnDefs": column_defs,
-    "enableGroupEdit": True
+    "groupDefaultExpanded": 1,
+    "autoGroupColumnDef": {
+        "headerName": "Group",
+        "width": 200,
+        "cellRenderer": "agGroupCellRenderer",
+        "cellRendererParams": {
+            "suppressCount": True
+        }
+    }
 }
 
 # Launch
