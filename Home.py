@@ -150,7 +150,7 @@ st.markdown(
 )
 
 
-col1, col2, col3 = st.columns([1, 5, 1])
+col1, col2, col3 = st.columns([1, 8, 1])
 
 with col1:
     st.write("#")
@@ -172,7 +172,6 @@ with col2:
 
 with col3:
     countdown_to_playoffs()
-    st.divider()
 
 
 # In[36]:
@@ -186,7 +185,17 @@ header_img = Image.open('assets/cards_at_mets.jpg')
 # In[ ]:
 
 
-st.image('assets/cards_at_mets.jpg')
+col1, col2, col3 = st.columns([1, 8, 1])
 
-st.divider()
+with col1:
+    st.write("#")
+
+with col2:
+    col2_content = st.container()
+    with col2_content:
+        st.image('assets/cards_at_mets.jpg')
+        st.divider()
+
+with col3:
+    st.write("#")
 
