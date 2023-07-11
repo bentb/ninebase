@@ -58,7 +58,7 @@ from st_pages import show_pages_from_config, add_page_title
 
 # Either this or add_indentation() MUST be called on each page in your
 # app to add indentation in the sidebar
-add_page_title("")
+add_page_title("#")
 
 show_pages_from_config()
 
@@ -73,13 +73,13 @@ def add_logo():
             [data-testid="stSidebarNav"] {
                 background-image: url(https://i.imgur.com/sLSMBYJ.png);
                 background-repeat: no-repeat;
-                padding-top: 20px;
-                background-position: 10px 10px;
+                padding-top: 40px;
+                background-position: 20px 20px;
             }
             [data-testid="stSidebarNav"]::before {
                 content: "Navigation Menu";
-                margin-left: 10px;
-                margin-top: 10px;
+                margin-left: 20px;
+                margin-top: 20px;
                 font-size: 26px;
                 position: relative;
                 top: 100px;
