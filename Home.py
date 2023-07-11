@@ -3,39 +3,29 @@
 
 # # ninebase Home Page
 
-# In[1]:
+# In[24]:
 
 
 import streamlit as st
-
-
-# In[2]:
-
-
-st.set_page_config(
-    page_title="ninebase",
-    page_icon="⚾",
-    layout="wide",
-    initial_sidebar_state="expanded",
-    menu_items={
-        'Report a bug': 'https://www.extremelycoolapp.com/help',
-        'Get help': "https://www.extremelycoolapp.com/bug",
-        'About': "# This is a header. This is an *extremely* cool app!"
-    }
-)
-
-
-# In[23]:
-
-
 from st_pages import Page, Section, show_pages, add_page_title
 
-# Optional -- adds the title and icon to the current page
-add_page_title("Page Title Goes Here")
+def set_page_configuration():
+    st.set_page_config(
+        page_title="ninebase",
+        page_icon="⚾",
+        layout="wide",
+        initial_sidebar_state="expanded",
+        menu_items={
+            'Report a bug': 'https://www.extremelycoolapp.com/help',
+            'Get help': "https://www.extremelycoolapp.com/bug",
+            'About': "# This is a header. This is an *extremely* cool app!"
+        }
+    )
 
-# Specify what pages should be shown in the sidebar, and what their titles and icons should be
-show_pages(
-    [
+def show_sidebar_pages():
+    add_page_title("Page Title Goes Here")
+    
+    pages = [
         Page("Home.py", "Home"),
         Section("Player"),
         Page("pages/Player/player_batting_season.py", "Batting"),
@@ -44,7 +34,15 @@ show_pages(
         Section("References"),
         Page("pages/References/Data_Dictionary.py"),
     ]
-)
+    
+    show_pages(pages)
+
+def main():
+    set_page_configuration()
+    show_sidebar_pages()
+
+if __name__ == '__main__':
+    main()
 
 
 # In[3]:
