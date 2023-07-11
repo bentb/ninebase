@@ -3,7 +3,7 @@
 
 # # ninebase Home Page
 
-# In[33]:
+# In[2]:
 
 
 import streamlit as st
@@ -20,7 +20,7 @@ st.set_page_config(
 )
 
 
-# In[38]:
+# In[3]:
 
 
 from st_pages import show_pages_from_config, add_page_title
@@ -32,25 +32,7 @@ add_page_title("")
 show_pages_from_config()
 
 
-# In[1]:
-
-
-st.markdown(
-    """
-    <style>
-        .sidebar .sidebar-content {
-            margin: 0;
-        }
-        .block-container {
-            margin: 0;
-        }
-    </style>
-    """,
-    unsafe_allow_html=True,
-)
-
-
-# In[3]:
+# In[5]:
 
 
 def add_logo():
@@ -77,13 +59,13 @@ def add_logo():
     )
 
 
-# In[4]:
+# In[6]:
 
 
 add_logo()
 
 
-# In[ ]:
+# In[7]:
 
 
 import streamlit as st
@@ -106,7 +88,7 @@ def countdown_to_playoffs():
     st.markdown(countdown_style, unsafe_allow_html=True)
 
 
-# In[10]:
+# In[8]:
 
 
 st.markdown(
@@ -140,7 +122,7 @@ st.markdown(
 )
 
 
-# In[7]:
+# In[9]:
 
 
 st.markdown("")
@@ -148,7 +130,7 @@ st.markdown("")
 st.markdown("")
 
 
-# In[8]:
+# In[10]:
 
 
 from PIL import Image
@@ -172,4 +154,22 @@ with col2:
 
 with col3:
     st.write("#")
+
+
+# In[ ]:
+
+
+
+
+
+# In[ ]:
+
+
+
+
+
+# In[ ]:
+
+
+
 
