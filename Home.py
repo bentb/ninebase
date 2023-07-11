@@ -3,7 +3,7 @@
 
 # # ninebase Home Page
 
-# In[28]:
+# In[33]:
 
 
 import streamlit as st
@@ -19,20 +19,17 @@ st.set_page_config(
     }
 )
 
-from st_pages import Page, Section, show_pages, add_page_title
 
-# Specify what pages should be shown in the sidebar, and what their titles and icons should be
-show_pages(
-    [
-        Page("Home.py", "Home"),
-        Section("Player"),
-        Page("pages/Player/player_batting_season.py", "Batting", in_section=True),
-        Page("pages/Player/player_pitching_season.py", "Pitching", in_section=True),
-        Section("Team"),
-        Section("References"),
-        Page("pages/References/Data_Dictionary.py"),
-    ]
-)
+# In[34]:
+
+
+from st_pages import show_pages_from_config, add_page_title
+
+# Either this or add_indentation() MUST be called on each page in your
+# app to add indentation in the sidebar
+add_page_title()
+
+show_pages_from_config()
 
 
 # In[3]:

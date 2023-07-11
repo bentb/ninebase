@@ -1,0 +1,24 @@
+[[pages]]
+path = "Home.py"
+name = "Home"
+
+[[pages]]
+name = "Player"
+is_section = true
+
+[[pages]]
+path = "pages/Player/player_batting_season.py"
+name = "Batting"
+
+[[pages]]
+path = "pages/Player/player_pitching_season.py"
+name = "Pitching"
+
+
+[[pages]]
+name = "References"
+is_section = true
+
+[[pages]]
+path = "pages/References/Data_Dictionary.py"
+name = "Data Dictionary"
