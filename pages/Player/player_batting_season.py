@@ -29,13 +29,13 @@ import plotly.figure_factory as ff
 
 # ## Streamlit
 
-# In[81]:
+# In[14]:
 
 
 import streamlit as st
 
 
-# In[82]:
+# In[15]:
 
 
 st.set_page_config(
@@ -48,6 +48,21 @@ st.set_page_config(
         'Get help': "https://www.extremelycoolapp.com/bug",
         'About': "# This is a header. This is an *extremely* cool app!"
     }
+)
+
+from st_pages import Page, Section, show_pages, add_page_title
+
+# Specify what pages should be shown in the sidebar, and what their titles and icons should be
+show_pages(
+    [
+        Page("Home.py", "Home"),
+        Section("Player"),
+        Page("pages/Player/player_batting_season.py", "Batting"),
+        Page("pages/Player/player_pitching_season.py", "Pitching"),
+        Section("Team"),
+        Section("References"),
+        Page("pages/References/Data_Dictionary.py"),
+    ]
 )
 
 
