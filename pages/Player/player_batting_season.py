@@ -1,46 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[ ]:
-
-
-########            EXPORT FILE            #########
-########  code block excluded from export  #########
-########           Do not move             #########
-
-
-import os
-
-def export_ipynb_to_py(notebook_path, destination_folder):
-    # Get the notebook's filename and remove the .ipynb extension
-    notebook_filename = os.path.basename(notebook_path)
-    notebook_name = os.path.splitext(notebook_filename)[0]
-    
-    # Create the destination folder if it doesn't exist
-    os.makedirs(destination_folder, exist_ok=True)
-    
-    # Set the path for the exported .py file
-    py_filepath_temp = os.path.join(destination_folder, f"{notebook_filename}.py")
-    py_filepath = os.path.join(destination_folder, f"{notebook_name}.py")
-    
-    try:
-        # Convert the notebook to .py using nbconvert
-        os.system(f'jupyter nbconvert --to python "{notebook_path}" --output-dir "{destination_folder}"')
-        
-        # Rename the exported file to match the notebook's name
-        os.rename(py_filepath_temp, py_filepath)
-        
-        print(f"The notebook has been exported to: {py_filepath}")
-    except Exception as e:
-        print(f"An error occurred during the export: {str(e)}")
-
-# Example usage:
-notebook_path = "C:/Users/b7tbu/NINEBASE/ninebase/data_analyze/player_batting_season.ipynb"
-destination_folder = "C:/Users/b7tbu/NINEBASE/ninebase/pages/Player"
-export_ipynb_to_py(notebook_path, destination_folder)
-
-
-
 # sources:
 # docs.streamlit.io/library/get-started
 
