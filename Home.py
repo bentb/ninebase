@@ -32,6 +32,24 @@ add_page_title("")
 show_pages_from_config()
 
 
+# In[1]:
+
+
+st.markdown(
+    """
+    <style>
+        .sidebar .sidebar-content {
+            margin: 0;
+        }
+        .block-container {
+            margin: 0;
+        }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+
+
 # In[3]:
 
 
