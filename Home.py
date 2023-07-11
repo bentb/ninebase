@@ -91,35 +91,7 @@ def countdown_to_playoffs():
 # In[8]:
 
 
-st.markdown(
-    """
-    <style>
-        body {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: flex-start;
-            height: 100vh;
-            margin: 0;
-        }
 
-        .title {
-            font-size: 46px;
-            font-weight: bold;
-            margin-bottom: 12px;
-            font-family: Lato, sans-serif;
-            color: #164f5e;
-        }
-
-        .description {
-            font-size: 24px;
-            margin-bottom: 96px;
-            font-family: Lato, sans-serif;
-        }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
 
 
 # In[9]:
