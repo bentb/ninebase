@@ -20,14 +20,14 @@ st.set_page_config(
 )
 
 
-# In[34]:
+# In[38]:
 
 
 from st_pages import show_pages_from_config, add_page_title
 
 # Either this or add_indentation() MUST be called on each page in your
 # app to add indentation in the sidebar
-add_page_title()
+add_page_title("")
 
 show_pages_from_config()
 
