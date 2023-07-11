@@ -16365,93 +16365,11 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 78,
-   "id": "6c7c899f",
-   "metadata": {},
-   "outputs": [
-    {
-     "data": {
-      "text/plain": [
-       "DeltaGenerator()"
-      ]
-     },
-     "execution_count": 78,
-     "metadata": {},
-     "output_type": "execute_result"
-    }
-   ],
-   "source": [
-    "st.subheader(\"⛔ NO ENTRY ⛔ ...construction in progress 🏗️...\")"
-   ]
-  },
-  {
-   "cell_type": "code",
    "execution_count": null,
    "id": "f6425657",
    "metadata": {},
    "outputs": [],
-   "source": [
-    "import streamlit as st\n",
-    "from st_aggrid import AgGrid, GridOptionsBuilder\n",
-    "\n",
-    "# ...\n",
-    "\n",
-    "# Column Grouping\n",
-    "column_defs = [        \n",
-    "    {\n",
-    "        \"headerName\": \"\",\n",
-    "        \"children\": [\n",
-    "            {\"field\": \"Name\", \"headerName\": \"Player\", \"pinned\": 'left'},\n",
-    "        ],\n",
-    "        \"headerClass\": \"player-group\"  # CSS class for the Player group\n",
-    "    },\n",
-    "    {\n",
-    "        \"headerName\": \"Player Details\",\n",
-    "        \"children\": [\n",
-    "            {\"field\": \"Team\"},\n",
-    "            {\"field\": \"Age\"},\n",
-    "            {\"field\": \"AB\", \"headerName\": \"At Bats\"},\n",
-    "        ],\n",
-    "        \"headerClass\": \"details-group\"  # CSS class for the Player Details group\n",
-    "    },\n",
-    "    # ...\n",
-    "]\n",
-    "\n",
-    "# Merge columnDefs with existing column definitions\n",
-    "grid_options = {\"columnDefs\": column_defs}\n",
-    "\n",
-    "# CSS styles\n",
-    "st.markdown(\"\"\"\n",
-    "<style>\n",
-    ".ag-header-group-player-group {\n",
-    "    background-color: #FF0000;  /* Red color for Player group */\n",
-    "}\n",
-    "\n",
-    ".ag-header-group-details-group {\n",
-    "    background-color: #00FF00;  /* Green color for Player Details group */\n",
-    "}\n",
-    "\n",
-    "/* Add more styles for other groups as needed */\n",
-    "</style>\n",
-    "\"\"\", unsafe_allow_html=True)\n",
-    "\n",
-    "# Launch\n",
-    "go = grid_options\n",
-    "\n",
-    "col1, col2 = st.columns([0.75, 0.25])\n",
-    "\n",
-    "with col1:\n",
-    "    st.subheader(\"Browse Data\")\n",
-    "    grid_response = AgGrid(\n",
-    "        df,\n",
-    "        gridOptions=go,\n",
-    "        theme=\"streamlit\",\n",
-    "        height=600\n",
-    "    )\n",
-    "\n",
-    "with col2:\n",
-    "    st.subheader(\"\")\n"
-   ]
+   "source": []
   },
   {
    "cell_type": "code",
