@@ -27,7 +27,7 @@ from pandas.api.types import (
 import plotly.figure_factory as ff
 
 
-# ## Streamlit
+# ## Streamlit Generate
 
 # In[2]:
 
