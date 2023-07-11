@@ -39,8 +39,8 @@ show_pages(
     [
         Page("Home.py", "Home"),
         Section("Player"),
-            Page("pages/Player/Batting.py"),
-            Page("pages/Player/Pitching.py"),
+            Page("pages/Player/player_batting_season.py", "Batting"),
+            Page("pages/Player/player_pitching_season.py", "Pitching"),
         Section("Team"),
         Section("References"),
             Page("pages/References/Data_Dictionary.py"),
