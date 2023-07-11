@@ -29,7 +29,7 @@ from st_pages import show_pages_from_config, add_page_title
 # app to add indentation in the sidebar
 add_page_title("")
 
-get_pages_from_config()
+show_pages_from_config()
 
 
 # In[ ]:
