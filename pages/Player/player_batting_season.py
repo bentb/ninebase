@@ -60,7 +60,7 @@ from st_pages import show_pages_from_config, add_page_title
 # app to add indentation in the sidebar
 add_page_title("#")
 
-show_pages_from_config()
+get_pages_from_config()
 
 
 # In[5]:
