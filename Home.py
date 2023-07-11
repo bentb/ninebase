@@ -25,27 +25,12 @@ st.set_page_config(
 )
 
 
-# In[19]:
+# In[21]:
 
 
-from st_pages import Page, Section, show_pages, add_page_title
+from menu_config import configure_menu
 
-# Optional -- adds the title and icon to the current page
-add_page_title("Page Title Goes Here")
-
-# Specify what pages should be shown in the sidebar, and what their titles and icons
-# should be
-show_pages(
-    [
-        Page("Home.py", "Home"),
-        Section("Player"),
-            Page("pages/Player/player_batting_season.py", "Batting"),
-            Page("pages/Player/player_pitching_season.py", "Pitching"),
-        Section("Team"),
-        Section("References"),
-            Page("pages/References/Data_Dictionary.py"),
-    ]
-)
+configure_menu()
 
 
 # In[3]:
