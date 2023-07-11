@@ -3,7 +3,7 @@
 
 # # ninebase Home Page
 
-# In[24]:
+# In[25]:
 
 
 import streamlit as st
@@ -23,8 +23,6 @@ def set_page_configuration():
     )
 
 def show_sidebar_pages():
-    add_page_title("Page Title Goes Here")
-    
     pages = [
         Page("Home.py", "Home"),
         Section("Player"),
@@ -36,13 +34,6 @@ def show_sidebar_pages():
     ]
     
     show_pages(pages)
-
-def main():
-    set_page_configuration()
-    show_sidebar_pages()
-
-if __name__ == '__main__':
-    main()
 
 
 # In[3]:
