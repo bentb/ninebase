@@ -3,37 +3,39 @@
 
 # # ninebase Home Page
 
-# In[25]:
+# In[28]:
 
 
 import streamlit as st
+st.set_page_config(
+    page_title="ninebase",
+    page_icon="⚾",
+    layout="wide",
+    initial_sidebar_state="expanded",
+    menu_items={
+        'Report a bug': 'https://www.extremelycoolapp.com/help',
+        'Get help': "https://www.extremelycoolapp.com/bug",
+        'About': "# This is a header. This is an *extremely* cool app!"
+    }
+)
+
 from st_pages import Page, Section, show_pages, add_page_title
 
-def set_page_configuration():
-    st.set_page_config(
-        page_title="ninebase",
-        page_icon="⚾",
-        layout="wide",
-        initial_sidebar_state="expanded",
-        menu_items={
-            'Report a bug': 'https://www.extremelycoolapp.com/help',
-            'Get help': "https://www.extremelycoolapp.com/bug",
-            'About': "# This is a header. This is an *extremely* cool app!"
-        }
-    )
+# Optional -- adds the title and icon to the current page
+add_page_title("Page Title Goes Here")
 
-def show_sidebar_pages():
-    pages = [
+# Specify what pages should be shown in the sidebar, and what their titles and icons should be
+show_pages(
+    [
         Page("Home.py", "Home"),
         Section("Player"),
-            Page("pages/Player/player_batting_season.py", "Batting"),
-            Page("pages/Player/player_pitching_season.py", "Pitching"),
+        Page("pages/Player/player_batting_season.py", "Batting"),
+        Page("pages/Player/player_pitching_season.py", "Pitching"),
         Section("Team"),
         Section("References"),
-            Page("pages/References/Data_Dictionary.py"),
+        Page("pages/References/Data_Dictionary.py"),
     ]
-    
-    show_pages(pages)
+)
 
 
 # In[3]:
