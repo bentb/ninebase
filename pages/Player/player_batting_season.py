@@ -6,7 +6,7 @@
 
 # # Introduction
 
-# In[80]:
+# In[1]:
 
 
 # Import Libraries
@@ -29,13 +29,13 @@ import plotly.figure_factory as ff
 
 # ## Streamlit
 
-# In[14]:
+# In[2]:
 
 
 import streamlit as st
 
 
-# In[20]:
+# In[29]:
 
 
 st.set_page_config(
@@ -47,12 +47,11 @@ st.set_page_config(
         'Report a bug': 'https://www.extremelycoolapp.com/help',
         'Get help': "https://www.extremelycoolapp.com/bug",
         'About': "# This is a header. This is an *extremely* cool app!"
-    },
-    padding=0,
+    }
 )
 
 
-# In[ ]:
+# In[4]:
 
 
 from st_pages import show_pages_from_config, add_page_title
@@ -64,7 +63,7 @@ add_page_title("")
 show_pages_from_config()
 
 
-# In[21]:
+# In[5]:
 
 
 def add_logo():
@@ -91,7 +90,7 @@ def add_logo():
     )
 
 
-# In[22]:
+# In[6]:
 
 
 add_logo()
@@ -99,7 +98,7 @@ add_logo()
 
 # ## Load Data
 
-# In[6]:
+# In[7]:
 
 
 # Format for GitHub
@@ -109,13 +108,13 @@ df = pd.read_csv('data_storage/player_batting_season.csv')
 #df = pd.read_csv('C:/Users/b7tbu/NINEBASE/ninebase/data_storage/player_batting_season.csv')
 
 
-# In[85]:
+# In[8]:
 
 
 df.head()
 
 
-# In[86]:
+# In[9]:
 
 
 import plotly.express as px
@@ -139,7 +138,7 @@ import statsmodels.api as sm
 
 # ### Row 1 - Tab 1
 
-# In[87]:
+# In[10]:
 
 
 fig_11 = px.box(
@@ -161,7 +160,7 @@ fig_11.update_layout(
 )
 
 
-# In[88]:
+# In[11]:
 
 
 fig_12 = px.box(
@@ -183,7 +182,7 @@ fig_12.update_layout(
 )
 
 
-# In[89]:
+# In[12]:
 
 
 fig_13 = px.box(
@@ -207,7 +206,7 @@ fig_13.update_layout(
 
 # ### Row 1 - Tab 2
 
-# In[90]:
+# In[13]:
 
 
 fig_21 = px.box(
@@ -229,7 +228,7 @@ fig_21.update_layout(
 )
 
 
-# In[91]:
+# In[14]:
 
 
 fig_22 = px.box(
@@ -251,7 +250,7 @@ fig_22.update_layout(
 )
 
 
-# In[92]:
+# In[15]:
 
 
 fig_23 = px.box(
@@ -275,7 +274,7 @@ fig_23.update_layout(
 
 # ### Row 1 - Tab 3
 
-# In[93]:
+# In[16]:
 
 
 fig_31 = px.box(
@@ -297,7 +296,7 @@ fig_31.update_layout(
 )
 
 
-# In[94]:
+# In[17]:
 
 
 fig_32 = px.box(
@@ -319,7 +318,7 @@ fig_32.update_layout(
 )
 
 
-# In[95]:
+# In[18]:
 
 
 fig_33 = px.box(
@@ -343,7 +342,7 @@ fig_33.update_layout(
 
 # ### Row 1 - Tab 4
 
-# In[96]:
+# In[19]:
 
 
 fig_41 = px.box(
@@ -365,7 +364,7 @@ fig_41.update_layout(
 )
 
 
-# In[97]:
+# In[20]:
 
 
 fig_42 = px.box(
@@ -387,7 +386,7 @@ fig_42.update_layout(
 )
 
 
-# In[98]:
+# In[21]:
 
 
 fig_43 = px.box(
@@ -411,7 +410,7 @@ fig_43.update_layout(
 
 # ### Row 1 - Tab 5
 
-# In[99]:
+# In[22]:
 
 
 fig_51 = px.box(
@@ -433,7 +432,7 @@ fig_51.update_layout(
 )
 
 
-# In[100]:
+# In[23]:
 
 
 fig_52 = px.box(
@@ -455,7 +454,7 @@ fig_52.update_layout(
 )
 
 
-# In[101]:
+# In[24]:
 
 
 fig_53 = px.box(
@@ -479,7 +478,7 @@ fig_53.update_layout(
 
 # ### Row 1 - Print
 
-# In[102]:
+# In[25]:
 
 
 # Title
@@ -524,13 +523,13 @@ with tabs[4]:
 
 # ### Raw Data
 
-# In[103]:
+# In[26]:
 
 
 from st_aggrid import AgGrid, GridOptionsBuilder, DataReturnMode, JsCode
 
 
-# In[104]:
+# In[27]:
 
 
 # Builds a gridOptions dictionary using a GridOptionsBuilder instance.
@@ -632,7 +631,7 @@ with col2:
     st.subheader("")
 
 
-# In[105]:
+# In[28]:
 
 
 # Import Asset
