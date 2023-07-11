@@ -32,38 +32,30 @@ add_page_title("")
 show_pages_from_config()
 
 
-# In[5]:
+# def add_logo():
+#     st.markdown(
+#         """
+#         <style>
+#             [data-testid="stSidebarNav"] {
+#                 background-image: url(https://i.imgur.com/sLSMBYJ.png);
+#                 background-repeat: no-repeat;
+#                 padding-top: 40px;
+#                 background-position: 20px 20px;
+#             }
+#             [data-testid="stSidebarNav"]::before {
+#                 content: "Navigation Menu";
+#                 margin-left: 20px;
+#                 margin-top: 20px;
+#                 font-size: 26px;
+#                 position: relative;
+#                 top: 100px;
+#             }
+#         </style>
+#         """,
+#         unsafe_allow_html=True,
+#     )
 
-
-def add_logo():
-    st.markdown(
-        """
-        <style>
-            [data-testid="stSidebarNav"] {
-                background-image: url(https://i.imgur.com/sLSMBYJ.png);
-                background-repeat: no-repeat;
-                padding-top: 40px;
-                background-position: 20px 20px;
-            }
-            [data-testid="stSidebarNav"]::before {
-                content: "Navigation Menu";
-                margin-left: 20px;
-                margin-top: 20px;
-                font-size: 26px;
-                position: relative;
-                top: 100px;
-            }
-        </style>
-        """,
-        unsafe_allow_html=True,
-    )
-
-
-# In[6]:
-
-
-add_logo()
-
+# add_logo()
 
 # In[7]:
 
@@ -91,7 +83,35 @@ def countdown_to_playoffs():
 # In[8]:
 
 
+st.markdown(
+    """
+    <style>
+        body {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: flex-start;
+            height: 100vh;
+            margin: 0;
+        }
 
+        .title {
+            font-size: 46px;
+            font-weight: bold;
+            margin-bottom: 12px;
+            font-family: Lato, sans-serif;
+            color: #164f5e;
+        }
+
+        .description {
+            font-size: 24px;
+            margin-bottom: 96px;
+            font-family: Lato, sans-serif;
+        }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 
 
 # In[9]:
@@ -110,7 +130,7 @@ from PIL import Image
 header_img = Image.open('assets/cards_at_mets.jpg')
 
 
-# In[ ]:
+# In[11]:
 
 
 col1, col2, col3 = st.columns([2, 6, 2])
