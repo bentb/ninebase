@@ -73,13 +73,13 @@ def add_logo():
             [data-testid="stSidebarNav"] {
                 background-image: url(https://i.imgur.com/sLSMBYJ.png);
                 background-repeat: no-repeat;
-                padding-top: 40px;
-                background-position: 20px 20px;
+                padding-top: 20px;
+                background-position: 10px 10px;
             }
             [data-testid="stSidebarNav"]::before {
                 content: "Navigation Menu";
-                margin-left: 20px;
-                margin-top: 20px;
+                margin-left: 10px;
+                margin-top: 10px;
                 font-size: 26px;
                 position: relative;
                 top: 100px;
