@@ -1,12 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[ ]:
-
-
-
-
-
 # sources:
 # docs.streamlit.io/library/get-started
 
@@ -55,30 +49,6 @@ st.set_page_config(
         'About': "# This is a header. This is an *extremely* cool app!"
     }
 )
-
-
-# In[ ]:
-
-
-### trying st-pages
-
-
-# In[1]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
 
 
 # In[83]:
@@ -500,7 +470,7 @@ fig_53.update_layout(
 
 
 # Title
-st.markdown('<span style="font-family: Lato, sans-serif; font-size: 28px; color: #2f4858; font-weight: bold;">Hitting Specialties</span>', unsafe_allow_html=True)
+st.markdown('<span style="font-family: Lato, sans-serif; font-size: 28px; color: #2f4858; font-weight: bold;">Batting Domains</span>', unsafe_allow_html=True)
 
 # Create the tabs
 tabs = st.tabs(["Overall", "Power", "Contact", "Plate Discipline", "Pull/Oppo"])
@@ -678,75 +648,10 @@ with img_col3:
 
 # ### Playground
 
-# In[78]:
-
-
-st.subheader("⛔ NO ENTRY ⛔ ...construction in progress 🏗️...")
-
-
 # In[ ]:
 
 
-import streamlit as st
-from st_aggrid import AgGrid, GridOptionsBuilder
 
-# ...
-
-# Column Grouping
-column_defs = [        
-    {
-        "headerName": "",
-        "children": [
-            {"field": "Name", "headerName": "Player", "pinned": 'left'},
-        ],
-        "headerClass": "player-group"  # CSS class for the Player group
-    },
-    {
-        "headerName": "Player Details",
-        "children": [
-            {"field": "Team"},
-            {"field": "Age"},
-            {"field": "AB", "headerName": "At Bats"},
-        ],
-        "headerClass": "details-group"  # CSS class for the Player Details group
-    },
-    # ...
-]
-
-# Merge columnDefs with existing column definitions
-grid_options = {"columnDefs": column_defs}
-
-# CSS styles
-st.markdown("""
-<style>
-.ag-header-group-player-group {
-    background-color: #FF0000;  /* Red color for Player group */
-}
-
-.ag-header-group-details-group {
-    background-color: #00FF00;  /* Green color for Player Details group */
-}
-
-/* Add more styles for other groups as needed */
-</style>
-""", unsafe_allow_html=True)
-
-# Launch
-go = grid_options
-
-col1, col2 = st.columns([0.75, 0.25])
-
-with col1:
-    st.subheader("Browse Data")
-    grid_response = AgGrid(
-        df,
-        gridOptions=go,
-        theme="streamlit",
-        height=600
-    )
-
-with col2:
-    st.subheader("")
 
 
 # In[ ]:
